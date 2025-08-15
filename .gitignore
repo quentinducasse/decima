@@ -1,0 +1,56 @@
+# 🔒 Fichiers sensibles
+.env
+*.key
+*.pem
+
+# 🐍 Environnements virtuels
+decima_env/
+.venv/
+venv/
+
+# 🐍 Fichiers Python inutiles
+__pycache__/
+*.py[cod]
+*.pyo
+*.pyd
+
+# 📁 Logs, caches, tests
+*.log
+*.tmp
+*.bak
+.cache/
+*.pytest_cache/
+
+# 📂 Notebooks
+*.ipynb_checkpoints/
+
+# 🧪 Fichiers générés/tests
+tests/__pycache__/
+*.csv
+*.json
+*.txt
+*.npy
+
+# 📊 Graphs / plots / images
+*.png
+*.jpg
+*.jpeg
+*.pdf
+*.svg
+
+# 🧠 Modèles ou embeddings
+*.pt
+*.onnx
+*.h5
+
+# 🛠️ IDE & outils
+.vscode/
+.idea/
+
+# 🌐 Interface Web
+frontend/node_modules/
+frontend/dist/
+
+# 🗑️ Fichiers inutiles système
+.DS_Store
+Thumbs.db

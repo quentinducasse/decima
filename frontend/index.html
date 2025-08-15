@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>DECIMA - EVA</title>
+
+  <!-- Styles -->
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/styles/atom-one-dark.min.css">
+</head>
+<body>
+  <div class="main-container">
+
+    <!-- Header -->
+    <header class="app-header">
+      <h1 class="decima-title">DECIMA</h1>
+      <p class="subtitle">Data Extraction & Contextual Inference for MCNP Analysis</p>
+    </header>
+
+    <!-- Upload section -->
+    <section class="upload-section">
+      <button id="open-file-btn" class="upload-btn">
+        <i class="fas fa-file-upload"></i> Load PTRAC File
+      </button>
+      <input type="file" id="ptrac-file" accept=".ptrac" style="display: none;">
+      <div id="file-info" class="file-info"></div>
+    </section>
+
+    <!-- Instructional message -->
+    <section class="instruction-message">
+      <p><strong>Ask a precise and concise question related to the event data in your PTRAC file.</strong></p>
+      <p class="example-text"><em>Examples:<br>
+      Display x y z positions and energies of neutrons entering surface 12<br>
+      How many secondary photons are emitted by inelastic scattering?<br>
+      How many (n,xn) fission neutrons are generated and plot their energy distribution</em></p>
+    </section>
+
+    <!-- Chat section -->
+    <div class="chat-wrapper">
+      <section class="chat-section">
+        <div id="chat-messages" class="chat-messages"></div>
+        <div class="chat-input-block">
+          <div id="reasoning-loader" class="loader-message" style="display: none;">
+            <i class="fas fa-spinner fa-spin"></i> Reasoning...
+          </div>
+          <div class="chat-input">
+            <textarea id="query-input" placeholder="Ask your question here..."></textarea>
+            <button id="send-btn"><i class="fas fa-paper-plane"></i></button>
+          </div>
+          <div class="model-select">
+            <label for="model-choice">Model:</label>
+            <select id="model-choice">
+              <option value="gpt-4o">gpt-4o</option>
+              <option value="gpt-4o-mini">gpt-4o-mini</option>
+              <option value="asi1-mini">asi1-mini</option>
+            </select>
+          </div>
+          <div class="context-toggle">
+            <input type="checkbox" id="context-toggle" checked>
+            <label for="context-toggle">Add context</label>
+          </div>
+        </div>
+      </section>
+
+      <!-- Otacon à droite -->
+      <div class="otacon-side">
+        <img src="{{ url_for('static', filename='img/otacon.png') }}" alt="Otacon" class="otacon-img">
+        <div class="otacon-caption">LLM Otacon ready to assist you with PTRAC parsing</div>
+      </div>
+    </div>
+
+
+    <!-- Result output -->
+    <div class="chat-wrapper">
+      <section id="result-section" class="result-section" style="display: none;">
+        <h3>Execution Result</h3>
+        <pre id="execution-stdout"></pre>
+        <pre id="execution-stderr" class="error-block"></pre>
+        <img id="execution-image" style="max-width: 100%; display: none; margin-top: 20px;" />
+      </section>
+    </div>
+
+
+  </div>
+
+  <!-- Scripts -->
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/highlight.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.7.0/languages/python.min.js"></script>
+  <script src="{{ url_for('static', filename='js/main.js') }}"></script>
+<div id="reasoning-loader" class="loader-message" style="display: none;">
+  <i class="fas fa-spinner fa-spin"></i> Reasoning...
+</div>
+</body>
+</html>
