@@ -1,0 +1,198 @@
+[
+  { "Subject": "PtracBankType", "Predicate": "type", "Object": "enum" },
+
+  { "Subject": "BNK_DXT_TRACK", "Predicate": "type", "Object": "enum_value" },
+  { "Subject": "BNK_DXT_TRACK", "Predicate": "belongs_to_enum", "Object": "PtracBankType" },
+  { "Subject": "BNK_DXT_TRACK", "Predicate": "has_value", "Object": "1" },
+  { "Subject": "BNK_DXT_TRACK", "Predicate": "has_description", "Object": "DXTRAN particle" },
+
+  { "Subject": "BNK_ERG_TME_SPLIT", "Predicate": "type", "Object": "enum_value" },
+  { "Subject": "BNK_ERG_TME_SPLIT", "Predicate": "belongs_to_enum", "Object": "PtracBankType" },
+  { "Subject": "BNK_ERG_TME_SPLIT", "Predicate": "has_value", "Object": "2" },
+  { "Subject": "BNK_ERG_TME_SPLIT", "Predicate": "has_description", "Object": "Energy or Time splitting" },
+
+  { "Subject": "BNK_WWS_SPLIT", "Predicate": "type", "Object": "enum_value" },
+  { "Subject": "BNK_WWS_SPLIT", "Predicate": "belongs_to_enum", "Object": "PtracBankType" },
+  { "Subject": "BNK_WWS_SPLIT", "Predicate": "has_value", "Object": "3" },
+  { "Subject": "BNK_WWS_SPLIT", "Predicate": "has_description", "Object": "Weight-window surface crossing" },
+
+  { "Subject": "BNK_WWC_SPLIT", "Predicate": "type", "Object": "enum_value" },
+  { "Subject": "BNK_WWC_SPLIT", "Predicate": "belongs_to_enum", "Object": "PtracBankType" },
+  { "Subject": "BNK_WWC_SPLIT", "Predicate": "has_value", "Object": "4" },
+  { "Subject": "BNK_WWC_SPLIT", "Predicate": "has_description", "Object": "Weight-window collision" },
+
+  { "Subject": "BNK_UNC_TRACK", "Predicate": "type", "Object": "enum_value" },
+  { "Subject": "BNK_UNC_TRACK", "Predicate": "belongs_to_enum", "Object": "PtracBankType" },
+  { "Subject": "BNK_UNC_TRACK", "Predicate": "has_value", "Object": "5" },
+  { "Subject": "BNK_UNC_TRACK", "Predicate": "has_description", "Object": "Forced-collision uncollided part" },
+
+  { "Subject": "BNK_IMP_SPLIT", "Predicate": "type", "Object": "enum_value" },
+  { "Subject": "BNK_IMP_SPLIT", "Predicate": "belongs_to_enum", "Object": "PtracBankType" },
+  { "Subject": "BNK_IMP_SPLIT", "Predicate": "has_value", "Object": "6" },
+  { "Subject": "BNK_IMP_SPLIT", "Predicate": "has_description", "Object": "Importance splitting" },
+
+  { "Subject": "BNK_N_XN_F", "Predicate": "type", "Object": "enum_value" },
+  { "Subject": "BNK_N_XN_F", "Predicate": "belongs_to_enum", "Object": "PtracBankType" },
+  { "Subject": "BNK_N_XN_F", "Predicate": "has_value", "Object": "7" },
+  { "Subject": "BNK_N_XN_F", "Predicate": "has_description", "Object": "Neutrons from fission" },
+
+  { "Subject": "BNK_N_XG", "Predicate": "type", "Object": "enum_value" },
+  { "Subject": "BNK_N_XG", "Predicate": "belongs_to_enum", "Object": "PtracBankType" },
+  { "Subject": "BNK_N_XG", "Predicate": "has_value", "Object": "8" },
+  { "Subject": "BNK_N_XG", "Predicate": "has_description", "Object": "Gammas from neutron production" },
+
+  { "Subject": "BNK_FLUORESCENCE", "Predicate": "type", "Object": "enum_value" },
+  { "Subject": "BNK_FLUORESCENCE", "Predicate": "belongs_to_enum", "Object": "PtracBankType" },
+  { "Subject": "BNK_FLUORESCENCE", "Predicate": "has_value", "Object": "9" },
+  { "Subject": "BNK_FLUORESCENCE", "Predicate": "has_description", "Object": "Fluorescence x-rays" },
+
+  { "Subject": "BNK_ANNIHILATION", "Predicate": "type", "Object": "enum_value" },
+  { "Subject": "BNK_ANNIHILATION", "Predicate": "belongs_to_enum", "Object": "PtracBankType" },
+  { "Subject": "BNK_ANNIHILATION", "Predicate": "has_value", "Object": "10" },
+  { "Subject": "BNK_ANNIHILATION", "Predicate": "has_description", "Object": "Annihilation photons" },
+
+  { "Subject": "BNK_PHOTO_ELECTRON", "Predicate": "type", "Object": "enum_value" },
+  { "Subject": "BNK_PHOTO_ELECTRON", "Predicate": "belongs_to_enum", "Object": "PtracBankType" },
+  { "Subject": "BNK_PHOTO_ELECTRON", "Predicate": "has_value", "Object": "11" },
+  { "Subject": "BNK_PHOTO_ELECTRON", "Predicate": "has_description", "Object": "Photo electrons" },
+
+  { "Subject": "BNK_COMPT_ELECTRON", "Predicate": "type", "Object": "enum_value" },
+  { "Subject": "BNK_COMPT_ELECTRON", "Predicate": "belongs_to_enum", "Object": "PtracBankType" },
+  { "Subject": "BNK_COMPT_ELECTRON", "Predicate": "has_value", "Object": "12" },
+  { "Subject": "BNK_COMPT_ELECTRON", "Predicate": "has_description", "Object": "Compton electrons" },
+
+  { "Subject": "BNK_PAIR_ELECTRON", "Predicate": "type", "Object": "enum_value" },
+  { "Subject": "BNK_PAIR_ELECTRON", "Predicate": "belongs_to_enum", "Object": "PtracBankType" },
+  { "Subject": "BNK_PAIR_ELECTRON", "Predicate": "has_value", "Object": "13" },
+  { "Subject": "BNK_PAIR_ELECTRON", "Predicate": "has_description", "Object": "Pair-production electron" },
+
+  { "Subject": "BNK_AUGER_ELECTRON", "Predicate": "type", "Object": "enum_value" },
+  { "Subject": "BNK_AUGER_ELECTRON", "Predicate": "belongs_to_enum", "Object": "PtracBankType" },
+  { "Subject": "BNK_AUGER_ELECTRON", "Predicate": "has_value", "Object": "14" },
+  { "Subject": "BNK_AUGER_ELECTRON", "Predicate": "has_description", "Object": "Auger electrons" },
+
+  { "Subject": "BNK_PAIR_POSITRON", "Predicate": "type", "Object": "enum_value" },
+  { "Subject": "BNK_PAIR_POSITRON", "Predicate": "belongs_to_enum", "Object": "PtracBankType" },
+  { "Subject": "BNK_PAIR_POSITRON", "Predicate": "has_value", "Object": "15" },
+  { "Subject": "BNK_PAIR_POSITRON", "Predicate": "has_description", "Object": "Pair-production positron" },
+
+  { "Subject": "BNK_BREMSSTRAHLUNG", "Predicate": "type", "Object": "enum_value" },
+  { "Subject": "BNK_BREMSSTRAHLUNG", "Predicate": "belongs_to_enum", "Object": "PtracBankType" },
+  { "Subject": "BNK_BREMSSTRAHLUNG", "Predicate": "has_value", "Object": "16" },
+  { "Subject": "BNK_BREMSSTRAHLUNG", "Predicate": "has_description", "Object": "Bremsstrahlung production" },
+
+  { "Subject": "BNK_KNOCK_ON", "Predicate": "type", "Object": "enum_value" },
+  { "Subject": "BNK_KNOCK_ON", "Predicate": "belongs_to_enum", "Object": "PtracBankType" },
+  { "Subject": "BNK_KNOCK_ON", "Predicate": "has_value", "Object": "17" },
+  { "Subject": "BNK_KNOCK_ON", "Predicate": "has_description", "Object": "Knock-on electron" },
+
+  { "Subject": "BNK_K_X_RAY", "Predicate": "type", "Object": "enum_value" },
+  { "Subject": "BNK_K_X_RAY", "Predicate": "belongs_to_enum", "Object": "PtracBankType" },
+  { "Subject": "BNK_K_X_RAY", "Predicate": "has_value", "Object": "18" },
+  { "Subject": "BNK_K_X_RAY", "Predicate": "has_description", "Object": "K-shell x-ray production" },
+
+  { "Subject": "BNK_N_XG_MG", "Predicate": "type", "Object": "enum_value" },
+  { "Subject": "BNK_N_XG_MG", "Predicate": "belongs_to_enum", "Object": "PtracBankType" },
+  { "Subject": "BNK_N_XG_MG", "Predicate": "has_value", "Object": "19" },
+  { "Subject": "BNK_N_XG_MG", "Predicate": "has_description", "Object": "Multigroup (n,xg)" },
+
+  { "Subject": "BNK_N_XF_MG", "Predicate": "type", "Object": "enum_value" },
+  { "Subject": "BNK_N_XF_MG", "Predicate": "belongs_to_enum", "Object": "PtracBankType" },
+  { "Subject": "BNK_N_XF_MG", "Predicate": "has_value", "Object": "20" },
+  { "Subject": "BNK_N_XF_MG", "Predicate": "has_description", "Object": "Multigroup (n,f)" },
+
+  { "Subject": "BNK_N_XN_MG", "Predicate": "type", "Object": "enum_value" },
+  { "Subject": "BNK_N_XN_MG", "Predicate": "belongs_to_enum", "Object": "PtracBankType" },
+  { "Subject": "BNK_N_XN_MG", "Predicate": "has_value", "Object": "21" },
+  { "Subject": "BNK_N_XN_MG", "Predicate": "has_description", "Object": "Multigroup (n,xn)" },
+
+  { "Subject": "BNK_G_XG_MG", "Predicate": "type", "Object": "enum_value" },
+  { "Subject": "BNK_G_XG_MG", "Predicate": "belongs_to_enum", "Object": "PtracBankType" },
+  { "Subject": "BNK_G_XG_MG", "Predicate": "has_value", "Object": "22" },
+  { "Subject": "BNK_G_XG_MG", "Predicate": "has_description", "Object": "Multigroup (g,xg)" },
+
+  { "Subject": "BNK_ADJ_SPLIT", "Predicate": "type", "Object": "enum_value" },
+  { "Subject": "BNK_ADJ_SPLIT", "Predicate": "belongs_to_enum", "Object": "PtracBankType" },
+  { "Subject": "BNK_ADJ_SPLIT", "Predicate": "has_value", "Object": "23" },
+  { "Subject": "BNK_ADJ_SPLIT", "Predicate": "has_description", "Object": "Multigroup adjoint splitting" },
+
+  { "Subject": "BNK_WWT_SPLIT", "Predicate": "type", "Object": "enum_value" },
+  { "Subject": "BNK_WWT_SPLIT", "Predicate": "belongs_to_enum", "Object": "PtracBankType" },
+  { "Subject": "BNK_WWT_SPLIT", "Predicate": "has_value", "Object": "24" },
+  { "Subject": "BNK_WWT_SPLIT", "Predicate": "has_description", "Object": "Weight-window mean-free-path split" },
+
+  { "Subject": "BNK_PHOTONUCLEAR", "Predicate": "type", "Object": "enum_value" },
+  { "Subject": "BNK_PHOTONUCLEAR", "Predicate": "belongs_to_enum", "Object": "PtracBankType" },
+  { "Subject": "BNK_PHOTONUCLEAR", "Predicate": "has_value", "Object": "25" },
+  { "Subject": "BNK_PHOTONUCLEAR", "Predicate": "has_description", "Object": "Photo-nuclear (gamma,n) production" },
+
+  { "Subject": "BNK_DECAY", "Predicate": "type", "Object": "enum_value" },
+  { "Subject": "BNK_DECAY", "Predicate": "belongs_to_enum", "Object": "PtracBankType" },
+  { "Subject": "BNK_DECAY", "Predicate": "has_value", "Object": "26" },
+  { "Subject": "BNK_DECAY", "Predicate": "has_description", "Object": "Radioactive decay" },
+
+  { "Subject": "BNK_NUCLEAR_INT", "Predicate": "type", "Object": "enum_value" },
+  { "Subject": "BNK_NUCLEAR_INT", "Predicate": "belongs_to_enum", "Object": "PtracBankType" },
+  { "Subject": "BNK_NUCLEAR_INT", "Predicate": "has_value", "Object": "27" },
+  { "Subject": "BNK_NUCLEAR_INT", "Predicate": "has_description", "Object": "Nuclear interaction" },
+
+  { "Subject": "BNK_RECOIL", "Predicate": "type", "Object": "enum_value" },
+  { "Subject": "BNK_RECOIL", "Predicate": "belongs_to_enum", "Object": "PtracBankType" },
+  { "Subject": "BNK_RECOIL", "Predicate": "has_value", "Object": "28" },
+  { "Subject": "BNK_RECOIL", "Predicate": "has_description", "Object": "Recoil nucleus" },
+
+  { "Subject": "BNK_DXTRAN_ANNIHIL", "Predicate": "type", "Object": "enum_value" },
+  { "Subject": "BNK_DXTRAN_ANNIHIL", "Predicate": "belongs_to_enum", "Object": "PtracBankType" },
+  { "Subject": "BNK_DXTRAN_ANNIHIL", "Predicate": "has_value", "Object": "29" },
+  { "Subject": "BNK_DXTRAN_ANNIHIL", "Predicate": "has_description", "Object": "DXTRAN annihilation photon" },
+
+  { "Subject": "BNK_N_CHARGED_PART", "Predicate": "type", "Object": "enum_value" },
+  { "Subject": "BNK_N_CHARGED_PART", "Predicate": "belongs_to_enum", "Object": "PtracBankType" },
+  { "Subject": "BNK_N_CHARGED_PART", "Predicate": "has_value", "Object": "30" },
+  { "Subject": "BNK_N_CHARGED_PART", "Predicate": "has_description", "Object": "Light ions (n,p) (n,d) (n,t) (n,a) (n,alpha) from neutrons" },
+
+  { "Subject": "BNK_H_CHARGED_PART", "Predicate": "type", "Object": "enum_value" },
+  { "Subject": "BNK_H_CHARGED_PART", "Predicate": "belongs_to_enum", "Object": "PtracBankType" },
+  { "Subject": "BNK_H_CHARGED_PART", "Predicate": "has_value", "Object": "31" },
+  { "Subject": "BNK_H_CHARGED_PART", "Predicate": "has_description", "Object": "Light ions (p,p) (p,d) (p,t) (p,a) (p,alpha) from protons" },
+
+  { "Subject": "BNK_N_TO_TABULAR", "Predicate": "type", "Object": "enum_value" },
+  { "Subject": "BNK_N_TO_TABULAR", "Predicate": "belongs_to_enum", "Object": "PtracBankType" },
+  { "Subject": "BNK_N_TO_TABULAR", "Predicate": "has_value", "Object": "32" },
+  { "Subject": "BNK_N_TO_TABULAR", "Predicate": "has_description", "Object": "Library neutrons from model neutrons" },
+
+  { "Subject": "BNK_MODEL_UPDAT1", "Predicate": "type", "Object": "enum_value" },
+  { "Subject": "BNK_MODEL_UPDAT1", "Predicate": "belongs_to_enum", "Object": "PtracBankType" },
+  { "Subject": "BNK_MODEL_UPDAT1", "Predicate": "has_value", "Object": "33" },
+  { "Subject": "BNK_MODEL_UPDAT1", "Predicate": "has_description", "Object": "Secondary particles from inelastic nuclear interactions" },
+
+  { "Subject": "BNK_MODEL_UPDATE", "Predicate": "type", "Object": "enum_value" },
+  { "Subject": "BNK_MODEL_UPDATE", "Predicate": "belongs_to_enum", "Object": "PtracBankType" },
+  { "Subject": "BNK_MODEL_UPDATE", "Predicate": "has_value", "Object": "34" },
+  { "Subject": "BNK_MODEL_UPDATE", "Predicate": "has_description", "Object": "Secondary particles from elastic nuclear interactions" },
+
+  { "Subject": "BNK_DELAYED_NEUTRON", "Predicate": "type", "Object": "enum_value" },
+  { "Subject": "BNK_DELAYED_NEUTRON", "Predicate": "belongs_to_enum", "Object": "PtracBankType" },
+  { "Subject": "BNK_DELAYED_NEUTRON", "Predicate": "has_value", "Object": "35" },
+  { "Subject": "BNK_DELAYED_NEUTRON", "Predicate": "has_description", "Object": "Delayed neutron from radioactive decay" },
+
+  { "Subject": "BNK_DELAYED_PHOTON", "Predicate": "type", "Object": "enum_value" },
+  { "Subject": "BNK_DELAYED_PHOTON", "Predicate": "belongs_to_enum", "Object": "PtracBankType" },
+  { "Subject": "BNK_DELAYED_PHOTON", "Predicate": "has_value", "Object": "36" },
+  { "Subject": "BNK_DELAYED_PHOTON", "Predicate": "has_description", "Object": "Delayed photon from radioactive decay" },
+
+  { "Subject": "BNK_DELAYED_BETA", "Predicate": "type", "Object": "enum_value" },
+  { "Subject": "BNK_DELAYED_BETA", "Predicate": "belongs_to_enum", "Object": "PtracBankType" },
+  { "Subject": "BNK_DELAYED_BETA", "Predicate": "has_value", "Object": "37" },
+  { "Subject": "BNK_DELAYED_BETA", "Predicate": "has_description", "Object": "Delayed beta- from radioactive decay" },
+
+  { "Subject": "BNK_DELAYED_ALPHA", "Predicate": "type", "Object": "enum_value" },
+  { "Subject": "BNK_DELAYED_ALPHA", "Predicate": "belongs_to_enum", "Object": "PtracBankType" },
+  { "Subject": "BNK_DELAYED_ALPHA", "Predicate": "has_value", "Object": "38" },
+  { "Subject": "BNK_DELAYED_ALPHA", "Predicate": "has_description", "Object": "Delayed alpha from radioactive decay" },
+
+  { "Subject": "BNK_DELAYED_POSITRN", "Predicate": "type", "Object": "enum_value" },
+  { "Subject": "BNK_DELAYED_POSITRN", "Predicate": "belongs_to_enum", "Object": "PtracBankType" },
+  { "Subject": "BNK_DELAYED_POSITRN", "Predicate": "has_value", "Object": "39" },
+  { "Subject": "BNK_DELAYED_POSITRN", "Predicate": "has_description", "Object": "Delayed beta+ from radioactive decay" }
+]

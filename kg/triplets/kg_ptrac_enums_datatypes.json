@@ -1,0 +1,157 @@
+[
+  { "Subject": "PtracDataType", "Predicate": "type", "Object": "enum" },
+
+  { "Subject": "PARTICLE", "Predicate": "uses_dictionary", "Object": "ParticleCodeDict" },
+  { "Subject": "RXN", "Predicate": "uses_dictionary", "Object": "PtracReactionDict" },
+  { "Subject": "ZAID", "Predicate": "uses_dictionary", "Object": "PtracZAIDDict" },
+  
+  { "Subject": "NPS", "Predicate": "type", "Object": "enum_value" },
+  { "Subject": "NPS", "Predicate": "belongs_to_enum", "Object": "PtracDataType" },
+  { "Subject": "NPS", "Predicate": "has_value", "Object": "1" },
+  { "Subject": "NPS", "Predicate": "has_description", "Object": "History number (integer)" },
+
+  { "Subject": "FIRST_EVENT_TYPE", "Predicate": "type", "Object": "enum_value" },
+  { "Subject": "FIRST_EVENT_TYPE", "Predicate": "belongs_to_enum", "Object": "PtracDataType" },
+  { "Subject": "FIRST_EVENT_TYPE", "Predicate": "has_value", "Object": "2" },
+  { "Subject": "FIRST_EVENT_TYPE", "Predicate": "has_description", "Object": "Type of first event in history" },
+
+  { "Subject": "NPSCELL", "Predicate": "type", "Object": "enum_value" },
+  { "Subject": "NPSCELL", "Predicate": "belongs_to_enum", "Object": "PtracDataType" },
+  { "Subject": "NPSCELL", "Predicate": "has_value", "Object": "3" },
+  { "Subject": "NPSCELL", "Predicate": "has_description", "Object": "Filtering cell from CELL keyword" },
+
+  { "Subject": "NPSSURFACE", "Predicate": "type", "Object": "enum_value" },
+  { "Subject": "NPSSURFACE", "Predicate": "belongs_to_enum", "Object": "PtracDataType" },
+  { "Subject": "NPSSURFACE", "Predicate": "has_value", "Object": "4" },
+  { "Subject": "NPSSURFACE", "Predicate": "has_description", "Object": "Filtering surface from SURFACE keyword" },
+
+  { "Subject": "TALLY", "Predicate": "type", "Object": "enum_value" },
+  { "Subject": "TALLY", "Predicate": "belongs_to_enum", "Object": "PtracDataType" },
+  { "Subject": "TALLY", "Predicate": "has_value", "Object": "5" },
+  { "Subject": "TALLY", "Predicate": "has_description", "Object": "Filtering tally from TALLY keyword" },
+
+  { "Subject": "VALUE", "Predicate": "type", "Object": "enum_value" },
+  { "Subject": "VALUE", "Predicate": "belongs_to_enum", "Object": "PtracDataType" },
+  { "Subject": "VALUE", "Predicate": "has_value", "Object": "6" },
+  { "Subject": "VALUE", "Predicate": "has_description", "Object": "Tally value (score)" },
+
+  { "Subject": "NEXT_EVENT_TYPE", "Predicate": "type", "Object": "enum_value" },
+  { "Subject": "NEXT_EVENT_TYPE", "Predicate": "belongs_to_enum", "Object": "PtracDataType" },
+  { "Subject": "NEXT_EVENT_TYPE", "Predicate": "has_value", "Object": "7" },
+  { "Subject": "NEXT_EVENT_TYPE", "Predicate": "has_description", "Object": "Event type of the next step" },
+
+  { "Subject": "NODE", "Predicate": "type", "Object": "enum_value" },
+  { "Subject": "NODE", "Predicate": "belongs_to_enum", "Object": "PtracDataType" },
+  { "Subject": "NODE", "Predicate": "has_value", "Object": "8" },
+  { "Subject": "NODE", "Predicate": "has_description", "Object": "Node number" },
+
+  { "Subject": "NSR", "Predicate": "type", "Object": "enum_value" },
+  { "Subject": "NSR", "Predicate": "belongs_to_enum", "Object": "PtracDataType" },
+  { "Subject": "NSR", "Predicate": "has_value", "Object": "9" },
+  { "Subject": "NSR", "Predicate": "has_description", "Object": "Number of sub-runs (parallel)" },
+
+  { "Subject": "ZAID", "Predicate": "type", "Object": "enum_value" },
+  { "Subject": "ZAID", "Predicate": "belongs_to_enum", "Object": "PtracDataType" },
+  { "Subject": "ZAID", "Predicate": "has_value", "Object": "10" },
+  { "Subject": "ZAID", "Predicate": "has_description", "Object": "ZAID the particle interacts with" },
+
+  { "Subject": "RXN", "Predicate": "type", "Object": "enum_value" },
+  { "Subject": "RXN", "Predicate": "belongs_to_enum", "Object": "PtracDataType" },
+  { "Subject": "RXN", "Predicate": "has_value", "Object": "11" },
+  { "Subject": "RXN", "Predicate": "has_description", "Object": "Reaction type (MT number)" },
+
+  { "Subject": "SURFACE", "Predicate": "type", "Object": "enum_value" },
+  { "Subject": "SURFACE", "Predicate": "belongs_to_enum", "Object": "PtracDataType" },
+  { "Subject": "SURFACE", "Predicate": "has_value", "Object": "12" },
+  { "Subject": "SURFACE", "Predicate": "has_description", "Object": "Surface number" },
+
+  { "Subject": "ANGLE", "Predicate": "type", "Object": "enum_value" },
+  { "Subject": "ANGLE", "Predicate": "belongs_to_enum", "Object": "PtracDataType" },
+  { "Subject": "ANGLE", "Predicate": "has_value", "Object": "13" },
+  { "Subject": "ANGLE", "Predicate": "has_description", "Object": "Angle of particle crossing the surface" },
+
+  { "Subject": "TERMINATION_TYPE", "Predicate": "type", "Object": "enum_value" },
+  { "Subject": "TERMINATION_TYPE", "Predicate": "belongs_to_enum", "Object": "PtracDataType" },
+  { "Subject": "TERMINATION_TYPE", "Predicate": "has_value", "Object": "14" },
+  { "Subject": "TERMINATION_TYPE", "Predicate": "has_description", "Object": "Type of event termination" },
+
+  { "Subject": "BRANCH", "Predicate": "type", "Object": "enum_value" },
+  { "Subject": "BRANCH", "Predicate": "belongs_to_enum", "Object": "PtracDataType" },
+  { "Subject": "BRANCH", "Predicate": "has_value", "Object": "15" },
+  { "Subject": "BRANCH", "Predicate": "has_description", "Object": "Branch number (e.g., lattice or universes)" },
+
+  { "Subject": "PARTICLE", "Predicate": "type", "Object": "enum_value" },
+  { "Subject": "PARTICLE", "Predicate": "belongs_to_enum", "Object": "PtracDataType" },
+  { "Subject": "PARTICLE", "Predicate": "has_value", "Object": "16" },
+  { "Subject": "PARTICLE", "Predicate": "has_description", "Object": "Type of particle (neutron, photon, etc.)" },
+
+  { "Subject": "CELL", "Predicate": "type", "Object": "enum_value" },
+  { "Subject": "CELL", "Predicate": "belongs_to_enum", "Object": "PtracDataType" },
+  { "Subject": "CELL", "Predicate": "has_value", "Object": "17" },
+  { "Subject": "CELL", "Predicate": "has_description", "Object": "Cell number" },
+
+  { "Subject": "MATERIAL", "Predicate": "type", "Object": "enum_value" },
+  { "Subject": "MATERIAL", "Predicate": "belongs_to_enum", "Object": "PtracDataType" },
+  { "Subject": "MATERIAL", "Predicate": "has_value", "Object": "18" },
+  { "Subject": "MATERIAL", "Predicate": "has_description", "Object": "Material number" },
+
+  { "Subject": "COLLISION_NUMBER", "Predicate": "type", "Object": "enum_value" },
+  { "Subject": "COLLISION_NUMBER", "Predicate": "belongs_to_enum", "Object": "PtracDataType" },
+  { "Subject": "COLLISION_NUMBER", "Predicate": "has_value", "Object": "19" },
+  { "Subject": "COLLISION_NUMBER", "Predicate": "has_description", "Object": "Number of collisions in current history" },
+
+  { "Subject": "X", "Predicate": "type", "Object": "enum_value" },
+  { "Subject": "X", "Predicate": "belongs_to_enum", "Object": "PtracDataType" },
+  { "Subject": "X", "Predicate": "has_value", "Object": "20" },
+  { "Subject": "X", "Predicate": "has_description", "Object": "X coordinate of the particle" },
+
+  { "Subject": "Y", "Predicate": "type", "Object": "enum_value" },
+  { "Subject": "Y", "Predicate": "belongs_to_enum", "Object": "PtracDataType" },
+  { "Subject": "Y", "Predicate": "has_value", "Object": "21" },
+  { "Subject": "Y", "Predicate": "has_description", "Object": "Y coordinate of the particle" },
+
+  { "Subject": "Z", "Predicate": "type", "Object": "enum_value" },
+  { "Subject": "Z", "Predicate": "belongs_to_enum", "Object": "PtracDataType" },
+  { "Subject": "Z", "Predicate": "has_value", "Object": "22" },
+  { "Subject": "Z", "Predicate": "has_description", "Object": "Z coordinate of the particle" },
+
+  { "Subject": "U", "Predicate": "type", "Object": "enum_value" },
+  { "Subject": "U", "Predicate": "belongs_to_enum", "Object": "PtracDataType" },
+  { "Subject": "U", "Predicate": "has_value", "Object": "23" },
+  { "Subject": "U", "Predicate": "has_description", "Object": "Particle x-axis direction cosine" },
+
+  { "Subject": "V", "Predicate": "type", "Object": "enum_value" },
+  { "Subject": "V", "Predicate": "belongs_to_enum", "Object": "PtracDataType" },
+  { "Subject": "V", "Predicate": "has_value", "Object": "24" },
+  { "Subject": "V", "Predicate": "has_description", "Object": "Particle y-axis direction cosine" },
+
+  { "Subject": "W", "Predicate": "type", "Object": "enum_value" },
+  { "Subject": "W", "Predicate": "belongs_to_enum", "Object": "PtracDataType" },
+  { "Subject": "W", "Predicate": "has_value", "Object": "25" },
+  { "Subject": "W", "Predicate": "has_description", "Object": "Particle z-axis direction cosine" },
+
+  { "Subject": "ENERGY", "Predicate": "type", "Object": "enum_value" },
+  { "Subject": "ENERGY", "Predicate": "belongs_to_enum", "Object": "PtracDataType" },
+  { "Subject": "ENERGY", "Predicate": "has_value", "Object": "26" },
+  { "Subject": "ENERGY", "Predicate": "has_description", "Object": "Particle energy" },
+
+  { "Subject": "WEIGHT", "Predicate": "type", "Object": "enum_value" },
+  { "Subject": "WEIGHT", "Predicate": "belongs_to_enum", "Object": "PtracDataType" },
+  { "Subject": "WEIGHT", "Predicate": "has_value", "Object": "27" },
+  { "Subject": "WEIGHT", "Predicate": "has_description", "Object": "Particle weight" },
+
+  { "Subject": "TIME", "Predicate": "type", "Object": "enum_value" },
+  { "Subject": "TIME", "Predicate": "belongs_to_enum", "Object": "PtracDataType" },
+  { "Subject": "TIME", "Predicate": "has_value", "Object": "28" },
+  { "Subject": "TIME", "Predicate": "has_description", "Object": "Particle time" },
+
+  { "Subject": "SOURCE_TYPE", "Predicate": "type", "Object": "enum_value" },
+  { "Subject": "SOURCE_TYPE", "Predicate": "belongs_to_enum", "Object": "PtracDataType" },
+  { "Subject": "SOURCE_TYPE", "Predicate": "has_value", "Object": "29" },
+  { "Subject": "SOURCE_TYPE", "Predicate": "has_description", "Object": "Source particle type" },
+
+  { "Subject": "BANK_TYPE", "Predicate": "type", "Object": "enum_value" },
+  { "Subject": "BANK_TYPE", "Predicate": "belongs_to_enum", "Object": "PtracDataType" },
+  { "Subject": "BANK_TYPE", "Predicate": "has_value", "Object": "30" },
+  { "Subject": "BANK_TYPE", "Predicate": "has_description", "Object": "Banked particle origin identifier" }
+]

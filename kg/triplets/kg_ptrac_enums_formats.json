@@ -1,0 +1,18 @@
+[
+  { "Subject": "PtracFormat", "Predicate": "type", "Object": "enum" },
+  { "Subject": "BIN_PTRAC", "Predicate": "type", "Object": "enum_value" },
+  { "Subject": "ASC_PTRAC", "Predicate": "type", "Object": "enum_value" },
+  { "Subject": "HDF5_PTRAC", "Predicate": "type", "Object": "enum_value" },
+
+  { "Subject": "BIN_PTRAC", "Predicate": "belongs_to_enum", "Object": "PtracFormat" },
+  { "Subject": "BIN_PTRAC", "Predicate": "has_value", "Object": "0" },
+  { "Subject": "BIN_PTRAC", "Predicate": "has_description", "Object": "Binary PTRAC file format" },
+
+  { "Subject": "ASC_PTRAC", "Predicate": "belongs_to_enum", "Object": "PtracFormat" },
+  { "Subject": "ASC_PTRAC", "Predicate": "has_value", "Object": "1" },
+  { "Subject": "ASC_PTRAC", "Predicate": "has_description", "Object": "ASCII PTRAC file format" },
+
+  { "Subject": "HDF5_PTRAC", "Predicate": "belongs_to_enum", "Object": "PtracFormat" },
+  { "Subject": "HDF5_PTRAC", "Predicate": "has_value", "Object": "2" },
+  { "Subject": "HDF5_PTRAC", "Predicate": "has_description", "Object": "HDF5 PTRAC file format" }
+]

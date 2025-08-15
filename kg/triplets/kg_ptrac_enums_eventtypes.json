@@ -1,0 +1,58 @@
+[
+  { "Subject": "PtracEventType", "Predicate": "type", "Object": "enum" },
+
+  { "Subject": "SRC", "Predicate": "type", "Object": "enum_value" },
+  { "Subject": "SRC", "Predicate": "belongs_to_enum", "Object": "PtracEventType" },
+  { "Subject": "SRC", "Predicate": "has_value", "Object": "1000" },
+  { "Subject": "SRC", "Predicate": "has_description", "Object": "Source event" },
+  { "Subject": "SRC", "Predicate": "may_contain_fields", "Object": [
+      "NODE", "NSR", "CELL", "PARTICLE", "MATERIAL", "COLLISION_NUMBER",
+      "X", "Y", "Z", "U", "V", "W", "ENERGY", "WEIGHT", "TIME"
+    ] },
+  { "Subject": "SRC", "Predicate": "has_mcnp_version", "Object": "MCNP 6.2" },
+
+  { "Subject": "BNK", "Predicate": "type", "Object": "enum_value" },
+  { "Subject": "BNK", "Predicate": "belongs_to_enum", "Object": "PtracEventType" },
+  { "Subject": "BNK", "Predicate": "has_value", "Object": "2000" },
+  { "Subject": "BNK", "Predicate": "has_description", "Object": "Bank event" },
+  { "Subject": "BNK", "Predicate": "may_contain_fields", "Object": [
+      "NODE", "ZAID", "RXN", "PARTICLE", "CELL", "MATERIAL", "COLLISION_NUMBER",
+      "X", "Y", "Z", "U", "V", "W", "ENERGY", "WEIGHT", "TIME"
+    ] },
+  { "Subject": "BNK", "Predicate": "has_mcnp_version", "Object": "MCNP 6.2" },
+
+  { "Subject": "SUR", "Predicate": "type", "Object": "enum_value" },
+  { "Subject": "SUR", "Predicate": "belongs_to_enum", "Object": "PtracEventType" },
+  { "Subject": "SUR", "Predicate": "has_value", "Object": "3000" },
+  { "Subject": "SUR", "Predicate": "has_description", "Object": "Surface crossing event" },
+  { "Subject": "SUR", "Predicate": "may_contain_fields", "Object": [
+      "NODE", "SURFACE", "ANGLE", "PARTICLE", "CELL", "MATERIAL", "COLLISION_NUMBER",
+      "X", "Y", "Z", "U", "V", "W", "ENERGY", "WEIGHT", "TIME"
+    ] },
+  { "Subject": "SUR", "Predicate": "has_mcnp_version", "Object": "MCNP 6.2" },
+
+  { "Subject": "COL", "Predicate": "type", "Object": "enum_value" },
+  { "Subject": "COL", "Predicate": "belongs_to_enum", "Object": "PtracEventType" },
+  { "Subject": "COL", "Predicate": "has_value", "Object": "4000" },
+  { "Subject": "COL", "Predicate": "has_description", "Object": "Collision event" },
+  { "Subject": "COL", "Predicate": "may_contain_fields", "Object": [
+      "NODE", "ZAID", "RXN", "PARTICLE", "CELL", "MATERIAL", "COLLISION_NUMBER",
+      "X", "Y", "Z", "U", "V", "W", "ENERGY", "WEIGHT", "TIME"
+    ] },
+  { "Subject": "COL", "Predicate": "has_mcnp_version", "Object": "MCNP 6.2" },
+
+  { "Subject": "TER", "Predicate": "type", "Object": "enum_value" },
+  { "Subject": "TER", "Predicate": "belongs_to_enum", "Object": "PtracEventType" },
+  { "Subject": "TER", "Predicate": "has_value", "Object": "5000" },
+  { "Subject": "TER", "Predicate": "has_description", "Object": "Termination event" },
+  { "Subject": "TER", "Predicate": "may_contain_fields", "Object": [
+      "NODE", "TERMINATION_TYPE", "BRANCH", "PARTICLE", "CELL", "MATERIAL", "COLLISION_NUMBER",
+      "X", "Y", "Z", "U", "V", "W", "ENERGY", "WEIGHT", "TIME"
+    ] },
+  { "Subject": "TER", "Predicate": "has_mcnp_version", "Object": "MCNP 6.2" },
+
+  { "Subject": "LST", "Predicate": "type", "Object": "enum_value" },
+  { "Subject": "LST", "Predicate": "belongs_to_enum", "Object": "PtracEventType" },
+  { "Subject": "LST", "Predicate": "has_value", "Object": "9000" },
+  { "Subject": "LST", "Predicate": "has_description", "Object": "Lost particle event" }
+]

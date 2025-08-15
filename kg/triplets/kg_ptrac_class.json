@@ -1,0 +1,44 @@
+[
+  { "Subject": "Ptrac", "Predicate": "type", "Object": "class" },
+  { "Subject": "Ptrac", "Predicate": "has_description", "Object": "Class responsible for loading and parsing PTRAC files (ASCII, Binary, HDF5). Entry point for reading histories and events with MCNPTools." },
+
+  { "Subject": "ReadHistories(NUM)", "Predicate": "type", "Object": "method" },
+  { "Subject": "ReadHistories(NUM)", "Predicate": "is_method_of", "Object": "Ptrac" },
+  { "Subject": "ReadHistories(NUM)", "Predicate": "returns", "Object": "List[PtracHistory]" },
+  { "Subject": "ReadHistories(NUM)", "Predicate": "has_argument_type", "Object": "unsigned int" },
+  { "Subject": "ReadHistories(NUM)", "Predicate": "has_description", "Object": "Reads NUM histories from the PTRAC file (format-aware). Call ReadHistoriesLegacy(num). Returns a list of PtracHistory objects." },
+
+  { "Subject": "ReadHistoriesLegacy(NUM)", "Predicate": "type", "Object": "method" },
+  { "Subject": "ReadHistoriesLegacy(NUM)", "Predicate": "is_method_of", "Object": "Ptrac" },
+  { "Subject": "ReadHistoriesLegacy(NUM)", "Predicate": "returns", "Object": "List[PtracHistory]" },
+  { "Subject": "List[PtracHistory]", "Predicate": "type", "Object": "datatype" },
+  { "Subject": "ReadHistoriesLegacy(NUM)", "Predicate": "has_argument_type", "Object": "unsigned int" },
+  { "Subject": "ReadHistoriesLegacy(NUM)", "Predicate": "has_description", "Object": "Reads NUM histories using the legacy parser (non-HDF5 formats). Call ReadHistory()" },
+
+  { "Subject": "ReadHistory()", "Predicate": "type", "Object": "method" },
+  { "Subject": "ReadHistory()", "Predicate": "is_method_of", "Object": "Ptrac" },
+  { "Subject": "ReadHistory()", "Predicate": "returns", "Object": "PtracHistory" },
+  { "Subject": "ReadHistory()", "Predicate": "has_description", "Object": "Reads the next history in the file. Fill all the attributes of PtracEvent, PtracNPS and PtracHistory classes. returns a PtracHistory object." },
+
+  { "Subject": "ReadHeader()", "Predicate": "type", "Object": "method" },
+  { "Subject": "ReadHeader()", "Predicate": "is_method_of", "Object": "Ptrac" },
+  { "Subject": "ReadHeader()", "Predicate": "returns", "Object": "void" },
+  { "Subject": "ReadHeader()", "Predicate": "has_description", "Object": "Reads and parses the PTRAC file header (format-dependent), including version, code info, and comment lines." },
+
+  { "Subject": "Ptrac::m_handle", "Predicate": "type", "Object": "attribute" },
+  { "Subject": "Ptrac::m_handle", "Predicate": "is_attribute_of", "Object": "Ptrac" },
+  { "Subject": "Ptrac::m_handle", "Predicate": "has_description", "Object": "File stream handle for reading PTRAC file content." },
+
+  { "Subject": "Ptrac::m_format", "Predicate": "type", "Object": "attribute" },
+  { "Subject": "Ptrac::m_format", "Predicate": "is_attribute_of", "Object": "Ptrac" },
+  { "Subject": "Ptrac::m_format", "Predicate": "stores", "Object": "PtracFormat" },
+  { "Subject": "Ptrac::m_format", "Predicate": "has_description", "Object": "Format of the PTRAC file (ASCII, Binary, HDF5)." },
+
+  { "Subject": "Ptrac::m_nument", "Predicate": "type", "Object": "attribute" },
+  { "Subject": "Ptrac::m_nument", "Predicate": "is_attribute_of", "Object": "Ptrac" },
+  { "Subject": "Ptrac::m_nument", "Predicate": "has_description", "Object": "Map of keyword to number of entries for each data section." },
+
+  { "Subject": "Ptrac::m_datent", "Predicate": "type", "Object": "attribute" },
+  { "Subject": "Ptrac::m_datent", "Predicate": "is_attribute_of", "Object": "Ptrac" },
+  { "Subject": "Ptrac::m_datent", "Predicate": "has_description", "Object": "Map of data section name to vector of entry values." }
+]

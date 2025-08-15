@@ -8,127 +8,70 @@ decima_env/
 .venv/
 venv/
 env/
-ENV/
-env.bak/
-venv.bak/
 
-# 🐍 Fichiers Python inutiles
+# 🧠 IDE
+.vscode/
+.idea/
+
+# 🧪 Tests
+tests/
+tests/__pycache__/
+
+# 🔄 Caches et Python
 __pycache__/
 *.py[cod]
 *.pyo
 *.pyd
-*.so
-*.pyc
-*$py.class
-
-# 🧪 Caches et tests
-.cache/
-*.pytest_cache/
-htmlcov/
-.tox/
-.nox/
-.coverage
-.coverage.*
-nosetests.xml
-coverage.xml
-*.cover
-*.py.cover
-.hypothesis/
 .pytest_cache/
-tests/__pycache__/
-
-# 📁 Logs et temporaires
+.cache/
+.dmypy.json
+.mypy_cache/
+.hypothesis/
 *.log
 *.tmp
 *.bak
-*.db
-*.sqlite
-*.sqlite3
-*.pypirc
 
-# 📊 Graphs, images, résultats
-*.png
-*.jpg
-*.jpeg
-*.pdf
-*.svg
-*.npy
-*.csv
-*.json
-*.txt
+# 📚 Données inutiles (à exclure)
+data/cpp/mctal/
+data/hpp/mctal/
+data/mctal_samples/
+data/mctal_scripts/
+data/mcnp_files/example_ptrac_1.mcnp_extended.i
+data/mcnp_files/LB6411_cezane_SC_75.i
 
-# 📂 Notebooks & IPython
-.ipynb_checkpoints/
-profile_default/
-ipython_config.py
+# ⚙️ PTRAC - ne conserver que 2 fichiers dans :
+!data/ptrac_samples/example_ptrac_1.mcnp.ptrac
+!data/ptrac_samples/example_ptrac_2.mcnp.ptrac
+data/ptrac_samples/
 
-# 💾 IDE & outils
-.vscode/
-.idea/
-.spyderproject
-.spyproject
-.ropeproject
-.pyre/
-.pytype/
-.mypy_cache/
-.dmypy.json
-dmypy.json
+!data/ptrac_scripts/cpp_example_ptrac_1.cpp
+!data/ptrac_scripts/python_example_ptrac_1.py
+data/ptrac_scripts/
 
-# 🧠 Modèles ou embeddings
+# 📤 Uploads - ne conserver que 2 fichiers
+!uploads/example_ptrac_1.mcnp.ptrac
+!uploads/example_ptrac_2.mcnp.ptrac
+uploads/
+
+# 📁 Documentation – ne conserver que 4 fichiers dans /doc/
+!doc/DECIMA Project Technical Documentation.md
+!doc/Documentation Technique du Projet DECIMA.md
+!doc/DECIMA Project User Documentation.md
+!doc/Documentation Utilisateur du Projet DECIMA.md
+doc/*
+
+# 🧪 Modèles ou embeddings
 *.pt
 *.onnx
 *.h5
 
-# 🌐 Interface Web
+# 🌐 Frontend
 frontend/node_modules/
 frontend/dist/
 
-# ⚙️ Build & packaging
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-share/python-wheels/
+# 🔧 Build / pip
 *.egg-info/
-.installed.cfg
-*.egg
-MANIFEST
-target/
-
-# 📚 Doc Sphinx
-docs/_build/
-site/
-
-# 🎒 Poésie, pipenv, etc.
-poetry.lock
-poetry.toml
-pdm.lock
-pdm.toml
-.pdm-python
-.pdm-build/
-pixi.lock
-.pixi
-uv.lock
-
-# 🧪 PyInstaller
+dist/
+build/
 *.manifest
 *.spec
-
-# 💼 Abstra
-.abstra/
-
-# ⚡ Cursor AI
-.cursorignore
-.cursorindexingignore
-
-# 🧰 Ruff
-.ruff_cache/

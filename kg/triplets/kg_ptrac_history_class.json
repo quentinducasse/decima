@@ -1,0 +1,30 @@
+[
+  { "Subject": "PtracHistory", "Predicate": "type", "Object": "class" },
+
+  { "Subject": "GetNPS()", "Predicate": "type", "Object": "method" },
+  { "Subject": "GetNPS()", "Predicate": "is_method_of", "Object": "PtracHistory" },
+  { "Subject": "GetNPS()", "Predicate": "returns", "Object": "PtracNps" },
+  { "Subject": "PtracNps", "Predicate": "type", "Object": "class" },
+  { "Subject": "GetNPS()", "Predicate": "has_description", "Object": "Returns a PtracNps instance associated with this history" },
+
+  { "Subject": "GetNumEvents()", "Predicate": "type", "Object": "method" },
+  { "Subject": "GetNumEvents()", "Predicate": "is_method_of", "Object": "PtracHistory" },
+  { "Subject": "GetNumEvents()", "Predicate": "returns", "Object": "int" },
+  { "Subject": "int", "Predicate": "type", "Object": "datatype" },
+  { "Subject": "GetNumEvents()", "Predicate": "has_description", "Object": "Returns the total number of events in the history" },
+
+  { "Subject": "GetEvent(I)", "Predicate": "type", "Object": "method" },
+  { "Subject": "GetEvent(I)", "Predicate": "is_method_of", "Object": "PtracHistory" },
+  { "Subject": "GetEvent(I)", "Predicate": "returns", "Object": "PtracEvent" },
+  { "Subject": "GetEvent(I)", "Predicate": "has_argument_type", "Object": "int" },
+  { "Subject": "PtracEvent", "Predicate": "type", "Object": "class" },
+  { "Subject": "GetEvent(I)", "Predicate": "has_description", "Object": "Returns the I-th event in the history (index starts at 0)" },
+
+  { "Subject": "PtracHistory::m_nps", "Predicate": "type", "Object": "attribute" },
+  { "Subject": "PtracHistory::m_nps", "Predicate": "is_attribute_of", "Object": "PtracHistory" },
+  { "Subject": "PtracHistory::m_nps", "Predicate": "stores", "Object": "PtracNps" },
+
+  { "Subject": "PtracHistory::m_events", "Predicate": "type", "Object": "attribute" },
+  { "Subject": "PtracHistory::m_events", "Predicate": "is_attribute_of", "Object": "PtracHistory" },
+  { "Subject": "PtracHistory::m_events", "Predicate": "stores", "Object": "List[PtracEvent]" }
+]
