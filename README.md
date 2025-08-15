@@ -1,14 +1,11 @@
+<p align="center">
+  <img src="decima_logo.png" width="250"/>
+</p>
 
-██████╗ ███████╗ ██████╗██╗███╗   ███╗ █████╗ 
-██╔══██╗██╔════╝██╔════╝██║████╗ ████║██╔══██╗
-██   ██╔█████╗  ██║     ██║██╔████╔██║███████║
-██╔══██═██╔══╝  ██║     ██║██║╚██╔╝██║██╔══██║
-██║███  ███████╗╚██████╗██║██║ ╚═╝ ██║██║  ██║
-╚═╝     ╚══════╝ ╚═════╝╚═╝╚═╝     ╚═╝╚═╝  ╚═╝
-        Data Extraction & Contextual Inference 
-        for MCNP Analysis (DECIMA)
+# DECIMA
+**Data Extraction & Contextual Inference for MCNP Analysis**
 
-
+> Powered by LLMs, Knowledge Graphs, and MCNPTools  
 ## 🧠 About DECIMA
 
 **DECIMA** (Data Extraction & Contextual Inference for MCNP Analysis) is an intelligent assistant that helps you parse, analyze, and interpret MCNP **PTRAC files** using natural language queries. It integrates a contextual Knowledge Graph (Neo4j), a secure execution sandbox, and a powerful LLM backend for **automated code generation and data analysis**.
