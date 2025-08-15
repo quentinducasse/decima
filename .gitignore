@@ -39,27 +39,31 @@ data/mctal_scripts/
 data/mcnp_files/example_ptrac_1.mcnp_extended.i
 data/mcnp_files/LB6411_cezane_SC_75.i
 
-# ⚙️ PTRAC - conserver uniquement ces deux fichiers
+# DOC – Ne garder que les 4 fichiers à la racine de /doc
+!doc/DECIMA Project Technical Documentation.md
+!doc/DECIMA Project User Documentation.md
+!doc/Documentation Technique du Projet DECIMA.md
+!doc/Documentation Utilisateur du Projet DECIMA.md
+doc/*
+!doc/.keep
+
+# PTRAC SAMPLES
 !data/ptrac_samples/example_ptrac_1.mcnp.ptrac
 !data/ptrac_samples/example_ptrac_2.mcnp.ptrac
 data/ptrac_samples/*
+!data/ptrac_samples/.keep
 
-# ⚙️ PTRAC scripts - conserver uniquement ces deux fichiers
+# PTRAC SCRIPTS
 !data/ptrac_scripts/cpp_example_ptrac_1.cpp
 !data/ptrac_scripts/python_example_ptrac_1.py
 data/ptrac_scripts/*
+!data/ptrac_scripts/.keep
 
 # 📤 Uploads - ne conserver que 2 fichiers
 !uploads/example_ptrac_1.mcnp.ptrac
 !uploads/example_ptrac_2.mcnp.ptrac
 uploads/
 
-# 📁 Documentation – ne conserver que les 4 fichiers principaux
-!doc/DECIMA Project Technical Documentation.md
-!doc/Documentation Technique du Projet DECIMA.md
-!doc/DECIMA Project User Documentation.md
-!doc/Documentation Utilisateur du Projet DECIMA.md
-doc/*
 
 # ❌ Dossier KG non requis pour release
 kg/neo4j_acces_localhost7474/
