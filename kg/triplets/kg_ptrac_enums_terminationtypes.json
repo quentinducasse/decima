@@ -1,0 +1,687 @@
+[
+  {
+    "Subject": "PtracTerminationType",
+    "Predicate": "type",
+    "Object": "enum"
+  },
+  {
+    "Subject": "TER_ESCAPE",
+    "Predicate": "type",
+    "Object": "enum_value"
+  },
+  {
+    "Subject": "TER_ESCAPE",
+    "Predicate": "belongs_to_enum",
+    "Object": "PtracTerminationType"
+  },
+  {
+    "Subject": "TER_ESCAPE",
+    "Predicate": "has_value",
+    "Object": "1"
+  },
+  {
+    "Subject": "TER_ESCAPE",
+    "Predicate": "has_description",
+    "Object": "Escape"
+  },
+  {
+    "Subject": "TER_ENERGY_CUTOFF",
+    "Predicate": "type",
+    "Object": "enum_value"
+  },
+  {
+    "Subject": "TER_ENERGY_CUTOFF",
+    "Predicate": "belongs_to_enum",
+    "Object": "PtracTerminationType"
+  },
+  {
+    "Subject": "TER_ENERGY_CUTOFF",
+    "Predicate": "has_value",
+    "Object": "2"
+  },
+  {
+    "Subject": "TER_ENERGY_CUTOFF",
+    "Predicate": "has_description",
+    "Object": "Energy cutoff"
+  },
+  {
+    "Subject": "TER_TIME_CUTOFF",
+    "Predicate": "type",
+    "Object": "enum_value"
+  },
+  {
+    "Subject": "TER_TIME_CUTOFF",
+    "Predicate": "belongs_to_enum",
+    "Object": "PtracTerminationType"
+  },
+  {
+    "Subject": "TER_TIME_CUTOFF",
+    "Predicate": "has_value",
+    "Object": "3"
+  },
+  {
+    "Subject": "TER_TIME_CUTOFF",
+    "Predicate": "has_description",
+    "Object": "Time cutoff"
+  },
+  {
+    "Subject": "TER_WEIGHT_WINDOW",
+    "Predicate": "type",
+    "Object": "enum_value"
+  },
+  {
+    "Subject": "TER_WEIGHT_WINDOW",
+    "Predicate": "belongs_to_enum",
+    "Object": "PtracTerminationType"
+  },
+  {
+    "Subject": "TER_WEIGHT_WINDOW",
+    "Predicate": "has_value",
+    "Object": "4"
+  },
+  {
+    "Subject": "TER_WEIGHT_WINDOW",
+    "Predicate": "has_description",
+    "Object": "Weight-window roulette"
+  },
+  {
+    "Subject": "TER_CELL_IMPORTANCE",
+    "Predicate": "type",
+    "Object": "enum_value"
+  },
+  {
+    "Subject": "TER_CELL_IMPORTANCE",
+    "Predicate": "belongs_to_enum",
+    "Object": "PtracTerminationType"
+  },
+  {
+    "Subject": "TER_CELL_IMPORTANCE",
+    "Predicate": "has_value",
+    "Object": "5"
+  },
+  {
+    "Subject": "TER_CELL_IMPORTANCE",
+    "Predicate": "has_description",
+    "Object": "Cell importance roulette"
+  },
+  {
+    "Subject": "TER_WEIGHT_CUTOFF",
+    "Predicate": "type",
+    "Object": "enum_value"
+  },
+  {
+    "Subject": "TER_WEIGHT_CUTOFF",
+    "Predicate": "belongs_to_enum",
+    "Object": "PtracTerminationType"
+  },
+  {
+    "Subject": "TER_WEIGHT_CUTOFF",
+    "Predicate": "has_value",
+    "Object": "6"
+  },
+  {
+    "Subject": "TER_WEIGHT_CUTOFF",
+    "Predicate": "has_description",
+    "Object": "Weight-cutoff roulette"
+  },
+  {
+    "Subject": "TER_ENERGY_IMPORTANCE",
+    "Predicate": "type",
+    "Object": "enum_value"
+  },
+  {
+    "Subject": "TER_ENERGY_IMPORTANCE",
+    "Predicate": "belongs_to_enum",
+    "Object": "PtracTerminationType"
+  },
+  {
+    "Subject": "TER_ENERGY_IMPORTANCE",
+    "Predicate": "has_value",
+    "Object": "7"
+  },
+  {
+    "Subject": "TER_ENERGY_IMPORTANCE",
+    "Predicate": "has_description",
+    "Object": "Energy-importance roulette"
+  },
+  {
+    "Subject": "TER_DXTRAN",
+    "Predicate": "type",
+    "Object": "enum_value"
+  },
+  {
+    "Subject": "TER_DXTRAN",
+    "Predicate": "belongs_to_enum",
+    "Object": "PtracTerminationType"
+  },
+  {
+    "Subject": "TER_DXTRAN",
+    "Predicate": "has_value",
+    "Object": "8"
+  },
+  {
+    "Subject": "TER_DXTRAN",
+    "Predicate": "has_description",
+    "Object": "DXTRAN roulette"
+  },
+  {
+    "Subject": "TER_FORCED_COLLISION",
+    "Predicate": "type",
+    "Object": "enum_value"
+  },
+  {
+    "Subject": "TER_FORCED_COLLISION",
+    "Predicate": "belongs_to_enum",
+    "Object": "PtracTerminationType"
+  },
+  {
+    "Subject": "TER_FORCED_COLLISION",
+    "Predicate": "has_value",
+    "Object": "9"
+  },
+  {
+    "Subject": "TER_FORCED_COLLISION",
+    "Predicate": "has_description",
+    "Object": "Forced collision"
+  },
+  {
+    "Subject": "TER_EXPONENTIAL_TRANSFORM",
+    "Predicate": "type",
+    "Object": "enum_value"
+  },
+  {
+    "Subject": "TER_EXPONENTIAL_TRANSFORM",
+    "Predicate": "belongs_to_enum",
+    "Object": "PtracTerminationType"
+  },
+  {
+    "Subject": "TER_EXPONENTIAL_TRANSFORM",
+    "Predicate": "has_value",
+    "Object": "10"
+  },
+  {
+    "Subject": "TER_EXPONENTIAL_TRANSFORM",
+    "Predicate": "has_description",
+    "Object": "Exponential transform"
+  },
+  {
+    "Subject": "TER_N_DOWNSCATTERING",
+    "Predicate": "type",
+    "Object": "enum_value"
+  },
+  {
+    "Subject": "TER_N_DOWNSCATTERING",
+    "Predicate": "belongs_to_enum",
+    "Object": "PtracTerminationType"
+  },
+  {
+    "Subject": "TER_N_DOWNSCATTERING",
+    "Predicate": "has_value",
+    "Object": "11"
+  },
+  {
+    "Subject": "TER_N_DOWNSCATTERING",
+    "Predicate": "has_description",
+    "Object": "Neutron downscattering"
+  },
+  {
+    "Subject": "TER_N_CAPTURE",
+    "Predicate": "type",
+    "Object": "enum_value"
+  },
+  {
+    "Subject": "TER_N_CAPTURE",
+    "Predicate": "belongs_to_enum",
+    "Object": "PtracTerminationType"
+  },
+  {
+    "Subject": "TER_N_CAPTURE",
+    "Predicate": "has_value",
+    "Object": "12"
+  },
+  {
+    "Subject": "TER_N_CAPTURE",
+    "Predicate": "has_description",
+    "Object": "Neutron capture"
+  },
+  {
+    "Subject": "TER_N_N_XN",
+    "Predicate": "type",
+    "Object": "enum_value"
+  },
+  {
+    "Subject": "TER_N_N_XN",
+    "Predicate": "belongs_to_enum",
+    "Object": "PtracTerminationType"
+  },
+  {
+    "Subject": "TER_N_N_XN",
+    "Predicate": "has_value",
+    "Object": "13"
+  },
+  {
+    "Subject": "TER_N_N_XN",
+    "Predicate": "has_description",
+    "Object": "Loss to (n,xn)"
+  },
+  {
+    "Subject": "TER_N_FISSION",
+    "Predicate": "type",
+    "Object": "enum_value"
+  },
+  {
+    "Subject": "TER_N_FISSION",
+    "Predicate": "belongs_to_enum",
+    "Object": "PtracTerminationType"
+  },
+  {
+    "Subject": "TER_N_FISSION",
+    "Predicate": "has_value",
+    "Object": "14"
+  },
+  {
+    "Subject": "TER_N_FISSION",
+    "Predicate": "has_description",
+    "Object": "Loss to fission"
+  },
+  {
+    "Subject": "TER_N_NUCLEAR_INTERACTION",
+    "Predicate": "type",
+    "Object": "enum_value"
+  },
+  {
+    "Subject": "TER_N_NUCLEAR_INTERACTION",
+    "Predicate": "belongs_to_enum",
+    "Object": "PtracTerminationType"
+  },
+  {
+    "Subject": "TER_N_NUCLEAR_INTERACTION",
+    "Predicate": "has_value",
+    "Object": "15"
+  },
+  {
+    "Subject": "TER_N_NUCLEAR_INTERACTION",
+    "Predicate": "has_description",
+    "Object": "Nuclear interactions"
+  },
+  {
+    "Subject": "TER_N_PARTICLE_DECAY",
+    "Predicate": "type",
+    "Object": "enum_value"
+  },
+  {
+    "Subject": "TER_N_PARTICLE_DECAY",
+    "Predicate": "belongs_to_enum",
+    "Object": "PtracTerminationType"
+  },
+  {
+    "Subject": "TER_N_PARTICLE_DECAY",
+    "Predicate": "has_value",
+    "Object": "16"
+  },
+  {
+    "Subject": "TER_N_PARTICLE_DECAY",
+    "Predicate": "has_description",
+    "Object": "Neutron decay"
+  },
+  {
+    "Subject": "TER_N_TABULAR_BOUNDARY",
+    "Predicate": "type",
+    "Object": "enum_value"
+  },
+  {
+    "Subject": "TER_N_TABULAR_BOUNDARY",
+    "Predicate": "belongs_to_enum",
+    "Object": "PtracTerminationType"
+  },
+  {
+    "Subject": "TER_N_TABULAR_BOUNDARY",
+    "Predicate": "has_value",
+    "Object": "17"
+  },
+  {
+    "Subject": "TER_N_TABULAR_BOUNDARY",
+    "Predicate": "has_description",
+    "Object": "Tabular boundary (neutrons)"
+  },
+  {
+    "Subject": "TER_P_COMPTON_SCATTER",
+    "Predicate": "type",
+    "Object": "enum_value"
+  },
+  {
+    "Subject": "TER_P_COMPTON_SCATTER",
+    "Predicate": "belongs_to_enum",
+    "Object": "PtracTerminationType"
+  },
+  {
+    "Subject": "TER_P_COMPTON_SCATTER",
+    "Predicate": "has_value",
+    "Object": "11"
+  },
+  {
+    "Subject": "TER_P_COMPTON_SCATTER",
+    "Predicate": "has_description",
+    "Object": "Photon Compton scatter"
+  },
+  {
+    "Subject": "TER_P_CAPTURE",
+    "Predicate": "type",
+    "Object": "enum_value"
+  },
+  {
+    "Subject": "TER_P_CAPTURE",
+    "Predicate": "belongs_to_enum",
+    "Object": "PtracTerminationType"
+  },
+  {
+    "Subject": "TER_P_CAPTURE",
+    "Predicate": "has_value",
+    "Object": "12"
+  },
+  {
+    "Subject": "TER_P_CAPTURE",
+    "Predicate": "has_description",
+    "Object": "Photon capture"
+  },
+  {
+    "Subject": "TER_P_PAIR_PRODUCTION",
+    "Predicate": "type",
+    "Object": "enum_value"
+  },
+  {
+    "Subject": "TER_P_PAIR_PRODUCTION",
+    "Predicate": "belongs_to_enum",
+    "Object": "PtracTerminationType"
+  },
+  {
+    "Subject": "TER_P_PAIR_PRODUCTION",
+    "Predicate": "has_value",
+    "Object": "13"
+  },
+  {
+    "Subject": "TER_P_PAIR_PRODUCTION",
+    "Predicate": "has_description",
+    "Object": "Photon pair production"
+  },
+  {
+    "Subject": "TER_P_PHOTONUCLEAR",
+    "Predicate": "type",
+    "Object": "enum_value"
+  },
+  {
+    "Subject": "TER_P_PHOTONUCLEAR",
+    "Predicate": "belongs_to_enum",
+    "Object": "PtracTerminationType"
+  },
+  {
+    "Subject": "TER_P_PHOTONUCLEAR",
+    "Predicate": "has_value",
+    "Object": "14"
+  },
+  {
+    "Subject": "TER_P_PHOTONUCLEAR",
+    "Predicate": "has_description",
+    "Object": "Photonuclear reaction"
+  },
+  {
+    "Subject": "TER_E_SCATTER",
+    "Predicate": "type",
+    "Object": "enum_value"
+  },
+  {
+    "Subject": "TER_E_SCATTER",
+    "Predicate": "belongs_to_enum",
+    "Object": "PtracTerminationType"
+  },
+  {
+    "Subject": "TER_E_SCATTER",
+    "Predicate": "has_value",
+    "Object": "11"
+  },
+  {
+    "Subject": "TER_E_SCATTER",
+    "Predicate": "has_description",
+    "Object": "Electron scatter"
+  },
+  {
+    "Subject": "TER_E_BREMSSTRAHLUNG",
+    "Predicate": "type",
+    "Object": "enum_value"
+  },
+  {
+    "Subject": "TER_E_BREMSSTRAHLUNG",
+    "Predicate": "belongs_to_enum",
+    "Object": "PtracTerminationType"
+  },
+  {
+    "Subject": "TER_E_BREMSSTRAHLUNG",
+    "Predicate": "has_value",
+    "Object": "12"
+  },
+  {
+    "Subject": "TER_E_BREMSSTRAHLUNG",
+    "Predicate": "has_description",
+    "Object": "Bremsstrahlung (electron)"
+  },
+  {
+    "Subject": "TER_E_INTERACTION_DECAY",
+    "Predicate": "type",
+    "Object": "enum_value"
+  },
+  {
+    "Subject": "TER_E_INTERACTION_DECAY",
+    "Predicate": "belongs_to_enum",
+    "Object": "PtracTerminationType"
+  },
+  {
+    "Subject": "TER_E_INTERACTION_DECAY",
+    "Predicate": "has_value",
+    "Object": "13"
+  },
+  {
+    "Subject": "TER_E_INTERACTION_DECAY",
+    "Predicate": "has_description",
+    "Object": "Interaction or decay (electron)"
+  },
+  {
+    "Subject": "TER_GENNEUT_NUCLEAR_INTERACTION",
+    "Predicate": "type",
+    "Object": "enum_value"
+  },
+  {
+    "Subject": "TER_GENNEUT_NUCLEAR_INTERACTION",
+    "Predicate": "belongs_to_enum",
+    "Object": "PtracTerminationType"
+  },
+  {
+    "Subject": "TER_GENNEUT_NUCLEAR_INTERACTION",
+    "Predicate": "has_value",
+    "Object": "11"
+  },
+  {
+    "Subject": "TER_GENNEUT_NUCLEAR_INTERACTION",
+    "Predicate": "has_description",
+    "Object": "Neutral-particle nuclear interaction"
+  },
+  {
+    "Subject": "TER_GENNEUT_ELASTIC_SCATTER",
+    "Predicate": "type",
+    "Object": "enum_value"
+  },
+  {
+    "Subject": "TER_GENNEUT_ELASTIC_SCATTER",
+    "Predicate": "belongs_to_enum",
+    "Object": "PtracTerminationType"
+  },
+  {
+    "Subject": "TER_GENNEUT_ELASTIC_SCATTER",
+    "Predicate": "has_value",
+    "Object": "12"
+  },
+  {
+    "Subject": "TER_GENNEUT_ELASTIC_SCATTER",
+    "Predicate": "has_description",
+    "Object": "Neutral-particle elastic scatter"
+  },
+  {
+    "Subject": "TER_GENNEUT_DECAY",
+    "Predicate": "type",
+    "Object": "enum_value"
+  },
+  {
+    "Subject": "TER_GENNEUT_DECAY",
+    "Predicate": "belongs_to_enum",
+    "Object": "PtracTerminationType"
+  },
+  {
+    "Subject": "TER_GENNEUT_DECAY",
+    "Predicate": "has_value",
+    "Object": "13"
+  },
+  {
+    "Subject": "TER_GENNEUT_DECAY",
+    "Predicate": "has_description",
+    "Object": "Neutral-particle decay"
+  },
+  {
+    "Subject": "TER_GENCHAR_MULTIPLE_SCATTER",
+    "Predicate": "type",
+    "Object": "enum_value"
+  },
+  {
+    "Subject": "TER_GENCHAR_MULTIPLE_SCATTER",
+    "Predicate": "belongs_to_enum",
+    "Object": "PtracTerminationType"
+  },
+  {
+    "Subject": "TER_GENCHAR_MULTIPLE_SCATTER",
+    "Predicate": "has_value",
+    "Object": "11"
+  },
+  {
+    "Subject": "TER_GENCHAR_MULTIPLE_SCATTER",
+    "Predicate": "has_description",
+    "Object": "Charged-particle multiple scatter"
+  },
+  {
+    "Subject": "TER_GENCHAR_BREMSSTRAHLUNG",
+    "Predicate": "type",
+    "Object": "enum_value"
+  },
+  {
+    "Subject": "TER_GENCHAR_BREMSSTRAHLUNG",
+    "Predicate": "belongs_to_enum",
+    "Object": "PtracTerminationType"
+  },
+  {
+    "Subject": "TER_GENCHAR_BREMSSTRAHLUNG",
+    "Predicate": "has_value",
+    "Object": "12"
+  },
+  {
+    "Subject": "TER_GENCHAR_BREMSSTRAHLUNG",
+    "Predicate": "has_description",
+    "Object": "Charged-particle bremsstrahlung"
+  },
+  {
+    "Subject": "TER_GENCHAR_NUCLEAR_INTERACTION",
+    "Predicate": "type",
+    "Object": "enum_value"
+  },
+  {
+    "Subject": "TER_GENCHAR_NUCLEAR_INTERACTION",
+    "Predicate": "belongs_to_enum",
+    "Object": "PtracTerminationType"
+  },
+  {
+    "Subject": "TER_GENCHAR_NUCLEAR_INTERACTION",
+    "Predicate": "has_value",
+    "Object": "13"
+  },
+  {
+    "Subject": "TER_GENCHAR_NUCLEAR_INTERACTION",
+    "Predicate": "has_description",
+    "Object": "Charged-particle nuclear interaction"
+  },
+  {
+    "Subject": "TER_GENCHAR_ELASTIC_SCATTER",
+    "Predicate": "type",
+    "Object": "enum_value"
+  },
+  {
+    "Subject": "TER_GENCHAR_ELASTIC_SCATTER",
+    "Predicate": "belongs_to_enum",
+    "Object": "PtracTerminationType"
+  },
+  {
+    "Subject": "TER_GENCHAR_ELASTIC_SCATTER",
+    "Predicate": "has_value",
+    "Object": "14"
+  },
+  {
+    "Subject": "TER_GENCHAR_ELASTIC_SCATTER",
+    "Predicate": "has_description",
+    "Object": "Charged-particle elastic scatter"
+  },
+  {
+    "Subject": "TER_GENCHAR_DECAY",
+    "Predicate": "type",
+    "Object": "enum_value"
+  },
+  {
+    "Subject": "TER_GENCHAR_DECAY",
+    "Predicate": "belongs_to_enum",
+    "Object": "PtracTerminationType"
+  },
+  {
+    "Subject": "TER_GENCHAR_DECAY",
+    "Predicate": "has_value",
+    "Object": "15"
+  },
+  {
+    "Subject": "TER_GENCHAR_DECAY",
+    "Predicate": "has_description",
+    "Object": "Charged-particle decay"
+  },
+  {
+    "Subject": "TER_GENCHAR_CAPTURE",
+    "Predicate": "type",
+    "Object": "enum_value"
+  },
+  {
+    "Subject": "TER_GENCHAR_CAPTURE",
+    "Predicate": "belongs_to_enum",
+    "Object": "PtracTerminationType"
+  },
+  {
+    "Subject": "TER_GENCHAR_CAPTURE",
+    "Predicate": "has_value",
+    "Object": "16"
+  },
+  {
+    "Subject": "TER_GENCHAR_CAPTURE",
+    "Predicate": "has_description",
+    "Object": "Charged-particle capture"
+  },
+  {
+    "Subject": "TER_GENCHAR_TABULAR_SAMPLING",
+    "Predicate": "type",
+    "Object": "enum_value"
+  },
+  {
+    "Subject": "TER_GENCHAR_TABULAR_SAMPLING",
+    "Predicate": "belongs_to_enum",
+    "Object": "PtracTerminationType"
+  },
+  {
+    "Subject": "TER_GENCHAR_TABULAR_SAMPLING",
+    "Predicate": "has_value",
+    "Object": "17"
+  },
+  {
+    "Subject": "TER_GENCHAR_TABULAR_SAMPLING",
+    "Predicate": "has_description",
+    "Object": "Charged-particle tabular sampling"
+  }
+]

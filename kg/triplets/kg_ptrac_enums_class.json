@@ -1,0 +1,32 @@
+[
+  {
+    "Subject": "PtracEnums",
+    "Predicate": "type",
+    "Object": "class"
+  },
+  {
+    "Subject": "PtracEnums",
+    "Predicate": "has_enum",
+    "Object": "PtracFormat"
+  },
+  {
+    "Subject": "PtracEnums",
+    "Predicate": "has_enum",
+    "Object": "PtracEventType"
+  },
+  {
+    "Subject": "PtracEnums",
+    "Predicate": "has_enum",
+    "Object": "PtracBankType"
+  },
+  {
+    "Subject": "PtracEnums",
+    "Predicate": "has_enum",
+    "Object": "PtracTerminationType"
+  },
+  {
+    "Subject": "PtracEnums",
+    "Predicate": "has_enum",
+    "Object": "PtracDataType"
+  }
+]

@@ -1,0 +1,39 @@
+[
+  { "Subject": "PtracEvent", "Predicate": "type", "Object": "class" },
+
+  { "Subject": "Type()", "Predicate": "type", "Object": "method" },
+  { "Subject": "Type()", "Predicate": "is_method_of", "Object": "PtracEvent" },
+  { "Subject": "Type()", "Predicate": "returns", "Object": "int" },
+  { "Subject": "Type()", "Predicate": "has_description", "Object": "Returns the event type: one of Ptrac::SRC, BNK, COL, SUR, TER" },
+
+  { "Subject": "BankType()", "Predicate": "type", "Object": "method" },
+  { "Subject": "BankType()", "Predicate": "is_method_of", "Object": "PtracEvent" },
+  { "Subject": "BankType()", "Predicate": "returns", "Object": "int" },
+  { "Subject": "BankType()", "Predicate": "has_description", "Object": "Returns the bank type either from internal attribute or from the data map" },
+
+  { "Subject": "Has(DATA)", "Predicate": "type", "Object": "method" },
+  { "Subject": "Has(DATA)", "Predicate": "is_method_of", "Object": "PtracEvent" },
+  { "Subject": "Has(DATA)", "Predicate": "returns", "Object": "bool" },
+  { "Subject": "Has(DATA)", "Predicate": "has_argument_type", "Object": "int" },
+  { "Subject": "Has(DATA)", "Predicate": "accesses", "Object": "PtracDataType" },
+  { "Subject": "Has(DATA)", "Predicate": "has_description", "Object": "Returns true if the given data type is present in the event" },
+
+  { "Subject": "Get(DATA)", "Predicate": "type", "Object": "method" },
+  { "Subject": "Get(DATA)", "Predicate": "is_method_of", "Object": "PtracEvent" },
+  { "Subject": "Get(DATA)", "Predicate": "returns", "Object": "double" },
+  { "Subject": "Get(DATA)", "Predicate": "has_argument_type", "Object": "int" },
+  { "Subject": "Get(DATA)", "Predicate": "accesses", "Object": "PtracDataType" },
+  { "Subject": "Get(DATA)", "Predicate": "has_description", "Object": "Returns the value of the given data type" },
+
+  { "Subject": "PtracEvent::m_type", "Predicate": "type", "Object": "attribute" },
+  { "Subject": "PtracEvent::m_type", "Predicate": "is_attribute_of", "Object": "PtracEvent" },
+  { "Subject": "PtracEvent::m_type", "Predicate": "stores", "Object": "PtracEventType" },
+
+  { "Subject": "PtracEvent::m_data", "Predicate": "type", "Object": "attribute" },
+  { "Subject": "PtracEvent::m_data", "Predicate": "is_attribute_of", "Object": "PtracEvent" },
+  { "Subject": "PtracEvent::m_data", "Predicate": "stores", "Object": "map<int, double>" },
+
+  { "Subject": "PtracEvent::m_bnktype", "Predicate": "type", "Object": "attribute" },
+  { "Subject": "PtracEvent::m_bnktype", "Predicate": "is_attribute_of", "Object": "PtracEvent" },
+  { "Subject": "PtracEvent::m_bnktype", "Predicate": "stores", "Object": "PtracBankType" }
+]

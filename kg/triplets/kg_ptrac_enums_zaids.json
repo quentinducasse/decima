@@ -1,0 +1,2537 @@
+[
+  {
+    "Subject": "PtracZAIDDict",
+    "Predicate": "type",
+    "Object": "dictionary"
+  },
+  {
+    "Subject": "ZAID",
+    "Predicate": "uses_dictionary",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_100Mo",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_100Mo",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_100Mo",
+    "Predicate": "has_value",
+    "Object": "42100"
+  },
+  {
+    "Subject": "NUCLIDE_100Mo",
+    "Predicate": "has_description",
+    "Object": "Mo-100 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_100Mo",
+    "Predicate": "has_symbol",
+    "Object": "Mo"
+  },
+  {
+    "Subject": "NUCLIDE_10B",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_10B",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_10B",
+    "Predicate": "has_value",
+    "Object": "5010"
+  },
+  {
+    "Subject": "NUCLIDE_10B",
+    "Predicate": "has_description",
+    "Object": "B-10 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_10B",
+    "Predicate": "has_symbol",
+    "Object": "B"
+  },
+  {
+    "Subject": "NUCLIDE_112Sn",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_112Sn",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_112Sn",
+    "Predicate": "has_value",
+    "Object": "50112"
+  },
+  {
+    "Subject": "NUCLIDE_112Sn",
+    "Predicate": "has_description",
+    "Object": "Sn-112 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_112Sn",
+    "Predicate": "has_symbol",
+    "Object": "Sn"
+  },
+  {
+    "Subject": "NUCLIDE_114Sn",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_114Sn",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_114Sn",
+    "Predicate": "has_value",
+    "Object": "50114"
+  },
+  {
+    "Subject": "NUCLIDE_114Sn",
+    "Predicate": "has_description",
+    "Object": "Sn-114 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_114Sn",
+    "Predicate": "has_symbol",
+    "Object": "Sn"
+  },
+  {
+    "Subject": "NUCLIDE_115Sn",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_115Sn",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_115Sn",
+    "Predicate": "has_value",
+    "Object": "50115"
+  },
+  {
+    "Subject": "NUCLIDE_115Sn",
+    "Predicate": "has_description",
+    "Object": "Sn-115 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_115Sn",
+    "Predicate": "has_symbol",
+    "Object": "Sn"
+  },
+  {
+    "Subject": "NUCLIDE_116Sn",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_116Sn",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_116Sn",
+    "Predicate": "has_value",
+    "Object": "50116"
+  },
+  {
+    "Subject": "NUCLIDE_116Sn",
+    "Predicate": "has_description",
+    "Object": "Sn-116 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_116Sn",
+    "Predicate": "has_symbol",
+    "Object": "Sn"
+  },
+  {
+    "Subject": "NUCLIDE_117Sn",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_117Sn",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_117Sn",
+    "Predicate": "has_value",
+    "Object": "50117"
+  },
+  {
+    "Subject": "NUCLIDE_117Sn",
+    "Predicate": "has_description",
+    "Object": "Sn-117 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_117Sn",
+    "Predicate": "has_symbol",
+    "Object": "Sn"
+  },
+  {
+    "Subject": "NUCLIDE_118Sn",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_118Sn",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_118Sn",
+    "Predicate": "has_value",
+    "Object": "50118"
+  },
+  {
+    "Subject": "NUCLIDE_118Sn",
+    "Predicate": "has_description",
+    "Object": "Sn-118 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_118Sn",
+    "Predicate": "has_symbol",
+    "Object": "Sn"
+  },
+  {
+    "Subject": "NUCLIDE_119Sn",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_119Sn",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_119Sn",
+    "Predicate": "has_value",
+    "Object": "50119"
+  },
+  {
+    "Subject": "NUCLIDE_119Sn",
+    "Predicate": "has_description",
+    "Object": "Sn-119 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_119Sn",
+    "Predicate": "has_symbol",
+    "Object": "Sn"
+  },
+  {
+    "Subject": "NUCLIDE_11B",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_11B",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_11B",
+    "Predicate": "has_value",
+    "Object": "5011"
+  },
+  {
+    "Subject": "NUCLIDE_11B",
+    "Predicate": "has_description",
+    "Object": "B-11 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_11B",
+    "Predicate": "has_symbol",
+    "Object": "B"
+  },
+  {
+    "Subject": "NUCLIDE_120Sn",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_120Sn",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_120Sn",
+    "Predicate": "has_value",
+    "Object": "50120"
+  },
+  {
+    "Subject": "NUCLIDE_120Sn",
+    "Predicate": "has_description",
+    "Object": "Sn-120 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_120Sn",
+    "Predicate": "has_symbol",
+    "Object": "Sn"
+  },
+  {
+    "Subject": "NUCLIDE_122Sn",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_122Sn",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_122Sn",
+    "Predicate": "has_value",
+    "Object": "50122"
+  },
+  {
+    "Subject": "NUCLIDE_122Sn",
+    "Predicate": "has_description",
+    "Object": "Sn-122 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_122Sn",
+    "Predicate": "has_symbol",
+    "Object": "Sn"
+  },
+  {
+    "Subject": "NUCLIDE_124Sn",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_124Sn",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_124Sn",
+    "Predicate": "has_value",
+    "Object": "50124"
+  },
+  {
+    "Subject": "NUCLIDE_124Sn",
+    "Predicate": "has_description",
+    "Object": "Sn-124 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_124Sn",
+    "Predicate": "has_symbol",
+    "Object": "Sn"
+  },
+  {
+    "Subject": "NUCLIDE_124Xe",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_124Xe",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_124Xe",
+    "Predicate": "has_value",
+    "Object": "54124"
+  },
+  {
+    "Subject": "NUCLIDE_124Xe",
+    "Predicate": "has_description",
+    "Object": "Xe-124 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_124Xe",
+    "Predicate": "has_symbol",
+    "Object": "Xe"
+  },
+  {
+    "Subject": "NUCLIDE_126Xe",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_126Xe",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_126Xe",
+    "Predicate": "has_value",
+    "Object": "54126"
+  },
+  {
+    "Subject": "NUCLIDE_126Xe",
+    "Predicate": "has_description",
+    "Object": "Xe-126 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_126Xe",
+    "Predicate": "has_symbol",
+    "Object": "Xe"
+  },
+  {
+    "Subject": "NUCLIDE_128Xe",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_128Xe",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_128Xe",
+    "Predicate": "has_value",
+    "Object": "54128"
+  },
+  {
+    "Subject": "NUCLIDE_128Xe",
+    "Predicate": "has_description",
+    "Object": "Xe-128 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_128Xe",
+    "Predicate": "has_symbol",
+    "Object": "Xe"
+  },
+  {
+    "Subject": "NUCLIDE_129Xe",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_129Xe",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_129Xe",
+    "Predicate": "has_value",
+    "Object": "54129"
+  },
+  {
+    "Subject": "NUCLIDE_129Xe",
+    "Predicate": "has_description",
+    "Object": "Xe-129 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_129Xe",
+    "Predicate": "has_symbol",
+    "Object": "Xe"
+  },
+  {
+    "Subject": "NUCLIDE_12C",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_12C",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_12C",
+    "Predicate": "has_value",
+    "Object": "6012"
+  },
+  {
+    "Subject": "NUCLIDE_12C",
+    "Predicate": "has_description",
+    "Object": "C-12 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_12C",
+    "Predicate": "has_symbol",
+    "Object": "C"
+  },
+  {
+    "Subject": "NUCLIDE_130Xe",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_130Xe",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_130Xe",
+    "Predicate": "has_value",
+    "Object": "54130"
+  },
+  {
+    "Subject": "NUCLIDE_130Xe",
+    "Predicate": "has_description",
+    "Object": "Xe-130 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_130Xe",
+    "Predicate": "has_symbol",
+    "Object": "Xe"
+  },
+  {
+    "Subject": "NUCLIDE_131Xe",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_131Xe",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_131Xe",
+    "Predicate": "has_value",
+    "Object": "54131"
+  },
+  {
+    "Subject": "NUCLIDE_131Xe",
+    "Predicate": "has_description",
+    "Object": "Xe-131 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_131Xe",
+    "Predicate": "has_symbol",
+    "Object": "Xe"
+  },
+  {
+    "Subject": "NUCLIDE_132Xe",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_132Xe",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_132Xe",
+    "Predicate": "has_value",
+    "Object": "54132"
+  },
+  {
+    "Subject": "NUCLIDE_132Xe",
+    "Predicate": "has_description",
+    "Object": "Xe-132 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_132Xe",
+    "Predicate": "has_symbol",
+    "Object": "Xe"
+  },
+  {
+    "Subject": "NUCLIDE_134Xe",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_134Xe",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_134Xe",
+    "Predicate": "has_value",
+    "Object": "54134"
+  },
+  {
+    "Subject": "NUCLIDE_134Xe",
+    "Predicate": "has_description",
+    "Object": "Xe-134 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_134Xe",
+    "Predicate": "has_symbol",
+    "Object": "Xe"
+  },
+  {
+    "Subject": "NUCLIDE_136Xe",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_136Xe",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_136Xe",
+    "Predicate": "has_value",
+    "Object": "54136"
+  },
+  {
+    "Subject": "NUCLIDE_136Xe",
+    "Predicate": "has_description",
+    "Object": "Xe-136 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_136Xe",
+    "Predicate": "has_symbol",
+    "Object": "Xe"
+  },
+  {
+    "Subject": "NUCLIDE_13C",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_13C",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_13C",
+    "Predicate": "has_value",
+    "Object": "6013"
+  },
+  {
+    "Subject": "NUCLIDE_13C",
+    "Predicate": "has_description",
+    "Object": "C-13 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_13C",
+    "Predicate": "has_symbol",
+    "Object": "C"
+  },
+  {
+    "Subject": "NUCLIDE_14N",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_14N",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_14N",
+    "Predicate": "has_value",
+    "Object": "7014"
+  },
+  {
+    "Subject": "NUCLIDE_14N",
+    "Predicate": "has_description",
+    "Object": "N-14 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_14N",
+    "Predicate": "has_symbol",
+    "Object": "N"
+  },
+  {
+    "Subject": "NUCLIDE_15N",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_15N",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_15N",
+    "Predicate": "has_value",
+    "Object": "7015"
+  },
+  {
+    "Subject": "NUCLIDE_15N",
+    "Predicate": "has_description",
+    "Object": "N-15 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_15N",
+    "Predicate": "has_symbol",
+    "Object": "N"
+  },
+  {
+    "Subject": "NUCLIDE_16O",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_16O",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_16O",
+    "Predicate": "has_value",
+    "Object": "8016"
+  },
+  {
+    "Subject": "NUCLIDE_16O",
+    "Predicate": "has_description",
+    "Object": "O-16 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_16O",
+    "Predicate": "has_symbol",
+    "Object": "O"
+  },
+  {
+    "Subject": "NUCLIDE_17O",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_17O",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_17O",
+    "Predicate": "has_value",
+    "Object": "8017"
+  },
+  {
+    "Subject": "NUCLIDE_17O",
+    "Predicate": "has_description",
+    "Object": "O-17 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_17O",
+    "Predicate": "has_symbol",
+    "Object": "O"
+  },
+  {
+    "Subject": "NUCLIDE_18O",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_18O",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_18O",
+    "Predicate": "has_value",
+    "Object": "8018"
+  },
+  {
+    "Subject": "NUCLIDE_18O",
+    "Predicate": "has_description",
+    "Object": "O-18 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_18O",
+    "Predicate": "has_symbol",
+    "Object": "O"
+  },
+  {
+    "Subject": "NUCLIDE_19F",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_19F",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_19F",
+    "Predicate": "has_value",
+    "Object": "9019"
+  },
+  {
+    "Subject": "NUCLIDE_19F",
+    "Predicate": "has_description",
+    "Object": "F-19 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_19F",
+    "Predicate": "has_symbol",
+    "Object": "F"
+  },
+  {
+    "Subject": "NUCLIDE_1H",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_1H",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_1H",
+    "Predicate": "has_value",
+    "Object": "1001"
+  },
+  {
+    "Subject": "NUCLIDE_1H",
+    "Predicate": "has_description",
+    "Object": "H-1 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_1H",
+    "Predicate": "has_symbol",
+    "Object": "H"
+  },
+  {
+    "Subject": "NUCLIDE_204Pb",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_204Pb",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_204Pb",
+    "Predicate": "has_value",
+    "Object": "82204"
+  },
+  {
+    "Subject": "NUCLIDE_204Pb",
+    "Predicate": "has_description",
+    "Object": "Pb-204 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_204Pb",
+    "Predicate": "has_symbol",
+    "Object": "Pb"
+  },
+  {
+    "Subject": "NUCLIDE_206Pb",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_206Pb",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_206Pb",
+    "Predicate": "has_value",
+    "Object": "82206"
+  },
+  {
+    "Subject": "NUCLIDE_206Pb",
+    "Predicate": "has_description",
+    "Object": "Pb-206 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_206Pb",
+    "Predicate": "has_symbol",
+    "Object": "Pb"
+  },
+  {
+    "Subject": "NUCLIDE_207Pb",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_207Pb",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_207Pb",
+    "Predicate": "has_value",
+    "Object": "82207"
+  },
+  {
+    "Subject": "NUCLIDE_207Pb",
+    "Predicate": "has_description",
+    "Object": "Pb-207 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_207Pb",
+    "Predicate": "has_symbol",
+    "Object": "Pb"
+  },
+  {
+    "Subject": "NUCLIDE_208Pb",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_208Pb",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_208Pb",
+    "Predicate": "has_value",
+    "Object": "82208"
+  },
+  {
+    "Subject": "NUCLIDE_208Pb",
+    "Predicate": "has_description",
+    "Object": "Pb-208 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_208Pb",
+    "Predicate": "has_symbol",
+    "Object": "Pb"
+  },
+  {
+    "Subject": "NUCLIDE_20Ne",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_20Ne",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_20Ne",
+    "Predicate": "has_value",
+    "Object": "10020"
+  },
+  {
+    "Subject": "NUCLIDE_20Ne",
+    "Predicate": "has_description",
+    "Object": "Ne-20 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_20Ne",
+    "Predicate": "has_symbol",
+    "Object": "Ne"
+  },
+  {
+    "Subject": "NUCLIDE_21Ne",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_21Ne",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_21Ne",
+    "Predicate": "has_value",
+    "Object": "10021"
+  },
+  {
+    "Subject": "NUCLIDE_21Ne",
+    "Predicate": "has_description",
+    "Object": "Ne-21 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_21Ne",
+    "Predicate": "has_symbol",
+    "Object": "Ne"
+  },
+  {
+    "Subject": "NUCLIDE_22Ne",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_22Ne",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_22Ne",
+    "Predicate": "has_value",
+    "Object": "10022"
+  },
+  {
+    "Subject": "NUCLIDE_22Ne",
+    "Predicate": "has_description",
+    "Object": "Ne-22 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_22Ne",
+    "Predicate": "has_symbol",
+    "Object": "Ne"
+  },
+  {
+    "Subject": "NUCLIDE_232Th",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_232Th",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_232Th",
+    "Predicate": "has_value",
+    "Object": "90232"
+  },
+  {
+    "Subject": "NUCLIDE_232Th",
+    "Predicate": "has_description",
+    "Object": "Th-232 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_232Th",
+    "Predicate": "has_symbol",
+    "Object": "Th"
+  },
+  {
+    "Subject": "NUCLIDE_233U",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_233U",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_233U",
+    "Predicate": "has_value",
+    "Object": "92233"
+  },
+  {
+    "Subject": "NUCLIDE_233U",
+    "Predicate": "has_description",
+    "Object": "U-233 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_233U",
+    "Predicate": "has_symbol",
+    "Object": "U"
+  },
+  {
+    "Subject": "NUCLIDE_234U",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_234U",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_234U",
+    "Predicate": "has_value",
+    "Object": "92234"
+  },
+  {
+    "Subject": "NUCLIDE_234U",
+    "Predicate": "has_description",
+    "Object": "U-234 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_234U",
+    "Predicate": "has_symbol",
+    "Object": "U"
+  },
+  {
+    "Subject": "NUCLIDE_235U",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_235U",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_235U",
+    "Predicate": "has_value",
+    "Object": "92235"
+  },
+  {
+    "Subject": "NUCLIDE_235U",
+    "Predicate": "has_description",
+    "Object": "U-235 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_235U",
+    "Predicate": "has_symbol",
+    "Object": "U"
+  },
+  {
+    "Subject": "NUCLIDE_236U",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_236U",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_236U",
+    "Predicate": "has_value",
+    "Object": "92236"
+  },
+  {
+    "Subject": "NUCLIDE_236U",
+    "Predicate": "has_description",
+    "Object": "U-236 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_236U",
+    "Predicate": "has_symbol",
+    "Object": "U"
+  },
+  {
+    "Subject": "NUCLIDE_238U",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_238U",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_238U",
+    "Predicate": "has_value",
+    "Object": "92238"
+  },
+  {
+    "Subject": "NUCLIDE_238U",
+    "Predicate": "has_description",
+    "Object": "U-238 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_238U",
+    "Predicate": "has_symbol",
+    "Object": "U"
+  },
+  {
+    "Subject": "NUCLIDE_23Na",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_23Na",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_23Na",
+    "Predicate": "has_value",
+    "Object": "11023"
+  },
+  {
+    "Subject": "NUCLIDE_23Na",
+    "Predicate": "has_description",
+    "Object": "Na-23 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_23Na",
+    "Predicate": "has_symbol",
+    "Object": "Na"
+  },
+  {
+    "Subject": "NUCLIDE_24Mg",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_24Mg",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_24Mg",
+    "Predicate": "has_value",
+    "Object": "12024"
+  },
+  {
+    "Subject": "NUCLIDE_24Mg",
+    "Predicate": "has_description",
+    "Object": "Mg-24 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_24Mg",
+    "Predicate": "has_symbol",
+    "Object": "Mg"
+  },
+  {
+    "Subject": "NUCLIDE_25Mg",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_25Mg",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_25Mg",
+    "Predicate": "has_value",
+    "Object": "12025"
+  },
+  {
+    "Subject": "NUCLIDE_25Mg",
+    "Predicate": "has_description",
+    "Object": "Mg-25 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_25Mg",
+    "Predicate": "has_symbol",
+    "Object": "Mg"
+  },
+  {
+    "Subject": "NUCLIDE_26Mg",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_26Mg",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_26Mg",
+    "Predicate": "has_value",
+    "Object": "12026"
+  },
+  {
+    "Subject": "NUCLIDE_26Mg",
+    "Predicate": "has_description",
+    "Object": "Mg-26 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_26Mg",
+    "Predicate": "has_symbol",
+    "Object": "Mg"
+  },
+  {
+    "Subject": "NUCLIDE_27Al",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_27Al",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_27Al",
+    "Predicate": "has_value",
+    "Object": "13027"
+  },
+  {
+    "Subject": "NUCLIDE_27Al",
+    "Predicate": "has_description",
+    "Object": "Al-27 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_27Al",
+    "Predicate": "has_symbol",
+    "Object": "Al"
+  },
+  {
+    "Subject": "NUCLIDE_28Si",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_28Si",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_28Si",
+    "Predicate": "has_value",
+    "Object": "14028"
+  },
+  {
+    "Subject": "NUCLIDE_28Si",
+    "Predicate": "has_description",
+    "Object": "Si-28 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_28Si",
+    "Predicate": "has_symbol",
+    "Object": "Si"
+  },
+  {
+    "Subject": "NUCLIDE_29Si",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_29Si",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_29Si",
+    "Predicate": "has_value",
+    "Object": "14029"
+  },
+  {
+    "Subject": "NUCLIDE_29Si",
+    "Predicate": "has_description",
+    "Object": "Si-29 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_29Si",
+    "Predicate": "has_symbol",
+    "Object": "Si"
+  },
+  {
+    "Subject": "NUCLIDE_2H",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_2H",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_2H",
+    "Predicate": "has_value",
+    "Object": "1002"
+  },
+  {
+    "Subject": "NUCLIDE_2H",
+    "Predicate": "has_description",
+    "Object": "H-2 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_2H",
+    "Predicate": "has_symbol",
+    "Object": "H"
+  },
+  {
+    "Subject": "NUCLIDE_30Si",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_30Si",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_30Si",
+    "Predicate": "has_value",
+    "Object": "14030"
+  },
+  {
+    "Subject": "NUCLIDE_30Si",
+    "Predicate": "has_description",
+    "Object": "Si-30 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_30Si",
+    "Predicate": "has_symbol",
+    "Object": "Si"
+  },
+  {
+    "Subject": "NUCLIDE_31P",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_31P",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_31P",
+    "Predicate": "has_value",
+    "Object": "15031"
+  },
+  {
+    "Subject": "NUCLIDE_31P",
+    "Predicate": "has_description",
+    "Object": "P-31 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_31P",
+    "Predicate": "has_symbol",
+    "Object": "P"
+  },
+  {
+    "Subject": "NUCLIDE_32S",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_32S",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_32S",
+    "Predicate": "has_value",
+    "Object": "16032"
+  },
+  {
+    "Subject": "NUCLIDE_32S",
+    "Predicate": "has_description",
+    "Object": "S-32 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_32S",
+    "Predicate": "has_symbol",
+    "Object": "S"
+  },
+  {
+    "Subject": "NUCLIDE_33S",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_33S",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_33S",
+    "Predicate": "has_value",
+    "Object": "16033"
+  },
+  {
+    "Subject": "NUCLIDE_33S",
+    "Predicate": "has_description",
+    "Object": "S-33 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_33S",
+    "Predicate": "has_symbol",
+    "Object": "S"
+  },
+  {
+    "Subject": "NUCLIDE_34S",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_34S",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_34S",
+    "Predicate": "has_value",
+    "Object": "16034"
+  },
+  {
+    "Subject": "NUCLIDE_34S",
+    "Predicate": "has_description",
+    "Object": "S-34 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_34S",
+    "Predicate": "has_symbol",
+    "Object": "S"
+  },
+  {
+    "Subject": "NUCLIDE_35Cl",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_35Cl",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_35Cl",
+    "Predicate": "has_value",
+    "Object": "17035"
+  },
+  {
+    "Subject": "NUCLIDE_35Cl",
+    "Predicate": "has_description",
+    "Object": "Cl-35 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_35Cl",
+    "Predicate": "has_symbol",
+    "Object": "Cl"
+  },
+  {
+    "Subject": "NUCLIDE_36Ar",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_36Ar",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_36Ar",
+    "Predicate": "has_value",
+    "Object": "18036"
+  },
+  {
+    "Subject": "NUCLIDE_36Ar",
+    "Predicate": "has_description",
+    "Object": "Ar-36 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_36Ar",
+    "Predicate": "has_symbol",
+    "Object": "Ar"
+  },
+  {
+    "Subject": "NUCLIDE_36S",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_36S",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_36S",
+    "Predicate": "has_value",
+    "Object": "16036"
+  },
+  {
+    "Subject": "NUCLIDE_36S",
+    "Predicate": "has_description",
+    "Object": "S-36 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_36S",
+    "Predicate": "has_symbol",
+    "Object": "S"
+  },
+  {
+    "Subject": "NUCLIDE_37Cl",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_37Cl",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_37Cl",
+    "Predicate": "has_value",
+    "Object": "17037"
+  },
+  {
+    "Subject": "NUCLIDE_37Cl",
+    "Predicate": "has_description",
+    "Object": "Cl-37 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_37Cl",
+    "Predicate": "has_symbol",
+    "Object": "Cl"
+  },
+  {
+    "Subject": "NUCLIDE_38Ar",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_38Ar",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_38Ar",
+    "Predicate": "has_value",
+    "Object": "18038"
+  },
+  {
+    "Subject": "NUCLIDE_38Ar",
+    "Predicate": "has_description",
+    "Object": "Ar-38 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_38Ar",
+    "Predicate": "has_symbol",
+    "Object": "Ar"
+  },
+  {
+    "Subject": "NUCLIDE_39K",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_39K",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_39K",
+    "Predicate": "has_value",
+    "Object": "19039"
+  },
+  {
+    "Subject": "NUCLIDE_39K",
+    "Predicate": "has_description",
+    "Object": "K-39 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_39K",
+    "Predicate": "has_symbol",
+    "Object": "K"
+  },
+  {
+    "Subject": "NUCLIDE_3He",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_3He",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_3He",
+    "Predicate": "has_value",
+    "Object": "2003"
+  },
+  {
+    "Subject": "NUCLIDE_3He",
+    "Predicate": "has_description",
+    "Object": "He-3 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_3He",
+    "Predicate": "has_symbol",
+    "Object": "He"
+  },
+  {
+    "Subject": "NUCLIDE_40Ar",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_40Ar",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_40Ar",
+    "Predicate": "has_value",
+    "Object": "18040"
+  },
+  {
+    "Subject": "NUCLIDE_40Ar",
+    "Predicate": "has_description",
+    "Object": "Ar-40 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_40Ar",
+    "Predicate": "has_symbol",
+    "Object": "Ar"
+  },
+  {
+    "Subject": "NUCLIDE_40Ca",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_40Ca",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_40Ca",
+    "Predicate": "has_value",
+    "Object": "20040"
+  },
+  {
+    "Subject": "NUCLIDE_40Ca",
+    "Predicate": "has_description",
+    "Object": "Ca-40 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_40Ca",
+    "Predicate": "has_symbol",
+    "Object": "Ca"
+  },
+  {
+    "Subject": "NUCLIDE_40K",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_40K",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_40K",
+    "Predicate": "has_value",
+    "Object": "19040"
+  },
+  {
+    "Subject": "NUCLIDE_40K",
+    "Predicate": "has_description",
+    "Object": "K-40 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_40K",
+    "Predicate": "has_symbol",
+    "Object": "K"
+  },
+  {
+    "Subject": "NUCLIDE_41K",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_41K",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_41K",
+    "Predicate": "has_value",
+    "Object": "19041"
+  },
+  {
+    "Subject": "NUCLIDE_41K",
+    "Predicate": "has_description",
+    "Object": "K-41 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_41K",
+    "Predicate": "has_symbol",
+    "Object": "K"
+  },
+  {
+    "Subject": "NUCLIDE_42Ca",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_42Ca",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_42Ca",
+    "Predicate": "has_value",
+    "Object": "20042"
+  },
+  {
+    "Subject": "NUCLIDE_42Ca",
+    "Predicate": "has_description",
+    "Object": "Ca-42 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_42Ca",
+    "Predicate": "has_symbol",
+    "Object": "Ca"
+  },
+  {
+    "Subject": "NUCLIDE_43Ca",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_43Ca",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_43Ca",
+    "Predicate": "has_value",
+    "Object": "20043"
+  },
+  {
+    "Subject": "NUCLIDE_43Ca",
+    "Predicate": "has_description",
+    "Object": "Ca-43 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_43Ca",
+    "Predicate": "has_symbol",
+    "Object": "Ca"
+  },
+  {
+    "Subject": "NUCLIDE_44Ca",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_44Ca",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_44Ca",
+    "Predicate": "has_value",
+    "Object": "20044"
+  },
+  {
+    "Subject": "NUCLIDE_44Ca",
+    "Predicate": "has_description",
+    "Object": "Ca-44 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_44Ca",
+    "Predicate": "has_symbol",
+    "Object": "Ca"
+  },
+  {
+    "Subject": "NUCLIDE_46Ca",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_46Ca",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_46Ca",
+    "Predicate": "has_value",
+    "Object": "20046"
+  },
+  {
+    "Subject": "NUCLIDE_46Ca",
+    "Predicate": "has_description",
+    "Object": "Ca-46 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_46Ca",
+    "Predicate": "has_symbol",
+    "Object": "Ca"
+  },
+  {
+    "Subject": "NUCLIDE_48Ca",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_48Ca",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_48Ca",
+    "Predicate": "has_value",
+    "Object": "20048"
+  },
+  {
+    "Subject": "NUCLIDE_48Ca",
+    "Predicate": "has_description",
+    "Object": "Ca-48 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_48Ca",
+    "Predicate": "has_symbol",
+    "Object": "Ca"
+  },
+  {
+    "Subject": "NUCLIDE_4He",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_4He",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_4He",
+    "Predicate": "has_value",
+    "Object": "2004"
+  },
+  {
+    "Subject": "NUCLIDE_4He",
+    "Predicate": "has_description",
+    "Object": "He-4 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_4He",
+    "Predicate": "has_symbol",
+    "Object": "He"
+  },
+  {
+    "Subject": "NUCLIDE_54Fe",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_54Fe",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_54Fe",
+    "Predicate": "has_value",
+    "Object": "26054"
+  },
+  {
+    "Subject": "NUCLIDE_54Fe",
+    "Predicate": "has_description",
+    "Object": "Fe-54 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_54Fe",
+    "Predicate": "has_symbol",
+    "Object": "Fe"
+  },
+  {
+    "Subject": "NUCLIDE_56Fe",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_56Fe",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_56Fe",
+    "Predicate": "has_value",
+    "Object": "26056"
+  },
+  {
+    "Subject": "NUCLIDE_56Fe",
+    "Predicate": "has_description",
+    "Object": "Fe-56 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_56Fe",
+    "Predicate": "has_symbol",
+    "Object": "Fe"
+  },
+  {
+    "Subject": "NUCLIDE_57Fe",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_57Fe",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_57Fe",
+    "Predicate": "has_value",
+    "Object": "26057"
+  },
+  {
+    "Subject": "NUCLIDE_57Fe",
+    "Predicate": "has_description",
+    "Object": "Fe-57 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_57Fe",
+    "Predicate": "has_symbol",
+    "Object": "Fe"
+  },
+  {
+    "Subject": "NUCLIDE_58Fe",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_58Fe",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_58Fe",
+    "Predicate": "has_value",
+    "Object": "26058"
+  },
+  {
+    "Subject": "NUCLIDE_58Fe",
+    "Predicate": "has_description",
+    "Object": "Fe-58 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_58Fe",
+    "Predicate": "has_symbol",
+    "Object": "Fe"
+  },
+  {
+    "Subject": "NUCLIDE_58Ni",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_58Ni",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_58Ni",
+    "Predicate": "has_value",
+    "Object": "28058"
+  },
+  {
+    "Subject": "NUCLIDE_58Ni",
+    "Predicate": "has_description",
+    "Object": "Ni-58 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_58Ni",
+    "Predicate": "has_symbol",
+    "Object": "Ni"
+  },
+  {
+    "Subject": "NUCLIDE_60Ni",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_60Ni",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_60Ni",
+    "Predicate": "has_value",
+    "Object": "28060"
+  },
+  {
+    "Subject": "NUCLIDE_60Ni",
+    "Predicate": "has_description",
+    "Object": "Ni-60 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_60Ni",
+    "Predicate": "has_symbol",
+    "Object": "Ni"
+  },
+  {
+    "Subject": "NUCLIDE_61Ni",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_61Ni",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_61Ni",
+    "Predicate": "has_value",
+    "Object": "28061"
+  },
+  {
+    "Subject": "NUCLIDE_61Ni",
+    "Predicate": "has_description",
+    "Object": "Ni-61 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_61Ni",
+    "Predicate": "has_symbol",
+    "Object": "Ni"
+  },
+  {
+    "Subject": "NUCLIDE_62Ni",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_62Ni",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_62Ni",
+    "Predicate": "has_value",
+    "Object": "28062"
+  },
+  {
+    "Subject": "NUCLIDE_62Ni",
+    "Predicate": "has_description",
+    "Object": "Ni-62 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_62Ni",
+    "Predicate": "has_symbol",
+    "Object": "Ni"
+  },
+  {
+    "Subject": "NUCLIDE_63Cu",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_63Cu",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_63Cu",
+    "Predicate": "has_value",
+    "Object": "29063"
+  },
+  {
+    "Subject": "NUCLIDE_63Cu",
+    "Predicate": "has_description",
+    "Object": "Cu-63 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_63Cu",
+    "Predicate": "has_symbol",
+    "Object": "Cu"
+  },
+  {
+    "Subject": "NUCLIDE_64Ni",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_64Ni",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_64Ni",
+    "Predicate": "has_value",
+    "Object": "28064"
+  },
+  {
+    "Subject": "NUCLIDE_64Ni",
+    "Predicate": "has_description",
+    "Object": "Ni-64 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_64Ni",
+    "Predicate": "has_symbol",
+    "Object": "Ni"
+  },
+  {
+    "Subject": "NUCLIDE_64Zn",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_64Zn",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_64Zn",
+    "Predicate": "has_value",
+    "Object": "30064"
+  },
+  {
+    "Subject": "NUCLIDE_64Zn",
+    "Predicate": "has_description",
+    "Object": "Zn-64 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_64Zn",
+    "Predicate": "has_symbol",
+    "Object": "Zn"
+  },
+  {
+    "Subject": "NUCLIDE_65Cu",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_65Cu",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_65Cu",
+    "Predicate": "has_value",
+    "Object": "29065"
+  },
+  {
+    "Subject": "NUCLIDE_65Cu",
+    "Predicate": "has_description",
+    "Object": "Cu-65 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_65Cu",
+    "Predicate": "has_symbol",
+    "Object": "Cu"
+  },
+  {
+    "Subject": "NUCLIDE_66Zn",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_66Zn",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_66Zn",
+    "Predicate": "has_value",
+    "Object": "30066"
+  },
+  {
+    "Subject": "NUCLIDE_66Zn",
+    "Predicate": "has_description",
+    "Object": "Zn-66 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_66Zn",
+    "Predicate": "has_symbol",
+    "Object": "Zn"
+  },
+  {
+    "Subject": "NUCLIDE_67Zn",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_67Zn",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_67Zn",
+    "Predicate": "has_value",
+    "Object": "30067"
+  },
+  {
+    "Subject": "NUCLIDE_67Zn",
+    "Predicate": "has_description",
+    "Object": "Zn-67 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_67Zn",
+    "Predicate": "has_symbol",
+    "Object": "Zn"
+  },
+  {
+    "Subject": "NUCLIDE_68Zn",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_68Zn",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_68Zn",
+    "Predicate": "has_value",
+    "Object": "30068"
+  },
+  {
+    "Subject": "NUCLIDE_68Zn",
+    "Predicate": "has_description",
+    "Object": "Zn-68 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_68Zn",
+    "Predicate": "has_symbol",
+    "Object": "Zn"
+  },
+  {
+    "Subject": "NUCLIDE_6Li",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_6Li",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_6Li",
+    "Predicate": "has_value",
+    "Object": "3006"
+  },
+  {
+    "Subject": "NUCLIDE_6Li",
+    "Predicate": "has_description",
+    "Object": "Li-6 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_6Li",
+    "Predicate": "has_symbol",
+    "Object": "Li"
+  },
+  {
+    "Subject": "NUCLIDE_70Zn",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_70Zn",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_70Zn",
+    "Predicate": "has_value",
+    "Object": "30070"
+  },
+  {
+    "Subject": "NUCLIDE_70Zn",
+    "Predicate": "has_description",
+    "Object": "Zn-70 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_70Zn",
+    "Predicate": "has_symbol",
+    "Object": "Zn"
+  },
+  {
+    "Subject": "NUCLIDE_7Li",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_7Li",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_7Li",
+    "Predicate": "has_value",
+    "Object": "3007"
+  },
+  {
+    "Subject": "NUCLIDE_7Li",
+    "Predicate": "has_description",
+    "Object": "Li-7 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_7Li",
+    "Predicate": "has_symbol",
+    "Object": "Li"
+  },
+  {
+    "Subject": "NUCLIDE_84Kr",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_84Kr",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_84Kr",
+    "Predicate": "has_value",
+    "Object": "36084"
+  },
+  {
+    "Subject": "NUCLIDE_84Kr",
+    "Predicate": "has_description",
+    "Object": "Kr-84 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_84Kr",
+    "Predicate": "has_symbol",
+    "Object": "Kr"
+  },
+  {
+    "Subject": "NUCLIDE_86Kr",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_86Kr",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_86Kr",
+    "Predicate": "has_value",
+    "Object": "36086"
+  },
+  {
+    "Subject": "NUCLIDE_86Kr",
+    "Predicate": "has_description",
+    "Object": "Kr-86 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_86Kr",
+    "Predicate": "has_symbol",
+    "Object": "Kr"
+  },
+  {
+    "Subject": "NUCLIDE_92Mo",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_92Mo",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_92Mo",
+    "Predicate": "has_value",
+    "Object": "42092"
+  },
+  {
+    "Subject": "NUCLIDE_92Mo",
+    "Predicate": "has_description",
+    "Object": "Mo-92 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_92Mo",
+    "Predicate": "has_symbol",
+    "Object": "Mo"
+  },
+  {
+    "Subject": "NUCLIDE_94Mo",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_94Mo",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_94Mo",
+    "Predicate": "has_value",
+    "Object": "42094"
+  },
+  {
+    "Subject": "NUCLIDE_94Mo",
+    "Predicate": "has_description",
+    "Object": "Mo-94 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_94Mo",
+    "Predicate": "has_symbol",
+    "Object": "Mo"
+  },
+  {
+    "Subject": "NUCLIDE_95Mo",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_95Mo",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_95Mo",
+    "Predicate": "has_value",
+    "Object": "42095"
+  },
+  {
+    "Subject": "NUCLIDE_95Mo",
+    "Predicate": "has_description",
+    "Object": "Mo-95 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_95Mo",
+    "Predicate": "has_symbol",
+    "Object": "Mo"
+  },
+  {
+    "Subject": "NUCLIDE_96Mo",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_96Mo",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_96Mo",
+    "Predicate": "has_value",
+    "Object": "42096"
+  },
+  {
+    "Subject": "NUCLIDE_96Mo",
+    "Predicate": "has_description",
+    "Object": "Mo-96 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_96Mo",
+    "Predicate": "has_symbol",
+    "Object": "Mo"
+  },
+  {
+    "Subject": "NUCLIDE_97Mo",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_97Mo",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_97Mo",
+    "Predicate": "has_value",
+    "Object": "42097"
+  },
+  {
+    "Subject": "NUCLIDE_97Mo",
+    "Predicate": "has_description",
+    "Object": "Mo-97 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_97Mo",
+    "Predicate": "has_symbol",
+    "Object": "Mo"
+  },
+  {
+    "Subject": "NUCLIDE_98Mo",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_98Mo",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_98Mo",
+    "Predicate": "has_value",
+    "Object": "42098"
+  },
+  {
+    "Subject": "NUCLIDE_98Mo",
+    "Predicate": "has_description",
+    "Object": "Mo-98 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_98Mo",
+    "Predicate": "has_symbol",
+    "Object": "Mo"
+  },
+  {
+    "Subject": "NUCLIDE_9Be",
+    "Predicate": "type",
+    "Object": "zaid_code"
+  },
+  {
+    "Subject": "NUCLIDE_9Be",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracZAIDDict"
+  },
+  {
+    "Subject": "NUCLIDE_9Be",
+    "Predicate": "has_value",
+    "Object": "4009"
+  },
+  {
+    "Subject": "NUCLIDE_9Be",
+    "Predicate": "has_description",
+    "Object": "Be-9 isotope"
+  },
+  {
+    "Subject": "NUCLIDE_9Be",
+    "Predicate": "has_symbol",
+    "Object": "Be"
+  }
+]

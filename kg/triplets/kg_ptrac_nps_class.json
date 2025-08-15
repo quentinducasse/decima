@@ -1,0 +1,50 @@
+[
+  { "Subject": "PtracNps", "Predicate": "type", "Object": "class" },
+
+  { "Subject": "NPS()", "Predicate": "type", "Object": "method" },
+  { "Subject": "NPS()", "Predicate": "is_method_of", "Object": "PtracNps" },
+  { "Subject": "NPS()", "Predicate": "returns", "Object": "int64_t" },
+  { "Subject": "NPS()", "Predicate": "has_description", "Object": "Return the history number" },
+
+  { "Subject": "Cell()", "Predicate": "type", "Object": "method" },
+  { "Subject": "Cell()", "Predicate": "is_method_of", "Object": "PtracNps" },
+  { "Subject": "Cell()", "Predicate": "returns", "Object": "int64_t" },
+  { "Subject": "Cell()", "Predicate": "has_description", "Object": "Return the filtering cell from CELL keyword (if present)" },
+
+  { "Subject": "Surface()", "Predicate": "type", "Object": "method" },
+  { "Subject": "Surface()", "Predicate": "is_method_of", "Object": "PtracNps" },
+  { "Subject": "Surface()", "Predicate": "returns", "Object": "int64_t" },
+  { "Subject": "Surface()", "Predicate": "has_description", "Object": "Return the filtering surface from SURFACE keyword (if present)" },
+
+  { "Subject": "Tally()", "Predicate": "type", "Object": "method" },
+  { "Subject": "Tally()", "Predicate": "is_method_of", "Object": "PtracNps" },
+  { "Subject": "Tally()", "Predicate": "returns", "Object": "int64_t" },
+  { "Subject": "int64_t", "Predicate": "type", "Object": "datatype" },
+  { "Subject": "Tally()", "Predicate": "has_description", "Object": "Return the filtering tally from TALLY keyword (if present)" },
+
+  { "Subject": "Value()", "Predicate": "type", "Object": "method" },
+  { "Subject": "Value()", "Predicate": "is_method_of", "Object": "PtracNps" },
+  { "Subject": "Value()", "Predicate": "returns", "Object": "double" },
+  { "Subject": "double", "Predicate": "type", "Object": "datatype" },
+  { "Subject": "Value()", "Predicate": "has_description", "Object": "Return the tally score from TALLY keyword (if present)" },
+
+  { "Subject": "PtracNps::m_nps", "Predicate": "type", "Object": "attribute" },
+  { "Subject": "PtracNps::m_nps", "Predicate": "is_attribute_of", "Object": "PtracNps" },
+  { "Subject": "PtracNps::m_nps", "Predicate": "stores", "Object": "NPS" },
+
+  { "Subject": "PtracNps::m_cell", "Predicate": "type", "Object": "attribute" },
+  { "Subject": "PtracNps::m_cell", "Predicate": "is_attribute_of", "Object": "PtracNps" },
+  { "Subject": "PtracNps::m_cell", "Predicate": "stores", "Object": "CELL" },
+
+  { "Subject": "PtracNps::m_surface", "Predicate": "type", "Object": "attribute" },
+  { "Subject": "PtracNps::m_surface", "Predicate": "is_attribute_of", "Object": "PtracNps" },
+  { "Subject": "PtracNps::m_surface", "Predicate": "stores", "Object": "SURFACE" },
+
+  { "Subject": "PtracNps::m_tally", "Predicate": "type", "Object": "attribute" },
+  { "Subject": "PtracNps::m_tally", "Predicate": "is_attribute_of", "Object": "PtracNps" },
+  { "Subject": "PtracNps::m_tally", "Predicate": "stores", "Object": "TALLY" },
+
+  { "Subject": "PtracNps::m_value", "Predicate": "type", "Object": "attribute" },
+  { "Subject": "PtracNps::m_value", "Predicate": "is_attribute_of", "Object": "PtracNps" },
+  { "Subject": "PtracNps::m_value", "Predicate": "stores", "Object": "TALLY_VALUE" }
+]

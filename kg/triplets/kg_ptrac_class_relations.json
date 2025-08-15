@@ -1,0 +1,12 @@
+[
+  { "Subject": "Ptrac", "Predicate": "type", "Object": "class" },
+  { "Subject": "PtracEvent", "Predicate": "type", "Object": "class" },
+  { "Subject": "PtracHistory", "Predicate": "type", "Object": "class" },
+  { "Subject": "PtracNps", "Predicate": "type", "Object": "class" },
+
+  { "Subject": "Ptrac", "Predicate": "is_friend_with", "Object": "PtracEvent" },
+  { "Subject": "Ptrac", "Predicate": "is_friend_with", "Object": "PtracHistory" },
+  { "Subject": "Ptrac", "Predicate": "is_friend_with", "Object": "PtracNps" },
+  { "Subject": "PtracHistory", "Predicate": "is_friend_with", "Object": "PtracNps" },
+  { "Subject": "PtracHistory", "Predicate": "is_friend_with", "Object": "PtracEvent" }
+]

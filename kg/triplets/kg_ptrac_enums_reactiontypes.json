@@ -1,0 +1,1892 @@
+[
+  {
+    "Subject": "PtracReactionDict",
+    "Predicate": "type",
+    "Object": "dictionary"
+  },
+  {
+    "Subject": "MT_1",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_1",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_1",
+    "Predicate": "has_value",
+    "Object": "1"
+  },
+  {
+    "Subject": "MT_1",
+    "Predicate": "has_description",
+    "Object": "Total cross section"
+  },
+  {
+    "Subject": "MT_2",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_2",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_2",
+    "Predicate": "has_value",
+    "Object": "2"
+  },
+  {
+    "Subject": "MT_2",
+    "Predicate": "has_description",
+    "Object": "Elastic scattering cross section"
+  },
+  {
+    "Subject": "MT_3",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_3",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_3",
+    "Predicate": "has_value",
+    "Object": "3"
+  },
+  {
+    "Subject": "MT_3",
+    "Predicate": "has_description",
+    "Object": "Nonelastic cross section"
+  },
+  {
+    "Subject": "MT_4",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_4",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_4",
+    "Predicate": "has_value",
+    "Object": "4"
+  },
+  {
+    "Subject": "MT_4",
+    "Predicate": "has_description",
+    "Object": "Production of secondary particles (incomplete reactions) cross section"
+  },
+  {
+    "Subject": "MT_5",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_5",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_5",
+    "Predicate": "has_value",
+    "Object": "5"
+  },
+  {
+    "Subject": "MT_5",
+    "Predicate": "has_description",
+    "Object": "Inelastic scattering cross section"
+  },
+  {
+    "Subject": "MT_10",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_10",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_10",
+    "Predicate": "has_value",
+    "Object": "10"
+  },
+  {
+    "Subject": "MT_10",
+    "Predicate": "has_description",
+    "Object": "n,n' (second level) cross section"
+  },
+  {
+    "Subject": "MT_11",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_11",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_11",
+    "Predicate": "has_value",
+    "Object": "11"
+  },
+  {
+    "Subject": "MT_11",
+    "Predicate": "has_description",
+    "Object": "n,2n cross section"
+  },
+  {
+    "Subject": "MT_16",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_16",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_16",
+    "Predicate": "has_value",
+    "Object": "16"
+  },
+  {
+    "Subject": "MT_16",
+    "Predicate": "has_description",
+    "Object": "n,2n with residuals cross section"
+  },
+  {
+    "Subject": "MT_17",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_17",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_17",
+    "Predicate": "has_value",
+    "Object": "17"
+  },
+  {
+    "Subject": "MT_17",
+    "Predicate": "has_description",
+    "Object": "n,3n cross section"
+  },
+  {
+    "Subject": "MT_18",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_18",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_18",
+    "Predicate": "has_value",
+    "Object": "18"
+  },
+  {
+    "Subject": "MT_18",
+    "Predicate": "has_description",
+    "Object": "Fission cross section"
+  },
+  {
+    "Subject": "MT_18",
+    "Predicate": "has_fm",
+    "Object": "-6"
+  },
+  {
+    "Subject": "MT_19",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_19",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_19",
+    "Predicate": "has_value",
+    "Object": "19"
+  },
+  {
+    "Subject": "MT_19",
+    "Predicate": "has_description",
+    "Object": "Fission, first chance cross section"
+  },
+  {
+    "Subject": "MT_19",
+    "Predicate": "has_fm",
+    "Object": "-6"
+  },
+  {
+    "Subject": "MT_20",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_20",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_20",
+    "Predicate": "has_value",
+    "Object": "20"
+  },
+  {
+    "Subject": "MT_20",
+    "Predicate": "has_description",
+    "Object": "Fission, second chance cross section"
+  },
+  {
+    "Subject": "MT_20",
+    "Predicate": "has_fm",
+    "Object": "-6"
+  },
+  {
+    "Subject": "MT_21",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_21",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_21",
+    "Predicate": "has_value",
+    "Object": "21"
+  },
+  {
+    "Subject": "MT_21",
+    "Predicate": "has_description",
+    "Object": "Fission, third chance cross section"
+  },
+  {
+    "Subject": "MT_21",
+    "Predicate": "has_fm",
+    "Object": "-6"
+  },
+  {
+    "Subject": "MT_22",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_22",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_22",
+    "Predicate": "has_value",
+    "Object": "22"
+  },
+  {
+    "Subject": "MT_22",
+    "Predicate": "has_description",
+    "Object": "Fission, fourth chance cross section"
+  },
+  {
+    "Subject": "MT_22",
+    "Predicate": "has_fm",
+    "Object": "-6"
+  },
+  {
+    "Subject": "MT_23",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_23",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_23",
+    "Predicate": "has_value",
+    "Object": "23"
+  },
+  {
+    "Subject": "MT_23",
+    "Predicate": "has_description",
+    "Object": "Fission, nth chance cross section"
+  },
+  {
+    "Subject": "MT_23",
+    "Predicate": "has_fm",
+    "Object": "-6"
+  },
+  {
+    "Subject": "MT_27",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_27",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_27",
+    "Predicate": "has_value",
+    "Object": "27"
+  },
+  {
+    "Subject": "MT_27",
+    "Predicate": "has_description",
+    "Object": "Capture cross section"
+  },
+  {
+    "Subject": "MT_27",
+    "Predicate": "has_fm",
+    "Object": "-2"
+  },
+  {
+    "Subject": "MT_28",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_28",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_28",
+    "Predicate": "has_value",
+    "Object": "28"
+  },
+  {
+    "Subject": "MT_28",
+    "Predicate": "has_description",
+    "Object": "n,alpha n,a cross section"
+  },
+  {
+    "Subject": "MT_29",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_29",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_29",
+    "Predicate": "has_value",
+    "Object": "29"
+  },
+  {
+    "Subject": "MT_29",
+    "Predicate": "has_description",
+    "Object": "n,2alpha n,2a cross section"
+  },
+  {
+    "Subject": "MT_30",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_30",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_30",
+    "Predicate": "has_value",
+    "Object": "30"
+  },
+  {
+    "Subject": "MT_30",
+    "Predicate": "has_description",
+    "Object": "n,3alpha n,3a cross section"
+  },
+  {
+    "Subject": "MT_31",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_31",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_31",
+    "Predicate": "has_value",
+    "Object": "31"
+  },
+  {
+    "Subject": "MT_31",
+    "Predicate": "has_description",
+    "Object": "n,p cross section"
+  },
+  {
+    "Subject": "MT_32",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_32",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_32",
+    "Predicate": "has_value",
+    "Object": "32"
+  },
+  {
+    "Subject": "MT_32",
+    "Predicate": "has_description",
+    "Object": "n,d cross section"
+  },
+  {
+    "Subject": "MT_33",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_33",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_33",
+    "Predicate": "has_value",
+    "Object": "33"
+  },
+  {
+    "Subject": "MT_33",
+    "Predicate": "has_description",
+    "Object": "n,t cross section"
+  },
+  {
+    "Subject": "MT_34",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_34",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_34",
+    "Predicate": "has_value",
+    "Object": "34"
+  },
+  {
+    "Subject": "MT_34",
+    "Predicate": "has_description",
+    "Object": "n,He-3 cross section"
+  },
+  {
+    "Subject": "MT_35",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_35",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_35",
+    "Predicate": "has_value",
+    "Object": "35"
+  },
+  {
+    "Subject": "MT_35",
+    "Predicate": "has_description",
+    "Object": "n,n + alpha n,n+a cross section"
+  },
+  {
+    "Subject": "MT_36",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_36",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_36",
+    "Predicate": "has_value",
+    "Object": "36"
+  },
+  {
+    "Subject": "MT_36",
+    "Predicate": "has_description",
+    "Object": "n,n + p cross section"
+  },
+  {
+    "Subject": "MT_37",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_37",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_37",
+    "Predicate": "has_value",
+    "Object": "37"
+  },
+  {
+    "Subject": "MT_37",
+    "Predicate": "has_description",
+    "Object": "n,n + d cross section"
+  },
+  {
+    "Subject": "MT_38",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_38",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_38",
+    "Predicate": "has_value",
+    "Object": "38"
+  },
+  {
+    "Subject": "MT_38",
+    "Predicate": "has_description",
+    "Object": "n,n + t cross section"
+  },
+  {
+    "Subject": "MT_41",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_41",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_41",
+    "Predicate": "has_value",
+    "Object": "41"
+  },
+  {
+    "Subject": "MT_41",
+    "Predicate": "has_description",
+    "Object": "n,n + He-3 cross section"
+  },
+  {
+    "Subject": "MT_42",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_42",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_42",
+    "Predicate": "has_value",
+    "Object": "42"
+  },
+  {
+    "Subject": "MT_42",
+    "Predicate": "has_description",
+    "Object": "n,n + 2alpha n,n+2a cross section"
+  },
+  {
+    "Subject": "MT_44",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_44",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_44",
+    "Predicate": "has_value",
+    "Object": "44"
+  },
+  {
+    "Subject": "MT_44",
+    "Predicate": "has_description",
+    "Object": "n,n + 2p cross section"
+  },
+  {
+    "Subject": "MT_45",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_45",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_45",
+    "Predicate": "has_value",
+    "Object": "45"
+  },
+  {
+    "Subject": "MT_45",
+    "Predicate": "has_description",
+    "Object": "n,n + p + alpha n,n+p+a cross section"
+  },
+  {
+    "Subject": "MT_50",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_50",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_50",
+    "Predicate": "has_value",
+    "Object": "50"
+  },
+  {
+    "Subject": "MT_50",
+    "Predicate": "has_description",
+    "Object": "(n,n') to level 1 cross section"
+  },
+  {
+    "Subject": "MT_51",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_51",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_51",
+    "Predicate": "has_value",
+    "Object": "51"
+  },
+  {
+    "Subject": "MT_51",
+    "Predicate": "has_description",
+    "Object": "(n,n') to level 2 cross section"
+  },
+  {
+    "Subject": "MT_52",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_52",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_52",
+    "Predicate": "has_value",
+    "Object": "52"
+  },
+  {
+    "Subject": "MT_52",
+    "Predicate": "has_description",
+    "Object": "(n,n') to level 3 cross section"
+  },
+  {
+    "Subject": "MT_53",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_53",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_53",
+    "Predicate": "has_value",
+    "Object": "53"
+  },
+  {
+    "Subject": "MT_53",
+    "Predicate": "has_description",
+    "Object": "(n,n') to level 4 cross section"
+  },
+  {
+    "Subject": "MT_54",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_54",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_54",
+    "Predicate": "has_value",
+    "Object": "54"
+  },
+  {
+    "Subject": "MT_54",
+    "Predicate": "has_description",
+    "Object": "(n,n') to level 5 cross section"
+  },
+  {
+    "Subject": "MT_55",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_55",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_55",
+    "Predicate": "has_value",
+    "Object": "55"
+  },
+  {
+    "Subject": "MT_55",
+    "Predicate": "has_description",
+    "Object": "(n,n') to level 6 cross section"
+  },
+  {
+    "Subject": "MT_56",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_56",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_56",
+    "Predicate": "has_value",
+    "Object": "56"
+  },
+  {
+    "Subject": "MT_56",
+    "Predicate": "has_description",
+    "Object": "(n,n') to level 7 cross section"
+  },
+  {
+    "Subject": "MT_57",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_57",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_57",
+    "Predicate": "has_value",
+    "Object": "57"
+  },
+  {
+    "Subject": "MT_57",
+    "Predicate": "has_description",
+    "Object": "(n,n') to level 8 cross section"
+  },
+  {
+    "Subject": "MT_58",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_58",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_58",
+    "Predicate": "has_value",
+    "Object": "58"
+  },
+  {
+    "Subject": "MT_58",
+    "Predicate": "has_description",
+    "Object": "(n,n') to level 9 cross section"
+  },
+  {
+    "Subject": "MT_59",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_59",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_59",
+    "Predicate": "has_value",
+    "Object": "59"
+  },
+  {
+    "Subject": "MT_59",
+    "Predicate": "has_description",
+    "Object": "(n,n') to level 10 cross section"
+  },
+  {
+    "Subject": "MT_60",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_60",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_60",
+    "Predicate": "has_value",
+    "Object": "60"
+  },
+  {
+    "Subject": "MT_60",
+    "Predicate": "has_description",
+    "Object": "(n,n') to level 11 cross section"
+  },
+  {
+    "Subject": "MT_61",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_61",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_61",
+    "Predicate": "has_value",
+    "Object": "61"
+  },
+  {
+    "Subject": "MT_61",
+    "Predicate": "has_description",
+    "Object": "(n,n') to level 12 cross section"
+  },
+  {
+    "Subject": "MT_62",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_62",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_62",
+    "Predicate": "has_value",
+    "Object": "62"
+  },
+  {
+    "Subject": "MT_62",
+    "Predicate": "has_description",
+    "Object": "(n,n') to level 13 cross section"
+  },
+  {
+    "Subject": "MT_63",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_63",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_63",
+    "Predicate": "has_value",
+    "Object": "63"
+  },
+  {
+    "Subject": "MT_63",
+    "Predicate": "has_description",
+    "Object": "(n,n') to level 14 cross section"
+  },
+  {
+    "Subject": "MT_64",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_64",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_64",
+    "Predicate": "has_value",
+    "Object": "64"
+  },
+  {
+    "Subject": "MT_64",
+    "Predicate": "has_description",
+    "Object": "(n,n') to level 15 cross section"
+  },
+  {
+    "Subject": "MT_65",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_65",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_65",
+    "Predicate": "has_value",
+    "Object": "65"
+  },
+  {
+    "Subject": "MT_65",
+    "Predicate": "has_description",
+    "Object": "(n,n') to level 16 cross section"
+  },
+  {
+    "Subject": "MT_66",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_66",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_66",
+    "Predicate": "has_value",
+    "Object": "66"
+  },
+  {
+    "Subject": "MT_66",
+    "Predicate": "has_description",
+    "Object": "(n,n') to level 17 cross section"
+  },
+  {
+    "Subject": "MT_67",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_67",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_67",
+    "Predicate": "has_value",
+    "Object": "67"
+  },
+  {
+    "Subject": "MT_67",
+    "Predicate": "has_description",
+    "Object": "(n,n') to level 18 cross section"
+  },
+  {
+    "Subject": "MT_68",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_68",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_68",
+    "Predicate": "has_value",
+    "Object": "68"
+  },
+  {
+    "Subject": "MT_68",
+    "Predicate": "has_description",
+    "Object": "(n,n') to level 19 cross section"
+  },
+  {
+    "Subject": "MT_69",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_69",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_69",
+    "Predicate": "has_value",
+    "Object": "69"
+  },
+  {
+    "Subject": "MT_69",
+    "Predicate": "has_description",
+    "Object": "(n,n') to level 20 cross section"
+  },
+  {
+    "Subject": "MT_70",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_70",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_70",
+    "Predicate": "has_value",
+    "Object": "70"
+  },
+  {
+    "Subject": "MT_70",
+    "Predicate": "has_description",
+    "Object": "(n,n') to level 21 cross section"
+  },
+  {
+    "Subject": "MT_71",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_71",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_71",
+    "Predicate": "has_value",
+    "Object": "71"
+  },
+  {
+    "Subject": "MT_71",
+    "Predicate": "has_description",
+    "Object": "(n,n') to level 22 cross section"
+  },
+  {
+    "Subject": "MT_72",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_72",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_72",
+    "Predicate": "has_value",
+    "Object": "72"
+  },
+  {
+    "Subject": "MT_72",
+    "Predicate": "has_description",
+    "Object": "(n,n') to level 23 cross section"
+  },
+  {
+    "Subject": "MT_73",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_73",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_73",
+    "Predicate": "has_value",
+    "Object": "73"
+  },
+  {
+    "Subject": "MT_73",
+    "Predicate": "has_description",
+    "Object": "(n,n') to level 24 cross section"
+  },
+  {
+    "Subject": "MT_74",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_74",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_74",
+    "Predicate": "has_value",
+    "Object": "74"
+  },
+  {
+    "Subject": "MT_74",
+    "Predicate": "has_description",
+    "Object": "(n,n') to level 25 cross section"
+  },
+  {
+    "Subject": "MT_75",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_75",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_75",
+    "Predicate": "has_value",
+    "Object": "75"
+  },
+  {
+    "Subject": "MT_75",
+    "Predicate": "has_description",
+    "Object": "(n,n') to level 26 cross section"
+  },
+  {
+    "Subject": "MT_76",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_76",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_76",
+    "Predicate": "has_value",
+    "Object": "76"
+  },
+  {
+    "Subject": "MT_76",
+    "Predicate": "has_description",
+    "Object": "(n,n') to level 27 cross section"
+  },
+  {
+    "Subject": "MT_77",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_77",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_77",
+    "Predicate": "has_value",
+    "Object": "77"
+  },
+  {
+    "Subject": "MT_77",
+    "Predicate": "has_description",
+    "Object": "(n,n') to level 28 cross section"
+  },
+  {
+    "Subject": "MT_78",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_78",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_78",
+    "Predicate": "has_value",
+    "Object": "78"
+  },
+  {
+    "Subject": "MT_78",
+    "Predicate": "has_description",
+    "Object": "(n,n') to level 29 cross section"
+  },
+  {
+    "Subject": "MT_79",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_79",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_79",
+    "Predicate": "has_value",
+    "Object": "79"
+  },
+  {
+    "Subject": "MT_79",
+    "Predicate": "has_description",
+    "Object": "(n,n') to level 30 cross section"
+  },
+  {
+    "Subject": "MT_80",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_80",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_80",
+    "Predicate": "has_value",
+    "Object": "80"
+  },
+  {
+    "Subject": "MT_80",
+    "Predicate": "has_description",
+    "Object": "(n,n') to level 31 cross section"
+  },
+  {
+    "Subject": "MT_81",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_81",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_81",
+    "Predicate": "has_value",
+    "Object": "81"
+  },
+  {
+    "Subject": "MT_81",
+    "Predicate": "has_description",
+    "Object": "(n,n') to level 32 cross section"
+  },
+  {
+    "Subject": "MT_82",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_82",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_82",
+    "Predicate": "has_value",
+    "Object": "82"
+  },
+  {
+    "Subject": "MT_82",
+    "Predicate": "has_description",
+    "Object": "(n,n') to level 33 cross section"
+  },
+  {
+    "Subject": "MT_83",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_83",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_83",
+    "Predicate": "has_value",
+    "Object": "83"
+  },
+  {
+    "Subject": "MT_83",
+    "Predicate": "has_description",
+    "Object": "(n,n') to level 34 cross section"
+  },
+  {
+    "Subject": "MT_84",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_84",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_84",
+    "Predicate": "has_value",
+    "Object": "84"
+  },
+  {
+    "Subject": "MT_84",
+    "Predicate": "has_description",
+    "Object": "(n,n') to level 35 cross section"
+  },
+  {
+    "Subject": "MT_85",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_85",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_85",
+    "Predicate": "has_value",
+    "Object": "85"
+  },
+  {
+    "Subject": "MT_85",
+    "Predicate": "has_description",
+    "Object": "(n,n') to level 36 cross section"
+  },
+  {
+    "Subject": "MT_86",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_86",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_86",
+    "Predicate": "has_value",
+    "Object": "86"
+  },
+  {
+    "Subject": "MT_86",
+    "Predicate": "has_description",
+    "Object": "(n,n') to level 37 cross section"
+  },
+  {
+    "Subject": "MT_87",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_87",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_87",
+    "Predicate": "has_value",
+    "Object": "87"
+  },
+  {
+    "Subject": "MT_87",
+    "Predicate": "has_description",
+    "Object": "(n,n') to level 38 cross section"
+  },
+  {
+    "Subject": "MT_88",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_88",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_88",
+    "Predicate": "has_value",
+    "Object": "88"
+  },
+  {
+    "Subject": "MT_88",
+    "Predicate": "has_description",
+    "Object": "(n,n') to level 39 cross section"
+  },
+  {
+    "Subject": "MT_89",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_89",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_89",
+    "Predicate": "has_value",
+    "Object": "89"
+  },
+  {
+    "Subject": "MT_89",
+    "Predicate": "has_description",
+    "Object": "(n,n') to level 40 cross section"
+  },
+  {
+    "Subject": "MT_90",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_90",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_90",
+    "Predicate": "has_value",
+    "Object": "90"
+  },
+  {
+    "Subject": "MT_90",
+    "Predicate": "has_description",
+    "Object": "(n,n') to level 41 cross section"
+  },
+  {
+    "Subject": "MT_91",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_91",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_91",
+    "Predicate": "has_value",
+    "Object": "91"
+  },
+  {
+    "Subject": "MT_91",
+    "Predicate": "has_description",
+    "Object": "(n,n') to continuum cross section"
+  },
+  {
+    "Subject": "MT_101",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_101",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_101",
+    "Predicate": "has_value",
+    "Object": "101"
+  },
+  {
+    "Subject": "MT_101",
+    "Predicate": "has_description",
+    "Object": "Photo-nuclear (gamma,n) cross section"
+  },
+  {
+    "Subject": "MT_101",
+    "Predicate": "has_fm",
+    "Object": "-3"
+  },
+  {
+    "Subject": "MT_102",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_102",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_102",
+    "Predicate": "has_value",
+    "Object": "102"
+  },
+  {
+    "Subject": "MT_102",
+    "Predicate": "has_description",
+    "Object": "Radiative capture (n,gamma) cross section"
+  },
+  {
+    "Subject": "MT_102",
+    "Predicate": "has_fm",
+    "Object": "-3"
+  },
+  {
+    "Subject": "MT_103",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_103",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_103",
+    "Predicate": "has_value",
+    "Object": "103"
+  },
+  {
+    "Subject": "MT_103",
+    "Predicate": "has_description",
+    "Object": "n,p cross section"
+  },
+  {
+    "Subject": "MT_103",
+    "Predicate": "has_fm",
+    "Object": "-4"
+  },
+  {
+    "Subject": "MT_104",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_104",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_104",
+    "Predicate": "has_value",
+    "Object": "104"
+  },
+  {
+    "Subject": "MT_104",
+    "Predicate": "has_description",
+    "Object": "n,d cross section"
+  },
+  {
+    "Subject": "MT_104",
+    "Predicate": "has_fm",
+    "Object": "-4"
+  },
+  {
+    "Subject": "MT_105",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_105",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_105",
+    "Predicate": "has_value",
+    "Object": "105"
+  },
+  {
+    "Subject": "MT_105",
+    "Predicate": "has_description",
+    "Object": "n,t cross section"
+  },
+  {
+    "Subject": "MT_105",
+    "Predicate": "has_fm",
+    "Object": "-4"
+  },
+  {
+    "Subject": "MT_106",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_106",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_106",
+    "Predicate": "has_value",
+    "Object": "106"
+  },
+  {
+    "Subject": "MT_106",
+    "Predicate": "has_description",
+    "Object": "n,He-3 cross section"
+  },
+  {
+    "Subject": "MT_106",
+    "Predicate": "has_fm",
+    "Object": "-4"
+  },
+  {
+    "Subject": "MT_107",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_107",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_107",
+    "Predicate": "has_value",
+    "Object": "107"
+  },
+  {
+    "Subject": "MT_107",
+    "Predicate": "has_description",
+    "Object": "n,alpha n,a cross section"
+  },
+  {
+    "Subject": "MT_107",
+    "Predicate": "has_fm",
+    "Object": "-4"
+  },
+  {
+    "Subject": "MT_108",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_108",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_108",
+    "Predicate": "has_value",
+    "Object": "108"
+  },
+  {
+    "Subject": "MT_108",
+    "Predicate": "has_description",
+    "Object": "n,2n cross section"
+  },
+  {
+    "Subject": "MT_109",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_109",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_109",
+    "Predicate": "has_value",
+    "Object": "109"
+  },
+  {
+    "Subject": "MT_109",
+    "Predicate": "has_description",
+    "Object": "n,3n cross section"
+  },
+  {
+    "Subject": "MT_201",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_201",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_201",
+    "Predicate": "has_value",
+    "Object": "201"
+  },
+  {
+    "Subject": "MT_201",
+    "Predicate": "has_description",
+    "Object": "Total neutron production cross section"
+  },
+  {
+    "Subject": "MT_201",
+    "Predicate": "has_fm",
+    "Object": "-9"
+  },
+  {
+    "Subject": "MT_202",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_202",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_202",
+    "Predicate": "has_value",
+    "Object": "202"
+  },
+  {
+    "Subject": "MT_202",
+    "Predicate": "has_description",
+    "Object": "Total gamma production cross section"
+  },
+  {
+    "Subject": "MT_202",
+    "Predicate": "has_fm",
+    "Object": "-5"
+  },
+  {
+    "Subject": "MT_203",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_203",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_203",
+    "Predicate": "has_value",
+    "Object": "203"
+  },
+  {
+    "Subject": "MT_203",
+    "Predicate": "has_description",
+    "Object": "Total proton production cross section"
+  },
+  {
+    "Subject": "MT_204",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_204",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_204",
+    "Predicate": "has_value",
+    "Object": "204"
+  },
+  {
+    "Subject": "MT_204",
+    "Predicate": "has_description",
+    "Object": "Total deuteron production cross section"
+  },
+  {
+    "Subject": "MT_205",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_205",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_205",
+    "Predicate": "has_value",
+    "Object": "205"
+  },
+  {
+    "Subject": "MT_205",
+    "Predicate": "has_description",
+    "Object": "Total triton production cross section"
+  },
+  {
+    "Subject": "MT_206",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_206",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_206",
+    "Predicate": "has_value",
+    "Object": "206"
+  },
+  {
+    "Subject": "MT_206",
+    "Predicate": "has_description",
+    "Object": "Total 3He production cross section"
+  },
+  {
+    "Subject": "MT_207",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_207",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_207",
+    "Predicate": "has_value",
+    "Object": "207"
+  },
+  {
+    "Subject": "MT_207",
+    "Predicate": "has_description",
+    "Object": "Total alpha particle production cross section"
+  },
+  {
+    "Subject": "MT_301",
+    "Predicate": "type",
+    "Object": "reaction_code"
+  },
+  {
+    "Subject": "MT_301",
+    "Predicate": "belongs_to_dict",
+    "Object": "PtracReactionDict"
+  },
+  {
+    "Subject": "MT_301",
+    "Predicate": "has_value",
+    "Object": "301"
+  },
+  {
+    "Subject": "MT_301",
+    "Predicate": "has_description",
+    "Object": "Average heating numbers (MeV per collision)"
+  },
+  {
+    "Subject": "MT_301",
+    "Predicate": "has_fm",
+    "Object": "-4"
+  }
+]

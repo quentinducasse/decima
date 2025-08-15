@@ -1,0 +1,932 @@
+[
+  {
+    "Subject": "ParticleCodeDict",
+    "Predicate": "type",
+    "Object": "dictionary"
+  },
+  {
+    "Subject": "PARTICLE_1",
+    "Predicate": "type",
+    "Object": "particle_code"
+  },
+  {
+    "Subject": "PARTICLE_1",
+    "Predicate": "belongs_to_dict",
+    "Object": "ParticleCodeDict"
+  },
+  {
+    "Subject": "PARTICLE_1",
+    "Predicate": "has_value",
+    "Object": "1"
+  },
+  {
+    "Subject": "PARTICLE_1",
+    "Predicate": "has_label",
+    "Object": "NEUTRON"
+  },
+  {
+    "Subject": "PARTICLE_1",
+    "Predicate": "has_description",
+    "Object": "Neutron (n)"
+  },
+  {
+    "Subject": "PARTICLE_2",
+    "Predicate": "type",
+    "Object": "particle_code"
+  },
+  {
+    "Subject": "PARTICLE_2",
+    "Predicate": "belongs_to_dict",
+    "Object": "ParticleCodeDict"
+  },
+  {
+    "Subject": "PARTICLE_2",
+    "Predicate": "has_value",
+    "Object": "2"
+  },
+  {
+    "Subject": "PARTICLE_2",
+    "Predicate": "has_label",
+    "Object": "PHOTON"
+  },
+  {
+    "Subject": "PARTICLE_2",
+    "Predicate": "has_description",
+    "Object": "Photon gamma ou X-ray (γ)"
+  },
+  {
+    "Subject": "PARTICLE_3",
+    "Predicate": "type",
+    "Object": "particle_code"
+  },
+  {
+    "Subject": "PARTICLE_3",
+    "Predicate": "belongs_to_dict",
+    "Object": "ParticleCodeDict"
+  },
+  {
+    "Subject": "PARTICLE_3",
+    "Predicate": "has_value",
+    "Object": "3"
+  },
+  {
+    "Subject": "PARTICLE_3",
+    "Predicate": "has_label",
+    "Object": "ELECTRON"
+  },
+  {
+    "Subject": "PARTICLE_3",
+    "Predicate": "has_description",
+    "Object": "Electron (e⁻)"
+  },
+  {
+    "Subject": "PARTICLE_4",
+    "Predicate": "type",
+    "Object": "particle_code"
+  },
+  {
+    "Subject": "PARTICLE_4",
+    "Predicate": "belongs_to_dict",
+    "Object": "ParticleCodeDict"
+  },
+  {
+    "Subject": "PARTICLE_4",
+    "Predicate": "has_value",
+    "Object": "4"
+  },
+  {
+    "Subject": "PARTICLE_4",
+    "Predicate": "has_label",
+    "Object": "NEGATIVE_MUON"
+  },
+  {
+    "Subject": "PARTICLE_4",
+    "Predicate": "has_description",
+    "Object": "Negative muon (μ⁻)"
+  },
+  {
+    "Subject": "PARTICLE_5",
+    "Predicate": "type",
+    "Object": "particle_code"
+  },
+  {
+    "Subject": "PARTICLE_5",
+    "Predicate": "belongs_to_dict",
+    "Object": "ParticleCodeDict"
+  },
+  {
+    "Subject": "PARTICLE_5",
+    "Predicate": "has_value",
+    "Object": "5"
+  },
+  {
+    "Subject": "PARTICLE_5",
+    "Predicate": "has_label",
+    "Object": "ANTI_NEUTRON"
+  },
+  {
+    "Subject": "PARTICLE_5",
+    "Predicate": "has_description",
+    "Object": "Anti neutron (n̅)"
+  },
+  {
+    "Subject": "PARTICLE_6",
+    "Predicate": "type",
+    "Object": "particle_code"
+  },
+  {
+    "Subject": "PARTICLE_6",
+    "Predicate": "belongs_to_dict",
+    "Object": "ParticleCodeDict"
+  },
+  {
+    "Subject": "PARTICLE_6",
+    "Predicate": "has_value",
+    "Object": "6"
+  },
+  {
+    "Subject": "PARTICLE_6",
+    "Predicate": "has_label",
+    "Object": "ELECTRON_NEUTRINO"
+  },
+  {
+    "Subject": "PARTICLE_6",
+    "Predicate": "has_description",
+    "Object": "Electron neutrino (νₑ)"
+  },
+  {
+    "Subject": "PARTICLE_7",
+    "Predicate": "type",
+    "Object": "particle_code"
+  },
+  {
+    "Subject": "PARTICLE_7",
+    "Predicate": "belongs_to_dict",
+    "Object": "ParticleCodeDict"
+  },
+  {
+    "Subject": "PARTICLE_7",
+    "Predicate": "has_value",
+    "Object": "7"
+  },
+  {
+    "Subject": "PARTICLE_7",
+    "Predicate": "has_label",
+    "Object": "MUON_NEUTRINO"
+  },
+  {
+    "Subject": "PARTICLE_7",
+    "Predicate": "has_description",
+    "Object": "Muon neutrino (ν_μ)"
+  },
+  {
+    "Subject": "PARTICLE_8",
+    "Predicate": "type",
+    "Object": "particle_code"
+  },
+  {
+    "Subject": "PARTICLE_8",
+    "Predicate": "belongs_to_dict",
+    "Object": "ParticleCodeDict"
+  },
+  {
+    "Subject": "PARTICLE_8",
+    "Predicate": "has_value",
+    "Object": "8"
+  },
+  {
+    "Subject": "PARTICLE_8",
+    "Predicate": "has_label",
+    "Object": "POSITRON"
+  },
+  {
+    "Subject": "PARTICLE_8",
+    "Predicate": "has_description",
+    "Object": "Positron (e⁺)"
+  },
+  {
+    "Subject": "PARTICLE_9",
+    "Predicate": "type",
+    "Object": "particle_code"
+  },
+  {
+    "Subject": "PARTICLE_9",
+    "Predicate": "belongs_to_dict",
+    "Object": "ParticleCodeDict"
+  },
+  {
+    "Subject": "PARTICLE_9",
+    "Predicate": "has_value",
+    "Object": "9"
+  },
+  {
+    "Subject": "PARTICLE_9",
+    "Predicate": "has_label",
+    "Object": "PROTON"
+  },
+  {
+    "Subject": "PARTICLE_9",
+    "Predicate": "has_description",
+    "Object": "Proton (p⁺)"
+  },
+  {
+    "Subject": "PARTICLE_10",
+    "Predicate": "type",
+    "Object": "particle_code"
+  },
+  {
+    "Subject": "PARTICLE_10",
+    "Predicate": "belongs_to_dict",
+    "Object": "ParticleCodeDict"
+  },
+  {
+    "Subject": "PARTICLE_10",
+    "Predicate": "has_value",
+    "Object": "10"
+  },
+  {
+    "Subject": "PARTICLE_10",
+    "Predicate": "has_label",
+    "Object": "LAMBDA_BARYON"
+  },
+  {
+    "Subject": "PARTICLE_10",
+    "Predicate": "has_description",
+    "Object": "Lambda baryon (Λ⁰)"
+  },
+  {
+    "Subject": "PARTICLE_11",
+    "Predicate": "type",
+    "Object": "particle_code"
+  },
+  {
+    "Subject": "PARTICLE_11",
+    "Predicate": "belongs_to_dict",
+    "Object": "ParticleCodeDict"
+  },
+  {
+    "Subject": "PARTICLE_11",
+    "Predicate": "has_value",
+    "Object": "11"
+  },
+  {
+    "Subject": "PARTICLE_11",
+    "Predicate": "has_label",
+    "Object": "POS_SIGMA_BARYON"
+  },
+  {
+    "Subject": "PARTICLE_11",
+    "Predicate": "has_description",
+    "Object": "Positive sigma baryon (Σ⁺)"
+  },
+  {
+    "Subject": "PARTICLE_12",
+    "Predicate": "type",
+    "Object": "particle_code"
+  },
+  {
+    "Subject": "PARTICLE_12",
+    "Predicate": "belongs_to_dict",
+    "Object": "ParticleCodeDict"
+  },
+  {
+    "Subject": "PARTICLE_12",
+    "Predicate": "has_value",
+    "Object": "12"
+  },
+  {
+    "Subject": "PARTICLE_12",
+    "Predicate": "has_label",
+    "Object": "NEG_SIGMA_BARYON"
+  },
+  {
+    "Subject": "PARTICLE_12",
+    "Predicate": "has_description",
+    "Object": "Negative sigma baryon (Σ⁻)"
+  },
+  {
+    "Subject": "PARTICLE_13",
+    "Predicate": "type",
+    "Object": "particle_code"
+  },
+  {
+    "Subject": "PARTICLE_13",
+    "Predicate": "belongs_to_dict",
+    "Object": "ParticleCodeDict"
+  },
+  {
+    "Subject": "PARTICLE_13",
+    "Predicate": "has_value",
+    "Object": "13"
+  },
+  {
+    "Subject": "PARTICLE_13",
+    "Predicate": "has_label",
+    "Object": "XI_BARYON"
+  },
+  {
+    "Subject": "PARTICLE_13",
+    "Predicate": "has_description",
+    "Object": "Cascade; xi baryon (Ξ⁰)"
+  },
+  {
+    "Subject": "PARTICLE_14",
+    "Predicate": "type",
+    "Object": "particle_code"
+  },
+  {
+    "Subject": "PARTICLE_14",
+    "Predicate": "belongs_to_dict",
+    "Object": "ParticleCodeDict"
+  },
+  {
+    "Subject": "PARTICLE_14",
+    "Predicate": "has_value",
+    "Object": "14"
+  },
+  {
+    "Subject": "PARTICLE_14",
+    "Predicate": "has_label",
+    "Object": "NEG_XI_BARYON"
+  },
+  {
+    "Subject": "PARTICLE_14",
+    "Predicate": "has_description",
+    "Object": "Negative cascade; negative xi baryon (Ξ⁻)"
+  },
+  {
+    "Subject": "PARTICLE_15",
+    "Predicate": "type",
+    "Object": "particle_code"
+  },
+  {
+    "Subject": "PARTICLE_15",
+    "Predicate": "belongs_to_dict",
+    "Object": "ParticleCodeDict"
+  },
+  {
+    "Subject": "PARTICLE_15",
+    "Predicate": "has_value",
+    "Object": "15"
+  },
+  {
+    "Subject": "PARTICLE_15",
+    "Predicate": "has_label",
+    "Object": "OMEGA_BARYON"
+  },
+  {
+    "Subject": "PARTICLE_15",
+    "Predicate": "has_description",
+    "Object": "Omega baryon (Ω⁻)"
+  },
+  {
+    "Subject": "PARTICLE_16",
+    "Predicate": "type",
+    "Object": "particle_code"
+  },
+  {
+    "Subject": "PARTICLE_16",
+    "Predicate": "belongs_to_dict",
+    "Object": "ParticleCodeDict"
+  },
+  {
+    "Subject": "PARTICLE_16",
+    "Predicate": "has_value",
+    "Object": "16"
+  },
+  {
+    "Subject": "PARTICLE_16",
+    "Predicate": "has_label",
+    "Object": "POSITIVE_MUON"
+  },
+  {
+    "Subject": "PARTICLE_16",
+    "Predicate": "has_description",
+    "Object": "Positive muon (μ⁺)"
+  },
+  {
+    "Subject": "PARTICLE_17",
+    "Predicate": "type",
+    "Object": "particle_code"
+  },
+  {
+    "Subject": "PARTICLE_17",
+    "Predicate": "belongs_to_dict",
+    "Object": "ParticleCodeDict"
+  },
+  {
+    "Subject": "PARTICLE_17",
+    "Predicate": "has_value",
+    "Object": "17"
+  },
+  {
+    "Subject": "PARTICLE_17",
+    "Predicate": "has_label",
+    "Object": "ANTI_ELECTRON_NEUTRINO"
+  },
+  {
+    "Subject": "PARTICLE_17",
+    "Predicate": "has_description",
+    "Object": "Anti electron neutrino (ν̅ₑ)"
+  },
+  {
+    "Subject": "PARTICLE_18",
+    "Predicate": "type",
+    "Object": "particle_code"
+  },
+  {
+    "Subject": "PARTICLE_18",
+    "Predicate": "belongs_to_dict",
+    "Object": "ParticleCodeDict"
+  },
+  {
+    "Subject": "PARTICLE_18",
+    "Predicate": "has_value",
+    "Object": "18"
+  },
+  {
+    "Subject": "PARTICLE_18",
+    "Predicate": "has_label",
+    "Object": "ANTI_MUON_NEUTRINO"
+  },
+  {
+    "Subject": "PARTICLE_18",
+    "Predicate": "has_description",
+    "Object": "Anti muon neutrino (ν̅_μ)"
+  },
+  {
+    "Subject": "PARTICLE_19",
+    "Predicate": "type",
+    "Object": "particle_code"
+  },
+  {
+    "Subject": "PARTICLE_19",
+    "Predicate": "belongs_to_dict",
+    "Object": "ParticleCodeDict"
+  },
+  {
+    "Subject": "PARTICLE_19",
+    "Predicate": "has_value",
+    "Object": "19"
+  },
+  {
+    "Subject": "PARTICLE_19",
+    "Predicate": "has_label",
+    "Object": "ANTI_PROTON"
+  },
+  {
+    "Subject": "PARTICLE_19",
+    "Predicate": "has_description",
+    "Object": "Anti proton (p̅)"
+  },
+  {
+    "Subject": "PARTICLE_20",
+    "Predicate": "type",
+    "Object": "particle_code"
+  },
+  {
+    "Subject": "PARTICLE_20",
+    "Predicate": "belongs_to_dict",
+    "Object": "ParticleCodeDict"
+  },
+  {
+    "Subject": "PARTICLE_20",
+    "Predicate": "has_value",
+    "Object": "20"
+  },
+  {
+    "Subject": "PARTICLE_20",
+    "Predicate": "has_label",
+    "Object": "POSITIVE_PION"
+  },
+  {
+    "Subject": "PARTICLE_20",
+    "Predicate": "has_description",
+    "Object": "Positive pion (π⁺)"
+  },
+  {
+    "Subject": "PARTICLE_21",
+    "Predicate": "type",
+    "Object": "particle_code"
+  },
+  {
+    "Subject": "PARTICLE_21",
+    "Predicate": "belongs_to_dict",
+    "Object": "ParticleCodeDict"
+  },
+  {
+    "Subject": "PARTICLE_21",
+    "Predicate": "has_value",
+    "Object": "21"
+  },
+  {
+    "Subject": "PARTICLE_21",
+    "Predicate": "has_label",
+    "Object": "NEUTRAL_PION"
+  },
+  {
+    "Subject": "PARTICLE_21",
+    "Predicate": "has_description",
+    "Object": "Neutral pion (π⁰)"
+  },
+  {
+    "Subject": "PARTICLE_22",
+    "Predicate": "type",
+    "Object": "particle_code"
+  },
+  {
+    "Subject": "PARTICLE_22",
+    "Predicate": "belongs_to_dict",
+    "Object": "ParticleCodeDict"
+  },
+  {
+    "Subject": "PARTICLE_22",
+    "Predicate": "has_value",
+    "Object": "22"
+  },
+  {
+    "Subject": "PARTICLE_22",
+    "Predicate": "has_label",
+    "Object": "POSITIVE_KAON"
+  },
+  {
+    "Subject": "PARTICLE_22",
+    "Predicate": "has_description",
+    "Object": "Positive kaon (K⁺)"
+  },
+  {
+    "Subject": "PARTICLE_23",
+    "Predicate": "type",
+    "Object": "particle_code"
+  },
+  {
+    "Subject": "PARTICLE_23",
+    "Predicate": "belongs_to_dict",
+    "Object": "ParticleCodeDict"
+  },
+  {
+    "Subject": "PARTICLE_23",
+    "Predicate": "has_value",
+    "Object": "23"
+  },
+  {
+    "Subject": "PARTICLE_23",
+    "Predicate": "has_label",
+    "Object": "KAON_SHORT"
+  },
+  {
+    "Subject": "PARTICLE_23",
+    "Predicate": "has_description",
+    "Object": "Kaon, short (K⁰_s)"
+  },
+  {
+    "Subject": "PARTICLE_24",
+    "Predicate": "type",
+    "Object": "particle_code"
+  },
+  {
+    "Subject": "PARTICLE_24",
+    "Predicate": "belongs_to_dict",
+    "Object": "ParticleCodeDict"
+  },
+  {
+    "Subject": "PARTICLE_24",
+    "Predicate": "has_value",
+    "Object": "24"
+  },
+  {
+    "Subject": "PARTICLE_24",
+    "Predicate": "has_label",
+    "Object": "KAON_LONG"
+  },
+  {
+    "Subject": "PARTICLE_24",
+    "Predicate": "has_description",
+    "Object": "Kaon, long (K⁰_L)"
+  },
+  {
+    "Subject": "PARTICLE_25",
+    "Predicate": "type",
+    "Object": "particle_code"
+  },
+  {
+    "Subject": "PARTICLE_25",
+    "Predicate": "belongs_to_dict",
+    "Object": "ParticleCodeDict"
+  },
+  {
+    "Subject": "PARTICLE_25",
+    "Predicate": "has_value",
+    "Object": "25"
+  },
+  {
+    "Subject": "PARTICLE_25",
+    "Predicate": "has_label",
+    "Object": "ANTI_LAMBDA_BARYON"
+  },
+  {
+    "Subject": "PARTICLE_25",
+    "Predicate": "has_description",
+    "Object": "Anti lambda baryon (Λ̅⁰)"
+  },
+  {
+    "Subject": "PARTICLE_26",
+    "Predicate": "type",
+    "Object": "particle_code"
+  },
+  {
+    "Subject": "PARTICLE_26",
+    "Predicate": "belongs_to_dict",
+    "Object": "ParticleCodeDict"
+  },
+  {
+    "Subject": "PARTICLE_26",
+    "Predicate": "has_value",
+    "Object": "26"
+  },
+  {
+    "Subject": "PARTICLE_26",
+    "Predicate": "has_label",
+    "Object": "ANTI_POS_SIGMA_BARYON"
+  },
+  {
+    "Subject": "PARTICLE_26",
+    "Predicate": "has_description",
+    "Object": "Anti positive sigma baryon (Σ̅⁺)"
+  },
+  {
+    "Subject": "PARTICLE_27",
+    "Predicate": "type",
+    "Object": "particle_code"
+  },
+  {
+    "Subject": "PARTICLE_27",
+    "Predicate": "belongs_to_dict",
+    "Object": "ParticleCodeDict"
+  },
+  {
+    "Subject": "PARTICLE_27",
+    "Predicate": "has_value",
+    "Object": "27"
+  },
+  {
+    "Subject": "PARTICLE_27",
+    "Predicate": "has_label",
+    "Object": "ANTI_NEG_SIGMA_BARYON"
+  },
+  {
+    "Subject": "PARTICLE_27",
+    "Predicate": "has_description",
+    "Object": "Anti negative sigma baryon (Σ̅⁻)"
+  },
+  {
+    "Subject": "PARTICLE_28",
+    "Predicate": "type",
+    "Object": "particle_code"
+  },
+  {
+    "Subject": "PARTICLE_28",
+    "Predicate": "belongs_to_dict",
+    "Object": "ParticleCodeDict"
+  },
+  {
+    "Subject": "PARTICLE_28",
+    "Predicate": "has_value",
+    "Object": "28"
+  },
+  {
+    "Subject": "PARTICLE_28",
+    "Predicate": "has_label",
+    "Object": "ANTI_XI_BARYON"
+  },
+  {
+    "Subject": "PARTICLE_28",
+    "Predicate": "has_description",
+    "Object": "Anti cascade; anti neutral xi baryon (Ξ̅⁰)"
+  },
+  {
+    "Subject": "PARTICLE_29",
+    "Predicate": "type",
+    "Object": "particle_code"
+  },
+  {
+    "Subject": "PARTICLE_29",
+    "Predicate": "belongs_to_dict",
+    "Object": "ParticleCodeDict"
+  },
+  {
+    "Subject": "PARTICLE_29",
+    "Predicate": "has_value",
+    "Object": "29"
+  },
+  {
+    "Subject": "PARTICLE_29",
+    "Predicate": "has_label",
+    "Object": "POSITIVE_XI_BARYON"
+  },
+  {
+    "Subject": "PARTICLE_29",
+    "Predicate": "has_description",
+    "Object": "Positive cascade; positive xi baryon (Ξ⁺)"
+  },
+  {
+    "Subject": "PARTICLE_30",
+    "Predicate": "type",
+    "Object": "particle_code"
+  },
+  {
+    "Subject": "PARTICLE_30",
+    "Predicate": "belongs_to_dict",
+    "Object": "ParticleCodeDict"
+  },
+  {
+    "Subject": "PARTICLE_30",
+    "Predicate": "has_value",
+    "Object": "30"
+  },
+  {
+    "Subject": "PARTICLE_30",
+    "Predicate": "has_label",
+    "Object": "ANTI_OMEGA_BARYON"
+  },
+  {
+    "Subject": "PARTICLE_30",
+    "Predicate": "has_description",
+    "Object": "Anti omega (Ω̅⁻)"
+  },
+  {
+    "Subject": "PARTICLE_31",
+    "Predicate": "type",
+    "Object": "particle_code"
+  },
+  {
+    "Subject": "PARTICLE_31",
+    "Predicate": "belongs_to_dict",
+    "Object": "ParticleCodeDict"
+  },
+  {
+    "Subject": "PARTICLE_31",
+    "Predicate": "has_value",
+    "Object": "31"
+  },
+  {
+    "Subject": "PARTICLE_31",
+    "Predicate": "has_label",
+    "Object": "DEUTERON"
+  },
+  {
+    "Subject": "PARTICLE_31",
+    "Predicate": "has_description",
+    "Object": "Deuteron (d)"
+  },
+  {
+    "Subject": "PARTICLE_32",
+    "Predicate": "type",
+    "Object": "particle_code"
+  },
+  {
+    "Subject": "PARTICLE_32",
+    "Predicate": "belongs_to_dict",
+    "Object": "ParticleCodeDict"
+  },
+  {
+    "Subject": "PARTICLE_32",
+    "Predicate": "has_value",
+    "Object": "32"
+  },
+  {
+    "Subject": "PARTICLE_32",
+    "Predicate": "has_label",
+    "Object": "TRITON"
+  },
+  {
+    "Subject": "PARTICLE_32",
+    "Predicate": "has_description",
+    "Object": "Triton (t)"
+  },
+  {
+    "Subject": "PARTICLE_33",
+    "Predicate": "type",
+    "Object": "particle_code"
+  },
+  {
+    "Subject": "PARTICLE_33",
+    "Predicate": "belongs_to_dict",
+    "Object": "ParticleCodeDict"
+  },
+  {
+    "Subject": "PARTICLE_33",
+    "Predicate": "has_value",
+    "Object": "33"
+  },
+  {
+    "Subject": "PARTICLE_33",
+    "Predicate": "has_label",
+    "Object": "HELIUM3"
+  },
+  {
+    "Subject": "PARTICLE_33",
+    "Predicate": "has_description",
+    "Object": "Hellion (³He)"
+  },
+  {
+    "Subject": "PARTICLE_34",
+    "Predicate": "type",
+    "Object": "particle_code"
+  },
+  {
+    "Subject": "PARTICLE_34",
+    "Predicate": "belongs_to_dict",
+    "Object": "ParticleCodeDict"
+  },
+  {
+    "Subject": "PARTICLE_34",
+    "Predicate": "has_value",
+    "Object": "34"
+  },
+  {
+    "Subject": "PARTICLE_34",
+    "Predicate": "has_label",
+    "Object": "ALPHA"
+  },
+  {
+    "Subject": "PARTICLE_34",
+    "Predicate": "has_description",
+    "Object": "Alpha particle (α)"
+  },
+  {
+    "Subject": "PARTICLE_35",
+    "Predicate": "type",
+    "Object": "particle_code"
+  },
+  {
+    "Subject": "PARTICLE_35",
+    "Predicate": "belongs_to_dict",
+    "Object": "ParticleCodeDict"
+  },
+  {
+    "Subject": "PARTICLE_35",
+    "Predicate": "has_value",
+    "Object": "35"
+  },
+  {
+    "Subject": "PARTICLE_35",
+    "Predicate": "has_label",
+    "Object": "NEGATIVE_PION"
+  },
+  {
+    "Subject": "PARTICLE_35",
+    "Predicate": "has_description",
+    "Object": "Negative pion (π⁻)"
+  },
+  {
+    "Subject": "PARTICLE_36",
+    "Predicate": "type",
+    "Object": "particle_code"
+  },
+  {
+    "Subject": "PARTICLE_36",
+    "Predicate": "belongs_to_dict",
+    "Object": "ParticleCodeDict"
+  },
+  {
+    "Subject": "PARTICLE_36",
+    "Predicate": "has_value",
+    "Object": "36"
+  },
+  {
+    "Subject": "PARTICLE_36",
+    "Predicate": "has_label",
+    "Object": "NEGATIVE_KAON"
+  },
+  {
+    "Subject": "PARTICLE_36",
+    "Predicate": "has_description",
+    "Object": "Negative kaon (K⁻)"
+  },
+  {
+    "Subject": "PARTICLE_37",
+    "Predicate": "type",
+    "Object": "particle_code"
+  },
+  {
+    "Subject": "PARTICLE_37",
+    "Predicate": "belongs_to_dict",
+    "Object": "ParticleCodeDict"
+  },
+  {
+    "Subject": "PARTICLE_37",
+    "Predicate": "has_value",
+    "Object": "37"
+  },
+  {
+    "Subject": "PARTICLE_37",
+    "Predicate": "has_label",
+    "Object": "HEAVY_IONS"
+  },
+  {
+    "Subject": "PARTICLE_37",
+    "Predicate": "has_description",
+    "Object": "Heavy ions"
+  }
+]
