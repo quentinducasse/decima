@@ -41,6 +41,7 @@ NEO4J_USER=neo4j
 NEO4J_PASSWORD=decima123
 ```
 
+```bash
 # 3. Install Neo4j Desktop
 
 - Download Neo4j Desktop: https://neo4j.com/download
@@ -49,6 +50,7 @@ NEO4J_PASSWORD=decima123
   - URI: `bolt://localhost:7687`
   - Username: `neo4j`
   - Password: `decima123`
+```
 
 ```bash
 # 4. Run:

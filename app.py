@@ -43,9 +43,12 @@ def analyze():
 
     result = campbell.process_query(query, ptrac_path, use_context=use_context)
     return jsonify({
-        "response": result.get("response", "No response."),
-        "code": result.get("code", "")
-    })
+    "response": result.get("response", "No response."),
+    "code": result.get("code", ""),
+    "explanation": result.get("response", ""),   # utile pour cohérence avec OTACON
+    "execution_result": result.get("execution_result", {}),
+    "error": result.get("error", "")             # ✅ Ajout clé
+})
 
 @app.route("/execute_code", methods=["POST"])
 def execute():
