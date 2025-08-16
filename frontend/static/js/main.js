@@ -143,24 +143,48 @@ document.addEventListener("DOMContentLoaded", function () {
   inputField.value = "";
 
   fetch("/analyze_query", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({ 
-      query, 
-      use_context: useContext, 
-      model: modelChoice            // ⬅️ envoyé au backend
-    })
+  method: "POST",
+  headers: { "Content-Type": "application/json" },
+  body: JSON.stringify({ 
+    query, 
+    use_context: useContext, 
+    model: modelChoice            // ⬅️ envoyé au backend
   })
-    .then((r) => r.json())
-    .then((data) => {
-      reasoningLoader.style.display = "none";
-      addAssistantMessage(data.response, data.code);
-      // Réinitialise l'affichage des résultats précédents
-      resultSection.style.display = "none";
-      stdoutBlock.textContent = "";
-      stderrBlock.textContent = "";
-      imageBlock.style.display = "none";
-    });
+})
+  .then((r) => r.json())
+  .then((data) => {
+    reasoningLoader.style.display = "none";
+
+    // ✅ Ajout : gestion clé API invalide
+    if (data.explanation && data.explanation.includes("[ERROR:INVALID_API_KEY]")) {
+      addAssistantMessage(`
+        <div style="color:#ff4444; font-weight:bold;">
+          ❌ Invalid API key.<br>
+          Please edit your <code>.env</code> file and set a valid <code>OPENAI_API_KEY</code>.<br>
+          Restart DECIMA after saving the file.
+        </div>
+      `, null);
+      return; // stop ici
+    }
+    // ✅ Gestion Neo4j non lancé (aucune entité EMMA détectée)
+    if ((data.error && data.error.toLowerCase().includes("no entities detected")) ||
+        (data.explanation && data.explanation.toLowerCase().includes("pas d'entités emma"))) {
+      addAssistantMessage(`
+        <div style="color:#ff4444; font-weight:bold;">
+          ⚠️ No entities were detected.<br>
+          Make sure Neo4j Desktop is running and the <code>DECIMA graph</code> database is started.<br>
+          Then retry your query.
+        </div>
+      `, null);
+}
+
+    addAssistantMessage(data.response, data.code);
+    // Réinitialise l'affichage des résultats précédents
+    resultSection.style.display = "none";
+    stdoutBlock.textContent = "";
+    stderrBlock.textContent = "";
+    imageBlock.style.display = "none";
+  });
 };
 
     // Bouton rouge : Stop Code Generation

@@ -169,21 +169,28 @@ class OTACON:
             print(colored(f"[DEBUG] Endpoint API : {base_url}", color))
         except Exception:
             pass
-        response = self.client.chat.completions.create(
-            model=self.model,
-            messages=[
-                {"role": "system",
-                 "content": (
-                    "Tu es un agent expert MCNP PTRAC. Réponds uniquement à des questions de parsing/analyse de fichiers PTRAC MCNP. "
-                    "Le contexte EMMA est un guidage, pas une vérité absolue. Utilise le contexte large structuré si besoin. "
-                    "Fournis toujours d’abord une explication, puis un code Python dans un bloc ```python."
-                )},
-                {"role": "user", "content": prompt},
-            ],
-            temperature=temperature,
-            max_tokens=max_tokens,
-        )
-        return response.choices[0].message.content
+        try:
+            response = self.client.chat.completions.create(
+                model=self.model,
+                messages=[
+                    {"role": "system",
+                    "content": (
+                        "Tu es un agent expert MCNP PTRAC. Réponds uniquement à des questions de parsing/analyse de fichiers PTRAC MCNP. "
+                        "Le contexte EMMA est un guidage, pas une vérité absolue. Utilise le contexte large structuré si besoin. "
+                        "Fournis toujours d’abord une explication, puis un code Python dans un bloc ```python."
+                    )},
+                    {"role": "user", "content": prompt},
+                ],
+                temperature=temperature,
+                max_tokens=max_tokens,
+            )
+            return response.choices[0].message.content
+        
+        except Exception as e:
+            err_msg = str(e)
+            if "401" in err_msg or "Unauthorized" in err_msg:
+                return "[ERROR:INVALID_API_KEY] Your API key is invalid or unauthorized. Please check your `.env` file and update `OPENAI_API_KEY`."
+            return f"[ERROR] LLM request failed: {err_msg}"
 
     def parse_llm_output(self, llm_output: str) -> dict:
         import re

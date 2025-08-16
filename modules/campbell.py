@@ -131,7 +131,11 @@ class CampbellOrchestrator:
             emma_context = self.emma_agent.extract_kg_context(quiet_context)
             state["context"] = emma_context
             state["entities"] = emma_context.get("entities", [])
-            state["logs"].append("[EMMA] OK")
+            if not state["entities"]:  # ✅ aucune entité détectée
+                state["error"] = "[EMMA WARNING] No entities detected. Check if Neo4j Desktop is running and the DECIMA graph is started."
+                state["logs"].append(state["error"])
+            else:
+                state["logs"].append("[EMMA] OK")
             state["status"] = "emma_done"
         except Exception as e:
             state["error"] = f"[EMMA ERROR] {str(e)}"
@@ -150,6 +154,12 @@ class CampbellOrchestrator:
             state["code"] = result.get("code", "")
             state["logs"].append("[OTACON] OK")
             state["status"] = "otacon_done"
+
+            # ✅ Important : si EMMA avait mis une erreur, on la garde prioritaire
+            if state.get("error") and "No entities detected" in state["error"]:
+                # On force une réponse vide pour ne pas polluer le frontend
+                state["response"] = ""
+                state["code"] = ""
         except Exception as e:
             state["error"] = f"[OTACON ERROR] {str(e)}"
             state["status"] = "error"
