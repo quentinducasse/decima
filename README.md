@@ -38,11 +38,20 @@ Example `.env` file:
 OPENAI_API_KEY=sk-...
 NEO4J_URI=bolt://localhost:7687
 NEO4J_USER=neo4j
-NEO4J_PASSWORD=yourpassword
+NEO4J_PASSWORD=decima123
 ```
 
+# 3. Install Neo4j Desktop
+
+- Download Neo4j Desktop: https://neo4j.com/download
+- Create a database named `decima graph` and start it
+- Default credentials (editable in the `.env` file created in the previous step):
+  - URI: `bolt://localhost:7687`
+  - Username: `neo4j`
+  - Password: `decima123`
+
 ```bash
-# 3. Run:
+# 4. Run:
 decima_start.bat
 ```
 

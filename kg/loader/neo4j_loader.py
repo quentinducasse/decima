@@ -67,6 +67,7 @@ class Neo4jTripletMigrator:
             logger.info("Connexion à Neo4j établie avec succès")
             return True
         except Exception as e:
+            print("❌ Could not connect to Neo4j. Make sure Neo4j Desktop is installed and running on bolt://localhost:7687.")
             logger.error(f"Erreur de connexion à Neo4j: {str(e)}")
             return False
 
