@@ -15,7 +15,7 @@ LLM_PROVIDER      = os.getenv("LLM_PROVIDER", "openai").lower()
 
 OPENAI_MODELS_AVAILABLE = ["gpt-4o", "gpt-4o-mini"]  
 OPENAI_API_KEY    = os.getenv("OPENAI_API_KEY", "")
-DEFAULT_OAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-4o")
+DEFAULT_OAI_MODEL = os.getenv("OPENAI_MODEL", "gpt-4o-mini")
 
 ASI1_MODELS_AVAILABLE = ["asi1-mini"]
 ASI1_API_KEY      = os.getenv("ASI1_API_KEY", "")

@@ -5,51 +5,35 @@
 # DECIMA
 **Data Extraction & Contextual Inference for MCNP Analysis**
 
-> Powered by LLMs, Knowledge Graphs, and MCNPTools  
-## 🧠 About DECIMA
-
-**DECIMA** (Data Extraction & Contextual Inference for MCNP Analysis) is an intelligent assistant that helps you parse, analyze, and interpret MCNP **PTRAC files** using natural language queries. It integrates a contextual Knowledge Graph (Neo4j), a secure execution sandbox, and a powerful LLM backend for **automated code generation and data analysis**.
-
-Designed for nuclear engineers and researchers, DECIMA makes particle tracking **transparent, accessible, and no-code friendly**.
-
----
-
-## 🚀 Features
-
-- 💬 Ask queries in natural language (English or French)
-- 🧠 Auto-detection of particle events, data, and reaction types
-- 📚 Context enrichment via a structured **Knowledge Graph**
-- 🤖 Code generation via **LLM** (OpenAI GPT, ASI1, etc.)
-- 🔐 Secure code execution in sandboxed Python environment
-- 🖼️ Plotting and data visualization (ASCII or image output)
-- 🧪 Tested with both ASCII and Binary PTRAC files via `mcnptools`
+> Powered by LLMs, Knowledge Graphs, and MCNPTools
 
 ---
 
 ## 📦 Installation
 
-### 1. Clone the repository
+Choose one of the following:
+
+- [🔵 Windows (via `.bat` script)](#option-1--windows)
+- [🟢 Linux/macOS (via terminal)](#option-2--linux--macos)
+- [🐳 Docker (all platforms)](#option-3--docker)
+
+---
+
+### 🔵 OPTION 1 – Windows
+
+> **🔧 Recommended for Windows users**
 
 ```bash
+# 1. Clone the repository
 git clone https://github.com/quentinducasse/decima.git
 cd decima
 ```
 
-### 2. Create and activate a virtual environment
-
 ```bash
-python -m venv decima_env
-source decima_env/bin/activate  # or decima_env\Scripts\activate on Windows
+# 2. Create a .env file at the root of the project (REQUIRED)
 ```
 
-### 3. Install Python dependencies
-
-```bash
-pip install -r requirements.txt
-```
-
-### 4. Create a `.env` file at the project root
-
+Example `.env` file:
 ```env
 OPENAI_API_KEY=sk-...
 NEO4J_URI=bolt://localhost:7687
@@ -57,25 +41,90 @@ NEO4J_USER=neo4j
 NEO4J_PASSWORD=yourpassword
 ```
 
----
-
-## 🧠 Load the Knowledge Graph
-
-Before starting the app, load DECIMA's Knowledge Graph into Neo4j:
-
 ```bash
-python kg/loader/neo4j_loader.py
+# 3. Run:
+decima_start.bat
 ```
 
+This script will:
+- Check for Python and the virtual environment
+- Open Neo4j Desktop (if installed in default location)
+- Prompt you to start the Neo4j DBMS (e.g., `decima graph`)
+- Load the Knowledge Graph
+- Launch the DECIMA web app at http://127.0.0.1:5050
+
+> ⚠️ You must create the `.env` file **before running the script**  
+> You can reuse `decima_start.bat` each time you start DECIMA.
+
 ---
 
-## 💻 Run the Web App
+### 🟢 OPTION 2 – Linux / macOS
+
+> **🔧 Recommended for Unix/macOS users**
 
 ```bash
+# 1. Clone the repository
+git clone https://github.com/quentinducasse/decima.git
+cd decima
+
+# 2. Create and activate a virtual environment
+python3 -m venv decima_env
+source decima_env/bin/activate
+
+# 3. Install Python dependencies
+pip install -r requirements.txt
+
+# 4. Create a .env file at the project root
+```
+
+Example `.env` file:
+```env
+OPENAI_API_KEY=sk-...
+NEO4J_URI=bolt://localhost:7687
+NEO4J_USER=neo4j
+NEO4J_PASSWORD=yourpassword
+```
+
+```bash
+# 5. Launch Neo4j Desktop and start your database (e.g., decima graph)
+
+# 6. Load the Knowledge Graph into Neo4j
+python kg/loader/neo4j_loader.py
+
+# 7. Start the DECIMA web app
 python app.py
 ```
 
 Then open your browser at [http://127.0.0.1:5050](http://127.0.0.1:5050)
+
+---
+
+### 🐳 OPTION 3 – Docker (All Platforms)
+
+> **💻 Recommended for advanced users and developers**
+
+```bash
+# 1. Clone the repository
+git clone https://github.com/quentinducasse/decima.git
+cd decima
+
+# 2. Copy and edit the .env file
+cp .env.example .env
+```
+
+Edit `.env` and add your OpenAI API key:
+```env
+OPENAI_API_KEY=sk-...
+```
+
+```bash
+# 3. Launch DECIMA with Docker
+docker-compose up --build
+```
+
+This will:
+- Start a Neo4j container (port 7687)
+- Build and run the DECIMA app (port 5050)
 
 ---
 
@@ -97,18 +146,15 @@ What is the energy and position of all electrons crossing surface 30?
 
 ---
 
-## 🧩 Architecture Overview
+## 🧠 Features
 
-DECIMA uses a modular LangGraph-based agent system:
-
-- `QUIET`: Language detection & focus extraction
-- `EMMA`: Knowledge Graph contextual retrieval
-- `OTACON`: LLM-based response & code generation
-- `EVA`: Code execution & output retrieval
-- `CAMPBELL`: Main orchestrator (LangGraph)
-- `Frontend`: Flask web interface (JS/HTML/CSS)
-
-All communication is orchestrated via the `campbell.py` pipeline.
+- 💬 Ask queries in natural language (English or French)
+- 🧠 Auto-detection of particle events, data, and reaction types
+- 📚 Context enrichment via a structured **Knowledge Graph**
+- 🤖 Code generation via **LLM** (OpenAI GPT, ASI1, etc.)
+- 🔐 Secure code execution in sandboxed Python environment
+- 🖼️ Plotting and data visualization (ASCII or image output)
+- 🧪 Tested with both ASCII and Binary PTRAC files via `mcnptools`
 
 ---
 
@@ -144,16 +190,12 @@ See full user and technical docs in the [`doc/`](doc/) folder:
 This project is licensed under **Creative Commons Attribution 4.0 International (CC BY 4.0)**.  
 Feel free to use, adapt and cite — but **credit the original authors**.
 
-For citation and DOI, see next section.
-
 ---
 
 ## 📚 How to Cite DECIMA
 
 > Ducasse Q., *DECIMA – An LLM-based assistant for MCNP particle tracking analysis*, v1.0.0, GitHub, 2025-08-15.  
 > Available: [https://github.com/quentinducasse/decima](https://github.com/quentinducasse/decima)
-
-You may generate a DOI via **Zenodo** for formal citation.
 
 ---
 
@@ -179,6 +221,3 @@ DECIMA is a personal research project developed by [@quentinducasse](https://git
 ## 🐛 Issues / Suggestions
 
 Feel free to open issues or pull requests. For private collaboration, contact the project author.
-
----
-
