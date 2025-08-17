@@ -1,4 +1,13 @@
+from dotenv import load_dotenv
 import os
+
+if os.path.exists(".env.local"):
+    load_dotenv(".env.local")
+elif os.path.exists(".env.docker"):
+    load_dotenv(".env.docker")
+else:
+    load_dotenv()
+    
 import json
 import logging
 from neo4j import GraphDatabase
@@ -217,10 +226,10 @@ class Neo4jTripletMigrator:
         logger.info("Migration complète des triplets terminée.")
 
 def main():
-    uri = "bolt://localhost:7687"
-    user = "neo4j"
-    password = "decima123"
-    triplets_dir = r"C:\Users\qduca\OneDrive\Applications\DECIMA_v2\kg\triplets"
+    uri = os.getenv("NEO4J_URI", "bolt://localhost:7687")
+    user = os.getenv("NEO4J_USER", "neo4j")
+    password = os.getenv("NEO4J_PASSWORD", "decima123")
+    triplets_dir = os.getenv("TRIPLETS_DIR", os.path.join("kg", "triplets"))
 
     migrator = Neo4jTripletMigrator(uri, user, password)
     if migrator.connect():

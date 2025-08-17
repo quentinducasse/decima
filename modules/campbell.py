@@ -5,7 +5,14 @@ Orchestration robuste des modules EVA, OTACON, EMMA, QUIET via LangGraph
 Auteur : DECIMA Team (2025)
 """
 from dotenv import load_dotenv
-load_dotenv()
+import os
+
+if os.path.exists(".env.local"):
+    load_dotenv(".env.local")
+elif os.path.exists(".env.docker"):
+    load_dotenv(".env.docker")
+else:
+    load_dotenv()
 
 import os
 import json

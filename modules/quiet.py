@@ -1,6 +1,14 @@
 
 from dotenv import load_dotenv
-load_dotenv()
+import os
+
+if os.path.exists(".env.local"):
+    load_dotenv(".env.local")
+elif os.path.exists(".env.docker"):
+    load_dotenv(".env.docker")
+else:
+    load_dotenv()
+    
 import sys, os
 sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 

@@ -87,4 +87,7 @@ def abort_execution():
     return jsonify({"status": "no_active_process"})
 
 if __name__ == "__main__":
-    app.run(debug=True, port=5050)
+    #version sans docker
+    # app.run(debug=True, port=5050)
+    #version avec docker
+    app.run(debug=True, host="0.0.0.0", port=5050)
