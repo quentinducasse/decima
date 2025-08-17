@@ -1,5 +1,7 @@
 # 🔒 Fichiers sensibles
-.env.*
+.env
+.env.local
+.env.docker
 *.key
 *.pem
 
@@ -30,6 +32,10 @@ __pycache__/
 *.log
 *.tmp
 *.bak
+
+# ✅ Forcer l'inclusion du dossier mcnptools
+!mcnptools/
+!mcnptools/**/*
 
 # 📚 Données inutiles (à exclure)
 data/cpp/mctal/

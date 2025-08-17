@@ -27,25 +27,28 @@ git clone https://github.com/quentinducasse/decima.git
 cd decima
 ```
 
+---
+
+### 🛠️ 2. Configure your environment
+
+Copy the Docker env template and fill in your API key:
+
 ```bash
-# 2. Create a .env file at the project root (REQUIRED)
+cp .env.docker.example .env.docker
 ```
-At the root of the project, create a .env file that will contain your API key and Neo4j settings.
-You can do it manually, or by running the following command in your terminal:
+
+Then edit the file `.env.docker`:
 
 ```env
-echo "# LLM (OTACON)" >> .env
-echo "LLM_PROVIDER=openai" >> .env
-echo "OPENAI_API_KEY=sk-..." >> .env
-echo "" >> .env
-echo "# Neo4j (EMMA)" >> .env
-echo "NEO4J_URI=bolt://localhost:7687" >> .env
-echo "NEO4J_USER=neo4j" >> .env
-echo "NEO4J_PASSWORD=decima123" >> .env
-```
-You can replace OPENAI_API_KEY=sk-... with your own OpenAI API key.
+LLM_PROVIDER=openai
+OPENAI_API_KEY=sk-...   # ← Insert your own API key
 
-> ⚠️ This file is **required** before launching the app.
+NEO4J_URI=bolt://neo4j:7687
+NEO4J_USER=neo4j
+NEO4J_PASSWORD=decima123
+```
+
+> ⚠️ Do **not** use `localhost` for `NEO4J_URI` — the app uses the internal Docker service name (`neo4j`).
 
 ---
 
@@ -56,31 +59,11 @@ docker compose up --build -d
 ```
 
 This will automatically:
-- Start a **Neo4j** container (port 7687 + web UI on 7474)
-- Build the app container with:
-  - Python 3.10
-  - Flask, MCNPTools (compiled from source)
-  - All required Python dependencies
-- Launch the Flask web interface (port 5050)
+- Start a Neo4j container (port 7687 + web UI on 7474)
+- Build a Docker image with all Python scripts and dependencies (including `mcnptools`)
+- Launch the Flask web server (port 5050)
 
----
-
-### 🌐 Access the Web App
-
-- DECIMA interface → [http://localhost:5050](http://localhost:5050)
-- Neo4j Web UI → [http://localhost:7474](http://localhost:7474)
-
-Login credentials:
-```
-Username: neo4j
-Password: decima123
-```
-
----
-
-## 🧠 Load the Knowledge Graph
-
-Once the containers are running, load the graph data by executing:
+Then load the Knowledge Graph:
 
 ```bash
 docker exec -it decima-app-1 python kg/loader/neo4j_loader.py
@@ -88,47 +71,43 @@ docker exec -it decima-app-1 python kg/loader/neo4j_loader.py
 
 ---
 
+### 🌐 Access the Web App
+
+- DECIMA interface: [http://localhost:5050](http://localhost:5050)
+- Neo4j interface (Knowledge Graph): [http://localhost:7474](http://localhost:7474)
+
+> Log in with:  
+> **Username:** `neo4j`  
+> **Password:** `decima123`
+
+---
+
 ## ✨ Example Use
 
 1. Upload your `.ptrac` file (ASCII or binary)
-2. Ask a question like:
+2. Ask a query like:
 
 ```text
 What is the energy and position of all electrons crossing surface 30?
 ```
 
 3. DECIMA will:
-   - Parse your request using **QUIET**
-   - Retrieve relevant nodes from **EMMA** (Neo4j KG)
-   - Use **OTACON** (LLM) to generate Python code
-   - Execute that code in a secure **EVA** sandbox
-   - Display structured results and plots
+   - Analyze your query via QUIET
+   - Extract context using EMMA (graph)
+   - Generate Python code via OTACON (LLM)
+   - Execute it safely via EVA
+   - Return results + plots (if applicable)
 
 ---
 
 ## 🧠 Features
 
 - 💬 Multilingual interface (EN / FR)
-- 🔍 Smart PTRAC parsing (via MCNPTools)
-- 📚 Graph-powered inference engine
-- 🤖 LLM-driven code generation (OpenAI, ASI:One, etc.)
-- 🔐 Secure sandbox execution (Python only)
-- 📈 Data visualization (ASCII or graphical)
-
----
-
-## 🧰 MCNPTools Integration (C++ + Python)
-
-DECIMA includes MCNPTools **compiled locally inside the image**, with Boost, HDF5, and SWIG.  
-No manual installation is needed.
-
-Example usage in Python:
-
-```python
-from mcnptools import Ptrac
-ptrac = Ptrac("myfile.ptrac")
-ptrac.ReadHistories(10000)
-```
+- 🔍 Intelligent PTRAC file analysis
+- 📚 MCNP Knowledge Graph (Neo4j)
+- 🤖 LLM-based Python code generation
+- 🔐 Secure sandbox execution
+- 📈 ASCII and graphical visualizations
 
 ---
 
@@ -138,18 +117,14 @@ ptrac.ReadHistories(10000)
 ├── app.py                 # Main Flask backend
 ├── docker-compose.yml     # Docker orchestration
 ├── Dockerfile             # Docker image build
-├── .env.docker            # Default Docker env vars
-├── modules/               # QUIET, EMMA, OTACON, EVA
-├── kg/                    # KG triplets and graph loader
-│   └── loader/
-│       └── neo4j_loader.py
-├── mcnptools/             # Local clone from LANL (required)
-├── frontend/              # HTML / CSS / JS interface
-├── uploads/               # User-submitted files
-├── tools/                 # Code execution sandbox
-├── utils/                 # Keywords, prompts
+├── modules/               # QUIET, EMMA, OTACON, EVA, etc.
+├── kg/                    # KG triplets and graph files
+├── frontend/              # HTML / CSS / JS
+├── uploads/               # User PTRAC files
+├── tools/                 # Sandbox code execution
+├── utils/                 # Keyword and prompt files
 ├── data/                  # Sample MCNP files
-├── .env                   # LLM + Neo4j credentials
+├── .env.docker.example    # Sample Docker environment file
 └── requirements.txt       # Python dependencies
 ```
 
@@ -157,7 +132,7 @@ ptrac.ReadHistories(10000)
 
 ## 📖 Documentation
 
-See the [`doc/`](doc/) folder for:
+See the [`doc/`](doc/) folder for more:
 
 - `DECIMA Project Technical Documentation.md`
 - `DECIMA Project User Documentation.md`
@@ -166,7 +141,7 @@ See the [`doc/`](doc/) folder for:
 
 ## 📚 Citation
 
-> Ducasse Q., *DECIMA – An LLM-based assistant for MCNP particle tracking analysis*, v1.0.0, GitHub, 2025-08-15.  
+> Ducasse Q., *DECIMA – An LLM-based assistant for MCNP particle tracking analysis*, v1.0.1, GitHub, 2025-08-17.  
 > [https://github.com/quentinducasse/decima](https://github.com/quentinducasse/decima)
 
 ---
@@ -174,7 +149,7 @@ See the [`doc/`](doc/) folder for:
 ## 🔖 License
 
 **CC-BY 4.0** – Free to use, adapt, and redistribute **with attribution**.  
-Please cite the original author in any derived publication or tool.
+Please credit the original author in any derived publication or tool.
 
 ---
 
@@ -183,18 +158,14 @@ Please cite the original author in any derived publication or tool.
 - [MCNPTools](https://github.com/lanl/mcnptools) (LANL)
 - [OpenAI](https://openai.com/) & [ASI:One](https://asi.one/)
 - [Neo4j](https://neo4j.com/)
-- [Boost](https://www.boost.org/) + [HDF5](https://portal.hdfgroup.org/display/support)
 
 ---
 
-## 🧭 Roadmap
+## 🚧 Roadmap
 
-- [x] 🐳 Docker support with MCNPTools prebuilt
-- [x] KG loader integration inside container
-- [x] OpenAI + ASI support via .env
-- [ ] MCTAL file visualization (FORTUNE)
-- [ ] Batch PTRAC processing
-- [ ] Public online version (API key restricted)
-- [ ] MCNP6/6.2 + alternative file formats
+- [ ] MCTAL integration (FORTUNE)
+- [ ] Batch mode for processing multiple files
+- [ ] Public web interface (key-restricted)
+- [ ] MCNP6/6.2 and alt formats support
 
 ---
