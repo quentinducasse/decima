@@ -1,3 +1,4 @@
+
 <p align="center">
   <img src="decima_logo.png" width="250"/>
 </p>
@@ -14,8 +15,12 @@
 
 ### ✅ Prerequisites
 
-Make sure you have installed **Docker Desktop**:  
-👉 [https://www.docker.com/products/docker-desktop/](https://www.docker.com/products/docker-desktop/)
+Make sure you have installed **Docker**:  
+👉 [https://docs.docker.com/get-docker/](https://docs.docker.com/get-docker/)
+
+> 🐧 **Linux Users:**  
+> You might need to run Docker commands with `sudo` unless you’ve added your user to the Docker group.  
+> See: [Manage Docker as a non-root user](https://docs.docker.com/engine/install/linux-postinstall/)
 
 ---
 
@@ -37,33 +42,33 @@ Copy the Docker env template and fill in your API key:
 cp .env.docker.example .env.docker
 ```
 
-Then edit the file `.env.docker`:
+Edit `.env.docker` with:
 
 ```env
 LLM_PROVIDER=openai
-OPENAI_API_KEY=sk-...   # ← Insert your own API key
+OPENAI_API_KEY=sk-...   # ← Insert your API key
 
 NEO4J_URI=bolt://neo4j:7687
 NEO4J_USER=neo4j
 NEO4J_PASSWORD=decima123
 ```
 
-> ⚠️ Do **not** use `localhost` for `NEO4J_URI` — the app uses the internal Docker service name (`neo4j`).
+> ⚠️ Do **not** use `localhost` for `NEO4J_URI` — use the internal Docker service name (`neo4j`).
 
 ---
 
-### 🐳 3. Run DECIMA via Docker
+### 🐳 3. Build and launch DECIMA
 
 ```bash
 docker compose up --build -d
 ```
 
 This will automatically:
-- Start a Neo4j container (port 7687 + web UI on 7474)
-- Build a Docker image with all Python scripts and dependencies (including `mcnptools`)
-- Launch the Flask web server (port 5050)
+- Start a Neo4j container (ports 7474 + 7687)
+- Build the image with all Python tools and `mcnptools`
+- Launch the web server (port 5050)
 
-Then load the Knowledge Graph:
+Load the Knowledge Graph:
 
 ```bash
 docker exec -it decima-app-1 python kg/loader/neo4j_loader.py
@@ -71,10 +76,10 @@ docker exec -it decima-app-1 python kg/loader/neo4j_loader.py
 
 ---
 
-### 🌐 Access the Web App
+### 🌐 Access the Interfaces
 
-- DECIMA interface: [http://localhost:5050](http://localhost:5050)
-- Neo4j interface (Knowledge Graph): [http://localhost:7474](http://localhost:7474)
+- Web App (DECIMA): [http://localhost:5050](http://localhost:5050)
+- Neo4j Browser: [http://localhost:7474](http://localhost:7474)
 
 > Log in with:  
 > **Username:** `neo4j`  
@@ -82,57 +87,64 @@ docker exec -it decima-app-1 python kg/loader/neo4j_loader.py
 
 ---
 
-## ✨ Example Use
+## ▶️ After Installation: How to Use
 
-1. Upload your `.ptrac` file (ASCII or binary)
-2. Ask a query like:
+```bash
+# Start the containers
+docker compose up -d
 
-```text
-What is the energy and position of all electrons crossing surface 30?
+# Load or reload the KG
+docker exec -it decima-app-1 python kg/loader/neo4j_loader.py
+
+# Stop all services
+docker compose down -v
 ```
 
-3. DECIMA will:
-   - Analyze your query via QUIET
-   - Extract context using EMMA (graph)
-   - Generate Python code via OTACON (LLM)
-   - Execute it safely via EVA
-   - Return results + plots (if applicable)
+> Use `sudo` in front of the commands above if you get a permission error on Linux.
+
+Then open your browser and go to: [http://localhost:5050](http://localhost:5050)
 
 ---
 
-## 🧠 Features
+## ✨ Example Usage
 
-- 💬 Multilingual interface (EN / FR)
-- 🔍 Intelligent PTRAC file analysis
-- 📚 MCNP Knowledge Graph (Neo4j)
-- 🤖 LLM-based Python code generation
-- 🔐 Secure sandbox execution
-- 📈 ASCII and graphical visualizations
+1. Upload your `.ptrac` file
+2. Ask a natural language question like:
+
+```text
+Which protons reach surface 20 and what's their energy?
+```
+
+3. DECIMA will:
+   - Analyze the query
+   - Use the KG for context
+   - Generate and run code
+   - Return structured results
 
 ---
 
 ## 📁 Project Structure
 
 ```
-├── app.py                 # Main Flask backend
-├── docker-compose.yml     # Docker orchestration
-├── Dockerfile             # Docker image build
-├── modules/               # QUIET, EMMA, OTACON, EVA, etc.
-├── kg/                    # KG triplets and graph files
-├── frontend/              # HTML / CSS / JS
-├── uploads/               # User PTRAC files
-├── tools/                 # Sandbox code execution
-├── utils/                 # Keyword and prompt files
-├── data/                  # Sample MCNP files
-├── .env.docker.example    # Sample Docker environment file
-└── requirements.txt       # Python dependencies
+├── app.py
+├── docker-compose.yml
+├── Dockerfile
+├── modules/        # QUIET, OTACON, EMMA, EVA...
+├── kg/             # Knowledge Graph (triplets, loader)
+├── frontend/       # Web interface (HTML/JS)
+├── uploads/        # PTRAC files
+├── tools/          # Sandboxed code execution
+├── mcnptools/      # Local copy of MCNPTools
+├── data/           # Sample files
+├── .env.docker.example
+└── requirements.txt
 ```
 
 ---
 
 ## 📖 Documentation
 
-See the [`doc/`](doc/) folder for more:
+See the [`doc/`](doc/) folder for:
 
 - `DECIMA Project Technical Documentation.md`
 - `DECIMA Project User Documentation.md`
@@ -148,14 +160,13 @@ See the [`doc/`](doc/) folder for more:
 
 ## 🔖 License
 
-**CC-BY 4.0** – Free to use, adapt, and redistribute **with attribution**.  
-Please credit the original author in any derived publication or tool.
+**CC-BY 4.0** — free to use and adapt, with **attribution** required.
 
 ---
 
 ## 🤝 Acknowledgments
 
-- [MCNPTools](https://github.com/lanl/mcnptools) (LANL)
+- [MCNPTools (LANL)](https://github.com/lanl/mcnptools)
 - [OpenAI](https://openai.com/) & [ASI:One](https://asi.one/)
 - [Neo4j](https://neo4j.com/)
 
@@ -163,9 +174,7 @@ Please credit the original author in any derived publication or tool.
 
 ## 🚧 Roadmap
 
-- [ ] MCTAL integration (FORTUNE)
-- [ ] Batch mode for processing multiple files
-- [ ] Public web interface (key-restricted)
-- [ ] MCNP6/6.2 and alt formats support
-
----
+- [ ] MCTAL (FORTUNE) support
+- [ ] Batch file processing
+- [ ] Public access (key-restricted)
+- [ ] MCNP6+ compatibility
