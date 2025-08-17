@@ -181,6 +181,7 @@ Project: DECIMA — Data Extraction & Contextual Inference for MCNP Analysis
 Year: 2025  
 
 For commercial licensing inquiries (e.g., integration into a product, for-profit application), please contact the author to discuss custom licensing terms.
+
 ---
 
 ## 🤝 Acknowledgments
