@@ -36,10 +36,9 @@ langgraph-sdk==0.1.70
 langsmith==0.3.42
 MarkupSafe==3.0.2
 matplotlib==3.10.3
-mcnptools @ file:///C:/Users/qduca/OneDrive/Softwares/mcnptools-main/mcnptools-main/build/python
 neo4j==5.28.1
 nodeenv==1.9.1
-numpy==2.3.1
+numpy==2.2.6
 openai==1.82.0
 orjson==3.10.18
 ormsgpack==1.9.1

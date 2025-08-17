@@ -1,0 +1,28 @@
+# 🔁 Cache Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.log
+
+# 🛠️ Éditeurs et fichiers temporaires
+*.swp
+*.bak
+*.tmp
+
+# 🐍 Environnements virtuels
+env/
+venv/
+decima_env/
+
+# 🔧 Build MCNPTools (ne pas inclure dans l’image)
+mcnptools/build/
+mcnptools/.git/
+
+# 🌐 Fichiers système
+.DS_Store
+Thumbs.db
+
+# ⚠️ Exclure dump fichiers PTRAC (si jamais tu les ajoutes)
+*.ptrac
+*.mctal

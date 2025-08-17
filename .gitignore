@@ -1,5 +1,5 @@
 # 🔒 Fichiers sensibles
-.env
+.env.*
 *.key
 *.pem
 
