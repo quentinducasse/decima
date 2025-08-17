@@ -30,18 +30,21 @@ cd decima
 ```bash
 # 2. Create a .env file at the project root (REQUIRED)
 ```
+At the root of the project, create a .env file that will contain your API key and Neo4j settings.
+You can do it manually, or by running the following command in your terminal:
 
 Example `.env`:
 ```env
-# LLM (OTACON)
-LLM_PROVIDER=openai
-OPENAI_API_KEY=sk-...
-
-# Neo4j (EMMA)
-NEO4J_URI=bolt://localhost:7687
-NEO4J_USER=neo4j
-NEO4J_PASSWORD=decima123
+echo "# LLM (OTACON)" >> .env
+echo "LLM_PROVIDER=openai" >> .env
+echo "OPENAI_API_KEY=sk-..." >> .env
+echo "" >> .env
+echo "# Neo4j (EMMA)" >> .env
+echo "NEO4J_URI=bolt://localhost:7687" >> .env
+echo "NEO4J_USER=neo4j" >> .env
+echo "NEO4J_PASSWORD=decima123" >> .env
 ```
+You can replace OPENAI_API_KEY=sk-... with your own OpenAI API key.
 
 > ⚠️ This file is **required** before launching the app.
 
