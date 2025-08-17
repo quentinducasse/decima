@@ -33,7 +33,6 @@ cd decima
 At the root of the project, create a .env file that will contain your API key and Neo4j settings.
 You can do it manually, or by running the following command in your terminal:
 
-Example `.env`:
 ```env
 echo "# LLM (OTACON)" >> .env
 echo "LLM_PROVIDER=openai" >> .env
