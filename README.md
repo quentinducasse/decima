@@ -158,10 +158,29 @@ See the [`doc/`](doc/) folder for:
 
 ---
 
-## 🔖 License
+Creative Commons Attribution-NonCommercial 4.0 International Public License (CC BY-NC 4.0)
 
-**CC-BY 4.0** — free to use and adapt, with **attribution** required.
+By exercising the Licensed Rights (defined below), You accept and agree to be bound by the terms and conditions of this Creative Commons Attribution-NonCommercial 4.0 International Public License ("Public License").
 
+You are free to:
+✔ Share — copy and redistribute the material in any medium or format
+✔ Adapt — remix, transform, and build upon the material
+
+Under the following terms:
+📌 Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made.
+🚫 NonCommercial — You may not use the material for commercial purposes.
+
+No additional restrictions — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.
+
+Full license text: https://creativecommons.org/licenses/by-nc/4.0/legalcode
+
+---
+
+Author: Quentin Ducasse  
+Project: DECIMA — Data Extraction & Contextual Inference for MCNP Analysis  
+Year: 2025  
+
+For commercial licensing inquiries (e.g., integration into a product, for-profit application), please contact the author to discuss custom licensing terms.
 ---
 
 ## 🤝 Acknowledgments
