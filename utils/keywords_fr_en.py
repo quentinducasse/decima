@@ -1,8 +1,7 @@
-# modules/utils/keywords_fr_en.py
 import re
 
 
-# 🛑 Stopwords pour le filtrage contextuel FR/EN
+# Filter FR/EN
 STOPWORDS = {
     "fr": {"le", "la", "les", "un", "une", "des", "du", "de", "en", "dans", "sur", "par", "avec", "pour", "au", "aux", "et", "à", "ce", "cette", "ces", "qui", "que"},
     "en": {"the", "a", "an", "of", "on", "in", "and", "to", "for", "with", "from", "by", "at", "as", "that", "which"}

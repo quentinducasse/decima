@@ -88,4 +88,4 @@ frontend/dist/
 dist/
 build/
 *.manifest
-*.spec
+*.spec"data/ptrac_scripts/" 

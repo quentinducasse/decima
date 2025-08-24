@@ -26,7 +26,6 @@ RELATION_PREDICATES = {
     "returns": "RETURNS_TYPE",
     "belongs_to_dict": "BELONGS_TO_DICT",
     "uses_dictionary": "USES_DICTIONARY"
-    # Ajoute ici d'autres predicates connus si besoin
 }
 PROPERTY_PREDICATES = [
     "has_value", "has_description", "has_code", "has_type", "stores", "accesses", "has_argument_type", "has_symbol", "may_contain_fields"
@@ -56,10 +55,9 @@ def node_label_from_type(obj_type):
         return "ReactionCode"  
     if obj_type == "zaid_code":             
         return "ZAIDCode"
-    # Optionnel :
     if obj_type == "lookup_table":
         return "LookupTable"
-    return None  # On ne crée rien pour None
+    return None 
 
 class Neo4jTripletMigrator:
     def __init__(self, uri="bolt://localhost:7687", user="neo4j", password="decima123"):
@@ -122,13 +120,11 @@ class Neo4jTripletMigrator:
         self.create_constraints()
         files = [f for f in os.listdir(triplets_dir) if f.endswith(".json")]
 
-        # 1. Rassemble tous les triplets de tous les fichiers
         all_triplets = []
         for file in files:
             with open(os.path.join(triplets_dir, file), "r", encoding="utf-8") as f:
                 all_triplets.extend(json.load(f))
 
-        # 2. Rassemble tous les types globalement
         global_node_types = {}
         for triplet in all_triplets:
             subj = triplet["Subject"]
@@ -142,7 +138,6 @@ class Neo4jTripletMigrator:
             print(f"  {k} -> {v}")
 
         with self.driver.session() as session:
-            # 3. Crée tous les nœuds avec le bon label
             for node, obj_type in global_node_types.items():
                 label = node_label_from_type(obj_type)
                 if label:
@@ -150,16 +145,14 @@ class Neo4jTripletMigrator:
                 else:
                     print(f"[IGNORE] Nœud sans label pour : {node}")
 
-            # 4. Propriétés et relations
             for triplet in all_triplets:
                 subj = triplet["Subject"]
                 pred = triplet["Predicate"]
                 obj = triplet["Object"]
 
                 if pred == "type":
-                    continue  # déjà traité
+                    continue  
 
-                # Propriétés
                 if pred in PROPERTY_PREDICATES:
                     label = node_label_from_type(global_node_types.get(subj, None))
                     if label:
@@ -172,7 +165,6 @@ class Neo4jTripletMigrator:
                         print(f"[WARNING] Propriété pour {subj} ignorée car label introuvable")
                     continue
 
-                # Patch spécifique pour has_enum: on force le label Enum côté objet
                 if pred == "has_enum":
                     subj_label = node_label_from_type(global_node_types.get(subj, None))
                     obj_label = "Enum"
@@ -187,7 +179,6 @@ class Neo4jTripletMigrator:
                     )
                     continue
 
-                # belongs_to_enum: relie EnumValue -> Enum
                 if pred == "belongs_to_enum":
                     subj_label = node_label_from_type(global_node_types.get(subj, None))
                     obj_label = "Enum"
@@ -202,10 +193,8 @@ class Neo4jTripletMigrator:
                     )
                     continue
 
-                # Autres relations, 100% généralisé
                 rel_label = RELATION_PREDICATES.get(pred, normalize_label(pred))
                 subj_label = node_label_from_type(global_node_types.get(subj, None))
-                # On ne traite que les objets qui sont des strings (exclut list/dict)
                 if not isinstance(obj, str):
                     print(f"[SKIP] Relation non supportée (objet complexe): {subj} --{pred}--> {obj} (type {type(obj)})")
                     continue

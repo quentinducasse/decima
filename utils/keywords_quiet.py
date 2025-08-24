@@ -1,10 +1,7 @@
 # utils/keywords_quiet.py
-# FOCUS_MAP ultra-enrichi pour QUIETAgent – v2025-06
-# Structuré pour couvrir tous les focus events : BNK (complet), base pour TER/COL/SRC/SUR/LST
-# Ajoutez vos extensions TER, COL, etc. en suivant le même format !
 
 # ==============================
-# FOCUS_EVENTS — Événements PTRAC
+# FOCUS_EVENTS —  PTRAC events
 # ==============================
 
 FOCUS_EVENTS = {
@@ -41,7 +38,7 @@ FOCUS_EVENTS = {
 }
 
 # ============================
-# FOCUS_DATA — Champs PTRAC
+# FOCUS_DATA — PTRAC
 # ============================
 
 FOCUS_DATA = {
@@ -62,7 +59,6 @@ FOCUS_DATA = {
     "BRANCH":           ["branch", "maille", "branche", "univers"],
 "PARTICLE": [
     "particle", "particles", "particule", "particules", "type de particule", "espèce", "espèces",
-    # Noms métiers du ParticleCodeDict (FR/EN)
     "neutron", "neutrons",
     "photon", "photons",
     "électron", "electron", "électrons", "electrons",
@@ -93,7 +89,7 @@ FOCUS_DATA = {
 }
 
 # ===============================================
-# FOCUS_DICTIONARIES — Dictionnaires du KG (FR/EN)
+# FOCUS_DICTIONARIES 
 # ===============================================
 
 FOCUS_DICTIONARIES = {
@@ -104,23 +100,23 @@ FOCUS_DICTIONARIES = {
         "particule", "particules", "particle", "particles", "charged particle", "neutral particle"
     ],
     "PtracZAIDDict": [
-        # Mots-clés généralistes
+        # general keywords
         "zaid", "zzaaa", "isotope", "isotopes", "noyau", "noyaux", "nucléide", "nucléides",
         "element", "élément", "éléments", "atomic", "atomique", "nuclide", "nuclides",
         "radionuclide", "radionuclides", "radionucléide", "radionucléides",
         "mass number", "atomic number",
-        # Symboles et noms d’éléments courants (fr + en)
+        # Symbols
         "hydrogen", "deuterium", "tritium", "helium", "lithium", "beryllium", "bore", "carbone", "carbone-12", "carbone-13", "carbon",
         "azote", "nitrogen", "oxygen", "oxygène", "fluor", "fluorine", "neon", "néon", "sodium", "magnésium", "aluminium",
         "silicon", "silicium", "phosphorus", "phosphore", "soufre", "sulfur", "chlore", "chlorine", "argon", "potassium", "calcium",
         "scandium", "titanium", "vanadium", "chrome", "chromium", "manganèse", "manganese", "fer", "iron", "cobalt", "nickel",
         "cuivre", "copper", "zinc", "argent", "silver", "or", "gold", "plomb", "lead", "mercure", "mercury", "étain", "tin",
         "uranium", "plutonium", "thorium", "neptunium", "americium", "curium",
-        # Symboles chimiques (majuscules et minuscules)
+        # Chemical Symbols 
         "H", "D", "T", "He", "Li", "Be", "B", "C", "N", "O", "F", "Ne", "Na", "Mg", "Al",
         "Si", "P", "S", "Cl", "Ar", "K", "Ca", "Sc", "Ti", "V", "Cr", "Mn", "Fe", "Co", "Ni",
         "Cu", "Zn", "Ag", "Au", "Pb", "Hg", "Sn", "U", "Pu", "Th", "Np", "Am", "Cm",
-        # Quelques isotopes très fréquents
+        # Common isotopes
         "235u", "u235", "u-235", "uranium-235", "238u", "u238", "u-238", "uranium-238",
         "63cu", "cu63", "cu-63", "copper-63", "64zn", "zn64", "zn-64", "zinc-64",
         "56fe", "fe56", "fe-56", "iron-56",
@@ -130,8 +126,6 @@ FOCUS_DICTIONARIES = {
         "3h", "h3", "t", "tritium",
         "12c", "c12", "c-12", "carbon-12",
         "13c", "c13", "c-13", "carbon-13",
-        # Expressions régulières (dans QUIET côté code, pas ici)
-        # - tout ce qui ressemble à "[A-Z][a-z]?-?\d+" ou "\d+[A-Z][a-z]?"
     ],
     "PtracReactionDict": [
         "reaction", "réaction", "réactions", "rxn", "mt", "reaction type", "type de réaction", "types de réaction", "capture", "absorption",
@@ -141,7 +135,7 @@ FOCUS_DICTIONARIES = {
 }
 
 # ================================
-# FOCUS_CLASSES — Classes métier
+# FOCUS_CLASSES 
 # ================================
 FOCUS_CLASSES = {
     "Ptrac": [
@@ -162,7 +156,7 @@ FOCUS_CLASSES = {
 }
 
 # ================================
-# FOCUS_METHODS — Méthodes
+# FOCUS_METHODS 
 # ================================
 FOCUS_METHODS = {
     "Type()": [
@@ -216,7 +210,7 @@ FOCUS_METHODS = {
 }
 
 # ==================================
-# FOCUS_ATTRIBUTES — Attributs
+# FOCUS_ATTRIBUTES
 # ==================================
 FOCUS_ATTRIBUTES = {
     "m_type": [

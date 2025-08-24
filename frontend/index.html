@@ -24,16 +24,16 @@
       <button id="open-file-btn" class="upload-btn">
         <i class="fas fa-file-upload"></i> Load PTRAC File
       </button>
-      <input type="file" id="ptrac-file" accept=".ptrac" style="display: none;">
+      <input type="file" id="ptrac-file" accept=".ptrac, .ip, .p" style="display: none;">
       <div id="file-info" class="file-info"></div>
     </section>
 
     <!-- Instructional message -->
     <section class="instruction-message">
-      <p><strong>Ask a precise and concise question related to the event data in your PTRAC file.</strong></p>
+      <p><strong>Ask a meaningful and concise question related to the event data in your PTRAC file.</strong></p>
       <p class="example-text"><em>Examples:<br>
-      Display x y z positions and energies of neutrons entering surface 12<br>
-      How many secondary photons are emitted by inelastic scattering?<br>
+      Print x y z positions and energies of neutrons entering cell 502 for the 20 first histories<br>
+      How many secondary photons are emitted and what is their process of termination?<br>
       How many (n,xn) fission neutrons are generated and plot their energy distribution</em></p>
     </section>
 
@@ -64,7 +64,7 @@
         </div>
       </section>
 
-      <!-- Otacon à droite -->
+      <!-- Otacon to the right hand side -->
       <div class="otacon-side">
         <img src="{{ url_for('static', filename='img/otacon.png') }}" alt="Otacon" class="otacon-img">
         <div class="otacon-caption">LLM Otacon ready to assist you with PTRAC parsing</div>

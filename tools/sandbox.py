@@ -13,7 +13,6 @@ def detect_ptrac_mode(ptrac_path):
     try:
         with open(ptrac_path, "rb") as f:
             head = f.read(256)
-            # Signature ASCII : contient du texte lisible (MCNP ou ptrac dans l'en-tête)
             if b'ptrac' in head.lower() or all(32 <= b <= 126 or b in b'\r\n\t' for b in head):
                 return 'ASC_PTRAC'
             else:
@@ -29,8 +28,6 @@ def patch_ptrac_instantiation(code: str, ptrac_path: str, mode: str) -> str:
     safe_path = ptrac_path.replace("\\", "\\\\")
     ptrac_line = f"Ptrac(r'{safe_path}', Ptrac.{mode})"
 
-    # Remplacement ultra-robuste : tout appel à Ptrac(…) dans tout le code (peu importe variable, indentation, etc.)
-    # Couvre les cas multi-lignes et espace/indentation variable.
     code_patched = re.sub(
         r"Ptrac\s*\((?:[^)(]+|\((?:[^)(]+|\([^)(]*\))*\))*\)",
         ptrac_line,
@@ -38,12 +35,10 @@ def patch_ptrac_instantiation(code: str, ptrac_path: str, mode: str) -> str:
         flags=re.MULTILINE
     )
 
-    # Facultatif : Normalise aussi les modes en dur si jamais il en reste
     code_patched = re.sub(
         r"Ptrac\.(BIN_PTRAC|ASC_PTRAC|HDF5_PTRAC)", f"Ptrac.{mode}", code_patched
     )
 
-    # Log pour debug (optionnel)
     if code != code_patched:
         print(f"[EVA/SANDBOX] Patch : toutes les instanciations Ptrac forcent le mode détecté : {mode}")
 
@@ -53,14 +48,13 @@ def patch_disable_plots(code: str) -> str:
     """
     Patche le code Python pour neutraliser toute instruction plt.show(), plt.savefig(), plt.ion(), plt.figure().show(), etc.
     """
-    # Neutraalise tout plt.show() / plt.ion() / plt.savefig() / .show()
     code = re.sub(r"plt\.show\s*\([^\)]*\)", "# plt.show() désactivé par EVA", code)
     code = re.sub(r"plt\.ion\s*\([^\)]*\)", "# plt.ion() désactivé par EVA", code)
     code = re.sub(r"plt\.savefig\s*\([^\)]*\)", "# plt.savefig() désactivé par EVA", code)
     code = re.sub(r"\.show\s*\([^\)]*\)", "# .show() désactivé par EVA", code)  # pour fig.show()
     return code
 
-ACTIVE_PROCESS = None  # Ajout global
+ACTIVE_PROCESS = None  
 
 def run_ptrac_code(code: str, ptrac_path: str, timeout=60, allow_plots=False):
     global ACTIVE_PROCESS
@@ -86,7 +80,6 @@ def run_ptrac_code(code: str, ptrac_path: str, timeout=60, allow_plots=False):
             )
             stdout, stderr = ACTIVE_PROCESS.communicate(timeout=timeout)
 
-            # Si le process a été interrompu proprement, returncode existe
             exit_code = ACTIVE_PROCESS.returncode if ACTIVE_PROCESS else -1
 
             return {

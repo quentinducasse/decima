@@ -9,7 +9,7 @@ document.addEventListener("DOMContentLoaded", function () {
   const ptracFileInput = document.getElementById("ptrac-file");
   const fileInfo = document.getElementById("file-info");
 
-  let latestLLMCode = ""; // Pour stocker le code Python généré par le LLM
+  let latestLLMCode = ""; 
 
   document.getElementById("open-file-btn").addEventListener("click", () => {
     ptracFileInput.click();
@@ -49,7 +49,7 @@ document.addEventListener("DOMContentLoaded", function () {
     div.className = "message assistant-message";
     let codeHtml = "";
     if (code) {
-      latestLLMCode = code; // Stocke le dernier code LLM
+      latestLLMCode = code; 
       codeHtml = `
         <div class="code-block">
           <div class="code-header">
@@ -64,7 +64,6 @@ document.addEventListener("DOMContentLoaded", function () {
     chatMessages.appendChild(div);
     chatMessages.scrollTop = chatMessages.scrollHeight;
 
-    // Copie code
     const copyBtn = div.querySelector(".copy-btn");
     if (copyBtn) {
       copyBtn.onclick = () => {
@@ -72,19 +71,15 @@ document.addEventListener("DOMContentLoaded", function () {
       };
     }
 
-    // Execution réelle du code LLM AVEC allow_plots:true
     const execBtn = div.querySelector(".execute-btn");
     if (execBtn) {
-  // Crée le bouton rouge dynamiquement juste après le bouton vert
   const stopBtn = document.createElement("button");
   stopBtn.className = "stop-btn inline";
   stopBtn.textContent = "Stop Code Generation";
-  stopBtn.style.display = "none"; // caché tant que pas cliqué
+  stopBtn.style.display = "none"; 
 
-  // Insère le bouton rouge juste après le bouton vert
   execBtn.parentNode.insertBefore(stopBtn, execBtn.nextSibling);
 
-  // Quand on clique sur le bouton vert
   execBtn.onclick = () => {
     stopBtn.style.display = "inline-block";
 
@@ -104,21 +99,20 @@ document.addEventListener("DOMContentLoaded", function () {
         } else {
           imageBlock.style.display = "none";
         }
-        stopBtn.style.display = "none"; // cache le bouton une fois terminé
+        stopBtn.style.display = "none"; 
       });
   };
 
-  // Action du bouton rouge
   stopBtn.onclick = () => {
     stopBtn.style.display = "none";
     fetch("/abort_execution", { method: "POST" })
       .then(r => r.json())
       .then(data => {
         console.warn("⛔️ Code interrompu :", data.status);
-        stderrBlock.textContent += `\n⛔️ Interruption manuelle : ${data.status}`;
+        stderrBlock.textContent += `\n⛔️ Manual interruption: ${data.status}`;
       })
       .catch(() => {
-        stderrBlock.textContent += `\n⛔️ Erreur : impossible d'interrompre le processus.`;
+        stderrBlock.textContent += `\n⛔️ Error: unable to interrupt the process`;
       });
   };
 
@@ -132,7 +126,6 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const useContext = document.getElementById("context-toggle").checked;
 
-  // 🔹 Récupération du modèle choisi dans la liste déroulante
   const modelSelect = document.getElementById("model-choice");
   const modelChoice = modelSelect ? modelSelect.value : null;
 
@@ -148,14 +141,13 @@ document.addEventListener("DOMContentLoaded", function () {
   body: JSON.stringify({ 
     query, 
     use_context: useContext, 
-    model: modelChoice            // ⬅️ envoyé au backend
+    model: modelChoice            
   })
 })
   .then((r) => r.json())
   .then((data) => {
     reasoningLoader.style.display = "none";
 
-    // ✅ Ajout : gestion clé API invalide
     if (data.explanation && data.explanation.includes("[ERROR:INVALID_API_KEY]")) {
       addAssistantMessage(`
         <div style="color:#ff4444; font-weight:bold;">
@@ -164,9 +156,8 @@ document.addEventListener("DOMContentLoaded", function () {
           Restart DECIMA after saving the file.
         </div>
       `, null);
-      return; // stop ici
+      return; 
     }
-    // ✅ Gestion Neo4j non lancé (aucune entité EMMA détectée)
     if ((data.error && data.error.toLowerCase().includes("no entities detected")) ||
         (data.explanation && data.explanation.toLowerCase().includes("pas d'entités emma"))) {
       addAssistantMessage(`
@@ -179,7 +170,6 @@ document.addEventListener("DOMContentLoaded", function () {
 }
 
     addAssistantMessage(data.response, data.code);
-    // Réinitialise l'affichage des résultats précédents
     resultSection.style.display = "none";
     stdoutBlock.textContent = "";
     stderrBlock.textContent = "";
@@ -187,7 +177,6 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 };
 
-    // Bouton rouge : Stop Code Generation
   const stopCodeBtn = document.getElementById("stop-code-btn");
 
   document.addEventListener("click", function (event) {
@@ -197,9 +186,9 @@ document.addEventListener("DOMContentLoaded", function () {
   });
 
   stopCodeBtn.addEventListener("click", () => {
-    console.warn("⛔️ Code interrompu par l'utilisateur.");
+    console.warn("⛔️ Code interrupted by user");
     stopCodeBtn.style.display = "none";
-    stderrBlock.textContent += "\n⛔️ Interruption manuelle (simulée).";
+    stderrBlock.textContent += "\n⛔️ Manual (simulated) interruption";
   });
 
 document.getElementById("send-btn").addEventListener("click", () => {

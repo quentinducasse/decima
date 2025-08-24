@@ -155,7 +155,7 @@ Class: PtracEnums
     id: WEIGHT, value: 27
     id: TIME, value: 28
     id: SOURCE_TYPE, value: 29
-    id: BANK_TYPE, value: 30
+    id: BANK_TYPE, value: 30 -- WARNING : do not use it!
 
 
 # ==== Dictionnaires (partiels, à compléter si besoin) ====

@@ -1,0 +1,902 @@
+[
+  {
+    "query": "Combien de neutrons atteignent le tally 128 avec moins de 3 collisions ?",
+    "expected_focus_quiet": {
+      "events": ["COL"],
+      "data": ["TALLY", "COLLISION_NUMBER","PARTICLE"],
+      "classes": [""],
+      "methods": [""],
+      "attributes": [""],
+      "dictionaries": ["ParticleCodeDict"]
+    },
+    "expected_focus_emma": [
+      "COL",
+      "TALLY",
+      "COLLISION_NUMBER",
+      "PARTICLE_1"
+    ],
+    "theme": "general"
+  },
+  {
+    "query": "Combien de particules traversent la surface 123 et sont capturées ?",
+    "expected_focus_quiet": {
+      "events": ["SUR", "TER"],
+      "data": ["SURFACE","PARTICLE"],
+      "classes": [""],
+      "methods": [""],
+      "attributes": [""],
+      "dictionaries": ["ParticleCodeDict","PtracReactionDict"]
+    },
+    "expected_focus_emma": [
+      "SUR", 
+      "TER",
+      "SURFACE",
+      "TER_N_CAPTURE",
+      "TER_GENCHAR_CAPTURE",
+      "TER_P_CAPTURE"
+    ],
+    "theme": "general"
+  },
+  {
+    "query": "Quel est le poids moyen des neutrons bank dans la cellule 778 avec importance splitting 4 ?",
+    "expected_focus_quiet": {
+      "events": ["BNK"],
+      "data": ["WEIGHT", "CELL", "PARTICLE"],
+      "classes": [""],
+      "methods": [""],
+      "attributes": [""],
+      "dictionaries": ["ParticleCodeDict"]
+    },
+    "expected_focus_emma": [
+      "BNK",
+      "CELL",
+      "WEIGHT",
+      "BNK_IMP_SPLIT"
+    ],
+    "theme": "general"
+  },
+  {
+    "query": "Combien de collisions ont lieu avant l'interaction nucléaire dans la cellule 101 ?",
+    "expected_focus_quiet": {
+      "events": ["COL", "TER", "BNK"],
+      "data": ["COLLISION_NUMBER", "CELL"],
+      "classes": [""],
+      "methods": [""],
+      "attributes": [""],
+      "dictionaries": [""]
+    },
+    "expected_focus_emma": [
+      "COL", 
+      "TER", 
+      "BNK",
+      "COLLISION_NUMBER",
+      "CELL",
+      "TER_N_NUCLEAR_INTERACTION",
+      "BNK_NUCLEAR_INT",
+      "BNK_MODEL_UPDAT1",
+      "BNK_MODEL_UPDATE"
+    ],
+    "theme": "general"
+  },
+  {
+    "query": "Quel est le temps de terminaison des électrons par bremsstrahlung ?",
+    "expected_focus_quiet": {
+      "events": ["TER"],
+      "data": ["TIME","PARTICLE"],
+      "classes": [""],
+      "methods": [""],
+      "attributes": [""],
+      "dictionaries": ["ParticleCodeDict"]
+    },
+    "expected_focus_emma": [
+      "TER",
+      "TIME",
+      "TER_E_BREMSSTRAHLUNG",
+      "PARTICLE_3"
+    ],
+    "theme": "general"
+  },
+  {
+    "query": "Quelle est la position x, y, z des neutrons capturés dans la surface 98 ?",
+    "expected_focus_quiet": {
+      "events": ["TER", "SUR"],
+      "data": ["X", "Y", "Z", "SURFACE","PARTICLE"],
+      "classes": [""],
+      "methods": [""],
+      "attributes": [""],
+      "dictionaries": ["ParticleCodeDict","PtracReactionDict"]
+    },
+    "expected_focus_emma": [
+      "TER", "SUR", "X", "Y", "Z", "SURFACE", "TER_N_CAPTURE","PARTICLE_1"
+    ],
+    "theme": "general"
+  },
+  {
+    "query": "Combien de particules subissent une capture dans le matériau 2 ?",
+    "expected_focus_quiet": {
+      "events": ["TER"],
+      "data": ["MATERIAL","PARTICLE"],
+      "classes": [""],
+      "methods": [""],
+      "attributes": [""],
+      "dictionaries": ["ParticleCodeDict","PtracReactionDict"]
+    },
+    "expected_focus_emma": [
+      "TER",
+      "MATERIAL",
+      "TER_N_CAPTURE",
+      "TER_GENCHAR_CAPTURE",
+      "TER_P_CAPTURE"
+    ],
+    "theme": "general"
+  },
+  {
+    "query": "Donne la distribution de l'énergie et du poids des neutrons dans la cellule 123.",
+    "expected_focus_quiet": {
+      "events": [""],
+      "data": ["ENERGY", "WEIGHT", "CELL","PARTICLE"],
+      "classes": [""],
+      "methods": [""],
+      "attributes": [""],
+      "dictionaries": ["ParticleCodeDict"]
+    },
+    "expected_focus_emma": [
+      "ENERGY", "WEIGHT", "CELL"
+    ],
+    "theme": "general"
+  },
+  {
+    "query": "Quelle est la surface traversée par les neutrons lors de l'événement de terminaison ?",
+    "expected_focus_quiet": {
+      "events": ["SUR","TER"],
+      "data": ["SURFACE","PARTICLE"],
+      "classes": [""],
+      "methods": [""],
+      "attributes": [""],
+      "dictionaries": ["ParticleCodeDict"]
+    },
+    "expected_focus_emma": [
+      "SUR",
+      "TER",
+      "PARTICLE_1",
+      "SURFACE",
+      "TER_N_TERMINATION"
+    ],
+    "theme": "general"
+  },
+  {
+    "query": "Quel est le matériau impliqué lors d'une collision dans la cellule 800 ?",
+    "expected_focus_quiet": {
+      "events": ["COL"],
+      "data": ["MATERIAL", "CELL"],
+      "classes": [""],
+      "methods": [""],
+      "attributes": [""],
+      "dictionaries": [""]
+    },
+    "expected_focus_emma": [
+      "COL",
+      "MATERIAL",
+      "CELL"
+    ],
+    "theme": "general"
+  },
+  {
+    "query": "Quel type d'événement suit la particule source dans les cas à importance supérieure à 4 ?",
+    "expected_focus_quiet": {
+      "events": ["SRC", "BNK"],
+      "data": ["PARTICLE"],
+      "classes": [""],
+      "methods": [""],
+      "attributes": [""],
+      "dictionaries": [""]
+    },
+    "expected_focus_emma": [
+      "SRC",
+      "BNK",
+      "PARTICLE",
+      "SRC",
+      "BNK_IMP_SPLIT",
+      "PARTICLE"
+    ],
+    "theme": "general"
+  },
+  {
+    "query": "In which cell or surface are the most lost particles",
+    "expected_focus_quiet": {
+      "events": ["LST", "SUR"],
+      "data": ["CELL", "SURFACE","PARTICLE"],
+      "classes": [""],
+      "methods": [""],
+      "attributes": [""],
+      "dictionaries": ["ParticleCodeDict"]
+    },
+    "expected_focus_emma": [
+      "LST", 
+      "SUR",
+      "CELL",
+      "SURFACE",
+      "LST"
+    ],
+    "theme": "general"
+  },
+  {
+    "query": "Combien de photons interagissent dans le matériau 3 et plus spécifiquement avec l'isotope 92235 ?",
+    "expected_focus_quiet": {
+      "events": ["COL"],
+      "data": ["MATERIAL", "ZAID","PARTICLE"],
+      "classes": [""],
+      "methods": [""],
+      "attributes": [""],
+      "dictionaries": ["ParticleCodeDict", "PtracZAIDDict"]
+    },
+    "expected_focus_emma": [
+      "COL",
+      "MATERIAL",
+      "ZAID",
+      "PARTICLE_2"
+    ],
+    "theme": "general"
+  },
+  {
+    "query": "Which particles with weight above 0.5 undergo termination due to time cutoff in cell 101?",
+    "expected_focus_quiet": {
+      "events": ["TER"],
+      "data": ["PARTICLE", "WEIGHT", "TIME", "CELL","PARTICLE"],
+      "classes": [""],
+      "methods": [""],
+      "attributes": [""],
+      "dictionaries": ["ParticleCodeDict"]
+    },
+    "expected_focus_emma": [
+      "TER",
+      "PARTICLE",
+      "WEIGHT",
+      "TIME",
+      "CELL"
+        ],
+    "theme": "general"
+  },
+  {
+    "query": "Do photons source events pass through surface 245 with an energy greater than 1 MeV?",
+    "expected_focus_quiet": {
+      "events": ["SRC", "SUR"],
+      "data": ["ENERGY", "SURFACE", "PARTICLE"],
+      "classes": [""],
+      "methods": [""],
+      "attributes": [""],
+      "dictionaries": ["ParticleCodeDict"]
+    },
+    "expected_focus_emma": [
+      "SRC", 
+      "SUR",
+      "ENERGY",
+      "SURFACE",
+      "PARTICLE_2"
+    ],
+    "theme": "general"
+  },
+  {
+    "query": "How many banked particles in cell 99 experienced a forced collision and were later captured?",
+    "expected_focus_quiet": {
+      "events": ["BNK", "COL", "TER"],
+      "data": ["PARTICLE", "CELL", "PARTICLE"],
+      "classes": [""],
+      "methods": [""],
+      "attributes": [""],
+      "dictionaries": ["ParticleCodeDict"]
+    },
+    "expected_focus_emma": [
+      "BNK",
+      "COL",
+      "TER",
+      "CELL",
+      "PARTICLE",
+      "COL",
+      "TER"
+    ],
+    "theme": "general"
+  },
+  {
+    "query": "Give the ZAID and time of capture events for neutrons in the region defined by surface 888.",
+    "expected_focus_quiet": {
+      "events": ["TER", "SUR"],
+      "data": ["ZAID", "TIME", "SURFACE","PARTICLE"],
+      "classes": [""],
+      "methods": [""],
+      "attributes": [""],
+      "dictionaries": ["ParticleCodeDict", "PtracZAIDDict"]
+    },
+    "expected_focus_emma": [
+      "TER", 
+      "SUR",
+      "ZAID",
+      "TIME",
+      "SURFACE",
+      "TER_N_CAPTURE"
+    ],
+    "theme": "general"
+  },
+  {
+    "query": "Among the particles scattered elastically, what is the angle and the weight at termination?",
+    "expected_focus_quiet": {
+      "events": ["TER"],
+      "data": ["ANGLE", "WEIGHT","PARTICLE"],
+      "classes": [""],
+      "methods": [""],
+      "attributes": [""],
+      "dictionaries": ["ParticleCodeDict"]
+    },
+    "expected_focus_emma": [
+      "TER",
+      "ANGLE",
+      "WEIGHT",
+      "TER"
+    ],
+    "theme": "general"
+  },
+  {
+    "query": "Which events lead to bremsstrahlung losses for electrons crossing surface 321?",
+    "expected_focus_quiet": {
+      "events": ["TER", "SUR"],
+      "data": ["SURFACE","PARTICLE"],
+      "classes": [""],
+      "methods": [""],
+      "attributes": [""],
+      "dictionaries": ["ParticleCodeDict"]
+    },
+    "expected_focus_emma": [
+      "TER",
+      "SUR",
+      "SURFACE",
+      "TER_E_BREMSSTRAHLUNG"
+    ],
+    "theme": "general"
+  },
+  {
+    "query": "How many particles split by energy importance in bank events reach tally F600?",
+    "expected_focus_quiet": {
+      "events": ["BNK"],
+      "data": ["TALLY"],
+      "classes": [""],
+      "methods": [""],
+      "attributes": [""],
+      "dictionaries": ["ParticleCodeDict"]
+    },
+    "expected_focus_emma": [
+      "BNK",
+      "PARTICLE",
+      "TALLY",
+      "BNK_IMP_SPLIT"
+    ],
+    "theme": "general"
+  },
+  {
+    "query": "Quelle est l'énergie et l'angle moyen des protons de recul détectés dans le scintillateur ?",
+    "expected_focus_quiet": {
+      "events": [""],
+      "data": ["ENERGY", "ANGLE","PARTICLE"],
+      "classes": [""],
+      "methods": [""],
+      "attributes": [""],
+      "dictionaries": ["ParticleCodeDict"]
+    },
+    "expected_focus_emma": [
+      "ENERGY",
+      "ANGLE",
+      "BNK_RECOIL",
+      "PARTICLE_5"
+    ],
+    "theme": "general"
+  },
+  {
+    "query": "Y a-t-il des deutons secondaires (ZAID = 1002) générés dans la cellule 45 du scintillateur ?",
+    "expected_focus_quiet": {
+      "events": [""],
+      "data": ["ZAID", "CELL","PARTICLE"],
+      "classes": [""],
+      "methods": [""],
+      "attributes": [""],
+      "dictionaries": ["PtracZAIDDict", "ParticleCodeDict"]
+    },
+    "expected_focus_emma": [
+      "ZAID",
+      "CELL",
+      "PARTICLE_6"
+    ],
+    "theme": "general"
+  },
+  {
+    "query": "Combien de photons fuient la cellule 67 du scintillateur ?",
+    "expected_focus_quiet": {
+      "events": ["TER"],
+      "data": ["CELL","PARTICLE"],
+      "classes": [""],
+      "methods": [""],
+      "attributes": [""],
+      "dictionaries": ["ParticleCodeDict"]
+    },
+    "expected_focus_emma": [
+      "TER",
+      "CELL",
+      "PARTICLE_2"
+    ],
+    "theme": "general"
+  },
+  {
+    "query": "Quels sont les types d'événements existants après la traversée de la surface 144 ?",
+    "expected_focus_quiet": {
+      "events": ["SUR"],
+      "data": ["NEXT_EVENT_TYPE","SURFACE"],
+      "classes": [""],
+      "methods": [""],
+      "attributes": [""],
+      "dictionaries": [""]
+    },
+    "expected_focus_emma": [
+      "SUR",
+      "SURFACE",
+      "NEXT_EVENT_TYPE"
+    ],
+    "theme": "general"
+  },
+  {
+    "query": "Recoil proton V U W direction cosine and angle crossing surface 456 ?",
+    "expected_focus_quiet": {
+      "events": ["BNK", "SUR"],
+      "data": ["V", "U", "W", "ANGLE", "SURFACE","PARTICLE"],
+      "classes": [""],
+      "methods": [""],
+      "attributes": [""],
+      "dictionaries": ["ParticleCodeDict"]
+    },
+    "expected_focus_emma": [
+      "BNK",
+      "SUR",
+      "V",
+      "U",
+      "W",
+      "ANGLE",
+      "SURFACE",
+      "BNK_RECOIL",
+      "PARTICLE_5"
+    ],
+    "theme": "general"
+  },
+  {
+    "query": "Quelle est la distribution de l'énergie déposée par les électrons et photons dans la cellule 789 ?",
+    "expected_focus_quiet": {
+      "events": [""],
+      "data": ["ENERGY", "CELL", "PARTICLE"],
+      "classes": [""],
+      "methods": [""],
+      "attributes": [""],
+      "dictionaries": ["ParticleCodeDict"]
+    },
+    "expected_focus_emma": [
+      "ENERGY",
+      "CELL",
+      "PARTICLE_2",
+      "PARTICLE_3"
+
+    ],
+    "theme": "general"
+  },
+  {
+    "query": "Combien de réactions inélastiques (n,3α), (n,p), (n,d) et élastiques (n,C) sont détectées ?",
+    "expected_focus_quiet": {
+      "events": ["COL"],
+      "data": ["RXN"],
+      "classes": [""],
+      "methods": [""],
+      "attributes": [""],
+      "dictionaries": ["PtracReactionDict"]
+    },
+    "expected_focus_emma": [
+      "COL",
+      "RXN",
+      "MT_5", 
+      "MT_30", 
+      "MT_31", 
+      "MT_32", 
+      "MT_2"
+    ],
+    "theme": "general"
+  },
+  {
+    "query": "How many deuterons are produced in elastic vs inelastic scattering reactions?",
+    "expected_focus_quiet": {
+      "events": [""],
+      "data": ["RXN","PARTICLE"],
+      "classes": [""],
+      "methods": [""],
+      "attributes": [""],
+      "dictionaries": ["ParticleCodeDict", "PtracReactionDict"]
+    },
+    "expected_focus_emma": [
+      "RXN", 
+      "MT_2", 
+      "MT_5", 
+      "PARTICLE_6"
+    ],
+    "theme": "general"
+  },
+  {
+    "query": "What is the average time and position of delayed neutron production in cell 453 (the core)?",
+    "expected_focus_quiet": {
+      "events": [""],
+      "data": ["TIME", "X", "Y", "Z", "CELL","PARTICLE"],
+      "classes": [""],
+      "methods": [""],
+      "attributes": [""],
+      "dictionaries": ["ParticleCodeDict"]
+    },
+    "expected_focus_emma": [
+      "TIME",
+      "X",
+      "Y",
+      "Z",
+      "CELL",
+      "PARTICLE_1"
+    ],
+    "theme": "general"
+  },
+  {
+    "query": "Which cells receive the most tritons from inelastic interactions?",
+    "expected_focus_quiet": {
+      "events": [""],
+      "data": ["CELL","PARTICLE"],
+      "classes": [""],
+      "methods": [""],
+      "attributes": [""],
+      "dictionaries": ["ParticleCodeDict","PtracReactionDict"]
+    },
+    "expected_focus_emma": [
+      "CELL",
+      "PARTICLE_7",
+      "MT_5"
+    ],
+    "theme": "general"
+  },
+  {
+    "query": "What are the dominant nuclear reactions producing gamma rays in cells 453 and 58 (the control rods)?",
+    "expected_focus_quiet": {
+      "events": ["COL", "BNK"],
+      "data": ["RXN", "PARTICLE", "CELL"],
+      "classes": [""],
+      "methods": [""],
+      "attributes": [""],
+      "dictionaries": ["PtracReactionDict", "ParticleCodeDict"]
+    },
+    "expected_focus_emma": [
+      "COL",
+      "BNK",
+      "RXN",
+      "CELL",
+      "PARTICLE_2"
+    ],
+    "theme": "reactor"
+  },
+  {
+    "query": "Quelle maille (lattice) contient le plus d'événements de terminaison et de quel type ?",
+    "expected_focus_quiet": {
+      "events": ["TER"],
+      "data": ["BRANCH", "TERMINATION_TYPE"],
+      "classes": [""],
+      "methods": [""],
+      "attributes": [""],
+      "dictionaries": [""]
+    },
+    "expected_focus_emma": [
+      "TER",
+      "BRANCH",
+      "TERMINATION_TYPE"
+    ],
+    "theme": "reactor"
+  },
+  {
+    "query": "Quels types de réactions nucléaires dans la cellule 145 (cuve) produisent des photons de plus de 1 MeV ?",
+    "expected_focus_quiet": {
+      "events": ["COL"],
+      "data": ["RXN", "ENERGY", "PARTICLE", "CELL"],
+      "classes": [""],
+      "methods": [""],
+      "attributes": [""],
+      "dictionaries": ["PtracReactionDict", "ParticleCodeDict"]
+    },
+    "expected_focus_emma": [
+      "COL",
+      "RXN",
+      "ENERGY",
+      "CELL",
+      "PARTICLE_2"
+    ],
+    "theme": "reactor"
+  },
+  {
+    "query": "Quelle est la distribution angulaire des neutrons traversant la surface 22 ?",
+    "expected_focus_quiet": {
+      "events": ["SUR"],
+      "data": ["ANGLE", "PARTICLE", "SURFACE"],
+      "classes": [""],
+      "methods": [""],
+      "attributes": [""],
+      "dictionaries": ["ParticleCodeDict"]
+    },
+    "expected_focus_emma": [
+      "SUR",
+      "ANGLE",
+      "SURFACE",
+      "PARTICLE_1"
+    ],
+    "theme": "reactor"
+  },
+  {
+    "query": "Proportion of thermal neutron of 25 meV compared to fast neutrons above 100 keV crossing surface 45 (lead shielding) ?",
+    "expected_focus_quiet": {
+      "events": ["SUR"],
+      "data": ["PARTICLE", "ENERGY", "SURFACE"],
+      "classes": [""],
+      "methods": [""],
+      "attributes": [""],
+      "dictionaries": ["ParticleCodeDict"]
+    },
+    "expected_focus_emma": [
+      "SUR",
+      "ENERGY",
+      "SURFACE",
+      "PARTICLE_1"
+    ],
+    "theme": "reactor"
+  },
+  {
+    "query": "List all the reaction type present in cell 76  ?",
+    "expected_focus_quiet": {
+      "events": ["COL"],
+      "data": ["RXN", "CELL"],
+      "classes": [""],
+      "methods": [""],
+      "attributes": [""],
+      "dictionaries": ["PtracReactionDict"]
+    },
+    "expected_focus_emma": [
+      "COL",
+      "RXN",
+      "CELL"
+    ],
+    "theme": "reactor"
+  },
+  {
+    "query": "What is the mean angle of scattered alpha particles in material 5 (graphite moderator)?",
+    "expected_focus_quiet": {
+      "events": ["COL"],
+      "data": ["ANGLE", "PARTICLE", "MATERIAL"],
+      "classes": [""],
+      "methods": [""],
+      "attributes": [""],
+      "dictionaries": ["ParticleCodeDict"]
+    },
+    "expected_focus_emma": [
+      "COL",
+      "ANGLE",
+      "MATERIAL",
+      "PARTICLE_9"
+    ],
+    "theme": "scattered"
+  },
+  {
+    "query": "Quel est le ratio du nombre de collisions dans le matériau Cu-63 par rapport au matériau B-10 ?",
+    "expected_focus_quiet": {
+      "events": ["COL"],
+      "data": ["COLLISION_NUMBER", "MATERIAL", "ZAID"],
+      "classes": [""],
+      "methods": [""],
+      "attributes": [""],
+      "dictionaries": ["PtracZAIDDict"]
+    },
+    "expected_focus_emma": [
+      "COL",
+      "COLLISION_NUMBER",
+      "MATERIAL",
+      "ZAID",
+      "NUCLIDE_10B",
+      "NUCLIDE_63Cu"
+    ],
+    "theme": "scattered"
+  },
+  {
+    "query": "Combien de neutrons sont diffusées par la cellule 136 (banc d'étalonnage) avant d'être capturées par la cellule 78 (détecteur actif) ?",
+    "expected_focus_quiet": {
+      "events": ["COL", "TER"],
+      "data": ["COLLISION_NUMBER", "PARTICLE", "CELL", "PARTICLE"],
+      "classes": [""],
+      "methods": [""],
+      "attributes": [""],
+      "dictionaries": ["ParticleCodeDict"]
+    },
+    "expected_focus_emma": [
+      "COL", 
+      "TER",
+      "COLLISION_NUMBER",
+      "CELL",
+      "TER_N_CAPTURE",
+      "PARTICLE_1"
+    ],
+    "theme": "scattered"
+  },
+  {
+    "query": "What is the number of Compton electron events by material in cell 103?",
+    "expected_focus_quiet": {
+      "events": ["BNK"],
+      "data": ["CELL", "MATERIAL", "PARTICLE"],
+      "classes": [""],
+      "methods": [""],
+      "attributes": [""],
+      "dictionaries": ["ParticleCodeDict"]
+    },
+    "expected_focus_emma": [
+      "BNK",
+      "CELL",
+      "MATERIAL",
+      "BNK_COMPT_ELECTRON",
+      "PARTICLE_3"
+    ],
+    "theme": "scattered"
+  },
+  {
+    "query": "How many elastic scattering events involve heavy ions above 10 MeV in the shielding?",
+    "expected_focus_quiet": {
+      "events": ["COL", "BNK"],
+      "data": ["RXN", "PARTICLE", "ENERGY"],
+      "classes": [""],
+      "methods": [""],
+      "attributes": [""],
+      "dictionaries": ["PtracReactionDict", "ParticleCodeDict"]
+    },
+    "expected_focus_emma": [
+      "COL", 
+      "BNK",
+      "RXN",
+      "MT_2",
+      "ENERGY",
+      "PARTICLE_10"
+    ],
+    "theme": "scattered"
+  },
+  {
+    "query": "Print the x y location of the photons energy deposition in cell 965",
+    "expected_focus_quiet": {
+      "events": ["COL"],
+      "data": ["X", "Y", "PARTICLE", "CELL", "ENERGY"],
+      "classes": [""],
+      "methods": [""],
+      "attributes": [""],
+      "dictionaries": ["ParticleCodeDict"]
+    },
+    "expected_focus_emma": [
+      "COL",
+      "X",
+      "Y",
+      "CELL",
+      "ENERGY",
+      "PARTICLE_2"
+    ],
+    "theme": "waste"
+  },
+  {
+    "query": "What percentage of helions and electrons have been cutoff by energy ?",
+    "expected_focus_quiet": {
+      "events": ["TER"],
+      "data": ["PARTICLE", "ENERGY"],
+      "classes": [""],
+      "methods": [""],
+      "attributes": [""],
+      "dictionaries": ["ParticleCodeDict"]
+    },
+    "expected_focus_emma": [
+      "TER",
+      "TER_ENERGY_CUTOFF",
+      "ENERGY",
+      "PARTICLE_8",
+      "PARTICLE_3"
+    ],
+    "theme": "waste"
+  },
+  {
+    "query": "Which termination mechanisms dominate for alpha particles escaping cell 732 (waste drum) ?",
+    "expected_focus_quiet": {
+      "events": ["TER"],
+      "data": ["TERMINATION_TYPE", "PARTICLE", "CELL"],
+      "classes": [""],
+      "methods": [""],
+      "attributes": [""],
+      "dictionaries": ["ParticleCodeDict"]
+    },
+    "expected_focus_emma": [
+      "TER",
+      "TERMINATION_TYPE",
+      "CELL",
+      "PARTICLE_9"
+    ],
+    "theme": "waste"
+  },
+  {
+    "query": "How many neutrons are generated by photo-nuclear (photo neutrons) reactions in cell 77?",
+    "expected_focus_quiet": {
+      "events": ["BNK", "COL"],
+      "data": ["CELL", "RXN", "PARTICLE"],
+      "classes": [""],
+      "methods": [""],
+      "attributes": [""],
+      "dictionaries": ["PtracReactionDict", "ParticleCodeDict"]
+    },
+    "expected_focus_emma": [
+      "BNK", 
+      "COL",
+      "CELL",
+      "RXN",
+      "MT_101",
+      "BNK_PHOTONUCLEAR",
+      "PARTICLE_1"
+    ],
+    "theme": "waste"
+  },
+  {
+    "query": "Combien d'événements sont en coïncidence inférieure à 10 µs dans les cellules 1 et 2 ?",
+    "expected_focus_quiet": {
+      "events": [""],
+      "data": ["TIME", "CELL"],
+      "classes": [""],
+      "methods": [""],
+      "attributes": [""],
+      "dictionaries": [""]
+    },
+    "expected_focus_emma": [
+      "TIME",
+      "CELL"
+    ],
+    "theme": "waste"
+  },
+  {
+    "query": "Nombre total de neutrons, photons et photons de réactions photo-nucléaires traversant la cellule 200 représentant le fût.",
+    "expected_focus_quiet": {
+      "events": ["COL", "BNK"],
+      "data": ["PARTICLE", "CELL", "RXN"],
+      "classes": [""],
+      "methods": [""],
+      "attributes": [""],
+      "dictionaries": ["ParticleCodeDict", "PtracReactionDict"]
+    },
+    "expected_focus_emma": [
+      "COL", 
+      "BNK",
+      "PARTICLE",
+      "CELL",
+      "BNK_PHOTONUCLEAR",
+      "RXN",
+      "MT_101",
+      "PARTICLE_1",
+      "PARTICLE_2"
+    ],
+    "theme": "waste"
+  },
+  {
+    "query": "What is the distribution of time for the source particles to cross the surface 25 (detector)?",
+    "expected_focus_quiet": {
+      "events": ["SRC", "SUR"],
+      "data": ["PARTICLE", "SURFACE", "TIME"],
+      "classes": [""],
+      "methods": [""],
+      "attributes": [""],
+      "dictionaries": ["ParticleCodeDict"]
+    },
+    "expected_focus_emma": [
+      "SRC", 
+      "SUR",
+      "PARTICLE",
+      "SURFACE",
+      "TIME"
+    ],
+    "theme": "waste"
+  }
+]

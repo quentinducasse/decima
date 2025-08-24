@@ -1,87 +1,87 @@
 KG_CONTEXT_RULES = """
-
-RÈGLES ABSOLUES :
-- Ne JAMAIS faire de 'import' de classes de mcnptools autre que 'from mcnptools import Ptrac'
-- Ne JAMAIS utiliser les attributs internes (ex: m_events, m_type) — uniquement les méthodes publiques
-- Utilise la variable ptrac_path = '<PTRAC_PATH_PLACEHOLDER>' comme chemin du fichier PTRAC (pas de chemin en dur)
-- Toujours utiliser la méthode ReadHistories() pour récupérer les histoires des particules
+ABSOLUTE RULES:
+- NEVER import any mcnptools classes other than: `from mcnptools import Ptrac`.
+- NEVER use internal attributes (e.g., m_events, m_type) — use public methods only.
+- Use the variable `ptrac_path = '<PTRAC_PATH_PLACEHOLDER>'` as the PTRAC file path (no hardcoded paths).
+- Always call `ReadHistories(int)` to load particle histories.
+- IMPORTANT: To retrieve the bank type (secondary particle type), DO NOT use the enum `Ptrac.BANK_TYPE` (obsolete).
+  Instead, always use the method `event.BankType() -> int` from `Class: PtracEvent`.
 
 ---
 
-BONNES PRATIQUES :
-1. Les dictionnaires comme PtracReactionDict (MT_xx), ParticleCodeDict, PtracZAIDDict sont des structures internes du KG :
-   - Ne JAMAIS les importer
-   - Si tu en utilises un, accède à son champ 'value', jamais son 'id' (ex: utilise 1, pas PARTICLE_1)
+BEST PRACTICES:
+1) Dictionaries such as `PtracReactionDict` (MT_xx), `ParticleCodeDict`, and `PtracZAIDDict` are internal to the KG:
+   - NEVER import them.
+   - If you use one, access its `value` field, never its `id` (e.g., use `1`, not `PARTICLE_1`).
 
-2. Avant tout appel à 'event.Get(...)', vérifie sa présence avec 'event.Has(...)' :
-   Correct :
+2) Before any call to `event.Get(...)`, check presence with `event.Has(...)`:
+   Correct:
    if event.Has(Ptrac.X):
        x = event.Get(Ptrac.X)
 
-3. Les entités ENUMS de type BNK ou TER s'appellent toujours de cette façon : Ptrac.ENUM
-   (exemples :  Ptrac.BNK_KNOCK_ON ; Ptrac.TER_E_BREMSSTRAHLUNG)
+3) ENUM entities of type BNK or TER are always referenced as `Ptrac.<ENUM_NAME>`
+   (examples: `Ptrac.BNK_KNOCK_ON`, `Ptrac.TER_E_BREMSSTRAHLUNG`).
 
 ---
 
-COMPRÉHENSION DES HISTOIRES ET PARTICULES :
+UNDERSTANDING HISTORIES AND PARTICLES:
 
-Chaque fichier PTRAC contient des HISTOIRES de simulation (track histories).  
-Chaque histoire inclut une ou plusieurs PARTICULES. Chaque particule est représentée par une SÉQUENCE D'ÉVÉNEMENTS consécutifs :
+Each PTRAC file contains simulation HISTORIES (track histories).
+Each history includes one or more PARTICLES. Each particle is represented by a CONSECUTIVE SEQUENCE OF EVENTS:
 
-- Elle commence toujours par un événement SRC ou BNK.
-- Elle se termine toujours par un événement TER.
+- It always starts with a SRC or BNK event.
+- It always ends with a TER event.
 
-Une particule ≠ un événement. Une particule génère plusieurs événements consécutifs.  
-Dans une même histoire, on peut avoir 1 particule SRC suivie de plusieurs particules secondaires issues de BNK.
+A particle ≠ a single event. One particle produces multiple consecutive events.
+Within the same history, you can have one SRC particle followed by several BNK-born secondary particles.
 
-Ne pas confondre :
-  - Le nombre d’événements (COL, SUR, etc.)
-  - Le nombre de particules (chaque SRC/BNK génère une)
-  - Le nombre d’histoires (une entrée de simulation)
+Do not confuse:
+  - The number of events (COL, SUR, etc.)
+  - The number of particles (each SRC/BNK spawns one particle)
+  - The number of histories (top-level simulation entries)
 
 ---
 
-TRAÇAGE D'UNE PARTICULE DANS UNE HISTOIRE :
+TRACING A PARTICLE WITHIN A HISTORY:
 
-Pour suivre la trajectoire d'une particule :
-- Repérer un événement de type SRC ou BNK
-- Collecter tous les événements qui suivent, appartenant à cette même particule
-- Arrêter à l’événement TER correspondant
+To follow a particle’s trajectory:
+- Locate a SRC or BNK event.
+- Collect all subsequent events that belong to that same particle.
+- Stop at the corresponding TER event.
 
-Critère d’appartenance : les événements d’une particule sont consécutifs dans la liste, entre le SRC/BNK initial et le TER final.
+Membership criterion: the events of a particle are contiguous in the list, between the initial SRC/BNK and its final TER.
 
-Chaque particule suit donc un chemin unique :  
-  [ SRC ] → COL → COL → SUR → … → TER  
+Each particle therefore follows a unique path:
+  [ SRC ] → COL → COL → SUR → … → TER
   [ BNK ] → COL → SUR → COL → … → TER
 
 ---
 
-CALCULS TYPIQUES SUR UNE PARTICULE (et erreurs fréquentes à éviter) :
+TYPICAL PER-PARTICLE CALCULATIONS (and frequent errors to avoid):
 
-• Énergie déposée :
-   - Prendre l’énergie du premier événement (SRC ou BNK)
-     if event.Type() == Ptrac.SRC or Ptrac.BNK:
+• Deposited energy:
+   - Take the energy at the first event (SRC or BNK)
+     if event.Type() in (Ptrac.SRC, Ptrac.BNK):
          energy_init = event.Get(Ptrac.ENERGY)
-   - Parcourir jusqu’au TER correspondant
+   - Iterate until the corresponding TER
      if event.Type() == Ptrac.TER:
          energy_final = event.Get(Ptrac.ENERGY)
-   - Calcul : energy_init - energy_final
+   - Compute: deposited = energy_init - energy_final
 
-• Temps de vol :
-   - time_depart = event.Get(Ptrac.TIME) au SRC ou BNK
-   - time_arrivee = event.Get(Ptrac.TIME) au TER
-   - Calcul : time_arrivee - time_depart
+• Time of flight:
+   - time_start = event.Get(Ptrac.TIME) at SRC or BNK
+   - time_end   = event.Get(Ptrac.TIME) at TER
+   - Compute: time_of_flight = time_end - time_start
 
-Ne JAMAIS :
-   - additionner les énergies de tous les événements COL
-   - inclure les événements de la particule suivante (après le TER)
+Never:
+   - Sum energies over all COL events.
+   - Include events from the next particle (anything after the TER).
 
 ---
 
-STRUCTURE ATTENDUE DE LA RÉPONSE :
-1. Explication en langage naturel (claire, pédagogique, structurée)
-2. Bloc de code Python dans ```python ... ``` avec indentation correcte
+EXPECTED RESPONSE STRUCTURE:
+1) A clear, pedagogical natural-language explanation.
+2) A Python code block delimited by ```python ... ``` with correct indentation.
 
-Raisonne étape par étape avant de coder.
-
+Reason step by step before writing code.
 """

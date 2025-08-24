@@ -1,0 +1,42 @@
+# ========================================
+# GIT – MAIN COMMANDS (for DECIMA project)
+# ========================================
+
+# 🔍 1. Check current status
+git status
+
+# ➕ 2. Stage new or modified files (example)
+git add README.md Dockerfile docker-compose.yml .dockerignore
+git add app.py requirements.txt env.example .gitignore
+git add kg/loader/neo4j_loader.py
+git add modules/*.py
+git add doc/mcnp/McnpTools_TechReport_2022_LANL_*.pdf
+git add mcnptools
+
+# 📝 add all the new/deleted files (green) and all the modified files M (red) :
+git add .
+
+# 📝 3. Commit changes with a clear message
+git commit -m "🚀 Final Docker release with MCNPTools integration (v1.0.1)"
+
+# 🔼 4. Push changes to GitHub
+git push origin main
+
+# 🏷️ 5. Delete old local tag (optional)
+git tag -d v1.0.1
+
+# 🏷️ 6. Delete old remote tag (optional)
+git push --delete origin v1.0.1
+
+# 🏷️ 7. Create new local tag
+git tag v1.0.1
+
+# 🏷️ 8. Push the new tag to GitHub
+git push origin v1.0.1
+
+# 📝 9. Create GitHub Release
+# Go to: https://github.com/quentinducasse/decima/releases
+# → Click "Draft a new release"
+# → Tag version: v1.0.1
+# → Title: 🚀 DECIMA v1.0.1 – Docker full release
+# → Description: Add features, changelog, instructions

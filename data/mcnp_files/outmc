@@ -1,0 +1,195 @@
+ mcnpx    ver=27e   ld=Thu Mar 03 08:00:00 MST 2011   08/23/25 15:34:48
+
+ *************************************************************
+ *                                                           *
+ *                   MCNPX                                   *
+ *                                                           *
+ * Copyright 2007. Los Alamos National Security, LLC.        *
+ * All rights reserved.                                      *
+ *                                                           *
+ * This material was produced under U.S. Government contract *
+ * DE-AC52-06NA25396 for Los Alamos National Laboratory,     *
+ * which is operated by Los Alamos National Security, LLC    *
+ * for the U.S. Department of Energy. The Government is      *
+ * granted for itself and others acting on its behalf a      *
+ * paid-up, nonexclusive, irrevocable worldwide license in   *
+ * this material to reproduce, prepare derivative works, and *
+ * works, and perform publicly and display publicly.         *
+ * Beginning five (5) years after June 1, 2006, subject to   *
+ * additional five-year worldwide renewals, the Government   *
+ * is granted for itself and others acting on its behalf     *
+ * a paid-up, nonexclusive, irrevocable worldwide license    *
+ * in this material to reproduce, prepare derivative works,  *
+ * distribute copies to the public, perform publicly and     *
+ * display publicly, and to permit others to do so.          *
+ *                                                           *
+ * NEITHER THE UNITED STATES NOR THE UNITED STATES           *
+ * DEPARTMENT OF ENERGY, NOR LOS ALAMOS NATIONAL SECURITY,   *
+ * LLC, NOR ANY OF THEIR EMPLOYEES, MAKES ANY WARRANTY,      *
+ * EXPRESS OR IMPLIED, OR ASSUMES ANY LEGAL LIABILITY OR     *
+ * RESPONSIBILITY FOR THE ACCURACY, COMPLETENESS, OR         *
+ * USEFULNESS OF ANY INFORMATION, APPARATUS, PRODUCT, OR     *
+ * PROCESS DISCLOSED, OR REPRESENTS THAT ITS USE WOULD NOT   *
+ * INFRINGE PRIVATELY OWNED RIGHTS.                          *
+ *                                                           *
+ *************************************************************
+ mode n p e                                                           
+ warning.  photonuclear physics may be needed (phys:p).
+ nonu                                                                 
+ warning.  tallies with nonu card do not include any fission neutrons.
+ mt2 lwtr.10                 $ Composition & Density from PNNL-15870, 
+ warning.  material   2 is not used in the problem.
+ 
+ warning.  total nu is now the default for fixed-source problems.
+ warning.  photon      importances have been set equal to 1.
+ warning.  electron    importances have been set equal to 1.
+ warning.  there are only neutron tallies in this problem.
+ warning.  cross-section file bertin     does not exist.
+ imcn   is done
+ mcnpx    ver=27e   ld=Thu Mar 03 08:00:00 MST 2011   08/23/25 15:38:26
+
+ *************************************************************
+ *                                                           *
+ *                   MCNPX                                   *
+ *                                                           *
+ * Copyright 2007. Los Alamos National Security, LLC.        *
+ * All rights reserved.                                      *
+ *                                                           *
+ * This material was produced under U.S. Government contract *
+ * DE-AC52-06NA25396 for Los Alamos National Laboratory,     *
+ * which is operated by Los Alamos National Security, LLC    *
+ * for the U.S. Department of Energy. The Government is      *
+ * granted for itself and others acting on its behalf a      *
+ * paid-up, nonexclusive, irrevocable worldwide license in   *
+ * this material to reproduce, prepare derivative works, and *
+ * works, and perform publicly and display publicly.         *
+ * Beginning five (5) years after June 1, 2006, subject to   *
+ * additional five-year worldwide renewals, the Government   *
+ * is granted for itself and others acting on its behalf     *
+ * a paid-up, nonexclusive, irrevocable worldwide license    *
+ * in this material to reproduce, prepare derivative works,  *
+ * distribute copies to the public, perform publicly and     *
+ * display publicly, and to permit others to do so.          *
+ *                                                           *
+ * NEITHER THE UNITED STATES NOR THE UNITED STATES           *
+ * DEPARTMENT OF ENERGY, NOR LOS ALAMOS NATIONAL SECURITY,   *
+ * LLC, NOR ANY OF THEIR EMPLOYEES, MAKES ANY WARRANTY,      *
+ * EXPRESS OR IMPLIED, OR ASSUMES ANY LEGAL LIABILITY OR     *
+ * RESPONSIBILITY FOR THE ACCURACY, COMPLETENESS, OR         *
+ * USEFULNESS OF ANY INFORMATION, APPARATUS, PRODUCT, OR     *
+ * PROCESS DISCLOSED, OR REPRESENTS THAT ITS USE WOULD NOT   *
+ * INFRINGE PRIVATELY OWNED RIGHTS.                          *
+ *                                                           *
+ *************************************************************
+ mode n p e                                                           
+ warning.  photonuclear physics may be needed (phys:p).
+ sdef par=n cell=7040 POS=0 0 319.785 ERG=D1                          
+ fatal error.  source cell     7040 is not defined.
+ nonu                                                                 
+ warning.  tallies with nonu card do not include any fission neutrons.
+ mt2 lwtr.10                 $ Composition & Density from PNNL-15870, 
+ warning.  material   2 is not used in the problem.
+ 
+ warning.  total nu is now the default for fixed-source problems.
+ warning.  photon      importances have been set equal to 1.
+ warning.  electron    importances have been set equal to 1.
+ warning.  there are only neutron tallies in this problem.
+ warning.  cross-section file bertin     does not exist.
+ imcn   is done
+ mcnpx    ver=27e   ld=Thu Mar 03 08:00:00 MST 2011   08/23/25 15:38:45
+
+ *************************************************************
+ *                                                           *
+ *                   MCNPX                                   *
+ *                                                           *
+ * Copyright 2007. Los Alamos National Security, LLC.        *
+ * All rights reserved.                                      *
+ *                                                           *
+ * This material was produced under U.S. Government contract *
+ * DE-AC52-06NA25396 for Los Alamos National Laboratory,     *
+ * which is operated by Los Alamos National Security, LLC    *
+ * for the U.S. Department of Energy. The Government is      *
+ * granted for itself and others acting on its behalf a      *
+ * paid-up, nonexclusive, irrevocable worldwide license in   *
+ * this material to reproduce, prepare derivative works, and *
+ * works, and perform publicly and display publicly.         *
+ * Beginning five (5) years after June 1, 2006, subject to   *
+ * additional five-year worldwide renewals, the Government   *
+ * is granted for itself and others acting on its behalf     *
+ * a paid-up, nonexclusive, irrevocable worldwide license    *
+ * in this material to reproduce, prepare derivative works,  *
+ * distribute copies to the public, perform publicly and     *
+ * display publicly, and to permit others to do so.          *
+ *                                                           *
+ * NEITHER THE UNITED STATES NOR THE UNITED STATES           *
+ * DEPARTMENT OF ENERGY, NOR LOS ALAMOS NATIONAL SECURITY,   *
+ * LLC, NOR ANY OF THEIR EMPLOYEES, MAKES ANY WARRANTY,      *
+ * EXPRESS OR IMPLIED, OR ASSUMES ANY LEGAL LIABILITY OR     *
+ * RESPONSIBILITY FOR THE ACCURACY, COMPLETENESS, OR         *
+ * USEFULNESS OF ANY INFORMATION, APPARATUS, PRODUCT, OR     *
+ * PROCESS DISCLOSED, OR REPRESENTS THAT ITS USE WOULD NOT   *
+ * INFRINGE PRIVATELY OWNED RIGHTS.                          *
+ *                                                           *
+ *************************************************************
+ mode n p e                                                           
+ warning.  photonuclear physics may be needed (phys:p).
+ nonu                                                                 
+ warning.  tallies with nonu card do not include any fission neutrons.
+ mt2 lwtr.10                 $ Composition & Density from PNNL-15870, 
+ warning.  material   2 is not used in the problem.
+ 
+ warning.  total nu is now the default for fixed-source problems.
+ warning.  photon      importances have been set equal to 1.
+ warning.  electron    importances have been set equal to 1.
+ fatal error.  pos point source is not located in sdef cel  501.
+ warning.  there are only neutron tallies in this problem.
+ warning.  cross-section file bertin     does not exist.
+ imcn   is done
+ mcnpx    ver=27e   ld=Thu Mar 03 08:00:00 MST 2011   08/23/25 15:38:57
+
+ *************************************************************
+ *                                                           *
+ *                   MCNPX                                   *
+ *                                                           *
+ * Copyright 2007. Los Alamos National Security, LLC.        *
+ * All rights reserved.                                      *
+ *                                                           *
+ * This material was produced under U.S. Government contract *
+ * DE-AC52-06NA25396 for Los Alamos National Laboratory,     *
+ * which is operated by Los Alamos National Security, LLC    *
+ * for the U.S. Department of Energy. The Government is      *
+ * granted for itself and others acting on its behalf a      *
+ * paid-up, nonexclusive, irrevocable worldwide license in   *
+ * this material to reproduce, prepare derivative works, and *
+ * works, and perform publicly and display publicly.         *
+ * Beginning five (5) years after June 1, 2006, subject to   *
+ * additional five-year worldwide renewals, the Government   *
+ * is granted for itself and others acting on its behalf     *
+ * a paid-up, nonexclusive, irrevocable worldwide license    *
+ * in this material to reproduce, prepare derivative works,  *
+ * distribute copies to the public, perform publicly and     *
+ * display publicly, and to permit others to do so.          *
+ *                                                           *
+ * NEITHER THE UNITED STATES NOR THE UNITED STATES           *
+ * DEPARTMENT OF ENERGY, NOR LOS ALAMOS NATIONAL SECURITY,   *
+ * LLC, NOR ANY OF THEIR EMPLOYEES, MAKES ANY WARRANTY,      *
+ * EXPRESS OR IMPLIED, OR ASSUMES ANY LEGAL LIABILITY OR     *
+ * RESPONSIBILITY FOR THE ACCURACY, COMPLETENESS, OR         *
+ * USEFULNESS OF ANY INFORMATION, APPARATUS, PRODUCT, OR     *
+ * PROCESS DISCLOSED, OR REPRESENTS THAT ITS USE WOULD NOT   *
+ * INFRINGE PRIVATELY OWNED RIGHTS.                          *
+ *                                                           *
+ *************************************************************
+ mode n p e                                                           
+ warning.  photonuclear physics may be needed (phys:p).
+ nonu                                                                 
+ warning.  tallies with nonu card do not include any fission neutrons.
+ mt2 lwtr.10                 $ Composition & Density from PNNL-15870, 
+ warning.  material   2 is not used in the problem.
+ 
+ warning.  total nu is now the default for fixed-source problems.
+ warning.  photon      importances have been set equal to 1.
+ warning.  electron    importances have been set equal to 1.
+ warning.  there are only neutron tallies in this problem.
+ warning.  cross-section file bertin     does not exist.
+ imcn   is done
