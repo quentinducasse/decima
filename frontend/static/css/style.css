@@ -29,7 +29,7 @@ body {
   background: linear-gradient(90deg, #4db8ff, #4d79ff);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
-  margin-bottom: 0.2rem;  /* ✅ rapproche le sous-titre */
+  margin-bottom: 0.2rem; 
 }
 
 .subtitle {
@@ -40,9 +40,9 @@ body {
   margin-bottom: 1rem;
   text-align: center;
   max-width: 100%;
-  white-space: nowrap;   /* ✅ Empêche le retour à la ligne */
+  white-space: nowrap;  
   overflow: hidden;
-  text-overflow: ellipsis;  /* Facultatif : ajoute ... si trop long */
+  text-overflow: ellipsis; 
 }
 
 
@@ -252,17 +252,17 @@ pre {
 
 .chat-wrapper {
   display: flex;
-  justify-content: flex-start;         /* ✅ plus de centrage */
+  justify-content: flex-start;         
   align-items: flex-start;
   gap: 2rem;
   margin-bottom: 2rem;
   width: 100%;
-  margin-left: 270px;     /* ✅ décale tout vers la droite */
+  margin-left: 270px;    
 }
 
 
 .chat-section {
-  width: 750px;           /* ✅ largeur de la boîte noire */
+  width: 750px;          
   max-width: 65%;
   border: 1px solid #333;
   border-radius: 8px;
@@ -276,9 +276,9 @@ pre {
   align-items: center;
   justify-content: flex-start;
   margin-top: 1rem;
-  width: 120px;         /* ✅ un peu plus large pour accueillir 2 lignes */
+  width: 120px;        
   flex-shrink: 0;
-  margin-left: 0rem;    /* ✅ pousse vers la droite */
+  margin-left: 0rem;   
   margin-right: 5rem;
 }
 
@@ -294,7 +294,7 @@ pre {
   font-weight: 600;
   font-size: 0.85rem;
   text-align: center;
-  max-width: 120px;         /* ✅ même largeur que le bloc */
+  max-width: 120px;       
   white-space: normal;
   word-wrap: break-word;
   line-height: 1.4;
@@ -314,7 +314,7 @@ pre {
   background-color: #ff3333;
 }
 .stop-btn.inline {
-  margin-left: 0.5rem; /* ✅ petit espace à droite du bouton vert */
+  margin-left: 0.5rem; 
   display: inline-block;
 }
 

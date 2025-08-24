@@ -1,0 +1,49 @@
+# 🔄 (Re)construit les conteneurs et les démarre en arrière-plan, de plus automatise le rebuild après modif de code
+Accéder aux interfaces web dans ton navigateur
+DECIMA (interface Flask)
+👉 http://localhost:5050
+(utilisé pour poser tes requêtes sur les fichiers PTRAC)
+Neo4j Browser
+👉 http://localhost:7474
+(utilisé pour visualiser les nœuds, requêtes Cypher, etc.)
+
+docker compose up --build -d
+
+# 🔑 Tu modifies .env* : pour que les nouvelles variables soient prises en compte
+docker compose down && docker compose up -d
+
+# ⛔ Arrête tous les conteneurs, supprime les volumes et les conteneurs orphelins
+docker compose down --volumes --remove-orphans
+
+# ✅ Vérifie l'état des conteneurs actifs
+docker compose ps
+
+# 🚀 Lance manuellement le chargement du graphe de connaissances dans Neo4j depuis le conteneur app
+docker compose exec app python kg/loader/neo4j_loader.py
+
+# 🧪 Ouvre un shell bash à l’intérieur du conteneur app
+docker compose exec app /bin/bash
+
+# 🧪 Ouvre un shell bash à l’intérieur du conteneur Neo4j (utile pour inspecter logs ou config)
+docker compose exec neo4j /bin/bash
+
+# 📦 Liste tous les conteneurs, y compris ceux arrêtés
+docker ps -a
+
+# 🧹 Supprime tous les conteneurs arrêtés
+docker container prune
+
+# 🧹 Supprime toutes les images non utilisées
+docker image prune
+
+# 🐳 Redémarre les conteneurs existants (sans rebuild)
+docker compose restart
+
+# 🔍 Affiche les logs du conteneur app en temps réel
+docker compose logs -f app
+
+# 🧭 Ouvre Neo4j Browser (à faire depuis navigateur)
+http://localhost:7474
+
+# 🌐 Ouvre l’interface Flask DECIMA
+http://localhost:5050

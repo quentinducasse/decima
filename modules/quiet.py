@@ -1,4 +1,7 @@
-
+"""
+DECIMA Agent - QUIET - QUery Interpreter for Entity Targeting
+Pre-analysis system extracting focus events, data fields, and dictionaries from multilingual user queries
+"""
 from dotenv import load_dotenv
 import os
 

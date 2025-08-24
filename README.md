@@ -10,6 +10,21 @@
 > Simple. Portable. Ready-to-run via Docker.
 
 ---
+## 📦 Features
+
+- Modular architecture inspired by *Metal Gear Solid* agents:
+  - **QUIET**: Query Interpreter for natural language analysis  
+  - **EMMA**: Knowledge Graph manager (Neo4j backend)  
+  - **OTACON**: Central LLM agent for PTRAC reasoning and code generation  
+  - **EVA**: Safe sandbox for executing generated Python code  
+  - **CAMPBELL**: Orchestrator coordinating all modules  
+
+- Full support for MCNP `PTRAC` files via `mcnptools`  
+- Knowledge Graph context injection (Neo4j)  
+- Verbose debug mode with detailed workflow + LLM context inspection  
+- Web interface (Flask + Bootstrap)  
+
+---
 
 ## 📦 Installation (via Docker)
 
@@ -89,12 +104,14 @@ docker exec -it decima-app-1 python kg/loader/neo4j_loader.py
 
 ## ▶️ After Installation: How to Use
 
+### 1. Launch DECIMA (default: **silent mode**)  
 ```bash
 # Start the containers
 docker compose up -d
 
 # Load or reload the KG
 docker exec -it decima-app-1 python kg/loader/neo4j_loader.py
+
 
 # Stop all services
 docker compose down -v
@@ -106,13 +123,26 @@ Then open your browser and go to: [http://localhost:5050](http://localhost:5050)
 
 ---
 
+### 2. Launch DECIMA in **verbose/debug mode**  
+If you want to see **detailed logs, workflow steps, and full LLM context**, run:  
+
+```bash
+docker compose run --service-ports app python app.py -v
+```
+
+- `--service-ports` ensures port `5050` is exposed  
+- `-v` enables **verbose mode** (full logs, debug info, context sent to the LLM)  
+
+➡️ Access the app at [http://localhost:5050](http://localhost:5050)  
+---
+
 ## ✨ Example Usage
 
 1. Upload your `.ptrac` file
 2. Ask a natural language question like:
 
 ```text
-Which protons reach surface 20 and what's their energy?
+Print x y z positions and energies of neutrons entering surface 401 for the 20 first histories
 ```
 
 3. DECIMA will:
