@@ -15,6 +15,7 @@ from neo4j import GraphDatabase
 logging.basicConfig(level=logging.INFO, format='%(asctime)s - %(levelname)s - %(message)s')
 logger = logging.getLogger(__name__)
 
+# Mapping between internal predicates and Neo4j relation labels
 RELATION_PREDICATES = {
     "has_enum": "HAS_ENUM",
     "is_friend_with": "IS_FRIEND_WITH",
@@ -27,14 +28,20 @@ RELATION_PREDICATES = {
     "belongs_to_dict": "BELONGS_TO_DICT",
     "uses_dictionary": "USES_DICTIONARY"
 }
+# List of predicates interpreted as node properties (rather than relations)
 PROPERTY_PREDICATES = [
     "has_value", "has_description", "has_code", "has_type", "stores", "accesses", "has_argument_type", "has_symbol", "may_contain_fields"
     ]
 
 def normalize_label(label):
+    """Normalize predicate label (uppercase)."""
     return label.upper()
 
 def node_label_from_type(obj_type):
+    """
+    Map an object type string (from triplets) to a Neo4j node label.
+    Returns None if type is unknown or not supported.
+    """
     if obj_type == "class":
         return "Class"
     if obj_type == "enum":
@@ -60,13 +67,22 @@ def node_label_from_type(obj_type):
     return None 
 
 class Neo4jTripletMigrator:
+    """
+    Utility class for migrating JSON triplets into Neo4j.
+    Handles node creation, property assignment, and relation creation.
+    """
     def __init__(self, uri="bolt://localhost:7687", user="neo4j", password="decima123"):
+        """Initialize with Neo4j connection parameters (URI, user, password)."""
         self.uri = uri
         self.user = user
         self.password = password
         self.driver = None
 
     def connect(self):
+        """
+        Connect to Neo4j instance and validate session.
+        Returns True if successful, False otherwise.
+        """
         try:
             self.driver = GraphDatabase.driver(self.uri, auth=(self.user, self.password))
             with self.driver.session() as session:
@@ -79,11 +95,16 @@ class Neo4jTripletMigrator:
             return False
 
     def close(self):
+        """Close the Neo4j driver connection if active."""
         if self.driver:
             self.driver.close()
             logger.info("Connexion à Neo4j fermée")
 
     def create_constraints(self):
+        """
+        Create uniqueness constraints on node types to avoid duplicates.
+        Runs idempotently (CREATE IF NOT EXISTS).
+        """
         constraints = [
             "CREATE CONSTRAINT IF NOT EXISTS FOR (n:Entity) REQUIRE n.name IS UNIQUE",
             "CREATE CONSTRAINT IF NOT EXISTS FOR (c:Class) REQUIRE c.name IS UNIQUE",
@@ -104,6 +125,10 @@ class Neo4jTripletMigrator:
                     logger.warning(f"Contrainte déjà existante ou erreur : {str(e)}")
 
     def create_or_update_node(self, session, name, label, properties=None):
+        """
+        Create or update a Neo4j node with the given name, label, and optional properties.
+        Uses MERGE to ensure idempotency.
+        """
         if not label:
             logger.warning(f"[SKIP] Tentative de création d'un nœud sans label: {name}")
             return
@@ -115,16 +140,25 @@ class Neo4jTripletMigrator:
         print(f"Création ou update noeud [{label}] : {name} | Props: {properties}")
 
     def migrate_all_triplets(self, triplets_dir):
+        """
+        Full migration process:
+        - Clear existing Neo4j graph.
+        - Recreate constraints.
+        - Load all JSON triplets from a directory.
+        - Create nodes, assign properties, and build relations.
+        """
         with self.driver.session() as session:
             session.run("MATCH (n) DETACH DELETE n")
         self.create_constraints()
         files = [f for f in os.listdir(triplets_dir) if f.endswith(".json")]
 
+        # Load all triplets into memory
         all_triplets = []
         for file in files:
             with open(os.path.join(triplets_dir, file), "r", encoding="utf-8") as f:
                 all_triplets.extend(json.load(f))
 
+        # Identify node types globally (Subject → type)
         global_node_types = {}
         for triplet in all_triplets:
             subj = triplet["Subject"]
@@ -138,18 +172,20 @@ class Neo4jTripletMigrator:
             print(f"  {k} -> {v}")
 
         with self.driver.session() as session:
+            # Create all nodes with appropriate labels
             for node, obj_type in global_node_types.items():
                 label = node_label_from_type(obj_type)
                 if label:
                     self.create_or_update_node(session, node, label)
                 else:
                     print(f"[IGNORE] Nœud sans label pour : {node}")
-
+            # Process triplets for properties and relations
             for triplet in all_triplets:
                 subj = triplet["Subject"]
                 pred = triplet["Predicate"]
                 obj = triplet["Object"]
 
+                # Handle properties
                 if pred == "type":
                     continue  
 
@@ -165,6 +201,7 @@ class Neo4jTripletMigrator:
                         print(f"[WARNING] Propriété pour {subj} ignorée car label introuvable")
                     continue
 
+                # Handle special relation: has_enum (Class → Enum)
                 if pred == "has_enum":
                     subj_label = node_label_from_type(global_node_types.get(subj, None))
                     obj_label = "Enum"
@@ -179,6 +216,7 @@ class Neo4jTripletMigrator:
                     )
                     continue
 
+                # Handle special relation: belongs_to_enum (EnumValue → Enum)
                 if pred == "belongs_to_enum":
                     subj_label = node_label_from_type(global_node_types.get(subj, None))
                     obj_label = "Enum"
@@ -193,6 +231,7 @@ class Neo4jTripletMigrator:
                     )
                     continue
 
+                # Handle general relations
                 rel_label = RELATION_PREDICATES.get(pred, normalize_label(pred))
                 subj_label = node_label_from_type(global_node_types.get(subj, None))
                 if not isinstance(obj, str):
@@ -215,6 +254,11 @@ class Neo4jTripletMigrator:
         logger.info("Migration complète des triplets terminée.")
 
 def main():
+    """
+    CLI entrypoint for migration.
+    Loads configuration from environment variables, connects to Neo4j,
+    runs migration, and closes the connection.
+    """
     uri = os.getenv("NEO4J_URI", "bolt://localhost:7687")
     user = os.getenv("NEO4J_USER", "neo4j")
     password = os.getenv("NEO4J_PASSWORD", "decima123")
@@ -230,6 +274,10 @@ if __name__ == "__main__":
 
 
 def get_neo4j_driver(uri=None, user=None, password=None):
+    """
+    Utility function to get a direct Neo4j driver.
+    Defaults to localhost with user neo4j/decima123.
+    """
     uri = uri or "bolt://localhost:7687"
     user = user or "neo4j"
     password = password or "decima123"

@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-  <title>DECIMA - EVA</title>
+  <title>DECIMA app</title>
 
   <!-- Styles -->
   <link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
@@ -19,6 +19,12 @@
       <p class="subtitle">Data Extraction & Contextual Inference for MCNP Analysis</p>
     </header>
 
+    <!-- KG/Neo4j warning banner -->
+    <div id="kg-warning" class="warning-banner" style="display:none;">
+      <i class="fas fa-triangle-exclamation"></i>
+      EMMA KG is not loaded. The answer was produced without KG context.
+    </div>
+
     <!-- Upload section -->
     <section class="upload-section">
       <button id="open-file-btn" class="upload-btn">
@@ -30,11 +36,13 @@
 
     <!-- Instructional message -->
     <section class="instruction-message">
-      <p><strong>Ask a meaningful and concise question related to the event data in your PTRAC file.</strong></p>
-      <p class="example-text"><em>Examples:<br>
-      Print x y z positions and energies of neutrons entering cell 502 for the 20 first histories<br>
+      <p><strong>Ask a meaningful and concise question related to the specific event data in your PTRAC file.</strong></p>
+      <p class="example-text"><em><strong>Examples:</strong><br>
+      Print x y z positions and energies of all the particles entering the Water moderator (cell 502)<br>
       How many secondary photons are emitted and what is their process of termination?<br>
-      How many (n,xn) fission neutrons are generated and plot their energy distribution</em></p>
+      Plot the z-axis direction cosine (W) distribution of emitted source particles and display their average energy<br>
+      For the first 10 histories, display the full path of neutrons from source to termination, including energy and position at each collision<br>
+      Plot the collision energy spectrum of neutrons interacting with U-235 through elastic scattering reaction</em></p>
     </section>
 
     <!-- Chat section -->
@@ -54,7 +62,7 @@
             <select id="model-choice">
               <option value="gpt-4o-mini">gpt-4o-mini</option>
               <option value="gpt-4o">gpt-4o</option>
-              <option value="asi1-mini">asi1-mini</option>
+              <!-- <option value="asi1-mini">asi1-mini</option> -->
             </select>
           </div>
           <div class="context-toggle">

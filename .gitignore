@@ -17,8 +17,14 @@ env/
 .idea/
 
 # 🧪 Tests
-tests/
-tests/__pycache__/
+tests/*
+!tests/test_quiet.py
+!tests/test_emma.py
+!tests/test_eva.py
+!tests/test_otacon_api.py
+!tests/test_campbell_workflow.py
+tests/testsets/*
+!tests/testsets/matching_eval
 
 # 🔄 Caches et Python
 __pycache__/
@@ -43,8 +49,10 @@ data/cpp/mctal/
 data/hpp/mctal/
 data/mctal_samples/
 data/mctal_scripts/
-data/mcnp_files/example_ptrac_1.mcnp_extended.i
-data/mcnp_files/LB6411_cezane_SC_75.i
+
+# MCNP FILES (keep only basic_ptrac_example_decima.i)
+data/mcnp_files/*
+!data/mcnp_files/basic_ptrac_example_decima.i
 
 # DOC – Ne garder que les 4 fichiers à la racine de /doc
 !doc/DECIMA Project Technical Documentation.md
@@ -54,23 +62,17 @@ data/mcnp_files/LB6411_cezane_SC_75.i
 doc/*
 !doc/.keep
 
-# PTRAC SAMPLES
-!data/ptrac_samples/example_ptrac_1.mcnp.ptrac
-!data/ptrac_samples/example_ptrac_2.mcnp.ptrac
+# PTRAC SAMPLES (keep only basic_ptrac_example_decima_ascii.ptrac)
 data/ptrac_samples/*
-!data/ptrac_samples/.keep
+!data/ptrac_samples/basic_ptrac_example_decima_ascii.ptrac
 
-# PTRAC SCRIPTS
-!data/ptrac_scripts/cpp_example_ptrac_1.cpp
-!data/ptrac_scripts/python_example_ptrac_1.py
+# PTRAC SCRIPTS (ignore all, except .keep if present)
 data/ptrac_scripts/*
 !data/ptrac_scripts/.keep
 
-# 📤 Uploads - ne conserver que 2 fichiers
-!uploads/example_ptrac_1.mcnp.ptrac
-!uploads/example_ptrac_2.mcnp.ptrac
-uploads/
-
+# 📤 Uploads (keep only basic_ptrac_example_decima_ascii.ptrac)
+uploads/*
+!uploads/basic_ptrac_example_decima_ascii.ptrac
 
 # ❌ Dossier KG non requis pour release
 kg/neo4j_acces_localhost7474/
@@ -88,4 +90,8 @@ frontend/dist/
 dist/
 build/
 *.manifest
-*.spec"data/ptrac_scripts/" 
+*.spec
+
+# Ignore cheat sheets
+git_cheatsheet.txt
+docker_cheatsheet.txt

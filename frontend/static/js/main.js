@@ -11,6 +11,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   let latestLLMCode = ""; 
 
+  // === File upload ===
   document.getElementById("open-file-btn").addEventListener("click", () => {
     ptracFileInput.click();
   });
@@ -29,13 +30,14 @@ document.addEventListener("DOMContentLoaded", function () {
       .then((r) => r.json())
       .then((data) => {
         if (data.status === "success") {
-          fileInfo.textContent = `Fichier chargé : ${data.filename}`;
+          fileInfo.textContent = `File loaded: ${data.filename}`;
         } else {
-          fileInfo.textContent = `Erreur : ${data.message}`;
+          fileInfo.textContent = `Error: ${data.message}`;
         }
       });
   });
 
+  // === Chat messages ===
   function addMessage(content, role = "user") {
     const div = document.createElement("div");
     div.className = `message ${role}-message`;
@@ -57,7 +59,7 @@ document.addEventListener("DOMContentLoaded", function () {
             <button class="copy-btn"><i class="fas fa-copy"></i></button>
           </div>
           <pre><code id="llm-code-block" class="language-python">${hljs.highlight(code, { language: 'python' }).value}</code></pre>
-          <button class="execute-btn">Exécuter le code</button>
+          <button class="execute-btn">Run Code</button>
         </div>`;
     }
     div.innerHTML = `<div class="message-content">${response}</div>${codeHtml}`;
@@ -73,110 +75,131 @@ document.addEventListener("DOMContentLoaded", function () {
 
     const execBtn = div.querySelector(".execute-btn");
     if (execBtn) {
-  const stopBtn = document.createElement("button");
-  stopBtn.className = "stop-btn inline";
-  stopBtn.textContent = "Stop Code Generation";
-  stopBtn.style.display = "none"; 
+      const stopBtn = document.createElement("button");
+      stopBtn.className = "stop-btn inline";
+      stopBtn.textContent = "Stop Code Execution";
+      stopBtn.style.display = "none"; 
 
-  execBtn.parentNode.insertBefore(stopBtn, execBtn.nextSibling);
+      execBtn.parentNode.insertBefore(stopBtn, execBtn.nextSibling);
 
-  execBtn.onclick = () => {
-    stopBtn.style.display = "inline-block";
+      execBtn.onclick = () => {
+        stopBtn.style.display = "inline-block";
 
-    fetch("/execute_code", {
-      method: "POST",
-      headers: { "Content-Type": "application/json" },
-      body: JSON.stringify({ code: latestLLMCode, allow_plots: true })
-    })
-      .then(r => r.json())
-      .then(data => {
-        resultSection.style.display = "block";
-        stdoutBlock.textContent = data.stdout || "";
-        stderrBlock.textContent = data.stderr || "";
-        if (data.output_files && data.output_files.length > 0) {
-          imageBlock.src = `/download_file?path=${encodeURIComponent(data.output_files[0])}`;
-          imageBlock.style.display = "block";
-        } else {
-          imageBlock.style.display = "none";
-        }
-        stopBtn.style.display = "none"; 
-      });
-  };
+        fetch("/execute_code", {
+          method: "POST",
+          headers: { "Content-Type": "application/json" },
+          body: JSON.stringify({ code: latestLLMCode, allow_plots: true })
+        })
+          .then(r => r.json())
+          .then(data => {
+            resultSection.style.display = "block";
+            stdoutBlock.textContent = data.stdout || "";
+            stderrBlock.textContent = data.stderr || "";
+            if (data.output_files && data.output_files.length > 0) {
+              imageBlock.src = `/download_file?path=${encodeURIComponent(data.output_files[0])}`;
+              imageBlock.style.display = "block";
+            } else {
+              imageBlock.style.display = "none";
+            }
+            stopBtn.style.display = "none"; 
+          });
+      };
 
-  stopBtn.onclick = () => {
-    stopBtn.style.display = "none";
-    fetch("/abort_execution", { method: "POST" })
-      .then(r => r.json())
-      .then(data => {
-        console.warn("⛔️ Code interrompu :", data.status);
-        stderrBlock.textContent += `\n⛔️ Manual interruption: ${data.status}`;
-      })
-      .catch(() => {
-        stderrBlock.textContent += `\n⛔️ Error: unable to interrupt the process`;
-      });
-  };
-
-}
-
+      stopBtn.onclick = () => {
+        stopBtn.style.display = "none";
+        fetch("/abort_execution", { method: "POST" })
+          .then(r => r.json())
+          .then(data => {
+            console.warn("⛔️ Code interrupted:", data.status);
+            stderrBlock.textContent += `\n⛔️ Manual interruption: ${data.status}`;
+          })
+          .catch(() => {
+            stderrBlock.textContent += `\n⛔️ Error: unable to interrupt the process`;
+          });
+      };
+    }
   }
 
-  sendBtn.onclick = () => {
-  const query = inputField.value;
-  if (!query) return;
-
-  const useContext = document.getElementById("context-toggle").checked;
-
-  const modelSelect = document.getElementById("model-choice");
-  const modelChoice = modelSelect ? modelSelect.value : null;
-
-  const reasoningLoader = document.getElementById("reasoning-loader");
-  reasoningLoader.style.display = "flex";
-
-  addMessage(query, "user");
-  inputField.value = "";
-
-  fetch("/analyze_query", {
-  method: "POST",
-  headers: { "Content-Type": "application/json" },
-  body: JSON.stringify({ 
-    query, 
-    use_context: useContext, 
-    model: modelChoice            
-  })
-})
-  .then((r) => r.json())
-  .then((data) => {
-    reasoningLoader.style.display = "none";
-
-    if (data.explanation && data.explanation.includes("[ERROR:INVALID_API_KEY]")) {
-      addAssistantMessage(`
-        <div style="color:#ff4444; font-weight:bold;">
-          ❌ Invalid API key.<br>
-          Please edit your <code>.env</code> file and set a valid <code>OPENAI_API_KEY</code>.<br>
-          Restart DECIMA after saving the file.
-        </div>
-      `, null);
-      return; 
+  // === Knowledge Graph Warning ===
+  function showKgWarning(show = true, msg) {
+    const banner = document.getElementById("kg-warning");
+    if (!banner) return;
+    if (msg) {
+      banner.innerHTML = `<i class="fas fa-triangle-exclamation"></i> ${msg}`;
     }
-    if ((data.error && data.error.toLowerCase().includes("no entities detected")) ||
-        (data.explanation && data.explanation.toLowerCase().includes("pas d'entités emma"))) {
-      addAssistantMessage(`
-        <div style="color:#ff4444; font-weight:bold;">
-          ⚠️ No entities were detected.<br>
-          Make sure Neo4j Desktop is running and the <code>DECIMA graph</code> database is started.<br>
-          Then retry your query.
-        </div>
-      `, null);
-}
+    banner.style.display = show ? "flex" : "none";
+  }
 
-    addAssistantMessage(data.response, data.code);
-    resultSection.style.display = "none";
-    stdoutBlock.textContent = "";
-    stderrBlock.textContent = "";
-    imageBlock.style.display = "none";
-  });
-};
+  // === Send query ===
+  sendBtn.onclick = () => {
+    const query = inputField.value;
+    if (!query) return;
 
+    const useContext = document.getElementById("context-toggle").checked;
+    const modelSelect = document.getElementById("model-choice");
+    const modelChoice = modelSelect ? modelSelect.value : null;
+
+    const reasoningLoader = document.getElementById("reasoning-loader");
+    reasoningLoader.style.display = "flex";
+
+    addMessage(query, "user");
+    inputField.value = "";
+
+    fetch("/analyze_query", {
+      method: "POST",
+      headers: { "Content-Type": "application/json" },
+      body: JSON.stringify({ 
+        query, 
+        use_context: useContext, 
+        model: modelChoice            
+      })
+    })
+      .then((r) => r.json())
+      .then((data) => {
+        reasoningLoader.style.display = "none";
+
+        // === Knowledge Graph warning (simplified + clear) ===
+        if (data?.emma) {
+          const e = data.emma;
+          if (e.requested && !e.ok && !e.skipped) {
+            let technical = e.error
+              ? e.error.replace(/^\[EMMA ERROR\]\s*/, "")
+              : e.warning.replace(/^\[EMMA WARNING\]\s*/, "");
+            const msg = `
+              <strong>Knowledge Graph connection issue:</strong><br>
+              <span style="font-size:0.9em; color:#ddd;">${technical}</span><br><br>
+              ⚠️ The request will continue, but Otacon will not benefit from the full Knowledge Graph context and may be more prone to mistakes.<br><br>
+              ➡️ To enable full context, make sure Neo4j is running and load the Knowledge Graph with:<br>
+              <code>docker exec -it decima-app-1 python kg/loader/neo4j_loader.py</code><br>
+              (see README.md for details)
+            `;
+            showKgWarning(true, msg);
+          } else {
+            showKgWarning(false);
+          }
+        }
+
+
+        if (data.explanation && data.explanation.includes("[ERROR:INVALID_API_KEY]")) {
+          addAssistantMessage(`
+            <div style="color:#ff4444; font-weight:bold;">
+              ❌ Invalid API key.<br>
+              Please edit your <code>.env</code> file and set a valid <code>OPENAI_API_KEY</code>.<br>
+              Restart DECIMA after saving the file.
+            </div>
+          `, null);
+          return; 
+        }
+
+        addAssistantMessage(data.response, data.code);
+        resultSection.style.display = "none";
+        stdoutBlock.textContent = "";
+        stderrBlock.textContent = "";
+        imageBlock.style.display = "none";
+      });
+  };
+
+  // === Stop code button (global) ===
   const stopCodeBtn = document.getElementById("stop-code-btn");
 
   document.addEventListener("click", function (event) {
@@ -190,25 +213,4 @@ document.addEventListener("DOMContentLoaded", function () {
     stopCodeBtn.style.display = "none";
     stderrBlock.textContent += "\n⛔️ Manual (simulated) interruption";
   });
-
-document.getElementById("send-btn").addEventListener("click", () => {
-  const query = document.getElementById("query-input").value;
-  const addContext = document.getElementById("context-toggle").checked;
-  const modelChoice = document.getElementById("model-choice").value;
-
-  fetch("/process_query", {
-    method: "POST",
-    headers: { "Content-Type": "application/json" },
-    body: JSON.stringify({
-      query: query,
-      use_context: addContext,
-      model: modelChoice
-    })
-  })
-  .then(res => res.json())
-  .then(data => {
-    // affichage du résultat (inchangé)
-  });
-});
-  
 });
