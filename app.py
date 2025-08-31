@@ -4,6 +4,22 @@ from modules.campbell import CampbellOrchestrator
 import os
 from tools import sandbox
 
+
+# --- Do we run in Docker? ---
+def running_in_docker() -> bool:
+    # 1. Check /.dockerenv
+    if os.path.exists("/.dockerenv"):
+        return True
+    # 2. Check /proc/1/cgroup
+    try:
+        with open("/proc/1/cgroup", "rt") as f:
+            content = f.read()
+            if "docker" in content or "containerd" in content:
+                return True
+    except Exception:
+        pass
+    return False
+
 app = Flask(
     __name__,
     template_folder="frontend",        
@@ -67,6 +83,11 @@ def execute():
     data = request.get_json()
     code = data.get("code", "")
     allow_plots = data.get("allow_plots", False) 
+
+    # ⚠️ Override automatique si en Docker
+    if running_in_docker():
+        allow_plots = False
+
     ptrac_path = app.config.get("PTRAC_PATH", None)
     if not ptrac_path:
         return jsonify({"stderr": "No PTRAC file loaded", "stdout": "", "output_files": []})
@@ -103,6 +124,18 @@ def abort_execution():
         sandbox.ACTIVE_PROCESS = None
         return jsonify({"status": "terminated"})
     return jsonify({"status": "no_active_process"})
+
+from flask import send_file
+
+@app.route("/download_file")
+def download_file():
+    """
+    Serve files generated in sandbox (e.g. plots).
+    """
+    path = request.args.get("path")
+    if path and os.path.exists(path):
+        return send_file(path, as_attachment=False)
+    return "File not found", 404
 
 if __name__ == "__main__":
     import argparse

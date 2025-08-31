@@ -152,7 +152,7 @@ docker compose up -d neo4j
 docker compose run app python kg/loader/neo4j_loader.py
 
 # Run the app with detailed logs
-docker compose run --service-ports app python app.py -v
+docker compose run --rm --service-ports app python app.py -v
 ```
 
 - neo4j must be up before running the app
