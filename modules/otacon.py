@@ -173,7 +173,7 @@ class OTACON:
 
         return "\n".join(prompt)
 
-    def ask_llm(self, prompt: str, temperature: float = 0.2, max_tokens: int = 2000) -> str:
+    def ask_llm(self, prompt: str, temperature: float = 0.2, max_tokens: int = 3000) -> str:
         """
         Send the prompt to the LLM and return the generated response.
         """

@@ -333,3 +333,18 @@ pre {
   border-radius: 4px;
   padding: 0.2rem 0.5rem;
 }
+
+.warning-banner {
+  background: #3a1f1f;
+  border: 1px solid #a33;
+  color: #ffbdbd;
+  padding: 10px 12px;
+  border-radius: 6px;
+  margin: 12px 0 18px;
+  display: none; /* hidden by default */
+  align-items: center;
+  gap: 8px;
+  font-weight: 600;
+}
+.warning-banner i { color: #ff8080; }
+

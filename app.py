@@ -24,10 +24,6 @@ def index():
 
 @app.route("/analyze_query", methods=["POST"])
 def analyze():
-    """
-    Handle user query analysis. 
-    Passes the query through QUIET → EMMA → OTACON → EVA depending on the workflow.
-    """
     data = request.get_json()
     query = data.get("query", "")
     use_context = data.get("use_context", True)
@@ -38,22 +34,29 @@ def analyze():
     if model_choice:
         if hasattr(campbell.otacon_agent, "set_model_and_provider"):
             campbell.otacon_agent.set_model_and_provider(model_choice)
-            if args.verbose:
-                print(f"[APP] ✅ Model forced from frontend: {model_choice}")
-                print(f"[APP] Active provider: {campbell.otacon_agent.provider} | "
-                      f"Active model: {campbell.otacon_agent.model}")
         else:
             campbell.otacon_agent.model = model_choice
-            if args.verbose:
-                print(f"[APP] ⚠️ set_model_and_provider unavailable, model forced: {model_choice}")
 
     result = campbell.process_query(query, ptrac_path, use_context=use_context)
+
+    logs = result.get("logs", []) or []
+    emma_ok = any(s.startswith("[EMMA] OK") for s in logs)
+    emma_skipped = any("Skipped" in s for s in logs)  # "[EMMA] Skipped (Add context off)"
+    emma_warning = next((s for s in logs if s.startswith("[EMMA WARNING]")), "")
+    emma_error   = next((s for s in logs if s.startswith("[EMMA ERROR]")), "")
+
     return jsonify({
         "response": result.get("response", "No response."),
         "code": result.get("code", ""),
-        "explanation": result.get("response", ""),   
         "execution_result": result.get("execution_result", {}),
-        "error": result.get("error", "")            
+        "error": result.get("error", ""),
+        "emma": {
+            "requested": bool(use_context),
+            "ok": bool(emma_ok),
+            "skipped": bool(emma_skipped),
+            "warning": emma_warning,
+            "error": emma_error
+        }
     })
 
 @app.route("/execute_code", methods=["POST"])

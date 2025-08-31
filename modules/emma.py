@@ -156,6 +156,12 @@ def score_mt_entity(mt_entity, query_keywords, focus_particles, query_mt_numbers
 
 
 class EMMA:
+    """
+    DECIMA Agent - EMMA
+    Entity-based Metadata & Mapping Analyzer for extracting context from
+    the Knowledge Graph (Neo4j) to support OTACON with entity-aware prompts.
+    Focuses on reaction types (MT), particles, ZAIDs, BNK/TER enums.
+    """
     def __init__(self, neo4j_uri=None, neo4j_user=None, neo4j_password=None):
         self.driver = get_neo4j_driver(
             uri=neo4j_uri or os.getenv("NEO4J_URI", "bolt://localhost:7687"),
@@ -167,6 +173,8 @@ class EMMA:
         self.driver.close()
 
     def get_entity_full_info(self, session, entity_id):
+        """Retrieve full metadata (class, enum, dict, description) for an entity from Neo4j."""
+
         cypher = """
         MATCH (n {name: $entity_id})
         OPTIONAL MATCH (n)-[:BELONGS_TO_ENUM]->(enum:Enum)
@@ -197,6 +205,11 @@ class EMMA:
 
     
     def _extract_keywords_with_parens_and_lexicon(self, query: str, language: str) -> list:
+        """
+        Preprocess query into enriched keyword list.
+        - Handles French→English translation (FR_TO_EN_LEXICON).
+        - Expands content inside parentheses (e.g. (n,p), (gamma,n)).
+        """
         words = re.findall(r'\b\w+\b', query.lower())
         keywords = []
         for w in words:
@@ -222,6 +235,11 @@ class EMMA:
 
 
     def _find_best_dict_entities(self, session, dict_name, keywords, focus_ids, query, min_score=1):
+        """
+        Select best entities from a given dictionary according to context.
+        - Special scoring for MT_xx (reactions).
+        - Handles ParticleCodeDict and ZAIDDict with strict/substring matching.
+        """
         # print(f"\n=== [DEBUG] _find_best_dict_entities called for dict_name: {dict_name} ===")
         # print(f"    - Keywords: {keywords}")
         # print(f"    - focus_ids: {focus_ids}")
@@ -426,6 +444,11 @@ class EMMA:
             return results
 
     def find_best_enum_entities(self, session, prefix, keywords, focus_ids, query, bonus=False, bonus_label=None):
+        """
+        Advanced scoring for BNK_* and TER_* enums.
+        - Matches keywords in entity IDs and descriptions.
+        - Applies bonus if explicitly requested in QUIET focus events.
+        """
         #  print(f"\n=== [DEBUG] find_best_enum_entities called for {prefix} ===")
         #  print(f"    - keywords: {keywords}")
         #  print(f"    - focus_ids: {focus_ids}")
@@ -495,6 +518,11 @@ class EMMA:
 
 
     def extract_kg_context(self, quiet_output: Dict[str, Any]) -> Dict[str, Any]:
+        """
+        Main entrypoint: build a filtered context from QUIET output.
+        Returns a shortlist of relevant entities (dict pruning, BNK/TER scoring,
+        strict matching for classes, methods, attributes).
+        """
         query = quiet_output.get("query", "")
         language = quiet_output.get("language", "en")
         focus_map = {

@@ -27,6 +27,11 @@ from modules.eva import EVA
 logger = logging.getLogger(__name__)
 
 class AgentState(TypedDict):
+    """
+    Shared state container passed across LangGraph nodes.
+    Stores query, detected entities, KG context, LLM response, generated code,
+    PTRAC file path, execution results, logs, and status flags.
+    """
     query: str
     language: str
     query_type: str
@@ -50,9 +55,11 @@ class AgentState(TypedDict):
 class CampbellOrchestrator:
     """
     Main DECIMA orchestrator (CAMPBELL).
-    Handles workflow execution between QUIET, EMMA, OTACON, EVA agents.
+    Handles workflow execution between QUIET, EMMA, OTACON, and EVA agents
+    using LangGraph state transitions.
     """
     def __init__(self, otacon_api_key: Optional[str] = None):
+        """Initialize agents and compile the LangGraph workflow."""
         self.quiet_agent = QUIET()
         self.emma_agent = EMMA()
         self.otacon_agent = OTACON()
@@ -61,6 +68,11 @@ class CampbellOrchestrator:
         self.app = self.workflow.compile()
 
     def _create_workflow(self) -> StateGraph:
+        """
+        Build the LangGraph workflow:
+        - QUIET → EMMA → OTACON → EVA
+        - Conditional transition: if OTACON produced code + PTRAC path, then EVA, else END.
+        """
         workflow = StateGraph(AgentState)
         workflow.add_node("quiet", self._run_quiet_agent)
         workflow.add_node("emma", self._run_emma_agent)
@@ -81,6 +93,12 @@ class CampbellOrchestrator:
 
     # === QUIET NODE ===
     def _run_quiet_agent(self, state: AgentState) -> AgentState:
+        """
+        Run QUIET agent:
+        - Detect language (FR/EN).
+        - Extract focus events, data, dictionaries, classes, methods, attributes.
+        - Populate state with pre-analysis results.
+        """
         logger.info("Running QUIET")
         try:
             q_out = self.quiet_agent.analyze(state["query"])
@@ -102,6 +120,12 @@ class CampbellOrchestrator:
 
     # === EMMA NODE ===
     def _run_emma_agent(self, state: AgentState) -> AgentState:
+        """
+        Run EMMA agent:
+        - If context disabled, prepend a generic LLM instruction.
+        - Else, extract KG context (entities, dictionaries, enums, classes).
+        - Store entities and KG context in state.
+        """
         if not state.get("use_context", True):
             logger.info("Add context disabled — skipping EMMA.")
             prefix = (
@@ -144,6 +168,12 @@ class CampbellOrchestrator:
 
     # === OTACON NODE ===
     def _run_otacon_agent(self, state: AgentState) -> AgentState:
+        """
+        Run OTACON agent:
+        - Build full LLM prompt using query + EMMA context + KG rules.
+        - Query LLM for explanation + Python code.
+        - Save results in state.
+        """
         logger.info("Running OTACON")
         try:
             result = self.otacon_agent.run(
@@ -166,6 +196,13 @@ class CampbellOrchestrator:
 
     # === EVA NODE ===
     def _run_eva_agent(self, state: AgentState) -> AgentState:
+        """
+        Run EVA agent:
+        - Validate that a PTRAC path and code exist in state.
+        - Load PTRAC file into EVA sandbox.
+        - Execute OTACON-generated code safely.
+        - Store execution results in state.
+        """
         logger.info("Running EVA")
         try:
             if not state.get("ptrac_path"):
@@ -199,7 +236,9 @@ class CampbellOrchestrator:
     # === TRANSITIONS ===
     def _route_after_otacon(self, state: AgentState) -> str:
         """
-        If OTACON generated code and a PTRAC path is provided, run EVA, otherwise end workflow.
+        Route transition after OTACON:
+        - If OTACON produced code and a PTRAC path is available, go to EVA.
+        - Otherwise, end workflow.
         """
         if state.get("code") and state.get("ptrac_path"):
             return "eva"
@@ -208,7 +247,10 @@ class CampbellOrchestrator:
     # === MAIN API ===
     def process_query(self, query: str, ptrac_path: Optional[str] = None, use_context: bool = True) -> Dict[str, Any]:
         """
-        Launch the entire workflow with the user query and an optional PTRAC path.
+        Main entrypoint of CAMPBELL.
+        - Initializes AgentState with query and optional PTRAC path.
+        - Runs full LangGraph workflow across QUIET → EMMA → OTACON → EVA.
+        - Returns the final state with all intermediate results.
         """
         initial_state: AgentState = {
             "query": query,

@@ -44,6 +44,12 @@ def simple_plural_forms(word: str):
     return forms
 
 class QUIET:
+    """
+    DECIMA Agent - QUIET
+    Query Interpreter for Entity Targeting.
+    Pre-analyzes multilingual user queries (FR/EN), detects focus events (SRC, BNK, COL, TER, SUR, LST),
+    relevant data fields, dictionaries, classes, methods, and attributes.
+    """
     def __init__(self):
         self.focus_events = FOCUS_EVENTS
         self.focus_data = FOCUS_DATA 
@@ -54,6 +60,7 @@ class QUIET:
         self.stopwords = STOPWORDS
 
     def detect_language(self, query: str) -> str:
+        """Detect whether the query is in French or English, based on keywords."""
         french_signals = [
             "combien", "quelle", "quelles", "quels", "particule", "particules",
             "cellule", "cellules", "masse", "poids", "énergie", "durée",
@@ -66,6 +73,7 @@ class QUIET:
         return "fr" if any(word in query.lower() for word in french_signals) else "en"
 
     def preprocess_query(self, query: str, lang: str) -> List[str]:
+        """Tokenize and normalize query words, remove stopwords, keep ZAID-like tokens."""
         cleaned = query.lower().replace(";", " ").replace(",", " ")
         words = re.findall(r"\b(?:[A-Za-z]{1,3}-\d{1,3}|\d{1,3}-[A-Za-z]{1,3})\b|\b\w+\b", cleaned)
         # print(f"[QUIET DEBUG] Preprocessed keywords: {words}")
@@ -87,9 +95,11 @@ class QUIET:
         return sorted(set(focus))
 
     def extract_focus_events(self, query: str) -> List[str]:
+        """Detect focus events (SRC, BNK, COL, TER, SUR, LST) from query text."""
         return self._extract_from_map(query, self.focus_events)
 
     def extract_focus_data(self, query: str) -> List[str]:
+        """Detect requested PTRAC data fields (e.g., ENERGY, TIME, X, ZAID)."""
         ql = strip_accents(query.lower())
         found = []
         for k, keywords in self.focus_data.items():
@@ -103,6 +113,7 @@ class QUIET:
 
 
     def extract_focus_dictionaries(self, query: str) -> List[str]:
+        """Detect dictionary references (ParticleCodeDict, PtracReactionDict, PtracZAIDDict)."""
         ql = strip_accents(query.lower())
         found = []
         for dict_name, dict_words in self.focus_dictionaries.items():
@@ -118,6 +129,7 @@ class QUIET:
         return sorted(set(found)) if found else [""]
 
     def extract_focus_classes(self, query: str) -> List[str]:
+        """Detect explicit mentions of classes (Ptrac, PtracEvent, etc.)."""
         ql = strip_accents(query.lower())
         found = []
         for c in self.focus_classes:
@@ -128,6 +140,7 @@ class QUIET:
         return sorted(set(found)) if found else [""]
 
     def extract_focus_methods(self, query: str) -> List[str]:
+        """Detect explicit mentions of methods (Type(), Get(), ReadHistories())."""
         ql = strip_accents(query.lower())
         found = []
         for m in self.focus_methods:
@@ -138,6 +151,7 @@ class QUIET:
         return sorted(set(found)) if found else [""]
 
     def extract_focus_attributes(self, query: str) -> List[str]:
+        """Detect explicit mentions of attributes (m_type, m_events, etc.)."""
         ql = strip_accents(query.lower())
         found = []
         for a in self.focus_attributes:
@@ -148,6 +162,10 @@ class QUIET:
         return sorted(set(found)) if found else [""]
 
     def analyze(self, query: str) -> Dict[str, Any]:
+        """
+        Main entrypoint: process the query, detect language, extract focus events/data/classes/methods/attributes.
+        Returns a structured dict ready to be passed to EMMA.
+        """
         lang = self.detect_language(query)
         keywords = self.preprocess_query(query, lang)
         res = {

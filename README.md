@@ -1,4 +1,3 @@
-
 <p align="center">
   <img src="decima_logo.png" width="250"/>
 </p>
@@ -23,6 +22,20 @@
 - Knowledge Graph context injection (Neo4j)  
 - Verbose debug mode with detailed workflow + LLM context inspection  
 - Web interface (Flask + Bootstrap)  
+
+---
+
+## 🔑 API Key Requirement
+
+To run LLM-based queries, you must provide a valid **OpenAI API key**.  
+Currently supported models are:  
+- **gpt-4o-mini** (default)  
+- **gpt-4o**  
+
+From my own experience, **gpt-4o-mini** is very cost-effective — around **10 queries for 1 cent**.  
+
+👉 For testing purposes, I can provide a **temporary free API key** (limited in time and usage).  
+If you are interested, please contact me directly via [LinkedIn](#-contact).
 
 ---
 
@@ -105,11 +118,16 @@ docker exec -it decima-app-1 python kg/loader/neo4j_loader.py
 ## ▶️ After Installation: How to Use
 
 ### 1. Launch DECIMA (default: **silent mode**)  
+
+By default, DECIMA runs in **silent mode** (minimal logs).  
+If you want **detailed debug logs** (workflow steps, full LLM context, Neo4j interactions), you can launch it in **verbose mode**.
+
 ```bash
-# Start the containers
+# Start the stack (Neo4j + DECIMA app)
 docker compose up -d
 
-# Load or reload the KG
+# Load or reload the Knowledge Graph
+# (this step must be repeated after each Neo4j rebuild or restart)
 docker exec -it decima-app-1 python kg/loader/neo4j_loader.py
 
 
@@ -124,12 +142,20 @@ Then open your browser and go to: [http://localhost:5050](http://localhost:5050)
 ---
 
 ### 2. Launch DECIMA in **verbose/debug mode**  
-If you want to see **detailed logs, workflow steps, and full LLM context**, run:  
 
 ```bash
+# Start Neo4j only (in background)
+docker compose up -d neo4j
+
+# Load or reload the Knowledge Graph (inside the app container)
+# (this step must be repeated after each Neo4j rebuild or restarts)
+docker compose run app python kg/loader/neo4j_loader.py
+
+# Run the app with detailed logs
 docker compose run --service-ports app python app.py -v
 ```
 
+- neo4j must be up before running the app
 - `--service-ports` ensures port `5050` is exposed  
 - `-v` enables **verbose mode** (full logs, debug info, context sent to the LLM)  
 
@@ -138,7 +164,9 @@ docker compose run --service-ports app python app.py -v
 
 ## ✨ Example Usage
 
-1. Upload your `.ptrac` file
+1. Upload your `.ptrac` file. DECIMA currently supports **binary** and **ASCII** formats.  
+   *(Future releases will also support **HDF5 format**, commonly used for parallelized MCNP calculations.)*
+
 2. Ask a natural language question like:
 
 ```text
@@ -228,3 +256,10 @@ For commercial licensing inquiries (e.g., integration into a product, for-profit
 - [ ] Batch file processing
 - [ ] Public access (key-restricted)
 - [ ] MCNP6+ compatibility
+
+---
+
+## 📬 Contact
+
+For questions, collaborations, or temporary API key requests, feel free to reach out on **LinkedIn**:  
+👉 [Quentin Ducasse](https://www.linkedin.com/in/quentin-ducasse-a65410124/)
