@@ -22,6 +22,7 @@ def detect_ptrac_mode(ptrac_path):
     except Exception:
         return 'BIN_PTRAC'
 
+
 def patch_ptrac_instantiation(code: str, ptrac_path: str, mode: str) -> str:
     """
     Patch all instances of Ptrac instantiation in the given code.
@@ -51,23 +52,32 @@ def patch_ptrac_instantiation(code: str, ptrac_path: str, mode: str) -> str:
 
     return code_patched
 
-def patch_disable_plots(code: str) -> str:
+
+def patch_plots(code: str, allow_plots: bool, output_file="plot.png") -> str:
     """
-    Disable all plotting commands in the code.
-    Neutralizes any calls to:
-      - plt.show()
-      - plt.savefig()
-      - plt.ion()
-      - fig.show() (or any object.show())
-    This prevents runtime blocking or unwanted file generation.
+    Handle matplotlib plotting:
+      - Local (allow_plots=True): flush stdout/stderr just before plt.show().
+      - Docker (allow_plots=False): force non-interactive backend and save plots as PNG.
     """
-    code = re.sub(r"plt\.show\s*\([^\)]*\)", "# plt.show() désactivé par EVA", code)
-    code = re.sub(r"plt\.ion\s*\([^\)]*\)", "# plt.ion() désactivé par EVA", code)
-    code = re.sub(r"plt\.savefig\s*\([^\)]*\)", "# plt.savefig() désactivé par EVA", code)
-    code = re.sub(r"\.show\s*\([^\)]*\)", "# .show() désactivé par EVA", code)  # pour fig.show()
+    if allow_plots:
+        # Insert flush before plt.show()
+        patched = re.sub(
+            r"plt\.show\s*\([^\)]*\)",
+            "import sys; sys.stdout.flush(); sys.stderr.flush(); plt.show()",
+            code
+        )
+        return patched
+
+    # Docker mode → headless
+    header = "import matplotlib\nmatplotlib.use('Agg')\n"
+    code = header + code
+    # Replace plt.show() with savefig
+    code = re.sub(r"plt\.show\s*\([^\)]*\)", f"plt.savefig('{output_file}')", code)
     return code
 
+
 ACTIVE_PROCESS = None  # Global handle for subprocess management
+
 
 def run_ptrac_code(code: str, ptrac_path: str, timeout=60, allow_plots=False):
     """
@@ -75,7 +85,7 @@ def run_ptrac_code(code: str, ptrac_path: str, timeout=60, allow_plots=False):
     Steps:
       1. Detect PTRAC file mode (ASCII/Binary).
       2. Patch Ptrac instantiation in the code with safe version.
-      3. Optionally disable plotting (plt.show, savefig, etc.).
+      3. Handle matplotlib plotting (interactive vs headless).
       4. Write patched code to a temporary directory.
       5. Run code in a subprocess with timeout handling.
 
@@ -83,23 +93,21 @@ def run_ptrac_code(code: str, ptrac_path: str, timeout=60, allow_plots=False):
         code (str): The Python code to execute.
         ptrac_path (str): Path to the PTRAC file.
         timeout (int): Maximum allowed runtime in seconds (default=60).
-        allow_plots (bool): If False, disables matplotlib plotting commands.
+        allow_plots (bool): If False, replaces plots with PNG export.
 
     Returns:
         dict: {
             "stdout": Captured standard output,
             "stderr": Captured standard error,
             "exception": None if success, or error type/exit code,
-            "output_files": List of generated files (empty for now)
+            "output_files": List of generated files (plots, etc.)
         }
     """
     global ACTIVE_PROCESS
 
     mode = detect_ptrac_mode(ptrac_path)
     patched_code = patch_ptrac_instantiation(code, ptrac_path, mode)
-
-    if not allow_plots:
-        patched_code = patch_disable_plots(patched_code)
+    patched_code = patch_plots(patched_code, allow_plots=allow_plots)
 
     with tempfile.TemporaryDirectory() as tmpdir:
         code_file = os.path.join(tmpdir, "llm_code.py")
@@ -118,18 +126,26 @@ def run_ptrac_code(code: str, ptrac_path: str, timeout=60, allow_plots=False):
 
             exit_code = ACTIVE_PROCESS.returncode if ACTIVE_PROCESS else -1
 
-            return {
+            result = {
                 "stdout": stdout or "",
                 "stderr": stderr or "",
                 "exception": None if exit_code == 0 else f"Code retour {exit_code}",
                 "output_files": []
             }
+
+            # Attach saved plot if generated
+            plot_path = os.path.join(tmpdir, "plot.png")
+            if os.path.exists(plot_path):
+                result["output_files"].append(plot_path)
+
+            return result
+
         except subprocess.TimeoutExpired:
             if ACTIVE_PROCESS:
                 ACTIVE_PROCESS.kill()
             return {
                 "stdout": "",
-                "stderr": "Timeout: exécution trop longue.",
+                "stderr": "Timeout: execution too long.",
                 "exception": "TimeoutExpired",
                 "output_files": []
             }
@@ -142,4 +158,3 @@ def run_ptrac_code(code: str, ptrac_path: str, timeout=60, allow_plots=False):
             }
         finally:
             ACTIVE_PROCESS = None
-
