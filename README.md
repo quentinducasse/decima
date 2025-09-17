@@ -1,3 +1,4 @@
+
 <p align="center">
   <img src="decima_logo.png" width="250"/>
 </p>
@@ -88,18 +89,19 @@ NEO4J_PASSWORD=decima123
 ### 🐳 3. Build and launch DECIMA
 
 ```bash
-docker compose up --build -d
+docker compose build app   # Only needed the first time, or if Dockerfile/requirements.txt change
+docker compose up -d
 ```
 
 This will automatically:
 - Start a Neo4j container (ports 7474 + 7687)
-- Build the image with all Python tools and `mcnptools`
-- Launch the web server (port 5050)
+- Start the DECIMA web server (port 5050)
+- Mount your local source code into the container (`.:/app`) → any local code change is immediately visible
 
 Load the Knowledge Graph:
 
 ```bash
-docker exec -it decima-app-1 python kg/loader/neo4j_loader.py
+docker compose exec app python kg/loader/neo4j_loader.py
 ```
 
 ---
@@ -117,10 +119,9 @@ docker exec -it decima-app-1 python kg/loader/neo4j_loader.py
 
 ## ▶️ After Installation: How to Use
 
-### 1. Launch DECIMA (default: **silent mode**)  
+### ▶️ Daily usage
 
-By default, DECIMA runs in **silent mode** (minimal logs).  
-If you want **detailed debug logs** (workflow steps, full LLM context, Neo4j interactions), you can launch it in **verbose mode**.
+### 1. Launch DECIMA in **normal mode** 
 
 ```bash
 # Start the stack (Neo4j + DECIMA app)
@@ -128,11 +129,10 @@ docker compose up -d
 
 # Load or reload the Knowledge Graph
 # (this step must be repeated after each Neo4j rebuild or restart)
-docker exec -it decima-app-1 python kg/loader/neo4j_loader.py
-
+docker compose exec app python kg/loader/neo4j_loader.py
 
 # Stop all services
-docker compose down -v
+docker compose down
 ```
 
 > Use `sudo` in front of the commands above if you get a permission error on Linux.
@@ -141,21 +141,21 @@ Then open your browser and go to: [http://localhost:5050](http://localhost:5050)
 
 ---
 
-### 2. Launch DECIMA in **verbose/debug mode**  
+### 1 alternative. Launch DECIMA in **debug/verbose mode** 
+ 
 
 ```bash
 # Start Neo4j only (in background)
 docker compose up -d neo4j
 
 # Load or reload the Knowledge Graph (inside the app container)
-# (this step must be repeated after each Neo4j rebuild or restarts)
-docker compose run app python kg/loader/neo4j_loader.py
+docker compose run --rm app python kg/loader/neo4j_loader.py
 
 # Run the app with detailed logs
 docker compose run --rm --service-ports app python app.py -v
 ```
 
-- neo4j must be up before running the app
+- neo4j must be up before running the app  
 - `--service-ports` ensures port `5050` is exposed  
 - `-v` enables **verbose mode** (full logs, debug info, context sent to the LLM)  
 
@@ -190,7 +190,7 @@ Print x y z positions and energies of neutrons entering surface 401 for the 20 f
 ├── modules/        # QUIET, OTACON, EMMA, EVA...
 ├── kg/             # Knowledge Graph (triplets, loader)
 ├── frontend/       # Web interface (HTML/JS)
-├── uploads/        # PTRAC files
+├── uploads/        # PTRAC files + plots
 ├── tools/          # Sandboxed code execution
 ├── mcnptools/      # Local copy of MCNPTools
 ├── data/           # Sample files
@@ -220,13 +220,13 @@ Creative Commons Attribution-NonCommercial 4.0 International Public License (CC 
 
 By exercising the Licensed Rights (defined below), You accept and agree to be bound by the terms and conditions of this Creative Commons Attribution-NonCommercial 4.0 International Public License ("Public License").
 
-You are free to:
-✔ Share — copy and redistribute the material in any medium or format
-✔ Adapt — remix, transform, and build upon the material
+You are free to:  
+✔ Share — copy and redistribute the material in any medium or format  
+✔ Adapt — remix, transform, and build upon the material  
 
-Under the following terms:
-📌 Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made.
-🚫 NonCommercial — You may not use the material for commercial purposes.
+Under the following terms:  
+📌 Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made.  
+🚫 NonCommercial — You may not use the material for commercial purposes.  
 
 No additional restrictions — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.
 
@@ -252,14 +252,15 @@ For commercial licensing inquiries (e.g., integration into a product, for-profit
 
 ## 🚧 Roadmap
 
-- [ ] MCTAL (FORTUNE) support
-- [ ] Batch file processing
-- [ ] Public access (key-restricted)
-- [ ] MCNP6+ compatibility
+- [ ] MCTAL (FORTUNE) support  
+- [ ] Batch file processing  
+- [ ] Public access (key-restricted)  
+- [ ] MCNP6+ compatibility  
+- [ ] Extended features for much more precise answers
 
 ---
 
 ## 📬 Contact
 
 For questions, collaborations, or temporary API key requests, feel free to reach out on **LinkedIn**:  
-👉 [Quentin Ducasse](https://www.linkedin.com/in/quentin-ducasse-a65410124/)
+👉 [Quentin Ducasse](https://www.linkedin.com/in/quentin-ducasse-a65410124/)  

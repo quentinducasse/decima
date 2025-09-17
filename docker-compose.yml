@@ -1,25 +1,24 @@
 name: decima
-version: "3.9"
 
 services:
   app:
     build:
       context: .
       dockerfile: Dockerfile
-      tags:
-        - decima:latest
     ports:
       - "5050:5050"
     env_file:
       - .env.docker
+    volumes:
+      - .:/app               # 👈 bind-mount du dossier courant vers /app
     depends_on:
       - neo4j
 
   neo4j:
     image: neo4j:5.19
     ports:
-      - "7474:7474"   # Neo4j Web UI
-      - "7687:7687"   # Bolt (connexion app)
+      - "7474:7474"          # Neo4j Web UI
+      - "7687:7687"          # Bolt (connexion app)
     environment:
       NEO4J_AUTH: neo4j/decima123
     volumes:
