@@ -95,3 +95,4 @@ build/
 # Ignore cheat sheets
 git_cheatsheet.txt
 docker_cheatsheet.txt
+paperToDo.md

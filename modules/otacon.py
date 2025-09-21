@@ -35,6 +35,9 @@ ASI1_API_KEY = os.getenv("ASI1_API_KEY", "")
 ASI1_BASE_URL = os.getenv("ASI1_BASE_URL", "https://api.asi1.ai/v1")
 DEFAULT_ASI1_MODEL = os.getenv("ASI1_MODEL", "asi1-mini")
 
+# Demo mode flag
+DEMO_MODE = os.getenv("DEMO_MODE", "false").lower() == "true"
+
 # Default model depending on provider
 DEFAULT_MODEL = DEFAULT_ASI1_MODEL if LLM_PROVIDER == "asi1" else DEFAULT_OAI_MODEL
 # =======================================================
@@ -229,6 +232,46 @@ class OTACON:
         Run the complete OTACON pipeline: build prompt, send to LLM, parse output.
         """
         logger.info(f"[INFO] LLM used for this request: {self.provider} (model: {self.model})")
+
+        # === DEMO MODE FALLBACK ===
+        if DEMO_MODE or not self.api_key:
+            logger.warning("[OTACON] DEMO MODE active. Returning fixed example response.")
+
+            demo_code = '''
+from mcnptools import Ptrac
+
+# DEMO MODE: this is a fixed example, independent of the user query
+p = Ptrac("<PTRAC_PATH_PLACEHOLDER>", Ptrac.BIN_PTRAC)
+cnt = 0
+hists = p.ReadHistories(10000)
+while hists:
+    for h in hists:
+        for e in range(h.GetNumEvents()):
+            event = h.GetEvent(e)
+            if event.Type() == Ptrac.COL:
+                cnt += 1
+                print(
+                    "[DEMO] Collision #{} | energy={:.5e}, pos=({:.5e}, {:.5e}, {:.5e})".format(
+                        cnt,
+                        event.Get(Ptrac.ENERGY),
+                        event.Get(Ptrac.X),
+                        event.Get(Ptrac.Y),
+                        event.Get(Ptrac.Z),
+                    )
+                )
+    hists = p.ReadHistories(10000)
+'''
+
+            return {
+                "explanation": (
+                    "[DEMO MODE] No API key provided or DEMO_MODE enabled. "
+                    "This is a sample response showing positions (x,y,z) and energies "
+                    "of collision events, independent of your query."
+                ),
+                "code": demo_code,
+                "raw_output": demo_code,
+            }
+        # === END DEMO MODE ===
 
         use_context = emma_context.get("use_context", True)
         prompt = self.build_prompt(user_query, emma_context, use_context=use_context)

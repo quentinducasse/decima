@@ -40,6 +40,33 @@ If you are interested, please contact me directly via [LinkedIn](#-contact).
 
 ---
 
+---
+
+## 🔧 Demo Mode (for testing without API key)
+
+DECIMA includes a **demo mode** for reviewers and first-time users.
+
+- If no API key is provided, or if `DEMO_MODE=true` is set in your `.env.docker` file,  
+  DECIMA runs in a fallback mode.
+
+- In this mode, the system always returns a **fixed example**: positions (x,y,z) and energies  
+  of collision events from the uploaded PTRAC file.  
+  This ensures that DECIMA remains executable even without access to external LLM APIs.
+
+⚠️ Demo mode is **limited**: it ignores your actual query and does not call the LLM.
+
+To unlock the full functionality, set your `OPENAI_API_KEY` in `.env.docker`  
+and set `DEMO_MODE=false`.
+
+⚠️ Important:
+- If `OPENAI_API_KEY` is **valid** → DECIMA runs in full mode.
+- If `OPENAI_API_KEY` is **empty** → DECIMA runs in Demo Mode (fallback).
+- If `OPENAI_API_KEY` is **set but invalid** → DECIMA will raise an error 
+  (`[ERROR:INVALID_API_KEY]`) and **will not fallback** to Demo Mode.
+
+---
+
+
 ## 📦 Installation (via Docker)
 
 ### ✅ Prerequisites
@@ -211,34 +238,26 @@ See the [`doc/`](doc/) folder for:
 
 ## 📚 Citation
 
-> Ducasse Q., *DECIMA – An LLM-based assistant for MCNP particle tracking analysis*, v1.0.1, GitHub, 2025-08-17.  
+> Almuhisen F. and Ducasse Q., *DECIMA – An LLM-based assistant for MCNP particle tracking analysis*, v1.1.1, GitHub, 2025.  
 > [https://github.com/quentinducasse/decima](https://github.com/quentinducasse/decima)
-
+> Cite the JOSS paper (DOI) once published for academic use.
 ---
 
-Creative Commons Attribution-NonCommercial 4.0 International Public License (CC BY-NC 4.0)
+## 📜 License
 
-By exercising the Licensed Rights (defined below), You accept and agree to be bound by the terms and conditions of this Creative Commons Attribution-NonCommercial 4.0 International Public License ("Public License").
+DECIMA is distributed under the **Apache License 2.0 (OSI-approved, open source)**.  
+See the [LICENSE](LICENSE) file for details.
 
-You are free to:  
-✔ Share — copy and redistribute the material in any medium or format  
-✔ Adapt — remix, transform, and build upon the material  
+📌 If you use DECIMA in academic work, please cite the upcoming JOSS paper (DOI pending).
 
-Under the following terms:  
-📌 Attribution — You must give appropriate credit, provide a link to the license, and indicate if changes were made.  
-🚫 NonCommercial — You may not use the material for commercial purposes.  
-
-No additional restrictions — You may not apply legal terms or technological measures that legally restrict others from doing anything the license permits.
-
-Full license text: https://creativecommons.org/licenses/by-nc/4.0/legalcode
-
+DECIMA relies on third-party libraries distributed under permissive OSI-approved licenses (MIT, BSD, Apache, EPL). See NOTICE for details.
 ---
 
-Author: Quentin Ducasse  
+Author: Feda Almuhisen & Quentin Ducasse  
 Project: DECIMA — Data Extraction & Contextual Inference for MCNP Analysis  
 Year: 2025  
 
-For commercial licensing inquiries (e.g., integration into a product, for-profit application), please contact the author to discuss custom licensing terms.
+For commercial licensing inquiries (e.g., integration into a product, for-profit application), please contact the authors to discuss custom licensing terms.
 
 ---
 
@@ -264,3 +283,4 @@ For commercial licensing inquiries (e.g., integration into a product, for-profit
 
 For questions, collaborations, or temporary API key requests, feel free to reach out on **LinkedIn**:  
 👉 [Quentin Ducasse](https://www.linkedin.com/in/quentin-ducasse-a65410124/)  
+👉 [Feda Almuhisen](https://www.linkedin.com/in/feda-almuhisen/)  

@@ -75,7 +75,15 @@ def patch_plots(code: str, allow_plots: bool, output_file="plot.png") -> str:
 
     # Save figure in persistent location
     output_path = os.path.join(PLOTS_DIR, output_file)
-    code = re.sub(r"plt\.show\s*\([^\)]*\)", f"plt.savefig(r'{output_path}')", code)
+
+    # ✅ sécuriser le chemin pour éviter les \U, \n... (Windows)
+    safe_output_path = output_path.replace("\\", "\\\\")
+
+    code = re.sub(
+        r"plt\.show\s*\([^\)]*\)",
+        f"plt.savefig(r'{safe_output_path}')",
+        code
+    )
     return code
 
 
