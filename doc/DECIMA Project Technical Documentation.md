@@ -265,7 +265,7 @@ This script will clean the existing Neo4j database and populate it with the trip
 
 ### 5.5. Launching the Flask Application
 
-The Flask application can be launched by running the `app.py` file:
+The Flask application can be launched by running the `app.py` file as follows:
 
 ```bash
 python app.py

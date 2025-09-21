@@ -10,6 +10,7 @@ __pycache__/
 *.bak
 *.tmp
 
+
 # 🐍 Environnements virtuels
 env/
 venv/

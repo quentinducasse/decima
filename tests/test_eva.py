@@ -8,14 +8,10 @@ from modules.eva import EVA
 
 # === Path to the PTRAC file used for testing ===
 # ⚠️ IMPORTANT: Replace this path with the location of your own PTRAC file
-PTRAC_FILE = r"C:\Users\username\path\to\your\ptrac_file.ptrac"
+# Chemin relatif vers l’exemple PTRAC
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))  # remonte depuis /tests/
+PTRAC_FILE = os.path.join(BASE_DIR, "data", "ptrac_samples", "basic_ptrac_example_decima_ascii.ptrac")
 
-# --- Early check before running any tests ---
-if "username" in PTRAC_FILE or not os.path.isfile(PTRAC_FILE):
-    print(f"\n[ERROR] PTRAC_FILE is not set correctly!\n"
-          f"Please edit tests/test_eva.py and set PTRAC_FILE to the path of your own PTRAC file.\n"
-          f"Current PTRAC_FILE = {PTRAC_FILE}\n")
-    exit(1)
 
 # Example MCNPTools code executed inside EVA sandbox
 # EVA replaces <PTRAC_PATH_PLACEHOLDER> with the actual PTRAC path
