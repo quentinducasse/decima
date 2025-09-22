@@ -119,14 +119,15 @@ DECIMA (OTACON agent) returns an explanation of the analysis process together wi
 
 ```python
 from mcnptools import Ptrac
-import numpy as np
 import matplotlib.pyplot as plt
 
 ptrac_path = '<PTRAC_PATH_PLACEHOLDER>'
 p = Ptrac(ptrac_path, Ptrac.BIN_PTRAC)
 
-w_values, energies = [], []
+w_values = []
+energies = []
 
+# Read histories in batches of 10000
 hists = p.ReadHistories(10000)
 while hists:
     for h in hists:
@@ -139,15 +140,15 @@ while hists:
                     energies.append(event.Get(Ptrac.ENERGY))
     hists = p.ReadHistories(10000)
 
-average_energy = np.mean(energies) if energies else 0
+# Calculate average energy
+average_energy = sum(energies) / len(energies) if energies else 0
 
+# Plotting the W distribution
 plt.hist(w_values, bins=50, alpha=0.7, color='blue', edgecolor='black')
-plt.title('W (z-axis direction cosine) Distribution of Emitted Source Particles')
-plt.xlabel('W Value')
+plt.title('W Distribution of Emitted Source Particles')
+plt.xlabel('W (z-axis direction cosine)')
 plt.ylabel('Frequency')
-plt.grid()
-plt.axvline(x=np.mean(w_values), color='red', linestyle='dashed', linewidth=1, label='Mean W')
-plt.legend()
+plt.grid(True)
 plt.show()
 
 print(f'Average Energy of Emitted Source Particles: {average_energy:.2f} MeV')

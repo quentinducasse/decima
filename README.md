@@ -239,7 +239,7 @@ See the [`doc/`](doc/) folder for:
 If you use DECIMA in your work, please cite the software as follows:
 
 > Almuhisen F. and Ducasse Q., *DECIMA – Data Extraction & Contextual Inference for MCNP Analysis*,  
-> Version v1.1.1, GitHub repository, 2025.  
+> Version v1.2.0, GitHub repository, 2025.  
 > Available at: [https://github.com/quentinducasse/decima](https://github.com/quentinducasse/decima)
 
 📌 A JOSS paper submission is in preparation. Once published, please update your citation to use the official DOI.
