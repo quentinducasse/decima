@@ -1,3 +1,7 @@
+:root {
+  --primary-color: #4db8ff;  /* bleu logo */
+  --primary-color-hover: #3399ff; /* bleu version un peu plus foncée */
+}
 /* === BASE === */
 body {
   margin: 0;
@@ -7,20 +11,26 @@ body {
   color: #eee;
   font-size: 16px;
   line-height: 1.6;
+  overflow-x: hidden;   /* ✅ empêche le scroll horizontal */
 }
 
-/* === CONTAINER === */
+.center-column {
+  max-width: 900px;
+  margin: 0 auto 2rem auto;  /* centre chaque bloc */
+}
+
+
 .main-container {
-  width: 100%;            /* ✅ remplace max-width */
-  max-width: none;
-  margin: 0 auto;
-  padding: 2rem;
+  width: 100%;
+  max-width: 1400px;   /* limite max, sinon ça s’étire trop */
+  margin: 0 auto;      /* centre horizontalement */
+  padding: 0 2vw;     /* petit padding symétrique */
 }
 
 /* === HEADER === */
 .app-header {
   text-align: center;
-  margin-bottom: 2rem;
+  margin: 3rem 0 2rem 0;  /* 3rem en haut, 2rem en bas */
 }
 
 .decima-title {
@@ -32,19 +42,16 @@ body {
   margin-bottom: 0.2rem; 
 }
 
-.subtitle {
-  font-size: 1.5rem;
-  font-weight: 400;
-  color: #ccc;
-  margin-top: 0.3rem;
-  margin-bottom: 1rem;
-  text-align: center;
-  max-width: 100%;
-  white-space: nowrap;  
-  overflow: hidden;
-  text-overflow: ellipsis; 
-}
 
+.capsule {
+  display: inline-block;
+  background: rgba(77, 184, 255, 0.1);  /* fond bleu très léger */
+  color: #4db8ff;                       /* ✅ même bleu que DECIMA */
+  padding: 0.4rem 1rem;
+  border-radius: 20px;
+  font-weight: 600;
+  font-size: 1.1rem;
+}
 
 /* === FILE UPLOAD === */
 .upload-section {
@@ -53,17 +60,22 @@ body {
 }
 
 .upload-btn {
-  padding: 0.7rem 1.4rem;
+  padding: 0.9rem 1.8rem;
   background-color: #1f1f1f;
   color: #fff;
   border: 1px solid #444;
   border-radius: 6px;
   cursor: pointer;
-  transition: background-color 0.3s;
+  font-size: 1.1rem;           
+  font-weight: 600;            
+  transition: all 0.3s ease;
 }
 
 .upload-btn:hover {
-  background-color: #333;
+  background-color: var(--primary-color);   /*  bleu logo */
+  border-color: var(--primary-color);       /* bordure bleue */
+  color: #fff;                              /* texte blanc lisible */
+  /*box-shadow: 0 0 12px rgba(77, 184, 255, 0.6); /* halo bleu subtil */
 }
 
 .file-info {
@@ -92,7 +104,7 @@ body {
 /* === CHAT SECTION === */
 .chat-section {
   flex: 1;
-  min-width: 650px;
+  max-width: 900px;
   border: 1px solid #333;
   border-radius: 8px;
   padding: 1rem;
@@ -147,7 +159,7 @@ body {
 .chat-input button {
   padding: 0 1.3rem;
   font-size: 1.3rem;
-  background-color: #3366ff;
+  background-color: var(--primary-color);
   color: white;
   border: none;
   border-radius: 6px;
@@ -156,7 +168,7 @@ body {
 }
 
 .chat-input button:hover {
-  background-color: #5588ff;
+  background-color: var(--primary-color-hover);
 }
 
 /* === RESULT SECTION === */
@@ -166,8 +178,10 @@ body {
   padding: 1rem;
   margin-top: 2rem;
   border: 1px solid #444;
-  width: 1000px;
-  max-width: 65%;
+  width: 100%;          /* occupe toute la largeur dispo */
+  max-width: 1000px;    /* limite max */
+  margin-left: auto;
+  margin-right: auto;
 }
 
 /* === CODE === */
@@ -250,20 +264,23 @@ pre {
   margin-top: 0.2rem;
 }
 
+/* Style du checkbox quand il est coché */
+.context-toggle input[type="checkbox"]:checked {
+  accent-color: var(--primary-color); /* utilise le bleu du logo */
+}
+
 .chat-wrapper {
+  position: relative;
   display: flex;
-  justify-content: flex-start;         
-  align-items: flex-start;
-  gap: 2rem;
-  margin-bottom: 2rem;
-  width: 100%;
-  margin-left: 270px;    
+  justify-content: center;
+  margin: 0 auto 2rem auto;
+  max-width: 1100px;  /* largeur max colonne centrale */
 }
 
 
 .chat-section {
-  width: 750px;          
-  max-width: 65%;
+  max-width: 900px;   /* limite mais pas fixe */
+  flex: 1;            /* prend l’espace restant */
   border: 1px solid #333;
   border-radius: 8px;
   padding: 1rem;
@@ -271,34 +288,32 @@ pre {
 }
 
 .otacon-side {
+  position: absolute;
+  left: -140px;     /* ⬅contrôle combien Otacon est décalé à gauche */
+  top: 0;
+  width: 180px;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: flex-start;
-  margin-top: 1rem;
-  width: 120px;        
-  flex-shrink: 0;
-  margin-left: 0rem;   
-  margin-right: 5rem;
 }
 
 .otacon-img {
-  width: 80px;
+  width: 100%;
   height: auto;
-  border-radius: 8px;
+  aspect-ratio: 1/1;  /* carré automatique */
+  object-fit: cover;
+  border-radius: 12px;
   margin-bottom: 0.5rem;
 }
 
 .otacon-caption {
   color: #4db8ff;
   font-weight: 600;
-  font-size: 0.85rem;
+  font-size: 0.9rem;
   text-align: center;
-  max-width: 120px;       
-  white-space: normal;
-  word-wrap: break-word;
-  line-height: 1.4;
+  line-height: 1.3;
 }
+
 .stop-btn {
   margin-top: 0.5rem;
   padding: 0.5rem 1rem;
@@ -347,4 +362,62 @@ pre {
   font-weight: 600;
 }
 .warning-banner i { color: #ff8080; }
+
+.decima-logo {
+  display: block;
+  margin: 0 auto;     /* centre l’image */
+  height: 200px;      
+  object-fit: contain; /* évite l’écrasement */
+}
+
+.instruction-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+  text-align: center;
+  margin-bottom: 1rem;
+  color: #ffffff;
+}
+
+.examples-block {
+  background: #161616;
+  border: 1px solid #2a2a2a;
+  border-radius: 8px;
+  padding: 1rem 1.5rem;
+  max-width: 900px;
+  margin: 0 auto 2rem auto;
+  color: #ccc;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+  text-align: left;   /* force le texte à s’aligner à gauche */
+}
+
+.examples-title {
+  font-weight: 600;
+  margin: 0 0 0.6rem 0;
+  color: var(--primary-color);
+  font-size: 1.6rem;  
+  text-align: center;  /* le titre reste centré */
+}
+
+.examples-block ul {
+  list-style: none;
+  padding-left: 0;
+  margin: 0; /* supprime espaces inutiles */
+}
+
+.examples-block li {
+  margin-bottom: 0.6rem;
+  line-height: 1.5;
+  padding-left: 1.5rem;   /* espace uniforme après étoile */
+  position: relative;
+  text-align: left;      
+}
+
+.examples-block li::before {
+  content: "✦";
+  color: var(--primary-color);
+  font-weight: bold;
+  position: absolute;
+  left: 0;
+}
+
 

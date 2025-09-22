@@ -15,8 +15,8 @@
 
     <!-- Header -->
     <header class="app-header">
-      <h1 class="decima-title">DECIMA</h1>
-      <p class="subtitle">Data Extraction & Contextual Inference for MCNP Analysis</p>
+      <img src="{{ url_for('static', filename='img/decima_logo.png') }}" alt="DECIMA Logo" class="decima-logo">
+      <p class="subtitle capsule">Data Extraction & Contextual Inference for MCNP Analysis</p>
     </header>
 
     <!-- KG/Neo4j warning banner -->
@@ -36,18 +36,32 @@
 
     <!-- Instructional message -->
     <section class="instruction-message">
-      <p><strong>Ask a meaningful and concise question related to the specific event data in your PTRAC file.</strong></p>
-      <p class="example-text"><em><strong>Examples:</strong><br>
-      Print x y z positions and energies of all the particles entering the Water moderator (cell 502)<br>
-      How many secondary photons are emitted and what is their process of termination?<br>
-      Plot the z-axis direction cosine (W) distribution of emitted source particles and display their average energy<br>
-      For the first 10 histories, display the full path of neutrons from source to termination, including energy and position at each collision<br>
-      Plot the collision energy spectrum of neutrons interacting with U-235 through elastic scattering reaction</em></p>
+      <h2 class="instruction-title">
+        Ask a precise and concise question related to the specific event data in your PTRAC file
+      </h2>
+
+      <div class="examples-block center-column">
+        <p class="examples-title">Examples:</p>
+        <ul>
+          <li>Print x y z positions and energies of all the particles entering the Water moderator (cell 502)</li>
+          <li>How many secondary photons are emitted and what is their process of termination?</li>
+          <li>Plot the z-axis direction cosine (W) distribution of emitted source particles and display their average energy</li>
+          <li>For the first 10 histories, display the full path of neutrons from source to termination, including energy and position at each collision</li>
+          <li>Plot the collision energy spectrum of neutrons interacting with U-235 through elastic scattering reaction</li>
+        </ul>
+      </div>
     </section>
 
     <!-- Chat section -->
     <div class="chat-wrapper">
-      <section class="chat-section">
+      <!-- Otacon on the left side -->
+      <div class="otacon-side">
+        <img src="{{ url_for('static', filename='img/classy_otacon.png') }}" alt="Otacon" class="otacon-img">
+        <div class="otacon-caption">LLM Otacon ready to assist you with PTRAC analysis</div>
+      </div>
+
+      <!-- Chat box -->
+      <section class="chat-section center-column">
         <div id="chat-messages" class="chat-messages"></div>
         <div class="chat-input-block">
           <div id="reasoning-loader" class="loader-message" style="display: none;">
@@ -71,18 +85,13 @@
           </div>
         </div>
       </section>
-
-      <!-- Otacon to the right hand side -->
-      <div class="otacon-side">
-        <img src="{{ url_for('static', filename='img/otacon.png') }}" alt="Otacon" class="otacon-img">
-        <div class="otacon-caption">LLM Otacon ready to assist you with PTRAC parsing</div>
-      </div>
     </div>
+
 
 
     <!-- Result output -->
     <div class="chat-wrapper">
-      <section id="result-section" class="result-section" style="display: none;">
+      <section id="result-section" class="result-section center-column" style="display: none;">
         <h3>Execution Result</h3>
         <pre id="execution-stdout"></pre>
         <pre id="execution-stderr" class="error-block"></pre>
