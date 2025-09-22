@@ -91,9 +91,14 @@ cd decima
 ### 🛠️ 2. Configure your environment
 
 Copy the Docker env template and fill in your API key:
+Under Unix systems: 
 
 ```bash
 cp .env.docker.example .env.docker
+```
+Under DOS systems: 
+```bash
+copy .env.docker.example .env.docker
 ```
 
 Edit `.env.docker` with:
@@ -112,6 +117,12 @@ NEO4J_PASSWORD=decima123
 ---
 
 ### 🐳 3. Build and launch DECIMA
+Before running these commands:
+
+- Windows / macOS → Start Docker Desktop.
+- Linux → Ensure the Docker daemon is running (type 'sudo systemctl start docker' if needed).
+
+Build and launch the containers
 
 ```bash
 docker compose build app   # Only needed the first time, or if Dockerfile/requirements.txt change
@@ -189,16 +200,22 @@ docker compose run --rm --service-ports app python app.py -v
 
 ## ✨ Example Usage
 
-1. Upload your `.ptrac` file. DECIMA currently supports **binary** and **ASCII** formats.  
-   *(Future releases will also support **HDF5 format**, commonly used for parallelized MCNP calculations.)*
+1. A sample PTRAC file is already provided in the repository for quick testing: 
+This file is in **ASCII format** and can be used immediately to validate your installation.
+The sample PTRAC file is located under the `data/ptrac_samples/` directory of your DECIMA installation:
+`<DECIMA_INSTALL_DIR>/data/ptrac_samples/basic_ptrac_example_decima_ascii.ptrac`
 
-2. Ask a natural language question like:
+2. Upload it or your own `.ptrac` file if desired. DECIMA currently supports **binary** and **ASCII** formats.  
+*(Future releases will also support **HDF5 format**, commonly used for parallelized MCNP calculations.)*
+
+
+3. Ask a natural language question like:
 
 ```text
 Print x y z positions and energies of all events for the 20 first histories
 ```
 
-3. DECIMA will:
+4. DECIMA will:
    - Analyze the query
    - Use the KG for context
    - Generate and run code
