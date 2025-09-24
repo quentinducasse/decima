@@ -1,8 +1,8 @@
 # DECIMA Project User Documentation
 
-**Author:** Manus AI
+**Author:** DECIMA Team
 
-**Date:** August 1, 2025
+**Date:** 1er Sept 2025
 
 ## 1. Introduction to DECIMA
 
