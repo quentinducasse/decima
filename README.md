@@ -127,7 +127,7 @@ Before running these commands:
   unless you add your user to the `docker` group:  
   ```bash
   sudo usermod -aG docker $USER
-  
+
 Build and launch the containers
 
 ```bash
@@ -202,6 +202,7 @@ docker compose run --rm --service-ports app python app.py -v
 - `-v` enables **verbose mode** (full logs, debug info, context sent to the LLM)  
 
 ➡️ Access the app at [http://localhost:5050](http://localhost:5050)  
+
 ---
 
 ## ✨ Example Usage
