@@ -122,6 +122,12 @@ Before running these commands:
 - Windows / macOS → Start Docker Desktop.
 - Linux → Ensure the Docker daemon is running (type 'sudo systemctl start docker' if needed).
 
+⚠️ Note on permissions:  
+- On **Linux**, you may need to run commands with `sudo` (e.g. `sudo docker compose up -d`)  
+  unless you add your user to the `docker` group:  
+  ```bash
+  sudo usermod -aG docker $USER
+  
 Build and launch the containers
 
 ```bash

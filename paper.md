@@ -36,7 +36,7 @@ The project is distributed under the **Apache License 2.0** (OSI-approved open s
 
 # Statement of need
 
-MCNP is a widely used Monte Carlo transport code in nuclear engineering and physics. Its outputs, such as PTRAC (particle track histories) and MCTAL (tallies), contain rich information on particle transport and interactions. However, parsing and analyzing these files requires significant programming expertise and domain-specific knowledge, which can limit accessibility for non-specialists and slow down research workflows.
+MCNP is a widely used Monte Carlo transport code in nuclear engineering and physics. Its outputs, such as PTRAC (particle track histories) and MCTAL (tallies: scoring data that record physical quantities such as flux or dose), contain rich information on particle transport and interactions. However, parsing and analyzing these files requires significant programming expertise and domain-specific knowledge, which can limit accessibility for non-specialists and slow down research workflows.
 
 Over the years, several tools have been developed to facilitate MCNP output analysis. MCNPTools [@mcnptools2022] provides a reference C++/Python library for parsing MCTAL and PTRAC files, while Easy-PTRAC [@easyptrac2018] offers a graphical interface for filtering histories. Community-driven projects such as PyNE [@pyne2019], SANDY [@sandy2021], F4Enix [@f4enix2021], mc-tools [@mctools2020], and MCNPy [@mcnpy2022] extend these capabilities by focusing on specific formats or workflows. While these solutions are valuable, they remain fragmented. DECIMA differs by unifying parsing, reasoning, and execution in a single coherent framework, accessible through natural language queries.
 
@@ -50,7 +50,7 @@ QUIET (QUery Interpreter for Entity Targeting): detects the query language, extr
 
 EMMA (Engine for Metadata Mapping & Analysis): connects to a Neo4j-based Knowledge Graph built from MCNPTools triplets, retrieving semantic context on classes, methods, dictionaries, and enumerations. This ensures that the system has a precise understanding of MCNP data structures.
 
-OTACON (Operator Terminal for Assisted Communication & Output Navigation): acts as the reasoning engine. Using a Large Language Model (LLM), it combines the enriched EMMA context with static mcnptools knowledge to generate both a natural language explanation and executable Python code.
+OTACON (Operator Terminal for Assisted Communication & Output Navigation): acts as the reasoning engine. Using a Large Language Model (LLM), it combines the enriched EMMA context with static mcnptools knowledge to generate both a natural language explanation and executable Python code. In practice, DECIMA defaults to GPT-4o-mini for cost-effective operation, while GPT-4o can be selected for more demanding analyses. The design remains provider-agnostic, allowing future integration of additional LLMs.
 
 EVA (Execution and Validation Agent): runs the generated Python code inside a secure sandbox, replacing placeholders with the actual PTRAC file path. It captures outputs, plots, and errors, ensuring safe and reproducible execution.
 
@@ -81,7 +81,7 @@ The geometry consists of three concentric spherical shells:
 
 A neutron source is located at the center (0,0,0) inside the HEU fuel (cell 501),  
 with an energy distribution corresponding to Cf-252 spontaneous fission and an anisotropic angular distribution.  
-A PTRAC output is produced for 10,000 particle histories.
+A PTRAC output is produced for about 1000 particle histories.
 
 ---
 
@@ -90,12 +90,12 @@ DECIMA (OTACON agent) returns an explanation of the analysis process together wi
 It should be noted that the exact code generated may vary across runs, since it is produced by a Large Language Model (LLM).  
 The output can also depend on the selected backend model (e.g., GPT-4o vs GPT-4o-mini), but in all cases DECIMA ensures that the code is syntactically valid and executable within the sandbox.
 
-After installation via Docker (please look at the README.md for complete installation and usage instructions):
-
+To install and launch DECIMA with Docker (please look at the `README.md` for detailed instructions):
 
 ```bash
 git clone https://github.com/quentinducasse/decima.git
 cd decima
+cp .env.docker.example .env.docker
 docker compose build app
 docker compose up -d
 docker compose exec app python kg/loader/neo4j_loader.py
