@@ -6,19 +6,37 @@
 # DECIMA
 **Data Extraction & Contextual Inference for MCNP Analysis**
 
-> Powered by LLMs, Knowledge Graphs, and MCNPTools  
-> Simple. Portable. Ready-to-run via Docker.
+> AI-powered MCNP data analysis through natural language queries  
+> Built with LLMs, Knowledge Graphs, and MCNPTools  
+> Production-ready via Docker deployment
+
+## 🎯 What is DECIMA?
+
+DECIMA transforms how nuclear engineers and researchers interact with MCNP simulation data. Instead of writing complex analysis scripts, simply ask questions in natural language:
+
+**"Display collision positions and energies deposited for the first 20 particle histories"**  
+**"Plot the z-axis direction cosine (W) distribution of emitted source particles"**  
+**"How many secondary photons are emitted and what is their process of termination?"**
+
+### Key Benefits
+- 🗣️ **Natural Language Queries** - No more complex scripting for data extraction
+- 🧠 **AI-Powered Analysis** - Leverages advanced LLMs for intelligent interpretation  
+- 📊 **Automated Visualization** - Generates plots and print results automatically
+- 🔗 **Knowledge Integration** - Uses domain-specific context for accurate results
 
 ---
-## 📦 Features
+## 🏗️ Architecture
 
-- Modular architecture inspired by *Metal Gear Solid* agents:
-  - **QUIET**: Query Interpreter for natural language analysis  
-  - **EMMA**: Knowledge Graph manager (Neo4j backend)  
-  - **OTACON**: Central LLM agent for PTRAC reasoning and code generation  
-  - **EVA**: Safe sandbox for executing generated Python code  
-  - **CAMPBELL**: Orchestrator coordinating all modules  
+DECIMA uses a modular architecture inspired by *Metal Gear Solid* agents:
 
+- **🤫 QUIET**: Natural language query interpreter
+- **🧠 EMMA**: Knowledge graph manager (Neo4j backend) 
+- **👨‍💻 OTACON**: Central LLM agent for reasoning and code generation
+- **⚡ EVA**: Secure sandbox for Python code execution
+- **📡 CAMPBELL**: System orchestrator coordinating all modules 
+
+
+## 🛠️ Features
 - Full support for MCNP `PTRAC` files via `mcnptools`  
 - Knowledge Graph context injection (Neo4j)  
 - Verbose debug mode with detailed workflow + LLM context inspection  
@@ -32,7 +50,8 @@ To run LLM-based queries, you must provide a valid **OpenAI API key**.
 Currently supported models are:  
 - **gpt-4o-mini** (default)  
 - **gpt-4o**  
-
+**Get an API key:** [OpenAI Platform](https://platform.openai.com/api-keys)
+  
 From my own experience, **gpt-4o-mini** is very cost-effective — around **10 queries for 1 cent**.  
 
 👉 For testing purposes, I can provide a **temporary free API key** (limited in time and usage).  
