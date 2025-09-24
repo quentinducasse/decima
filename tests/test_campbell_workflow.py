@@ -7,7 +7,8 @@ from modules.campbell import CampbellOrchestrator
 
 # === Path to the PTRAC file used for testing ===
 # ⚠️ IMPORTANT: Replace this path with the location of your own PTRAC file
-PTRAC_PATH = r"C:\Users\qduca\OneDrive\Applications\DECIMA_v2\data\ptrac_samples\example_ptrac_1.mcnp.ptrac"
+BASE_DIR = os.path.dirname(os.path.dirname(__file__))  # remonte au dossier racine du repo
+PTRAC_PATH = os.path.join(BASE_DIR, "data", "ptrac_samples", "example_ptrac_1.mcnp.ptrac")
 
 # --- Early check before running anything ---
 if "username" in PTRAC_PATH or not os.path.isfile(PTRAC_PATH):
