@@ -112,7 +112,7 @@ NEO4J_USER=neo4j
 NEO4J_PASSWORD=decima123
 ```
 
-> ⚠️ Do **not** use `localhost` for `NEO4J_URI` — use the internal Docker service name (`neo4j`).
+
 
 ---
 
