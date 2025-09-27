@@ -1,14 +1,13 @@
+# DECIMA
+**Data Extraction & Contextual Inference for MCNP Analysis**
+> DECIMA is the first open-source framework combining LLMs and Knowledge Graphs for analyzing MCNP Particle Track Output (PTRAC) files
+> AI-powered MCNP data analysis through natural language queries  
+> Built with LLMs, Knowledge Graphs, and MCNPTools  
+> Production-ready via Docker deployment
 
 <p align="center">
   <img src="decima_logo.png" width="250"/>
 </p>
-
-# DECIMA
-**Data Extraction & Contextual Inference for MCNP Analysis**
-
-> AI-powered MCNP data analysis through natural language queries  
-> Built with LLMs, Knowledge Graphs, and MCNPTools  
-> Production-ready via Docker deployment
 
 ## 🎯 What is DECIMA?
 
@@ -18,6 +17,14 @@ DECIMA transforms how nuclear engineers and researchers interact with MCNP simul
 **"Plot the z-axis direction cosine (W) distribution of emitted source particles"**  
 **"How many secondary photons are emitted and what is their process of termination?"**
 
+### ✨ See DECIMA in Action
+
+<p align="center">
+  <img src="assets/decima-interface.png" width="800" alt="DECIMA Chat Interface"/>
+</p>
+
+*Ask questions in natural language - DECIMA's AI assistant OTACON will generate and execute the analysis code for you. The interface shows example queries, model selection, and the friendly OTACON character ready to assist with your PTRAC analysis.*
+
 ### Key Benefits
 - 🗣️ **Natural Language Queries** - No more complex scripting for data extraction
 - 🧠 **AI-Powered Analysis** - Leverages advanced LLMs for intelligent interpretation  
@@ -25,7 +32,7 @@ DECIMA transforms how nuclear engineers and researchers interact with MCNP simul
 - 🔗 **Knowledge Integration** - Uses domain-specific context for accurate results
 
 ---
-## 🏗️ Architecture
+## 🗏️ Architecture
 
 DECIMA uses a modular architecture inspired by *Metal Gear Solid* agents:
 
@@ -34,7 +41,6 @@ DECIMA uses a modular architecture inspired by *Metal Gear Solid* agents:
 - **👨‍💻 OTACON**: Central LLM agent for reasoning and code generation
 - **⚡ EVA**: Secure sandbox for Python code execution
 - **📡 CAMPBELL**: System orchestrator coordinating all modules 
-
 
 ## 🛠️ Features
 - Full support for MCNP `PTRAC` files via `mcnptools`  
@@ -46,16 +52,14 @@ DECIMA uses a modular architecture inspired by *Metal Gear Solid* agents:
 
 ## 🔑 API Key Requirement
 
-To run LLM-based queries, you must provide a valid **OpenAI API key**.  
+To run LLM-based queries, you must provide a valid **OpenAI API key**
 Currently supported models are:  
 - **gpt-4o-mini** (default)  
-- **gpt-4o**  
+- **gpt-4o**
+
 **Get an API key:** [OpenAI Platform](https://platform.openai.com/api-keys)
   
-From my own experience, **gpt-4o-mini** is very cost-effective — around **10 queries for 1 cent**.  
-
-👉 For testing purposes, I can provide a **temporary free API key** (limited in time and usage).  
-If you are interested, please contact me directly via [LinkedIn](#-contact).
+From my own experience, **gpt-4o-mini** is very cost-effective — around **10 queries for 1 cent**
 
 ---
 
@@ -83,145 +87,7 @@ and set `DEMO_MODE=false`.
 
 ---
 
-
-## 📦 Installation (via Docker)
-
-### ✅ 0. Prerequisites
-
-Make sure you have installed **Docker**:  
-👉 [https://docs.docker.com/get-docker/](https://docs.docker.com/get-docker/)
-
-> 🐧 **Linux Users:**  
-> You might need to run Docker commands with `sudo` unless you’ve added your user to the Docker group.  
-> See: [Manage Docker as a non-root user](https://docs.docker.com/engine/install/linux-postinstall/)
-
----
-
-### 🚀 1. Setup Steps
-
-```bash
-# Clone the repository
-git clone https://github.com/quentinducasse/decima.git
-cd decima
-```
-
----
-
-### 🛠️ 2. Configure your environment
-
-Copy the Docker env template and fill in your API key:
-Under Unix systems: 
-
-```bash
-cp .env.docker.example .env.docker
-```
-Under DOS systems: 
-```bash
-copy .env.docker.example .env.docker
-```
-
-Edit `.env.docker` with:
-
-```env
-LLM_PROVIDER=openai
-OPENAI_API_KEY=        # ← Insert your API key
-
-NEO4J_URI=bolt://neo4j:7687
-NEO4J_USER=neo4j
-NEO4J_PASSWORD=decima123
-```
-
-
-
----
-
-### 🐳 3. Build and launch DECIMA
-Before running these commands:
-
-- Windows → Start Docker Desktop.
-- Linux → Ensure the Docker daemon is running 
-
-⚠️ Note on permissions:  
-- On **Linux**, you may need to run commands with `sudo` 
-
-Build and launch the containers
-
-```bash
-docker compose build app   # Only needed the first time, or if Dockerfile/requirements.txt change
-docker compose up -d
-```
-
-This will automatically:
-- Start a Neo4j container (ports 7474 + 7687)
-- Start the DECIMA web server (port 5050)
-- Mount your local source code into the container (`.:/app`) → any local code change is immediately visible
-
-Load the Knowledge Graph:
-
-```bash
-docker compose exec app python kg/loader/neo4j_loader.py
-```
-
----
-
-### 🌐 4. Access the Interfaces
-
-- Web App (DECIMA): [http://localhost:5050](http://localhost:5050)
-- Neo4j Browser: [http://localhost:7474](http://localhost:7474)
-
-> Log in with:  
-> **Username:** `neo4j`  
-> **Password:** `decima123`
-
----
-
-## ▶️ After Installation: How to Use
-
-### ▶️ Daily usage
-
-### 1. Launch DECIMA in **normal mode** 
-
-```bash
-# Start the stack (Neo4j + DECIMA app)
-docker compose up -d
-
-# Load or reload the Knowledge Graph
-# (this step must be repeated after each Neo4j rebuild or restart)
-docker compose exec app python kg/loader/neo4j_loader.py
-
-# Stop all services
-docker compose down
-```
-
-> Use `sudo` in front of the commands above if you get a permission error on Linux.
-
-Then open your browser and go to: [http://localhost:5050](http://localhost:5050)
-
----
-
-### 1 (alternative). Launch DECIMA in **debug/verbose mode** 
- 
-
-```bash
-# Start Neo4j only (in background)
-docker compose up -d neo4j
-
-# Load or reload the Knowledge Graph (inside the app container)
-docker compose run --rm app python kg/loader/neo4j_loader.py
-
-# Run the app with detailed logs
-docker compose run --rm --service-ports app python app.py -v
-```
-
-- neo4j must be up before running the app  
-- `--service-ports` ensures port `5050` is exposed  
-- `-v` enables **verbose mode** (full logs, debug info, context sent to the LLM)  
-
-➡️ Access the app at [http://localhost:5050](http://localhost:5050)  
-
----
-
-## ✨ Example Usage
+## ▶️ Example Usage
 
 1. A sample PTRAC file is already provided in the repository for quick testing: 
 This file is in **ASCII format** and can be used immediately to validate your installation.
@@ -231,7 +97,6 @@ The sample PTRAC file is located under the `data/ptrac_samples/` directory of yo
 2. Upload it or your own `.ptrac` file if desired. DECIMA currently supports **binary** and **ASCII** formats.  
 *(Future releases will also support **HDF5 format**, commonly used for parallelized MCNP calculations.)*
 
-
 3. Ask a natural language question like:
 
 ```text
@@ -239,10 +104,22 @@ Print x y z positions and energies of all events for the 20 first histories
 ```
 
 4. DECIMA will:
-   - Analyze the query
-   - Use the KG for context
-   - Generate and run code
-   - Return structured results
+   - **Analyze the query** using QUIET (language detection, keyword extraction)
+   - **Enrich with context** using EMMA (Knowledge Graph entities)
+   - **Generate explanation + code** using OTACON (LLM reasoning)
+   - **Execute securely** using EVA (sandboxed Python execution)
+   - **Return structured results** with stdout, plots, and any errors
+
+### 🔄 Complete Workflow Example
+
+**Your Question:** *"What are the collision energies for neutrons in the first 5 histories?"*
+
+**DECIMA's Response:**
+- **Explanation:** Clear description of what the analysis will do
+- **Generated Code:** Python script using `mcnptools` library
+- **Execution Results:** 
+  - Data output (positions, energies, .etc)
+  - Visualizations 
 
 ---
 
@@ -278,7 +155,7 @@ See the [`doc/`](doc/) folder for:
 
 If you use DECIMA in your work, please cite the software as follows:
 
-> Almuhisen F. and Ducasse Q., *DECIMA – Data Extraction & Contextual Inference for MCNP Analysis*,  
+> Almuhisen F. and Ducasse Q., *DECIMA — Data Extraction & Contextual Inference for MCNP Analysis*,  
 > Version v1.2.0, GitHub repository, 2025.  
 > Available at: [https://github.com/quentinducasse/decima](https://github.com/quentinducasse/decima)
 
