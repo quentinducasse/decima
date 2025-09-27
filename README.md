@@ -5,10 +5,6 @@
 > Built with LLMs, Knowledge Graphs, and MCNPTools  
 > Production-ready via Docker deployment
 
-<p align="center">
-  <img src="decima_logo.png" width="250"/>
-</p>
-
 ## 🎯 What is DECIMA?
 
 DECIMA transforms how nuclear engineers and researchers interact with MCNP simulation data. Instead of writing complex analysis scripts, simply ask questions in natural language:
