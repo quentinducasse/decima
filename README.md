@@ -13,10 +13,10 @@ DECIMA transforms how nuclear engineers and researchers interact with MCNP simul
 **"Plot the z-axis direction cosine (W) distribution of emitted source particles"**  
 **"How many secondary photons are emitted and what is their process of termination?"**
 
-### ✨ See DECIMA in Action
+### ✨ See DECIMA in Action 
 
 <p align="center">
-  <img src="assets/decima-interface.png" width="800" alt="DECIMA Chat Interface"/>
+  <img src="frontend/static/img/decima_interface.jpg" width="800" alt="DECIMA Chat Interface"/>
 </p>
 
 *Ask questions in natural language - DECIMA's AI assistant OTACON will generate and execute the analysis code for you. The interface shows example queries, model selection, and the friendly OTACON character ready to assist with your PTRAC analysis.*
