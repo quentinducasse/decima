@@ -18,7 +18,7 @@ authors:
 affiliations:
   - name: Authority for Nuclear Safety and Radiation Protection (ASNR), Laboratory for Micro-Irradiation, Metrology, and Neutron Dosimetry (LMDN), Cadarache, France
     index: 1
-  - name: French Alternative Energies and Atomic Energy Commission (CEA), Institute for Magnetic Confinement Fusion Research (IRFM), Service for Fusion Plasma Physics (SPPF), GC3I Group, Cadarache, France
+  - name: French Alternative Energies and Atomic Energy Commission (CEA), Cadarache, France
     index: 2
 date: September 2025
 bibliography: paper.bib
@@ -44,51 +44,56 @@ DECIMA addresses these challenges by providing an integrated assistant that brid
 
 # Software description
 
-DECIMA follows a modular and agent-based design, where each component contributes a well-defined role in the overall workflow:
+DECIMA follows a modular and agent-based design, where each component contributes a specific role within a continuous workflow.  
+A user query is first submitted through a lightweight **Flask-based web interface**, which provides the entry point for uploading PTRAC files and entering natural language questions.  
 
-QUIET (QUery Interpreter for Entity Targeting): detects the query language, extracts keywords, and identifies relevant entities (events, particles, data fields). This preprocessing step structures the request for downstream processing.
+The query is then processed by **QUIET** (QUery Interpreter for Entity Targeting), which detects the query language, extracts keywords, and identifies relevant entities such as events, particles, or data fields.  
+It is subsequently enriched by **EMMA** (Engine for Metadata Mapping & Analysis), which connects to a Neo4j-based Knowledge Graph constructed directly from the MCNPTools code base.  
+This graph is populated with triplets describing classes, methods, enumerations, and dictionaries, enabling precise entity retrieval via Cypher queries [@Cypher2018].  
+Together with this graph, the system also provides the LLM with an explicit code structure, a typical example of usage, and a set of strict coding rules, ensuring that the generated answers remain aligned with the MCNPTools API and best practices.  
 
-EMMA (Engine for Metadata Mapping & Analysis): connects to a Neo4j-based Knowledge Graph built from MCNPTools triplets, retrieving semantic context on classes, methods, dictionaries, and enumerations. This ensures that the system has a precise understanding of MCNP data structures.
+The enriched input is then passed to **OTACON** (Operator for Assisted Communication & Output Navigation), the reasoning engine.  
+Using a Large Language Model (LLM), it combines the contextual knowledge from EMMA with static MCNPTools information to generate both a clear natural language explanation and executable Python code.  
+By default, DECIMA relies on GPT-4o-mini for cost-effective operation, while GPT-4o can be selected for more demanding analyses.  
 
-OTACON (Operator Terminal for Assisted Communication & Output Navigation): acts as the reasoning engine. Using a Large Language Model (LLM), it combines the enriched EMMA context with static mcnptools knowledge to generate both a natural language explanation and executable Python code. In practice, DECIMA defaults to GPT-4o-mini for cost-effective operation, while GPT-4o can be selected for more demanding analyses. The design remains provider-agnostic, allowing future integration of additional LLMs.
+The resulting code is executed by **EVA** (Execution & Validation Agent), which runs it inside a secure sandbox.  
+During execution, placeholders are replaced by the actual PTRAC file path, and the system captures all outputs, error logs, and plots.  
+Results can appear directly as textual `print` statements or as visualizations (plots), which are automatically generated and stored.  
 
-EVA (Execution and Validation Agent): runs the generated Python code inside a secure sandbox, replacing placeholders with the actual PTRAC file path. It captures outputs, plots, and errors, ensuring safe and reproducible execution.
+The entire process is coordinated by **CAMPBELL** (Coordination & Assignment Manager for Process Balancing & Execution Logistics Layer), implemented with LangGraph to manage state transitions and ensure that results flow smoothly back to the user interface.  
 
-CAMPBELL (Coordination & Assignment Manager for Process Balancing & Execution Logistics Layer): coordinates the sequential interaction between QUIET, EMMA, OTACON, and EVA. Built with LangGraph, it manages state transitions and ensures that results flow smoothly back to the user interface.
-
-An additional functionality, **add context**, allows benchmarking LLM outputs with and without DECIMA’s contextual enrichment.  
-In this mode, the same query can be answered twice: once by the raw LLM (without access to the Knowledge Graph), and once by the full DECIMA pipeline including EMMA (Knowledge Graph).  
+An optional **add context** mode allows benchmarking of LLM outputs with and without contextual enrichment.  
 This comparison highlights a critical finding: without context injection, current LLMs consistently fail to produce directly executable code using the `mcnptools` library.  
-DECIMA’s integration of structured knowledge is therefore essential for achieving reliable and reproducible analyses.
+DECIMA’s integration of structured knowledge is therefore essential for achieving reliable and reproducible analyses.  
 
-Together, these modules create a continuous workflow:
+The overall workflow is illustrated in Figure 1: a user query is interpreted by QUIET, enriched with semantic knowledge via EMMA, transformed into explanations and executable code by OTACON, executed safely in EVA, and finally returned to the user interface under CAMPBELL’s orchestration.  
 
-A user query is first interpreted by QUIET, then enriched with semantic knowledge via EMMA. OTACON combines these elements to generate explanations and executable code, which EVA runs in a secure sandbox. Finally, CAMPBELL orchestrates the process and delivers the results to the web interface.
-
-This architecture ensures both transparency and extensibility: each module can be improved or replaced independently, while the overall workflow remains consistent and user-friendly. Deployment is simplified via Docker, and a demo mode is available for reviewers to explore DECIMA without API keys.
-
-![DECIMA architecture](decima_logo.png)
+![DECIMA pipeline](frontend/static/img/decima_workflow.jpg)  
+*Figure 1: End-to-end workflow of DECIMA. User queries are interpreted, enriched with contextual knowledge, transformed into executable code, validated in a secure sandbox, and returned as structured results.*  
 
 # Example usage
 
-To demonstrate DECIMA’s capabilities, we consider a simple but representative MCNP problem.  
-The geometry consists of three concentric spherical shells:
+To illustrate DECIMA’s capabilities, we consider a minimal yet representative MCNP problem.  
+The setup consists of three concentric spherical shells surrounding a central neutron source:
 
 - **Cell 501**: Highly Enriched Uranium (HEU), radius ≤ 5 cm (surface 401)  
 - **Cell 502**: Water moderator, 5–6 cm (surfaces 401–402)  
 - **Cell 503**: Air, 6–7 cm (surfaces 402–403)  
-- **Cell 999**: Void (outside surface 403)  
+- **Cell 999**: External void (outside surface 403)  
 
-A neutron source is located at the center (0,0,0) inside the HEU fuel (cell 501),  
-with an energy distribution corresponding to Cf-252 spontaneous fission and an anisotropic angular distribution.  
-A PTRAC output is produced for about 1000 particle histories.
+The source is placed at the center (0,0,0) within the HEU fuel (cell 501).  
+It follows the spontaneous fission spectrum of Cf-252 with an anisotropic angular distribution.  
+About 1000 particle histories are tracked in the PTRAC output.
+
+![Example geometry](data\ptrac_samples\basic_example_geometry.jpg)  
+*Figure 2: Simplified geometry used for the demonstration case, consisting of three concentric spherical shells (HEU, water, air) surrounding a central Cf-252 neutron source.*
 
 ---
 
 ### Step 1: Installing and launching DECIMA
 DECIMA (OTACON agent) returns an explanation of the analysis process together with executable Python code.  
 It should be noted that the exact code generated may vary across runs, since it is produced by a Large Language Model (LLM).  
-The output can also depend on the selected backend model (e.g., GPT-4o vs GPT-4o-mini), but in all cases DECIMA ensures that the code is syntactically valid and executable within the sandbox.
+The output can also depend on the selected backend model (e.g., GPT-4o vs GPT-4o-mini), but in most cases DECIMA ensures that the code is syntactically valid and executable within the sandbox.
 
 To install and launch DECIMA with Docker (please look at the `README.md` for detailed instructions):
 
@@ -104,6 +109,7 @@ docker compose exec app python kg/loader/neo4j_loader.py
 The user opens the web interface at [http://localhost:5050](http://localhost:5050) and uploads the PTRAC file.  
 
 ![DECIMA interface](frontend/static/img/decima_interface.jpg)
+*Figure 3: Web-based interface of DECIMA, where users can upload PTRAC files, enter natural language queries, and inspect results.*
 
 ---
 
@@ -157,11 +163,12 @@ print(f'Average Energy of Emitted Source Particles: {average_energy:.2f} MeV')
 ---
 
 ### Step 4: Results
-The code executes successfully within DECIMA’s sandbox (EVA agent).  
+The code recognize the format type of the PTRAC file and executes it successfully within DECIMA’s sandbox (EVA agent).  
 The result includes a histogram of the z-axis direction cosines for emitted source particles,  
 together with the computed average energy.
 
 ![DECIMA example output](frontend/static/img/decima_question_answer_visualisation_example.jpg)
+*Figure 4: Example output produced by DECIMA: histogram of the z-axis direction cosine (W) for emitted source particles, with average energy automatically calculated.*
 
 For this case, DECIMA reports:
 
