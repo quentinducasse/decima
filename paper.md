@@ -26,13 +26,13 @@ bibliography: paper.bib
 
 # Summary
 
-DECIMA (**Data Extraction & Contextual Inference for MCNP Analysis**) is an open-source framework
-for the analysis of Monte Carlo N-Particle (MCNP) outputs. It integrates **MCNPTools** for access to
-binary and ASCII `PTRAC` files, a **Neo4j knowledge graph** for contextual reasoning, and **Large Language Models (LLMs)**
+DECIMA (Data Extraction & Contextual Inference for MCNP Analysis) is an open-source framework
+for the analysis of Monte Carlo N-Particle (MCNP) outputs. It integrates MCNPTools for access to
+binary and ASCII PTRAC files, a Neo4j knowledge graph for contextual reasoning, and Large Language Models (LLMs)
 to enable natural language querying in English or French.  
 DECIMA automatically translates user queries into executable Python code, runs them securely in a sandbox, and returns
 structured results with explanations. A modular architecture ensures transparency, extensibility, and safe execution.  
-The project is distributed under the **Apache License 2.0** (OSI-approved open source).
+The project is distributed under the Apache License 2.0 (OSI-approved open source).
 
 # Statement of need
 
@@ -45,24 +45,24 @@ DECIMA addresses these challenges by providing an integrated assistant that brid
 # Software description
 
 DECIMA follows a modular and agent-based design, where each component contributes a specific role within a continuous workflow.  
-A user query is first submitted through a lightweight **Flask-based web interface**, which provides the entry point for uploading PTRAC files and entering natural language questions.  
+A user query is first submitted through a lightweight Flask-based web interface, which provides the entry point for uploading PTRAC files and entering natural language questions.  
 
-The query is then processed by **QUIET** (QUery Interpreter for Entity Targeting), which detects the query language, extracts keywords, and identifies relevant entities such as events, particles, or data fields.  
-It is subsequently enriched by **EMMA** (Engine for Metadata Mapping & Analysis), which connects to a Neo4j-based Knowledge Graph constructed directly from the MCNPTools code base.  
+The query is then processed by QUIET (QUery Interpreter for Entity Targeting), which detects the query language, extracts keywords, and identifies relevant entities such as events, particles, or data fields.  
+It is subsequently enriched by EMMA (Engine for Metadata Mapping & Analysis), which connects to a Neo4j-based Knowledge Graph constructed directly from the MCNPTools code base.  
 This graph is populated with triplets describing classes, methods, enumerations, and dictionaries, enabling precise entity retrieval via Cypher queries [@Cypher2018].  
 Together with this graph, the system also provides the LLM with an explicit code structure, a typical example of usage, and a set of strict coding rules, ensuring that the generated answers remain aligned with the MCNPTools API and best practices.  
 
-The enriched input is then passed to **OTACON** (Operator for Assisted Communication & Output Navigation), the reasoning engine.  
+The enriched input is then passed to OTACON (Operator for Assisted Communication & Output Navigation), the reasoning engine.  
 Using a Large Language Model (LLM), it combines the contextual knowledge from EMMA with static MCNPTools information to generate both a clear natural language explanation and executable Python code.  
 By default, DECIMA relies on GPT-4o-mini for cost-effective operation, while GPT-4o can be selected for more demanding analyses.  
 
-The resulting code is executed by **EVA** (Execution & Validation Agent), which runs it inside a secure sandbox.  
+The resulting code is executed by EVA (Execution & Validation Agent), which runs it inside a secure sandbox.  
 During execution, placeholders are replaced by the actual PTRAC file path, and the system captures all outputs, error logs, and plots.  
 Results can appear directly as textual `print` statements or as visualizations (plots), which are automatically generated and stored.  
 
-The entire process is coordinated by **CAMPBELL** (Coordination & Assignment Manager for Process Balancing & Execution Logistics Layer), implemented with LangGraph to manage state transitions and ensure that results flow smoothly back to the user interface.  
+The entire process is coordinated by CAMPBELL (Coordination & Assignment Manager for Process Balancing & Execution Logistics Layer), implemented with LangGraph to manage state transitions and ensure that results flow smoothly back to the user interface.  
 
-An optional **add context** mode allows benchmarking of LLM outputs with and without contextual enrichment.  
+An optional 'add context' mode allows benchmarking of LLM outputs with and without contextual enrichment.  
 This comparison highlights a critical finding: without context injection, current LLMs consistently fail to produce directly executable code using the `mcnptools` library.  
 DECIMA’s integration of structured knowledge is therefore essential for achieving reliable and reproducible analyses.  
 
@@ -76,16 +76,16 @@ The overall workflow is illustrated in Figure 1: a user query is interpreted by 
 To illustrate DECIMA’s capabilities, we consider a minimal yet representative MCNP problem.  
 The setup consists of three concentric spherical shells surrounding a central neutron source:
 
-- **Cell 501**: Highly Enriched Uranium (HEU), radius ≤ 5 cm (surface 401)  
-- **Cell 502**: Water moderator, 5–6 cm (surfaces 401–402)  
-- **Cell 503**: Air, 6–7 cm (surfaces 402–403)  
-- **Cell 999**: External void (outside surface 403)  
+- Cell 501: Highly Enriched Uranium (HEU), radius ≤ 5 cm (surface 401)  
+- Cell 502: Water moderator, 5–6 cm (surfaces 401–402)  
+- Cell 503: Air, 6–7 cm (surfaces 402–403)  
+- Cell 999: External void (outside surface 403)  
 
 The source is placed at the center (0,0,0) within the HEU fuel (cell 501).  
 It follows the spontaneous fission spectrum of Cf-252 with an anisotropic angular distribution.  
 About 1000 particle histories are tracked in the PTRAC output.
 
-![Example geometry](data\ptrac_samples\basic_example_geometry.jpg)  
+![Example geometry](data/ptrac_samples/basic_example_geometry.jpg)  
 *Figure 2: Simplified geometry used for the demonstration case, consisting of three concentric spherical shells (HEU, water, air) surrounding a central Cf-252 neutron source.*
 
 ---
@@ -182,15 +182,15 @@ This example demonstrates how DECIMA allows users to query PTRAC files in natura
 
 Several tools support MCNP output processing:
 
-- **MCNPTools** (LANL) [@mcnptools2022]: reference C++/Python library for parsing MCTAL, MESHTAL, PTRAC.  
-- **Easy-PTRAC** (ASNR) [@easyptrac2018]: GUI for filtering particle histories and exporting results.  
-- **mc-tools** (community, GitHub) [@mctools2020]: Python converters (mctal2root, mctal2txt).  
-- **F4Enix** (Fusion for Energy) [@f4enix2021]: modular Python package for MCNP input/output workflows.  
-- **SANDY** [@sandy2021]: parses MCTAL tallies into pandas DataFrames.  
-- **PyNE** [@pyne2019]: includes MCNP mesh tally parsers and a PtracReader.  
-- **MCNPy** [@mcnpy2022]: Python API for MCNP input deck manipulation.  
+- MCNPTools (LANL) [@mcnptools2022]: reference C++/Python library for parsing MCTAL, MESHTAL, PTRAC.  
+- Easy-PTRAC (ASNR) [@easyptrac2018]: GUI for filtering particle histories and exporting results.  
+- mc-tools (community, GitHub) [@mctools2020]: Python converters (mctal2root, mctal2txt).  
+- F4Enix (Fusion for Energy) [@f4enix2021]: modular Python package for MCNP input/output workflows.  
+- SANDY [@sandy2021]: parses MCTAL tallies into pandas DataFrames.  
+- PyNE [@pyne2019]: includes MCNP mesh tally parsers and a PtracReader.  
+- MCNPy [@mcnpy2022]: Python API for MCNP input deck manipulation.  
 
-DECIMA builds on these but is unique in combining **Knowledge Graph reasoning** and **LLM-based interaction**, enabling
+DECIMA builds on these but is unique in combining Knowledge Graph reasoning and LLM-based interaction, enabling
 human-like queries, automatic code generation, and safe execution.
 
 # Acknowledgements
