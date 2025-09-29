@@ -86,7 +86,7 @@ It follows the spontaneous fission spectrum of Cf-252 with an anisotropic angula
 About 1000 particle histories are tracked in the PTRAC output.
 
 ![Example geometry](data/ptrac_samples/basic_example_geometry.jpg){ width=50% }  
-*Figure 2: Simplified geometry used for the demonstration case, consisting of three concentric spherical shells (HEU, water, air) surrounding a central Cf-252 neutron source.*
+*Figure 2: MCNP geometry visualization for the demonstration case, consisting of three concentric spherical shells (HEU, water, air) surrounding a central Cf-252 neutron source.*
 
 ---
 
