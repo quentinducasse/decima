@@ -23,13 +23,17 @@ RUN cd /opt/mcnptools && \
     make install
 
 # --------------------------------------
-# 📦 Install Python requirements 
+# 📦 Install Python requirements
 COPY requirements.txt .
 RUN pip install --upgrade pip && pip install -r requirements.txt
 
 # --------------------------------------
 # 📁 Copy full app source
 COPY . .
+
+# --------------------------------------
+# 📦 Install DECIMA package in editable mode
+RUN pip install -e .
 
 # --------------------------------------
 # 🌍 Expose Flask app port

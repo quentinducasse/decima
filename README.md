@@ -39,10 +39,78 @@ DECIMA uses a modular architecture inspired by *Metal Gear Solid* agents:
 - **📡 CAMPBELL**: System orchestrator coordinating all modules 
 
 ## 🛠️ Features
-- Full support for MCNP `PTRAC` files via `mcnptools`  
-- Knowledge Graph context injection (Neo4j)  
-- Verbose debug mode with detailed workflow + LLM context inspection  
-- Web interface (Flask + Bootstrap)  
+- Full support for MCNP `PTRAC` files via `mcnptools`
+- Knowledge Graph context injection (Neo4j)
+- Verbose debug mode with detailed workflow + LLM context inspection
+- Web interface (Flask + Bootstrap)
+- **Python API for programmatic usage** (NEW)
+
+---
+
+## 📦 Installation
+
+### Requirements
+
+- **Python 3.10+** (for pip installation)
+- **Docker** (for web interface)
+- **OpenAI API key** (optional - demo mode available)
+
+DECIMA can be used in two ways:
+
+### Option 1: Docker (Web Interface - Recommended for most users)
+
+Quick start with web interface:
+
+```bash
+git clone https://github.com/quentinducasse/decima.git
+cd decima
+cp .env.docker.example .env.docker
+# Edit .env.docker to add your OpenAI API key (or use demo mode)
+docker compose up --build
+```
+
+Then open http://localhost:5050 in your browser.
+
+### Option 2: Python Package (For developers and integration)
+
+**Prerequisites:** Python 3.10 or higher
+
+Install as a Python library:
+
+```bash
+# Check Python version
+python3 --version  # Should be 3.10+
+
+# Clone and install
+git clone https://github.com/quentinducasse/decima.git
+cd decima
+
+# Create virtual environment (recommended)
+python3.10 -m venv venv  # or python3.11, python3.12
+source venv/bin/activate
+
+# Install DECIMA
+pip install --upgrade pip
+pip install -e .
+```
+
+Then use programmatically:
+
+```python
+from decima import DECIMA
+
+analyzer = DECIMA(openai_api_key='your-key')
+result = analyzer.analyze(
+    ptrac_path='data/ptrac_samples/basic_ptrac_example_decima_ascii.ptrac',
+    query='Plot energy distribution of neutrons'
+)
+
+print(result['explanation'])  # Natural language explanation
+print(result['code'])         # Generated Python code
+print(result['stdout'])       # Execution results
+```
+
+See `examples/basic_usage.py` for a complete working example.
 
 ---
 
