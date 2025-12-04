@@ -1,0 +1,34 @@
+# Include mcnptools source files for compilation
+recursive-include mcnptools/libmcnptools *.cpp *.hpp *.h
+recursive-include mcnptools/swig *.i
+recursive-include mcnptools/python *.py
+recursive-include mcnptools/boost *
+recursive-include mcnptools/dependencies *
+include mcnptools/CMakeLists.txt
+include mcnptools/README.md
+
+# Include frontend files
+recursive-include frontend/static *
+recursive-include frontend/templates *
+
+# Include data samples
+recursive-include data *.ptrac *.jpg
+
+# Include documentation
+include README.md
+include LICENSE
+include paper.md
+include paper.bib
+
+# Include configuration examples
+include .env.docker.example
+include .env.local.example
+
+# Exclude build artifacts
+global-exclude *.pyc
+global-exclude __pycache__
+global-exclude *.so
+global-exclude *.pyd
+global-exclude *.dll
+prune mcnptools/build
+prune mcnptoolspro/build
