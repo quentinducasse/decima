@@ -1,21 +1,37 @@
 # DECIMA Usage Examples
 
-This directory contains examples demonstrating **three different ways to use DECIMA**, each with specific advantages and limitations.
+This directory contains examples demonstrating **two ways to use DECIMA**.
 
 ---
 
-## 📋 Overview: Three Usage Modes
+## WARNING: IMPORTANT: Python Package vs Docker
 
-DECIMA can be used in three distinct modes depending on your needs:
+### Python Package Mode (This Directory)
+- + Good for: Testing installation, understanding workflow
+- - **LIMITED**: Requires manual Neo4j setup for full functionality
+- - Without Neo4j: EMMA disabled, returns fixed code examples
+- 🎯 Use case: Developers who want programmatic API access
 
-| Mode | Files/Dependencies | API Key | Neo4j | mcnptools | Use Case |
-|------|-------------------|---------|-------|-----------|----------|
-| **Demo (Standalone)** | `demo_mode_standalone.py` | ❌ Not needed | ❌ Not needed | ✅ Auto-installed* | Quick testing, offline demos |
-| **Hybrid (pip + Docker)** | `hybrid_mode_pip_docker.py`<br/>`basic_usage.py` | ⚠️ Optional** | 🐳 Docker | ✅ Auto-installed* | Python scripting, automation |
-| **Full Docker (Web App)** | `full_docker_mode.md` | ⚠️ Optional** | 🐳 Docker | 🐳 Bundled | End users, teams, production |
+### 🐳 Docker Mode (RECOMMENDED for full functionality)
+- + **Everything automatic**: Neo4j + mcnptools + all services
+- + **No manual setup**: Just `docker compose up -d`
+- + **Full functionality** out of the box
+- + Web interface included
+- 🎯 Use case: Production use, easiest full setup
 
-*mcnptools is automatically compiled and installed when you run `python install_dev.py` (see [INSTALL.md](../INSTALL.md))
-**If no API key provided, automatically falls back to DEMO_MODE (returns fixed collision analysis code)
+**→ For full DECIMA experience, use Docker mode (see [INSTALL.md](../INSTALL.md) Method 2)**
+
+---
+
+## 📋 Overview: Usage Modes
+
+| Mode | File | API Key | Neo4j KG | Setup Complexity | Functionality |
+|------|------|---------|----------|------------------|---------------|
+| **Demo (Standalone)** | `demo_mode_standalone.py` | - Not needed | - Not needed | 🟢 Easy | WARNING: **LIMITED** (fixed code only) |
+| **Full API (Python)** | `full_api_mode.py` | + Required | WARNING: Manual setup | 🟡 Medium | WARNING: Requires Neo4j for full features |
+| **Docker (RECOMMENDED)** | See [INSTALL.md](../INSTALL.md) | + Required | + Auto-configured | 🟢 Easy | + **FULL** functionality |
+
+**Note:** mcnptools is automatically compiled when you run `python install_dev.py`
 
 ---
 
@@ -23,166 +39,108 @@ DECIMA can be used in three distinct modes depending on your needs:
 
 **File:** `demo_mode_standalone.py`
 
-### Description
+### WARNING: IMPORTANT: This is a LIMITED demo
 
-Minimal setup for testing DECIMA without external dependencies. Returns pre-written example code regardless of your query.
+This mode demonstrates the DECIMA workflow but with **DEMO_MODE=true**:
+- - **Always returns the same fixed code** (collision analysis)
+- - **Your query is completely IGNORED** (DEMO_MODE behavior)
+- - **No intelligent code generation**
+- - **No Knowledge Graph context**
 
-### Advantages
+**Note**: Even with OpenAI API (DEMO_MODE=false), without Neo4j Knowledge Graph,
+OTACON may generate code with errors due to missing MCNP domain context.
 
-✅ **No API key required** - Zero costs
-✅ **No Neo4j needed** - No Docker containers
-✅ **Quick validation** - Test installation instantly
-✅ **Offline capable** - Works without internet (except initial install)
-✅ **No LLM calls** - Predictable, reproducible output
-
-### Limitations
-
-❌ **Fixed responses only** - Ignores your actual query
-❌ **No Knowledge Graph** - EMMA is disabled
-❌ **No custom code** - Returns pre-written collision example only
-✅ **mcnptools included** - Auto-installed with DECIMA
-❌ **Limited functionality** - Demonstrates workflow only
-
-### Use Cases
-
-- Initial installation testing
-- Validating DECIMA setup
+**Use this ONLY for:**
+- Testing that installation worked
+- Understanding the basic workflow
 - Offline demonstrations
-- Understanding the workflow
-- Cost-free exploration
 
-### Prerequisites
+**For real analysis, use Docker mode!**
+
+### Quick Start
 
 ```bash
-# Install DECIMA package (includes mcnptools compilation)
+# Install DECIMA (includes mcnptools compilation)
 python install_dev.py
-# Or manually: python setup.py build_ext --inplace && pip install -e .
-```
 
-### How to Run
-
-```bash
-# Set demo mode in environment
-export DEMO_MODE=true         # Unix/macOS
-set DEMO_MODE=true            # Windows CMD
-$env:DEMO_MODE="true"         # Windows PowerShell
-
-# Run the example
+# Run demo (will show limitations clearly)
 python examples/demo_mode_standalone.py
 ```
 
-### Expected Output
+### What You'll See
 
-```
-============================================================
-DECIMA - DEMO MODE (Standalone - No Dependencies)
-============================================================
+The demo uses a simple query: **"What is the average energy of the collision events?"**
 
-⚙️  Configuration:
-   ✅ DEMO_MODE: enabled
-   ✅ OpenAI API: not required
-   ✅ Neo4j KG: not required
-   ✅ mcnptools: auto-installed
+But DEMO_MODE **ignores this** and returns a fixed collision analysis code instead.
 
-------------------------------------------------------------
-📂 PTRAC file: data/ptrac_samples/basic_ptrac_example_decima_ascii.ptrac
-❓ Query: Plot the energy distribution of neutrons
-
-⚠️  NOTE: In DEMO MODE, your query is ignored.
-   The system returns a fixed collision analysis example.
-
-============================================================
-💡 Explanation:
-[DEMO MODE] No API key provided or DEMO_MODE enabled. This is a sample...
-
-💻 Generated Code (Fixed Example):
-from mcnptools import Ptrac
-
-# DEMO MODE: this is a fixed example, independent of the user query
-p = Ptrac("<PTRAC_PATH_PLACEHOLDER>", Ptrac.BIN_PTRAC)
-cnt = 0
-...
-```
+This demonstrates the workflow, but not the intelligent code generation capabilities.
 
 ### When to Use
 
-- ✅ First time trying DECIMA
-- ✅ Testing without OpenAI costs
-- ✅ Validating installation
-- ✅ Offline demonstrations
-- ❌ Production analysis (use Hybrid or Full Docker mode)
+- + First installation test
+- + Verifying mcnptools compilation
+- + Understanding workflow structure
+- - **NOT for real analysis** (use Docker mode)
 
 ---
 
-## 🔄 Mode 2: Hybrid Mode (pip + Docker Neo4j)
+## 🚀 Mode 2: Full API Mode (Python Package)
 
-**Files:** `hybrid_mode_pip_docker.py`, `basic_usage.py`
+**File:** `full_api_mode.py`
 
-### Description
+### WARNING: IMPORTANT: Requires Manual Neo4j Setup
 
-Full DECIMA functionality via Python API with Neo4j running in Docker. Custom code generation for each query with Knowledge Graph context.
+This mode is for **developers** who want programmatic access to DECIMA.
 
-### Advantages
+**Without Neo4j**, this mode has the **same limitations as Demo Mode**:
+- - EMMA (Knowledge Graph) disabled
+- - Returns fixed code examples
+- - No intelligent code generation
 
-✅ **Full functionality** - All agents active (QUIET, EMMA, OTACON, EVA)
-✅ **Python API access** - Programmatic integration
-✅ **Custom code generation** - LLM creates code for YOUR query
-✅ **Knowledge Graph context** - EMMA provides MCNP domain knowledge
-✅ **Scriptable/Automatable** - Integration into workflows
-✅ **Verbose output** - See all intermediate steps
-✅ **Lower resource usage** - Only Neo4j container needed
+**For most users, Docker mode is easier and better!**
 
-### Limitations
-
-❌ **Neo4j required** - Must run Docker container for KG context
-⚠️ **API key optional** - Falls back to DEMO_MODE if not provided (fixed responses)
-❌ **mcnptools required** - Must be installed separately
-❌ **No web interface** - Command-line only
-❌ **Manual Neo4j setup** - Must start and load KG
-
-### Use Cases
-
-- Python developers integrating DECIMA
-- Automated batch analysis
-- Jupyter notebooks
-- Research scripts
-- CI/CD pipelines
-- Custom workflows
-
-### Prerequisites
+### Quick Start
 
 ```bash
-# 1. Install DECIMA package
-pip install -e .
+# 1. Install DECIMA (includes mcnptools)
+python install_dev.py
 
 # 2. Configure environment
-cp .env.docker.example .env.docker
-# Edit .env.docker and add your OPENAI_API_KEY
+cp .env.docker.example .env.local
+# Edit .env.local and add your OPENAI_API_KEY
 
-# 3. Start Neo4j container
+# 3. Start Neo4j (REQUIRED for full functionality!)
 docker compose up -d neo4j
 
-# 4. Wait for Neo4j to be ready
-# Wait ~15 seconds for Neo4j to fully start
+# 4. Wait for Neo4j to be ready (~15 seconds)
+sleep 15
 
 # 5. Load Knowledge Graph
 docker compose run --rm app python kg/loader/neo4j_loader.py
+
+# 6. Run example
+python examples/full_api_mode.py
 ```
 
-### How to Run
+### Description
 
-**Option A: Verbose example (recommended)**
-```bash
-python examples/hybrid_mode_pip_docker.py
-```
+Python package mode with full functionality **IF** you manually setup Neo4j.
 
-**Option B: Original basic example**
-```bash
-python examples/basic_usage.py
-```
+### When Full Functionality Works
 
-**Note:** If `OPENAI_API_KEY` is not set, both examples automatically enable DEMO_MODE (returns fixed collision analysis code).
++ **OpenAI API configured** - Custom code generation for YOUR queries
++ **Neo4j running + KG loaded** - EMMA provides MCNP domain knowledge
++ **Python API access** - Programmatic integration
++ **Scriptable** - Integration into workflows
 
+### Limitations vs Docker Mode
+
+- **Manual Neo4j setup required** - Need to run Docker for Neo4j anyway!
+- **Manual KG loading** - Extra steps
+- **Manual configuration** - More complex
+- **No web interface** - Command-line only
+
+**💡 If you need to run Docker for Neo4j anyway, why not use Docker mode for everything?**
 
 ### Programmatic Usage
 
@@ -208,257 +166,123 @@ print(result['stdout'])        # Execution output
 print(result['output_files'])  # Generated plots
 ```
 
-### When to Use
+### When to Use This Mode
 
-- ✅ Python developers
-- ✅ Custom automation scripts
-- ✅ Batch processing workflows
-- ✅ Research notebooks
-- ❌ Non-programmers (use Full Docker mode)
+**ONLY if you specifically need:**
+- + Programmatic Python API access
+- + Custom automation/batch scripts
+- + Integration into existing Python workflows
+- + AND you're comfortable with manual Neo4j setup
+
+**Otherwise, use Docker mode - it's easier and includes everything!**
 
 ---
 
-## 🐳 Mode 3: Full Docker Mode (Web Interface)
+## 🐳 Mode 3: Docker Mode (RECOMMENDED)
 
-**File:** `full_docker_mode.md`
+**See:** [INSTALL.md](../INSTALL.md) - Method 2
 
-### Description
+###  RECOMMENDED for Full Functionality
 
-Complete web application with user-friendly chat interface. Everything runs in Docker containers.
+This is the **easiest way** to get DECIMA with **full functionality**.
 
-### Advantages
-
-✅ **Web interface** - User-friendly chat with OTACON
-✅ **Everything containerized** - No local Python setup
-✅ **Consistent environment** - Works same on all platforms
-✅ **Production-ready** - Isolated, reproducible deployment
-✅ **Visual interface** - Upload files, see plots, chat UI
-✅ **mcnptools bundled** - No separate installation needed
-✅ **Team-ready** - Can be deployed for multiple users
-
-### Limitations
-
-❌ **Higher resource usage** - Multiple containers running
-❌ **No programmatic API** - Web interface only (not scriptable)
-❌ **Requires Docker** - Additional software installation
-❌ **Port binding** - Ports 5050, 7474, 7687 must be available
-❌ **More complex** - Full stack deployment
-
-### Use Cases
-
-- End users without programming background
-- Team/organizational deployments
-- Production environments
-- Demonstrations and presentations
-- Workshops and training
-- Shared access scenarios
-
-### Prerequisites
+### Quick Start
 
 ```bash
-# 1. Docker Desktop installed and running
-# Windows/macOS: Docker Desktop
-# Linux: Docker Engine
-
-# 2. Clone repository
 git clone https://github.com/quentinducasse/decima.git
 cd decima
-
-# 3. Configure environment
 cp .env.docker.example .env.docker
-# Edit .env.docker and add your OPENAI_API_KEY
-```
-
-### How to Run
-
-**Standard mode:**
-```bash
-# Build and start all services
-docker compose build app
+# Edit .env.docker to add your OpenAI API key
 docker compose up -d
-
-# Wait for Neo4j (~15 seconds)
-# Wait approximately 15 seconds for Neo4j
-
-# Load Knowledge Graph
-docker compose run --rm app python kg/loader/neo4j_loader.py
-
-# Access web interface
-# Open http://localhost:5050 in browser
 ```
 
-**Verbose/Debug mode:**
-```bash
-# Stop background services
-docker compose down
+Then open http://localhost:5050 in your browser.
 
-# Start only Neo4j
-docker compose up -d neo4j
+### Why Docker Mode is Best
 
-# Wait for Neo4j
-# Wait approximately 15 seconds for Neo4j
++ **Everything automatic** - Neo4j + mcnptools + all services configured
++ **One command** - Just `docker compose up -d`
++ **Full functionality** - All agents (QUIET, EMMA, OTACON, EVA) active
++ **Web interface** - User-friendly chat with OTACON
++ **No manual setup** - No Neo4j installation, no KG loading
++ **Production-ready** - Isolated, reproducible deployment
 
-# Load Knowledge Graph
-docker compose run --rm app python kg/loader/neo4j_loader.py
+### vs Python Package Mode
 
-# Run in verbose mode
-docker compose run --rm --service-ports app python app.py -v
-```
-
-Verbose mode shows:
-```
- * Serving Flask app 'app'
- * Debug mode: on
- * Running on http://127.0.0.1:5050      ← Click this link!
- * Running on http://172.18.0.3:5050
- * Debugger is active!
-```
-
-### Web Interface Features
-
-1. **Load PTRAC File**
-   - Upload your file or use sample
-   - Binary or ASCII format supported
-
-2. **Model Selection**
-   - gpt-4o-mini (fast, cheap)
-   - gpt-4o (more capable, expensive)
-
-3. **Knowledge Graph Toggle**
-   - "Add context" ON: Uses EMMA + Neo4j
-   - "Add context" OFF: Direct LLM query
-
-4. **Natural Language Queries**
-   - English or French
-   - Example queries provided
-   - Custom questions
-
-5. **Results Display**
-   - Natural language explanation
-   - Generated Python code
-   - Execution output
-   - Plots and visualizations
+| Feature | Python Package | Docker Mode |
+|---------|----------------|-------------|
+| Setup complexity | 🟡 Manual Neo4j | 🟢 One command |
+| Neo4j included | - Manual | + Automatic |
+| KG loading | - Manual | + Automatic |
+| mcnptools | WARNING: Must compile | + Pre-built |
+| Web interface | - No | + Yes |
+| Full functionality | WARNING: If Neo4j setup | + Always |
 
 ### When to Use
 
-- ✅ Non-programmers
-- ✅ Team deployments
-- ✅ Production use
-- ✅ Demonstrations
-- ❌ Scripting/automation (use Hybrid mode)
+- + **RECOMMENDED for everyone**
+- + First-time users
+- + Production analysis
+- + Team deployments
+- + Demonstrations
+- - Only skip if you specifically need Python API for automation
 
 ---
 
 ## 📊 Feature Comparison
 
-| Feature | Demo Mode | Hybrid Mode | Full Docker |
-|---------|-----------|-------------|-------------|
-| **OpenAI API** | ❌ Not needed | ✅ Required | ✅ Required |
-| **Neo4j KG** | ❌ Disabled | ✅ Docker | ✅ Docker |
-| **Custom Code** | ❌ Fixed only | ✅ Yes | ✅ Yes |
-| **EMMA Context** | ❌ No | ✅ Yes | ✅ Yes |
-| **Web Interface** | ❌ No | ❌ No | ✅ Yes |
-| **Python API** | ✅ Yes | ✅ Yes | ❌ No |
-| **Resource Usage** | 🟢 Low | 🟡 Medium | 🔴 High |
-| **Setup Complexity** | 🟢 Easy | 🟡 Medium | 🔴 Complex |
+| Feature | Demo Mode | Full API Mode | Docker Mode |
+|---------|-----------|---------------|-------------|
+| **OpenAI API** | - Not needed | + Required | + Required |
+| **Neo4j KG** | - Disabled | + Docker | + Docker |
+| **Custom Code** | - Fixed only | + Yes | + Yes |
+| **EMMA Context** | - No | + Yes | + Yes |
+| **Web Interface** | - No | - No | + Yes |
+| **Python API** | + Yes | + Yes | - No |
+| **mcnptools** | + Auto-installed | + Auto-installed | + Bundled |
+| **Setup** | 🟢 Easy | 🟡 Medium | 🟡 Medium |
 | **Cost** | 🟢 Free | 🟡 API costs | 🟡 API costs |
-| **mcnptools** | ⚠️ Separate | ⚠️ Separate | ✅ Bundled |
 
 ---
 
-## 🛠️ Common Configuration
+## 🧪 Testing Scripts
+
+Additional test scripts are available to verify installation:
+
+```bash
+# Test mcnptools installation
+python examples/test_mcnptools_direct.py
+
+# Test DECIMA + mcnptools integration
+python examples/test_decima_with_mcnptools.py
+```
+
+---
+
+## 🔧 Common Configuration
 
 ### Environment Variables
 
-All modes use `.env.docker` for configuration:
+All modes use `.env.docker` or `.env.local` for configuration:
 
 ```env
 # LLM Provider
 LLM_PROVIDER=openai
 OPENAI_API_KEY=your_key_here
 
-# Neo4j (for Hybrid and Full Docker modes)
-NEO4J_URI=bolt://neo4j:7687
+# Neo4j (for Full API and Docker modes)
+NEO4J_URI=bolt://localhost:7687  # or bolt://neo4j:7687 inside Docker
 NEO4J_USER=neo4j
 NEO4J_PASSWORD=decima123
 
-# Demo mode flag
-DEMO_MODE=false    # Set to true for demo mode
+# Demo mode flag (optional)
+DEMO_MODE=false    # Set to true to force demo mode
 ```
 
 ### Sample PTRAC Files
 
 Located in `data/ptrac_samples/`:
 - `basic_ptrac_example_decima_ascii.ptrac` - ASCII format example
-
-### Output Files
-
-Generated plots are saved to:
-- **Hybrid mode**: `uploads/plots/`
-- **Full Docker**: `/app/uploads/plots/` (inside container)
-
----
-
-## 🔧 Troubleshooting
-
-### Neo4j Connection Issues
-
-**Problem:** `Connection refused to neo4j:7687`
-
-**Solution:**
-```bash
-# Check if Neo4j is running
-docker compose ps
-
-# Check Neo4j logs
-docker compose logs neo4j
-
-# Wait for "Started" message
-# Wait approximately 15 seconds for Neo4j
-
-# Restart if needed
-docker compose restart neo4j
-```
-
-### Knowledge Graph Empty
-
-**Problem:** EMMA returns no entities
-
-**Solution:**
-```bash
-# Reload Knowledge Graph
-docker compose run --rm app python kg/loader/neo4j_loader.py
-
-# Verify in Neo4j browser (http://localhost:7474)
-# Run: MATCH (n) RETURN count(n)
-```
-
-### API Key Invalid
-
-**Problem:** `Invalid API key` error
-
-**Solution:**
-- Check `.env.docker` for typos
-- Verify key at [OpenAI Platform](https://platform.openai.com/api-keys)
-- Ensure sufficient credits
-- No extra spaces in the key
-
-### mcnptools Not Found
-
-**Problem:** `ModuleNotFoundError: No module named 'mcnptools'`
-
-**Solution:**
-- **Demo/Hybrid mode**: mcnptools is auto-installed with `python install_dev.py`
-- **Full Docker mode**: Already bundled in container
-
----
-
-## 📚 Additional Resources
-
-- **Main README**: `../README.md` - Project overview
-- **Installation Guide**: `../INSTALL.md` - Detailed setup
-- **Full Docker Guide**: `full_docker_mode.md` - Web interface details
-- **Documentation**: `../doc/` - Technical documentation
 
 ---
 
@@ -471,26 +295,20 @@ docker compose run --rm app python kg/loader/neo4j_loader.py
    - Understand the workflow
    - Validate installation
 
-2. **Try Full Docker Mode** (`full_docker_mode.md`)
+2. **Try Docker Mode** (see [INSTALL.md](../INSTALL.md))
    - User-friendly web interface
    - Complete experience
-   - Upload your PTRAC files
 
 ### For Developers
 
-1. **Start with Hybrid Mode** (`hybrid_mode_pip_docker.py`)
+1. **Start with Full API Mode** (`full_api_mode.py`)
    - Full programmatic access
    - Python API integration
    - Custom automation
 
-2. **Reference basic_usage.py**
-   - Original example
-   - Verbose output
-   - All agent details
-
 ### For Teams/Production
 
-1. **Use Full Docker Mode** (`full_docker_mode.md`)
+1. **Use Docker Mode** (see [INSTALL.md](../INSTALL.md))
    - Web interface for all users
    - Consistent deployment
    - Production-ready
@@ -499,12 +317,10 @@ docker compose run --rm app python kg/loader/neo4j_loader.py
 
 ## 💡 Tips
 
-- **Start simple**: Begin with demo mode to test
-- **Check Neo4j**: Always wait for "Started" message before loading KG
-- **Use verbose mode**: Add `-v` flag or use verbose examples for debugging
+- **Start simple**: Begin with demo mode to test installation
+- **Check Neo4j**: Always wait ~15 seconds for Neo4j to start before loading KG
 - **Monitor costs**: gpt-4o-mini costs ~$0.001 per query
 - **Toggle context**: Try with/without Knowledge Graph to see the difference
-- **Read logs**: Check `docker compose logs` for issues
 
 ---
 
