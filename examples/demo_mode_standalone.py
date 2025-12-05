@@ -27,29 +27,55 @@ if __name__ == "__main__":
     sys.path.insert(0, os.path.dirname(os.path.dirname(os.path.abspath(__file__))))
 
 # ============================================================
-# IMPORTANT: Set DEMO_MODE BEFORE importing DECIMA modules
+# IMPORTANT: Load .env.docker BEFORE importing DECIMA modules
 # ============================================================
-os.environ['DEMO_MODE'] = 'true'
-os.environ['OPENAI_API_KEY'] = ''  # Empty - not needed in demo mode
-os.environ['NEO4J_URI'] = 'bolt://localhost:7687'  # Not used in demo mode
-os.environ['NEO4J_USER'] = 'neo4j'
-os.environ['NEO4J_PASSWORD'] = 'neo4j'
+from dotenv import load_dotenv
+
+# Load environment configuration
+project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+env_docker = os.path.join(project_root, ".env.docker")
+
+if os.path.exists(env_docker):
+    load_dotenv(env_docker, override=True)
+else:
+    # Fallback to demo mode if no .env.docker
+    os.environ['DEMO_MODE'] = 'true'
+    os.environ['OPENAI_API_KEY'] = ''
+
+# Check configuration
+demo_mode = os.getenv('DEMO_MODE', 'false').lower() == 'true'
+api_key = os.getenv('OPENAI_API_KEY', '')
 
 print("=" * 70)
-print("  DECIMA - DEMO MODE (LIMITED FUNCTIONALITY)")
+print("  DECIMA - Standalone Example (Python Package)")
 print("=" * 70)
 print()
-print("WARNING: WARNING: This is a LIMITED demo version")
+print("Configuration (from .env.docker):")
+print(f"   DEMO_MODE: {demo_mode}")
+print(f"   OpenAI API Key: {'Set' if api_key and api_key != 'your_api_key_here' else 'Not set'}")
 print()
-print("   + Works without OpenAI API")
-print("   + Works without Neo4j Knowledge Graph")
-print("   - Returns FIXED code example (ignores your query)")
-print("   - No intelligent code generation")
-print("   - No MCNP domain knowledge context")
+
+if demo_mode:
+    print("MODE: Using DEMO_MODE (fixed code examples)")
+    print("   + No API calls (no costs)")
+    print("   + Works without OpenAI API")
+    print("   - Returns FIXED code example (ignores your query)")
+    print("   - No intelligent code generation")
+else:
+    print("MODE: Using OpenAI API (DEMO_MODE=false)")
+    print("   + Will call OpenAI API for code generation")
+    print("   + Generates code for YOUR query")
+    print("   - WITHOUT Neo4j: May generate code with errors")
+    print("   - Missing MCNP domain knowledge context")
+
 print()
-print("💡 For FULL functionality with intelligent code generation:")
+print("WARNING: This standalone mode has NO Knowledge Graph")
+print("   → EMMA (Knowledge Graph agent) is DISABLED")
+print("   → No MCNP domain context available")
+print()
+print("TIP: For FULL functionality with Knowledge Graph:")
 print("   → Use Docker mode: docker compose up -d")
-print("   → See INSTALL.md for setup instructions")
+print("   → See INSTALL.md Method 2")
 print()
 print("=" * 70)
 
@@ -67,14 +93,17 @@ def main():
     query = "What is the average energy of the collision events?"
 
     print()
-    print(f"📂 PTRAC file: {ptrac_path}")
+    print(f"PTRAC file: {ptrac_path}")
     print(f"Query: {query}")
     print()
-    print("WARNING: IMPORTANT: In DEMO MODE, your query is IGNORED")
-    print("   The system always returns the same fixed collision analysis code.")
-    print()
-    print("   To get intelligent code generation that answers YOUR query,")
-    print("   use Docker mode with OpenAI API and Neo4j Knowledge Graph.")
+
+    if demo_mode:
+        print("NOTE: In DEMO_MODE=true, your query is IGNORED")
+        print("   The system always returns the same fixed collision analysis code.")
+    else:
+        print("NOTE: With DEMO_MODE=false, OpenAI will generate code for your query")
+        print("   BUT without Neo4j Knowledge Graph, code may have errors.")
+
     print()
     print("-" * 70)
     print()
@@ -94,42 +123,69 @@ def main():
 
     # Display results
     print("=" * 70)
-    print("  DEMO MODE RESULT (FIXED EXAMPLE - NOT YOUR QUERY)")
+    if demo_mode:
+        print("  RESULT (DEMO_MODE=true: FIXED EXAMPLE)")
+    else:
+        print("  RESULT (DEMO_MODE=false: OpenAI Generated Code)")
     print("=" * 70)
     print()
 
     if result.get('error'):
-        print(f"- Workflow Error: {result['error']}")
+        print(f"Workflow Error: {result['error']}")
         print()
 
-    print("💬 Explanation:")
+    print("Explanation:")
     print("-" * 70)
     print(result.get('response', 'No explanation available'))
     print()
 
-    print("💻 Generated Code (FIXED - Same for all queries):")
+    if demo_mode:
+        print("Generated Code (FIXED - Same for all queries):")
+    else:
+        print("Generated Code (OpenAI API):")
     print("-" * 70)
     print(result.get('code', 'No code generated'))
     print()
 
+    # Check execution result
+    exec_result = result.get('execution_result', {})
+    if exec_result:
+        stderr = exec_result.get('stderr', '')
+        if stderr:
+            print("=" * 70)
+            print("EXECUTION ERROR DETECTED")
+            print("=" * 70)
+            print(stderr)
+            print()
+            print("POSSIBLE CAUSE: Missing Knowledge Graph context")
+            print("   → Without Neo4j, OTACON generates code without MCNP domain knowledge")
+            print("   → This can lead to incorrect classes, methods, or syntax")
+            print()
+            print("SOLUTION: Use Docker mode for full functionality")
+            print("   → docker compose up -d")
+            print("   → See INSTALL.md Method 2")
+            print()
+
     print("=" * 70)
-    print("  + Demo Mode Example Completed")
+    print("  Example Completed")
     print("=" * 70)
     print()
-    print("WARNING: LIMITATIONS OF THIS DEMO MODE:")
-    print("   • This demo always returns the SAME code (collision analysis)")
-    print("   • Your query was IGNORED")
-    print("   • No intelligent code generation")
-    print("   • No MCNP Knowledge Graph context")
+
+    if demo_mode:
+        print("LIMITATIONS (DEMO_MODE=true):")
+        print("   - Fixed code example (your query was IGNORED)")
+        print("   - No intelligent code generation")
+    else:
+        print("LIMITATIONS (DEMO_MODE=false without Neo4j):")
+        print("   - Generated code may have errors")
+        print("   - Missing MCNP domain knowledge context")
+
+    print("   - No Knowledge Graph (EMMA disabled)")
     print()
-    print("💡 TO GET FULL FUNCTIONALITY:")
-    print("   • Intelligent code generation for YOUR queries")
-    print("   • MCNP domain knowledge from Knowledge Graph")
-    print("   • Context-aware code with proper syntax")
-    print()
+    print("TO GET FULL FUNCTIONALITY:")
     print("   → Use Docker mode: docker compose up -d")
+    print("   → Includes Neo4j + Knowledge Graph automatically")
     print("   → See INSTALL.md Method 2")
-    print("   → See examples/README.md for comparison")
     print()
     print("=" * 70)
     print()
