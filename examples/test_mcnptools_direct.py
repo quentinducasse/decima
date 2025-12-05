@@ -10,7 +10,8 @@ import os
 sys.path = [p for p in sys.path if 'mcnptools-main' not in p]
 
 # Add our mcnptools to the path
-project_root = os.path.dirname(os.path.abspath(__file__))
+project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
+sys.path.insert(0, project_root)
 mcnptools_path = os.path.join(project_root, 'mcnptools', 'python')
 sys.path.insert(0, mcnptools_path)
 

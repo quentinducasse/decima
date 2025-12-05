@@ -6,12 +6,14 @@ DECIMA Demo Mode - Standalone Example
 This example demonstrates DECIMA in DEMO_MODE with LIMITED functionality:
 - + Works without OpenAI API (no costs)
 - + Works without Neo4j Knowledge Graph
+- + Base mcnptools context IS injected (API structure + code example)
 - - Returns FIXED code example (DEMO_MODE=true, ignores your query)
 - - No intelligent code generation
-- - No MCNP domain context from Knowledge Graph
+- - No MCNP domain-specific context from Knowledge Graph (EMMA disabled)
 
 NOTE: Even with OpenAI API (DEMO_MODE=false), without Neo4j Knowledge Graph,
-OTACON may generate code with errors due to missing MCNP domain context.
+OTACON generates code using only basic mcnptools syntax (from structure + example).
+This may work for simple queries but lacks domain-specific MCNP knowledge.
 
 For FULL functionality with intelligent code generation AND KG context,
 use Docker mode: docker compose up -d
@@ -69,13 +71,14 @@ else:
     print("   - Missing MCNP domain knowledge context")
 
 print()
-print("WARNING: This standalone mode has NO Knowledge Graph")
-print("   → EMMA (Knowledge Graph agent) is DISABLED")
-print("   → No MCNP domain context available")
+print("WARNING: This standalone mode has NO Neo4j Knowledge Graph")
+print("   -> EMMA (Knowledge Graph agent) is DISABLED")
+print("   -> BUT: Base mcnptools context IS injected (API structure + code example)")
+print("   -> This provides basic mcnptools syntax guidance")
 print()
 print("TIP: For FULL functionality with Knowledge Graph:")
-print("   → Use Docker mode: docker compose up -d")
-print("   → See INSTALL.md Method 2")
+print("   -> Use Docker mode: docker compose up -d")
+print("   -> See INSTALL.md Method 2")
 print()
 print("=" * 70)
 
@@ -102,7 +105,8 @@ def main():
         print("   The system always returns the same fixed collision analysis code.")
     else:
         print("NOTE: With DEMO_MODE=false, OpenAI will generate code for your query")
-        print("   BUT without Neo4j Knowledge Graph, code may have errors.")
+        print("   Base mcnptools context IS provided (API structure + example)")
+        print("   BUT without Neo4j KG, lacks domain-specific MCNP knowledge")
 
     print()
     print("-" * 70)
@@ -118,7 +122,7 @@ def main():
     result = orchestrator.process_query(
         query=query,
         ptrac_path=ptrac_path,
-        use_context=False  # No KG context in demo mode
+        use_context=True  # Inject base mcnptools context (structure + example), but no EMMA KG
     )
 
     # Display results
@@ -150,7 +154,15 @@ def main():
     # Check execution result
     exec_result = result.get('execution_result', {})
     if exec_result:
+        stdout = exec_result.get('stdout', '')
         stderr = exec_result.get('stderr', '')
+
+        if stdout:
+            print("Execution Output:")
+            print("-" * 70)
+            print(stdout)
+            print()
+
         if stderr:
             print("=" * 70)
             print("EXECUTION ERROR DETECTED")
@@ -158,12 +170,12 @@ def main():
             print(stderr)
             print()
             print("POSSIBLE CAUSE: Missing Knowledge Graph context")
-            print("   → Without Neo4j, OTACON generates code without MCNP domain knowledge")
-            print("   → This can lead to incorrect classes, methods, or syntax")
+            print("   -> Without Neo4j, OTACON generates code without MCNP domain knowledge")
+            print("   -> This can lead to incorrect classes, methods, or syntax")
             print()
             print("SOLUTION: Use Docker mode for full functionality")
-            print("   → docker compose up -d")
-            print("   → See INSTALL.md Method 2")
+            print("   -> docker compose up -d")
+            print("   -> See INSTALL.md Method 2")
             print()
 
     print("=" * 70)
@@ -177,15 +189,16 @@ def main():
         print("   - No intelligent code generation")
     else:
         print("LIMITATIONS (DEMO_MODE=false without Neo4j):")
-        print("   - Generated code may have errors")
-        print("   - Missing MCNP domain knowledge context")
+        print("   + Has base mcnptools context (API structure + example)")
+        print("   - Missing MCNP domain-specific knowledge from KG")
+        print("   - May generate code with domain errors")
 
-    print("   - No Knowledge Graph (EMMA disabled)")
+    print("   - No Knowledge Graph EMMA context (only base mcnptools syntax)")
     print()
     print("TO GET FULL FUNCTIONALITY:")
-    print("   → Use Docker mode: docker compose up -d")
-    print("   → Includes Neo4j + Knowledge Graph automatically")
-    print("   → See INSTALL.md Method 2")
+    print("   -> Use Docker mode: docker compose up -d")
+    print("   -> Includes Neo4j + Knowledge Graph automatically")
+    print("   -> See INSTALL.md Method 2")
     print()
     print("=" * 70)
     print()

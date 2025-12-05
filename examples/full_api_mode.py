@@ -15,8 +15,8 @@ With DEMO_MODE=true (no API key):
 - Returns fixed code examples (ignores your query)
 
 RECOMMENDED: Use Docker mode for easiest setup with full functionality:
-  → docker compose up -d
-  → See INSTALL.md Method 2
+  -> docker compose up -d
+  -> See INSTALL.md Method 2
 
 This Python package mode is for developers who want to:
 - Run DECIMA programmatically with their own Neo4j instance
@@ -110,8 +110,8 @@ def main():
         print("   - Your query will be IGNORED")
         print()
         print("   To enable OpenAI API:")
-        print("   → Set DEMO_MODE=false in .env.docker")
-        print("   → Add valid OPENAI_API_KEY in .env.docker")
+        print("   -> Set DEMO_MODE=false in .env.docker")
+        print("   -> Add valid OPENAI_API_KEY in .env.docker")
     else:
         print("MODE: Using OpenAI API (DEMO_MODE=false)")
         print("   + Will call OpenAI API for code generation")
@@ -119,14 +119,33 @@ def main():
         if not has_valid_key:
             print("   WARNING: API key not valid, will fallback to DEMO_MODE")
 
-    print()
-    print("WARNING: Neo4j is required for full functionality!")
-    print("   → Without Neo4j: EMMA disabled, code may have errors")
-    print("   → Solution: Start Neo4j or use Docker mode")
-    print()
-    print("TIP: For easier setup, use Docker mode instead:")
-    print("   → docker compose up -d")
-    print("   → Everything configured automatically!")
+    # Check Neo4j connectivity
+    try:
+        from neo4j import GraphDatabase
+        uri = os.getenv('NEO4J_URI', 'bolt://localhost:7687')
+        user = os.getenv('NEO4J_USER', 'neo4j')
+        password = os.getenv('NEO4J_PASSWORD', 'neo4j')
+        driver = GraphDatabase.driver(uri, auth=(user, password))
+        driver.verify_connectivity()
+        driver.close()
+        print()
+        print("Neo4j Status: CONNECTED")
+        print("   -> EMMA Knowledge Graph agent is ACTIVE")
+        print("   -> Full DECIMA functionality available")
+    except Exception:
+        print()
+        print("WARNING: Neo4j is NOT connected!")
+        print("   -> EMMA Knowledge Graph agent will be DISABLED")
+        print("   -> Generated code may have errors (missing MCNP domain context)")
+        print()
+        print("   Solution:")
+        print("   -> Start Neo4j: docker compose up -d neo4j")
+        print("   -> Load KG: docker compose run --rm app python kg/loader/neo4j_loader.py")
+        print()
+        print("TIP: For easier setup, use Docker mode instead:")
+        print("   -> docker compose up -d")
+        print("   -> Everything configured automatically!")
+
     print()
     print("=" * 70)
     print()
@@ -171,7 +190,21 @@ def main():
     # EMMA Context (if available)
     context = result.get('context', {})
     if context.get('entities'):
-        print(f"Knowledge Graph Context: {len(context['entities'])} entities extracted")
+        entities = context['entities']
+        print(f"Knowledge Graph Context: {len(entities)} entities extracted")
+        print()
+        print("Extracted Entities:")
+        print("-" * 60)
+        for ent in entities[:10]:  # Show first 10 entities
+            entity_type = ent.get('type', 'unknown')
+            entity_id = ent.get('id', '')
+            score = ent.get('score', 0)
+            desc = ent.get('description', '')[:80]  # Truncate long descriptions
+            print(f"  [{entity_type}] {entity_id} (score: {score:.2f})")
+            if desc:
+                print(f"      {desc}")
+        if len(entities) > 10:
+            print(f"  ... and {len(entities) - 10} more entities")
         print()
 
     # OTACON Response
@@ -207,14 +240,14 @@ def main():
             print(stderr)
             print()
             print("POSSIBLE CAUSE: Missing Knowledge Graph context")
-            print("   → Without Neo4j, OTACON generates code without MCNP domain knowledge")
-            print("   → This can lead to incorrect classes, methods, or syntax")
-            print("   → Examples: AttributeError, NameError, wrong method calls")
+            print("   -> Without Neo4j, OTACON generates code without MCNP domain knowledge")
+            print("   -> This can lead to incorrect classes, methods, or syntax")
+            print("   -> Examples: AttributeError, NameError, wrong method calls")
             print()
             print("SOLUTION: Use Docker mode for full functionality")
-            print("   → docker compose up -d")
-            print("   → Includes Neo4j + Knowledge Graph automatically")
-            print("   → See INSTALL.md Method 2")
+            print("   -> docker compose up -d")
+            print("   -> Includes Neo4j + Knowledge Graph automatically")
+            print("   -> See INSTALL.md Method 2")
             print()
         print()
 
@@ -236,9 +269,9 @@ def main():
     print("   • Manual environment configuration needed")
     print()
     print("💡 FOR EASIER FULL FUNCTIONALITY:")
-    print("   → Use Docker mode: docker compose up -d")
-    print("   → Neo4j + mcnptools + all services configured automatically")
-    print("   → See INSTALL.md Method 2")
+    print("   -> Use Docker mode: docker compose up -d")
+    print("   -> Neo4j + mcnptools + all services configured automatically")
+    print("   -> See INSTALL.md Method 2")
     print()
     print("=" * 70)
 

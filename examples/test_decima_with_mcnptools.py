@@ -43,7 +43,6 @@ except Exception as e:
     sys.exit(1)
 
 # Test opening a PTRAC file
-project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 ptrac_file = os.path.join(project_root, 'data', 'ptrac_samples', 'basic_ptrac_example_decima_ascii.ptrac')
 
 try:

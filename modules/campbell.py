@@ -5,10 +5,10 @@ Robust orchestration of EVA, OTACON, EMMA, QUIET modules via LangGraph
 from dotenv import load_dotenv
 import os
 
-if os.path.exists(".env.local"):
-    load_dotenv(".env.local")
-elif os.path.exists(".env.docker"):
+if os.path.exists(".env.docker"):
     load_dotenv(".env.docker")
+elif os.path.exists(".env.local"):
+    load_dotenv(".env.local")
 else:
     load_dotenv()
 
@@ -25,6 +25,9 @@ from modules.otacon import OTACON
 from modules.eva import EVA
 
 logger = logging.getLogger(__name__)
+
+# Check if DEMO_MODE is active
+DEMO_MODE = os.getenv("DEMO_MODE", "false").lower() == "true"
 
 class AgentState(TypedDict):
     """
@@ -223,10 +226,23 @@ class CampbellOrchestrator:
                 state["status"] = "eva_file_not_found"
                 return state
 
-            exec_result = self.eva_agent.execute_code(state["code"], language="python")
-            state["execution_result"] = exec_result
-            state["logs"].append("[EVA] OK")
-            state["status"] = "eva_done"
+            # Skip execution in DEMO_MODE (mcnptools not available)
+            if DEMO_MODE:
+                exec_result = {
+                    "success": True,
+                    "stdout": "[DEMO MODE] Code execution skipped (mcnptools required)",
+                    "stderr": "",
+                    "exception": None,
+                    "output_files": []
+                }
+                state["execution_result"] = exec_result
+                state["logs"].append("[EVA] SKIPPED (DEMO_MODE)")
+                state["status"] = "eva_done"
+            else:
+                exec_result = self.eva_agent.execute_code(state["code"], language="python")
+                state["execution_result"] = exec_result
+                state["logs"].append("[EVA] OK")
+                state["status"] = "eva_done"
         except Exception as e:
             state["error"] = f"[EVA ERROR] {str(e)}"
             state["status"] = "error"
