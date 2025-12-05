@@ -16,7 +16,11 @@
 
 ## Installation Methods
 
-### Method 1: One-Command Install (Recommended for Development)
+### Method 1: Python Package (Limited - Testing Only)
+
+**WARNING: IMPORTANT**: This method is for **testing installation** and understanding the workflow.
+
+**For full functionality, use Method 2 (Docker) instead!**
 
 ```bash
 git clone https://github.com/quentinducasse/decima.git
@@ -33,53 +37,30 @@ python install_dev.py
 ```
 
 This automatically:
-1. ✅ Compiles mcnptools C++ extension
-2. ✅ Copies HDF5 DLLs (Windows)
-3. ✅ Installs DECIMA in editable mode
+1. + Compiles mcnptools C++ extension
+2. + Copies HDF5 DLLs (Windows)
+3. + Installs DECIMA in editable mode
 
-**Note**: Using a virtual environment is recommended to avoid dependency conflicts with other Python projects.
+**Limitations**:
+- - No Neo4j Knowledge Graph (EMMA disabled)
+- - Returns fixed code examples only
+- - Requires manual Neo4j setup for full functionality
 
----
-
-### Method 2: Manual Install (Two Steps)
-
-```bash
-git clone https://github.com/quentinducasse/decima.git
-cd decima
-
-# Optional: Create virtual environment
-python -m venv venv
-venv\Scripts\activate  # Windows
-# source venv/bin/activate  # Linux/macOS
-
-# Step 1: Compile mcnptools
-python setup.py build_ext --inplace
-
-# Step 2: Install DECIMA
-pip install -e .
-```
+**Good for**: Installation testing, understanding workflow structure
+**NOT for**: Real analysis (use Docker mode)
 
 ---
 
-### Method 3: Regular Install (Non-Editable)
+### Method 2: Docker (RECOMMENDED - Full Functionality)
 
-```bash
-git clone https://github.com/quentinducasse/decima.git
-cd decima
+** This is the easiest way to get DECIMA with full functionality!**
 
-# Optional: Create virtual environment
-python -m venv venv
-venv\Scripts\activate  # Windows
-# source venv/bin/activate  # Linux/macOS
-
-pip install .  # Without -e
-```
-
-This triggers CMake compilation automatically, but you won't be able to edit the code.
-
----
-
-### Method 4: Docker (No Local Installation)
+Everything is configured automatically:
+- + Neo4j Knowledge Graph (EMMA agent active)
+- + mcnptools pre-built and ready
+- + All services configured
+- + Web interface included
+- + One command setup
 
 ```bash
 git clone https://github.com/quentinducasse/decima.git
@@ -88,6 +69,8 @@ cp .env.docker.example .env.docker
 # Edit .env.docker to add your OpenAI API key
 docker compose up -d
 ```
+
+Then open http://localhost:5050 in your browser - ready to use!
 
 ---
 
