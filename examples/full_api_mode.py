@@ -91,32 +91,40 @@ def main():
     demo_mode = os.getenv('DEMO_MODE', 'false').lower() == 'true'
     has_valid_key = api_key and api_key.lower().strip() not in invalid_keys
 
-    print("📋 Configuration Status:")
+    print("Configuration Status (from .env.docker):")
     print()
+    print(f"   DEMO_MODE: {demo_mode}")
     if has_valid_key:
-        print(f"   + OpenAI API: {api_key[:20]}...")
+        print(f"   OpenAI API Key: Set ({api_key[:20]}...)")
     else:
-        print("   - OpenAI API: NOT SET")
-        print("      → Will use DEMO_MODE (fixed responses)")
+        print("   OpenAI API Key: NOT SET")
 
     neo4j_uri = os.getenv('NEO4J_URI')
-    print(f"   WARNING: Neo4j URI: {neo4j_uri}")
-    print("      → Neo4j must be running for Knowledge Graph!")
-    print(f"   Demo Mode: {demo_mode}")
+    print(f"   Neo4j URI: {neo4j_uri}")
     print()
 
     if demo_mode:
-        print("WARNING: WARNING: DEMO_MODE is active")
-        print("   → Returns fixed collision analysis code")
-        print("   → EMMA Knowledge Graph disabled")
+        print("MODE: Using DEMO_MODE (fixed code examples)")
+        print("   + No API calls (no costs)")
+        print("   - Returns fixed collision analysis code")
+        print("   - Your query will be IGNORED")
         print()
-        print("   To enable full functionality:")
-        print("   1. Set OPENAI_API_KEY in .env.local")
-        print("   2. Start Neo4j: docker compose up -d neo4j")
-        print("   3. Load KG: docker compose run --rm app python kg/loader/neo4j_loader.py")
-        print()
+        print("   To enable OpenAI API:")
+        print("   → Set DEMO_MODE=false in .env.docker")
+        print("   → Add valid OPENAI_API_KEY in .env.docker")
+    else:
+        print("MODE: Using OpenAI API (DEMO_MODE=false)")
+        print("   + Will call OpenAI API for code generation")
+        print("   + Generates code for YOUR query")
+        if not has_valid_key:
+            print("   WARNING: API key not valid, will fallback to DEMO_MODE")
 
-    print("💡 TIP: For easier setup, use Docker mode instead:")
+    print()
+    print("WARNING: Neo4j is required for full functionality!")
+    print("   → Without Neo4j: EMMA disabled, code may have errors")
+    print("   → Solution: Start Neo4j or use Docker mode")
+    print()
+    print("TIP: For easier setup, use Docker mode instead:")
     print("   → docker compose up -d")
     print("   → Everything configured automatically!")
     print()
@@ -193,13 +201,21 @@ def main():
         stderr = exec_result.get('stderr', '')
         if stderr:
             print()
-            print("WARNING: Execution Errors:")
+            print("=" * 70)
+            print("EXECUTION ERROR DETECTED")
+            print("=" * 70)
             print(stderr)
             print()
-            print("💡 If you see errors like 'AttributeError', 'NameError', or wrong methods:")
-            print("   → This is likely due to MISSING Knowledge Graph context!")
-            print("   → OTACON generated code without MCNP domain knowledge")
-            print("   → Solution: Start Neo4j and load KG, or use Docker mode")
+            print("POSSIBLE CAUSE: Missing Knowledge Graph context")
+            print("   → Without Neo4j, OTACON generates code without MCNP domain knowledge")
+            print("   → This can lead to incorrect classes, methods, or syntax")
+            print("   → Examples: AttributeError, NameError, wrong method calls")
+            print()
+            print("SOLUTION: Use Docker mode for full functionality")
+            print("   → docker compose up -d")
+            print("   → Includes Neo4j + Knowledge Graph automatically")
+            print("   → See INSTALL.md Method 2")
+            print()
         print()
 
     # Workflow logs
