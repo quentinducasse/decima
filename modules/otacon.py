@@ -10,10 +10,10 @@ import logging
 logger = logging.getLogger(__name__)
 
 # Load environment variables depending on local/docker deployment
-if os.path.exists(".env.local"):
-    load_dotenv(".env.local")
-elif os.path.exists(".env.docker"):
+if os.path.exists(".env.docker"):
     load_dotenv(".env.docker")
+elif os.path.exists(".env.local"):
+    load_dotenv(".env.local")
 else:
     load_dotenv()
 
