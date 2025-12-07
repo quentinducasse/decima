@@ -89,26 +89,30 @@ docker compose exec app python kg/loader/neo4j_loader.py
 ```bash
 git clone https://github.com/quentinducasse/decima.git
 cd decima
-pip install -e .
+cp .env.docker.example .env.docker
+# Edit .env.docker to add your OpenAI API key
+python install_dev.py  # Compiles mcnptools automatically
 docker compose up -d neo4j  # Start Neo4j only
-python examples/basic_usage.py
+python examples/demo_mode_standalone.py
 ```
 
 **Usage:**
 ```python
-from decima import DECIMA
+from modules.campbell import CampbellOrchestrator
 
-analyzer = DECIMA(openai_api_key='your-key')
-result = analyzer.analyze(
+orchestrator = CampbellOrchestrator()
+result = orchestrator.process_query(
     ptrac_path='data/ptrac_samples/basic_ptrac_example_decima_ascii.ptrac',
-    query='Plot energy distribution of neutrons'
+    query='Plot energy distribution of neutrons',
+    use_context=True
 )
 
-print(result['explanation'])  # Natural language explanation
-print(result['code'])         # Generated Python code
+print(result['response'])         # Natural language explanation
+print(result['code'])             # Generated Python code
+print(result['execution_result']) # Execution output
 ```
 
-**📖 Full installation guide:** See [INSTALL_new.md](INSTALL_new.md)
+**📖 Full installation guide:** See [INSTALL.md](INSTALL.md)
 
 ---
 
@@ -202,31 +206,26 @@ decima/
 
 ### Python API
 
-See [examples/basic_usage.py](examples/basic_usage.py) for a complete example:
+See [examples/full_api_mode.py](examples/full_api_mode.py) for a complete example:
 
 ```python
-from decima import DECIMA
+from modules.campbell import CampbellOrchestrator
 
 # Initialize
-analyzer = DECIMA(
-    openai_api_key='your-key',
-    neo4j_uri='bolt://localhost:7687',  # Optional
-    neo4j_user='neo4j',                 # Optional
-    neo4j_password='decima123'          # Optional
-)
+orchestrator = CampbellOrchestrator()
 
 # Analyze
-result = analyzer.analyze(
+result = orchestrator.process_query(
     ptrac_path='path/to/file.ptrac',
     query='Your natural language question',
     use_context=True  # Use Knowledge Graph context
 )
 
 # Access results
-print(result['explanation'])  # LLM explanation
-print(result['code'])         # Generated Python code
-print(result['stdout'])       # Execution output
-print(result['output_files']) # Generated plots
+print(result['response'])         # Natural language explanation
+print(result['code'])             # Generated Python code
+print(result['execution_result']) # Execution output and plots
+print(result['logs'])             # Workflow logs
 ```
 
 ### Verbose Mode
@@ -237,8 +236,8 @@ See detailed workflow execution:
 # Docker
 docker compose run --rm --service-ports app python app.py -v
 
-# Python
-python examples/basic_usage.py  # Already verbose by default
+# Python package (examples include verbose output)
+python examples/full_api_mode.py
 ```
 
 Output shows:
@@ -292,7 +291,7 @@ Test DECIMA without an OpenAI API key:
 
 ## 📖 Documentation
 
-- **Installation Guide:** [INSTALL_new.md](INSTALL_new.md)
+- **Installation Guide:** [INSTALL.md](INSTALL.md)
 - **API Examples:** [examples/README.md](examples/README.md)
 - **Architecture Details:** [doc/architecture_decima.md](doc/architecture_decima.md)
 - **Research Paper:** [paper.md](paper.md)

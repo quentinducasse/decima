@@ -189,6 +189,23 @@ Run compilation first:
 python setup.py build_ext --inplace
 ```
 
+**PYTHONPATH conflicts breaking venv isolation:**
+
+**Symptom:** Code execution fails with numpy import errors like:
+```
+ModuleNotFoundError: No module named 'numpy.core._multiarray_umath'
+The NumPy version is: "1.20.3"  # Wrong version being loaded
+```
+
+**Cause:** Global `PYTHONPATH` environment variable forces Python to load packages from system-wide locations (e.g., `~/.local/lib/python3.8/site-packages`) instead of the virtual environment, causing version conflicts.
+
+**Solution - Temporary (Quick Fix):**
+```bash
+# Unset PYTHONPATH before activating venv
+unset PYTHONPATH
+source venv/bin/activate
+python3.10 examples/demo_mode_standalone.py
+```
 ---
 
 ## Method 2: Docker Installation (RECOMMENDED)
