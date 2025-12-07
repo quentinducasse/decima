@@ -40,6 +40,13 @@ __pycache__/
 *.tmp
 *.bak
 
+# Windows nul files (errors from command redirection)
+nul
+**/nul
+
+# DLL files (HDF5 - compiled locally, not tracked)
+*.dll
+
 # ✅ Forcer l'inclusion du dossier mcnptools
 !mcnptools/
 !mcnptools/**/*
@@ -92,7 +99,10 @@ build/
 *.manifest
 *.spec
 
-# Ignore cheat sheets
+# Ignore cheat sheets and old backups
 git_cheatsheet.txt
 docker_cheatsheet.txt
 paperToDo.md
+README_old_backup.md
+INSTALL_docker.md
+paper2.md
