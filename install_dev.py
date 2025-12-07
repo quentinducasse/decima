@@ -40,9 +40,10 @@ def main():
     print("="*70)
     print()
     print("This will:")
-    print("  1. Compile mcnptools C++ extension (takes a few minutes)")
-    print("  2. Copy HDF5 DLLs to mcnptools package (Windows)")
-    print("  3. Install DECIMA in editable mode")
+    print("  1. Install build dependencies (setuptools, wheel)")
+    print("  2. Compile mcnptools C++ extension (takes a few minutes)")
+    print("  3. Copy HDF5 DLLs to mcnptools package (Windows)")
+    print("  4. Install DECIMA in editable mode")
     print()
 
     # Check if we're in the right directory
@@ -51,16 +52,22 @@ def main():
         print("Please run this script from the DECIMA root directory.")
         sys.exit(1)
 
-    # Step 1: Build mcnptools extension
+    # Step 1: Install build dependencies
     run_command(
-        [sys.executable, 'setup.py', 'build_ext', '--inplace'],
-        "Step 1/2: Building mcnptools C++ extension"
+        [sys.executable, '-m', 'pip', 'install', 'setuptools', 'wheel'],
+        "Step 1/3: Installing build dependencies"
     )
 
-    # Step 2: Install DECIMA in editable mode
+    # Step 2: Build mcnptools extension
+    run_command(
+        [sys.executable, 'setup.py', 'build_ext', '--inplace'],
+        "Step 2/3: Building mcnptools C++ extension"
+    )
+
+    # Step 3: Install DECIMA in editable mode
     run_command(
         [sys.executable, '-m', 'pip', 'install', '-e', '.'],
-        "Step 2/2: Installing DECIMA in editable mode"
+        "Step 3/3: Installing DECIMA in editable mode"
     )
 
     print()
