@@ -344,6 +344,8 @@ Contributions are welcome! Please:
 
 ## 📄 Citation
 
+### BibTeX Entry
+
 If you use DECIMA in your research, please cite:
 
 ```bibtex
@@ -355,6 +357,28 @@ If you use DECIMA in your research, please cite:
   version = {1.3.0},
   license = {Apache-2.0}
 }
+```
+
+### How to Cite in a Paper
+
+For academic papers and publications, use the following citation format:
+
+**IEEE Style:**
+```
+Q. Ducasse and F. Almuhisen, "DECIMA: Data Extraction & Contextual Inference for MCNP Analysis,"
+Version 1.3.0, 2025. [Online]. Available: https://github.com/quentinducasse/decima
+```
+
+**APA Style:**
+```
+Ducasse, Q., & Almuhisen, F. (2025). DECIMA: Data Extraction & Contextual Inference for MCNP Analysis
+(Version 1.3.0) [Computer software]. https://github.com/quentinducasse/decima
+```
+
+**Nature Style:**
+```
+Ducasse, Q. & Almuhisen, F. DECIMA: Data Extraction & Contextual Inference for MCNP Analysis.
+https://github.com/quentinducasse/decima (2025).
 ```
 
 ---
@@ -443,4 +467,4 @@ See [GitHub Issues](https://github.com/quentinducasse/decima/issues) for current
 
 ---
 
-**Made with ❤️ for the nuclear engineering community**
+**Made with ❤️ for researchers in nuclear physics and the nuclear engineering community**
