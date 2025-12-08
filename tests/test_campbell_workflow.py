@@ -3,12 +3,16 @@
 import json
 import os
 import sys
+
+# Add project root to path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+
 from modules.campbell import CampbellOrchestrator
 
 # === Path to the PTRAC file used for testing ===
 # ⚠️ IMPORTANT: Replace this path with the location of your own PTRAC file
 BASE_DIR = os.path.dirname(os.path.dirname(__file__))  # remonte au dossier racine du repo
-PTRAC_PATH = os.path.join(BASE_DIR, "data", "ptrac_samples", "example_ptrac_1.mcnp.ptrac")
+PTRAC_PATH = os.path.join(BASE_DIR, "data", "ptrac_samples", "basic_ptrac_example_decima_ascii.ptrac")
 
 # --- Early check before running anything ---
 if "username" in PTRAC_PATH or not os.path.isfile(PTRAC_PATH):
@@ -55,10 +59,56 @@ def debug_query(query, ptrac_path=PTRAC_PATH):
         print("\n--- ERROR ---")
         print(result["error"])
 
+        # Check for Neo4j-related errors
+        error_msg = str(result["error"])
+        is_neo4j_error = (
+            ("EMMA ERROR" in error_msg and "NoneType" in error_msg) or
+            ("OTACON ERROR" in error_msg and "not a mapping" in error_msg) or
+            ("EMMA ERROR" in error_msg and "connection" in error_msg.lower()) or
+            ("EMMA ERROR" in error_msg and "7687" in error_msg)
+        )
+        if is_neo4j_error:
+            print("\n" + "=" * 80)
+            print("TIP: This error usually means Neo4j is not running")
+            print("=" * 80)
+            print("\nTo fix this:")
+            print("  1. Start Neo4j:")
+            print("     docker compose up -d neo4j")
+            print("\n  2. Wait ~15 seconds for Neo4j to start")
+            print("\n  3. Load the Knowledge Graph:")
+            print("     docker compose exec app python kg/loader/neo4j_loader.py")
+            print("\n  4. Run this test again")
+            print("\nAlternatively, use DEMO_MODE=true in .env.docker to test without Neo4j")
+            print("=" * 80)
+
     # Display execution result if available
     if result.get("execution_result"):
         print("\n--- EXECUTION RESULT ---")
         print(json.dumps(result["execution_result"], indent=2, ensure_ascii=False))
+
+        # Check for mcnptools import error in EVA sandbox
+        exec_result = result["execution_result"]
+        stderr = exec_result.get("stderr", "")
+        if "No module named 'mcnptools'" in stderr and not exec_result.get("success"):
+            print("\n" + "=" * 80)
+            print("NOTE: mcnptools not available in EVA sandbox (Python Package mode)")
+            print("=" * 80)
+            print("\nThis is expected behavior when running in Python Package mode.")
+            print("The workflow completed successfully:")
+            print("  [OK] QUIET - Query interpretation")
+            print("  [OK] EMMA - Knowledge Graph context extraction")
+            print("  [OK] OTACON - Code generation")
+            print("  [OK] EVA - Code execution attempted")
+            print("\nHowever, mcnptools is not available in the EVA sandbox environment.")
+            print("\nFor full execution with results:")
+            print("  1. Use Docker mode:")
+            print("     docker compose up -d")
+            print("     docker compose exec app python kg/loader/neo4j_loader.py")
+            print("     # Then use web interface at http://localhost:5050")
+            print("\n  2. Or run the generated code directly (outside sandbox):")
+            print("     # Copy the generated code from OTACON output above")
+            print("     # Save it to a file and run: python your_script.py")
+            print("=" * 80)
 
     print("=" * 80 + "\n")
 

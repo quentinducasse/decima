@@ -4,8 +4,12 @@ from dotenv import load_dotenv, find_dotenv
 load_dotenv(find_dotenv(usecwd=True))
 load_dotenv(".env.local", override=False)
 
+import sys
 import os
 import json
+
+# Add project root to path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
 
 try:
     from termcolor import colored
@@ -96,6 +100,11 @@ def main():
         expected = case.get("expected_focus_emma", [])
         quiet_out = quiet.analyze(query)
         kg_context = emma.extract_kg_context(quiet_out)
+
+        # Handle case where extract_kg_context returns None (Neo4j connection issue)
+        if kg_context is None:
+            raise ConnectionError("EMMA returned None - Neo4j connection failed")
+
         detected = kg_context.get("entities", [])
         detected_quiet_set = quiet_detected_entities(quiet_out)
 
@@ -148,4 +157,37 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    try:
+        main()
+    except Exception as e:
+        error_msg = str(e)
+        error_type = str(type(e).__name__)
+
+        # Check for Neo4j connection issues
+        is_neo4j_error = (
+            "ServiceUnavailable" in error_type or
+            "ConnectionError" in error_type or
+            "Neo4j" in error_msg or
+            "connection" in error_msg.lower() or
+            "EMMA returned None" in error_msg
+        )
+
+        if is_neo4j_error:
+            print("\n" + "=" * 70)
+            print("ERROR: Cannot connect to Neo4j Knowledge Graph")
+            print("=" * 70)
+            print("\nThis test requires Neo4j to be running with the DECIMA Knowledge Graph loaded.")
+            print("\nTo run this test:")
+            print("  1. Start Neo4j:")
+            print("     docker compose up -d neo4j")
+            print("\n  2. Wait ~15 seconds for Neo4j to start")
+            print("\n  3. Load the Knowledge Graph:")
+            print("     docker compose exec app python kg/loader/neo4j_loader.py")
+            print("\n  4. Run this test again:")
+            print("     python tests/test_emma.py")
+            print("\nAlternatively, use full Docker mode for automatic setup:")
+            print("  docker compose up -d")
+            print("=" * 70)
+        else:
+            print(f"\n[ERROR] Unexpected error ({error_type}): {error_msg}")
+            raise

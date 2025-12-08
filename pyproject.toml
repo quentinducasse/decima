@@ -81,7 +81,6 @@ dependencies = [
 
 [project.optional-dependencies]
 dev = [
-    "pytest>=8.3.5",
     "pre-commit>=4.2.0",
 ]
 
@@ -101,9 +100,5 @@ decima = "."
 "decima.tools" = "tools"
 "decima.utils" = "utils"
 
-[tool.pytest.ini_options]
-testpaths = ["tests"]
-python_files = "test_*.py"
-python_classes = "Test*"
-python_functions = "test_*"
-addopts = "-v --tb=short"
+# Note: tests/ contains evaluation scripts, not pytest tests
+# Run them directly: python tests/test_quiet.py
