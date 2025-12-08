@@ -134,8 +134,8 @@ To use DECIMA's full capabilities, you need an **OpenAI API key**:
 - **Event Filtering:** Source (SRC), Collision (COL), Bank (BNK), Surface (SUR), Termination (TER)
 - **Particle Data:** Position (X,Y,Z), Energy, Time, Direction (U,V,W), Weight
 - **Particle Types:** Neutrons, photons, electrons, and more
-- **Visualizations:** Histograms, scatter plots, energy distributions, spatial plots
-- **Statistics:** Counts, averages, filtering, event correlations
+- **Visualizations:** Histograms or print results
+- **Statistics:** Counts, averages
 - **Advanced:** Cell tracking, surface crossings, termination analysis
 
 ### Example Queries
@@ -150,24 +150,12 @@ Show the first 10 source particles with their positions and energies
 Plot the energy distribution of collision events
 ```
 
-**Complex Analysis:**
-```
-Print x y z positions and energies of all particles entering the Water moderator (cell 502)
-```
-
-**Statistical:**
-```
-How many neutrons were terminated by capture vs escape?
-```
-
 ---
 
 ## 📂 Project Structure
 
 ```
 decima/
-├── decima/                    # Python package (NEW)
-│   └── __init__.py           # Main DECIMA class for programmatic use
 ├── modules/                   # Core agents
 │   ├── quiet.py              # Query interpretation
 │   ├── emma.py               # Knowledge Graph manager
@@ -178,13 +166,17 @@ decima/
 │   ├── triplets/             # MCNP domain knowledge (RDF)
 │   └── loader/               # Neo4j loader
 ├── frontend/                  # Web interface (Flask)
-├── examples/                  # Usage examples (NEW)
-│   ├── basic_usage.py        # Programmatic API example
-│   └── README.md             # Examples documentation
+├── examples/                  # Usage examples
+│   ├── demo_mode_standalone.py    # Standalone demo
+│   ├── full_api_mode.py           # Full API with Neo4j
+│   ├── test_mcnptools_direct.py   # Test mcnptools compilation
+│   └── README.md                  # Examples documentation
 ├── data/                      # Sample PTRAC files
-├── tests/                     # Unit tests
+├── mcnptools/                 # MCNPTools library (compiled during install)
 ├── doc/                       # Documentation
-├── pyproject.toml            # Python package config (NEW)
+├── pyproject.toml            # Python package configuration
+├── setup.py                  # Installation script
+├── install_dev.py            # Development installation script
 ├── docker-compose.yml        # Docker deployment
 ├── app.py                    # Web app entry point
 └── README.md                 # This file
@@ -300,20 +292,43 @@ Test DECIMA without an OpenAI API key:
 
 ## 🧑‍💻 Development
 
-### Running Tests
+### Testing
 
+DECIMA includes evaluation scripts in the `tests/` directory.
+
+**Python Package Mode (Method 1):**
 ```bash
-# Install dev dependencies
-pip install -e ".[dev]"
-
-# Run tests
-pytest tests/
-
-# Specific test modules
-pytest tests/test_quiet.py
-pytest tests/test_emma.py
-pytest tests/test_otacon_api.py
+# Test individual components (locally)
+python tests/test_quiet.py       # Query interpretation - Works ✓
+python tests/test_eva.py         # Code execution sandbox - Works ✓
+python tests/test_emma.py        # Knowledge Graph (requires Neo4j)
+python tests/test_otacon_api.py  # LLM code generation (requires API key)
+python tests/test_campbell_workflow.py  # Full workflow - mcnptools unavailable
 ```
+
+**Important Limitations:**
+- `test_campbell_workflow.py` will complete successfully (all agents work) but execution will fail with `ModuleNotFoundError: No module named 'mcnptools'`
+- This is **expected behavior** - mcnptools is not available in the EVA sandbox environment when running locally
+- The workflow itself works correctly (QUIET, EMMA, OTACON, EVA all complete), but the generated code cannot execute
+- Each test provides clear error messages with setup instructions
+
+**Docker Mode (Method 2) - RECOMMENDED:**
+```bash
+# Run tests inside Docker container with full functionality
+docker compose exec app python tests/test_quiet.py
+docker compose exec app python tests/test_eva.py
+docker compose exec app python tests/test_emma.py        # Requires Neo4j + KG loaded
+docker compose exec app python tests/test_otacon_api.py  # Requires API key configured
+docker compose exec app python tests/test_campbell_workflow.py  # Full execution with mcnptools ✓
+```
+
+**Why Docker mode is better for testing:**
+- All tests work automatically once services are running (`docker compose up -d` + Knowledge Graph loaded)
+- Code execution works fully because mcnptools is available in the Docker container
+- Neo4j and all dependencies are pre-configured
+- Use the web interface at http://localhost:5050 for interactive testing with results
+
+**Recommendation:** For full testing with code execution, use Docker mode with all services running.
 
 ### Contributing
 
@@ -337,7 +352,7 @@ If you use DECIMA in your research, please cite:
   author = {Ducasse, Quentin and Almuhisen, Feda},
   year = {2025},
   url = {https://github.com/quentinducasse/decima},
-  version = {1.2.0},
+  version = {1.3.0},
   license = {Apache-2.0}
 }
 ```
@@ -397,12 +412,13 @@ This project is licensed under the **Apache License 2.0** - see the [LICENSE](LI
 
 ## 🗺️ Roadmap
 
-### Current Version (1.2.0)
+### Current Version (1.3.0)
 - ✅ Web interface with Flask
-- ✅ Python package API
+- ✅ Python package with automatic mcnptools compilation
 - ✅ Knowledge Graph integration
 - ✅ Docker deployment
 - ✅ Demo mode
+- ✅ Improved documentation and examples
 
 ### Future Plans
 - 🔄 Support for additional LLM providers (Anthropic, local models)

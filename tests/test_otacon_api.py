@@ -3,7 +3,12 @@
 from dotenv import load_dotenv
 load_dotenv()  # Automatically load variables from .env into environment
 
+import sys
 import os
+
+# Add project root to path
+sys.path.append(os.path.abspath(os.path.join(os.path.dirname(__file__), "..")))
+
 from modules.otacon import OTACON
 
 # --- Early check before running anything ---
@@ -35,7 +40,18 @@ def test_otacon_api_key():
         print("\n[SUCCESS] API key and LLM access confirmed.\n")
         return True
     except Exception as e:
-        print(f"[FAIL] Error during OpenAI call: {e}")
+        error_msg = str(e)
+        print(f"\n[FAIL] Error during OpenAI call: {error_msg}")
+
+        # Provide helpful guidance based on error type
+        if "api_key" in error_msg.lower() or "authentication" in error_msg.lower():
+            print("\nTIP: Check that your OPENAI_API_KEY is valid and has credits.")
+            print("     You can check your API key at: https://platform.openai.com/api-keys")
+        elif "rate_limit" in error_msg.lower():
+            print("\nTIP: You've hit the OpenAI rate limit. Wait a moment and try again.")
+        elif "connection" in error_msg.lower() or "timeout" in error_msg.lower():
+            print("\nTIP: Check your internet connection.")
+
         return False
 
 
