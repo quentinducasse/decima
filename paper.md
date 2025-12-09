@@ -69,9 +69,9 @@ The package currently requires Docker for running Neo4j (Knowledge Graph storage
 
 ## Modular Components
 
-DECIMA employs a modular design where each component handles a specific part of the analysis workflow. The components are named after Metal Gear Solid characters for memorability and to reflect their specialized roles.
+DECIMA employs a modular design where each component handles a specific part of the analysis workflow.
 
-The process begins with **QUIET** (QUery Interpreter for Entity Targeting), which performs language detection (English or French), keyword extraction, and entity identification. It recognizes MCNP-specific entities such as event types (`SRC`, `COL`, `TER`), particle types, data fields (`ENERGY`, `W`), and MCNPTools classes or methods.
+The process begins with **QUIET** (QUery Interpreter for Entity Targeting), which performs language detection (English or French), keyword extraction, and entity identification. It recognizes MCNP-specific entities such as event types (source: `SRC`, collision: `COL`, termination: `TER`), particle types, data fields (`ENERGY`, `W`), and MCNPTools classes or methods.
 
 **EMMA** (Engine for Metadata Mapping & Analysis) enriches the query using a Neo4j knowledge graph constructed from the MCNPTools codebase through automated static code analysis. This graph contains structured information about classes (`Ptrac`, `History`, `Event`), methods (`ReadHistories`, `GetEvent`), enumerations, and internal data structures. EMMA retrieves relevant entities using Cypher queries [@Cypher2018]. In addition to graph entities, DECIMA provides the LLM with explicit code structure documentation, working usage examples, and strict coding rules that ensure generated code adheres to MCNPTools conventions and best practices.
 
@@ -106,34 +106,17 @@ The source is placed at the origin (0,0,0) inside the HEU fuel (cell 501). It em
 
 ### Step 1: Installation
 
-DECIMA can be installed as a Python package. First, configure the environment:
+DECIMA is distributed as a Python package with automated installation:
 
 ```bash
 git clone https://github.com/quentinducasse/decima.git
 cd decima
-cp .env.docker.example .env.docker
-# Edit .env.docker to add your OpenAI API key
-```
-
-Then install DECIMA and compile mcnptools:
-
-```bash
-python install_dev.py  # Automatically compiles mcnptools C++ extension
-```
-
-Docker services are required for Neo4j (mcnptools is compiled locally):
-
-```bash
+python install_dev.py
 docker compose up -d
-```
-
-The Knowledge Graph must be loaded once into Neo4j:
-
-```bash
 docker compose exec app python kg/loader/neo4j_loader.py
 ```
 
-This process extracts entities from the MCNPTools codebase and populates Neo4j with structured triplets. The graph persists in the Neo4j database and doesn't need to be reloaded unless the MCNPTools schema changes.
+The installation script compiles the mcnptools C++ extension locally, Docker provides Neo4j for Knowledge Graph storage, and the loader script populates the graph with entities extracted from the MCNPTools codebase. Detailed installation instructions and system requirements are available in the repository documentation.
 
 ---
 
@@ -184,7 +167,7 @@ from mcnptools import Ptrac
 import matplotlib.pyplot as plt
 
 ptrac_path = '<PTRAC_PATH_PLACEHOLDER>'
-p = Ptrac(ptrac_path, Ptrac.BIN_PTRAC)
+p = Ptrac(ptrac_path, Ptrac.ASC_PTRAC)
 
 w_values = []
 energies = []
@@ -216,7 +199,7 @@ plt.show()
 print(f'Average Energy of Emitted Source Particles: {average_energy:.2f} MeV')
 ```
 
-This code demonstrates correct MCNPTools API usage: opening the PTRAC file with the appropriate format flag (`Ptrac.BIN_PTRAC`), reading histories in batches to manage memory efficiently, iterating over events, verifying event types and available data fields, and extracting relevant values. The generated code follows best practices for PTRAC file processing while maintaining readability.
+This code demonstrates correct MCNPTools API usage: opening the PTRAC file with the appropriate format flag (`Ptrac.ASC_PTRAC`), reading histories in batches to manage memory efficiently, iterating over events, verifying event types and available data fields, and extracting relevant values. The generated code follows best practices for PTRAC file processing while maintaining readability.
 
 ---
 
@@ -233,7 +216,7 @@ For this case, DECIMA reports:
 Average Energy of Emitted Source Particles: 4.06 MeV
 ```
 
-The histogram exhibits the expected distribution for an anisotropic source, with variations in the z-axis direction cosine reflecting the angular emission characteristics of the Cf-252 source.
+The histogram exhibits the expected distribution for the source, with variations in the z-axis direction cosine reflecting the angular emission.
 
 This example demonstrates DECIMA's ability to translate natural language queries into correct MCNPTools code using Knowledge Graph guidance, execute the analysis in a secure environment, and return interpretable results in a reproducible manner.
 
