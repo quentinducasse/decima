@@ -9,8 +9,8 @@ Usage:
     python install_dev.py
 
 What it does:
-    1. Compiles mcnptools C++ extension with CMake
-    2. Copies HDF5 DLLs (Windows only)
+    1. Compiles mcnptools C++ extension with CMake (supports ASCII PTRAC files)
+    2. Copies HDF5 DLLs if available (Windows only, optional - for HDF5 PTRAC support)
     3. Installs DECIMA in editable mode (pip install -e .)
 """
 
@@ -42,7 +42,7 @@ def main():
     print("This will:")
     print("  1. Install build dependencies (setuptools, wheel)")
     print("  2. Compile mcnptools C++ extension (takes a few minutes)")
-    print("  3. Copy HDF5 DLLs to mcnptools package (Windows)")
+    print("  3. Copy HDF5 DLLs if available (Windows, optional)")
     print("  4. Install DECIMA in editable mode")
     print()
 
