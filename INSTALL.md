@@ -83,9 +83,10 @@ DEMO_MODE=false                          # false = use API, true = fixed code ex
   - Windows: Visual Studio 2022 (Community Edition)
   - Linux: GCC/G++
   - macOS: Xcode Command Line Tools
-- **HDF5** (Windows): Download from https://www.hdfgroup.org/downloads/hdf5/
-  - Required for mcnptools compilation
-  - DLLs are automatically copied to mcnptools package during installation
+- **HDF5** (Optional): Only needed for HDF5-format PTRAC files
+  - DECIMA works with ASCII PTRAC files without HDF5
+  - If you see "HDF5 not found" warning during installation, it's normal and won't affect DECIMA
+  - Windows: Download from https://www.hdfgroup.org/downloads/hdf5/ if needed
 
 ### Installation Steps
 
@@ -106,9 +107,11 @@ python install_dev.py
 ```
 
 This automatically:
-1. Compiles mcnptools C++ extension
-2. Copies HDF5 DLLs (Windows)
+1. Compiles mcnptools C++ extension (supports ASCII PTRAC files)
+2. Copies HDF5 DLLs if available (Windows, optional - for HDF5 PTRAC support)
 3. Installs DECIMA in editable mode
+
+**Note:** You may see a warning "HDF5 libraries not found" during compilation. This is normal and won't affect DECIMA functionality if you work with ASCII PTRAC files (the default format). HDF5 support is only needed for reading/writing HDF5-format PTRAC files.
 
 ### Verify Installation
 
