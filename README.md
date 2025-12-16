@@ -14,6 +14,8 @@
 
 DECIMA transforms how nuclear engineers and researchers interact with MCNP simulation data. Instead of writing complex analysis scripts, simply ask questions in natural language:
 
+**Built on MCNPTools:** DECIMA is built on top of [MCNPTools](https://github.com/lanl/mcnptools), the reference C++/Python library developed by Los Alamos National Laboratory for parsing MCNP output files. We are deeply grateful to the MCNPTools development team at LANL for their foundational work, which makes this project possible.
+
 **"Display collision positions and energies deposited for the first 20 particle histories"**
 **"Plot the z-axis direction cosine (W) distribution of emitted source particles"**
 **"How many secondary photons are emitted and what is their process of termination?"**
@@ -171,14 +173,19 @@ decima/
 │   ├── full_api_mode.py           # Full API with Neo4j
 │   ├── test_mcnptools_direct.py   # Test mcnptools compilation
 │   └── README.md                  # Examples documentation
+├── tests/                     # Test suite
 ├── data/                      # Sample PTRAC files
 ├── mcnptools/                 # MCNPTools library (compiled during install)
 ├── doc/                       # Documentation
+│   └── architecture_decima.md     # Architecture details
 ├── pyproject.toml            # Python package configuration
 ├── setup.py                  # Installation script
 ├── install_dev.py            # Development installation script
 ├── docker-compose.yml        # Docker deployment
 ├── app.py                    # Web app entry point
+├── INSTALL.md                # Installation guide
+├── paper.md                  # Research paper (JOSS submission)
+├── CONTRIBUTING.md           # Contribution guidelines
 └── README.md                 # This file
 ```
 
@@ -271,6 +278,7 @@ Test DECIMA without an OpenAI API key:
 - **RestrictedPython** (Secure code execution)
 
 ### Key Libraries
+- `mcnptools` - MCNP output file parsing (PTRAC, MCTAL, MESHTAL)
 - `openai` - LLM interaction
 - `neo4j` - Graph database driver
 - `langchain-core` - Agent framework
@@ -305,12 +313,6 @@ python tests/test_emma.py        # Knowledge Graph (requires Neo4j)
 python tests/test_otacon_api.py  # LLM code generation (requires API key)
 python tests/test_campbell_workflow.py  # Full workflow - mcnptools unavailable
 ```
-
-**Important Limitations:**
-- `test_campbell_workflow.py` will complete successfully (all agents work) but execution will fail with `ModuleNotFoundError: No module named 'mcnptools'`
-- This is **expected behavior** - mcnptools is not available in the EVA sandbox environment when running locally
-- The workflow itself works correctly (QUIET, EMMA, OTACON, EVA all complete), but the generated code cannot execute
-- Each test provides clear error messages with setup instructions
 
 **Docker Mode (Method 2) - RECOMMENDED:**
 ```bash
@@ -354,7 +356,7 @@ If you use DECIMA in your research, please cite:
   author = {Ducasse, Quentin and Almuhisen, Feda},
   year = {2025},
   url = {https://github.com/quentinducasse/decima},
-  version = {1.3.0},
+  version = {1.3.1},
   license = {Apache-2.0}
 }
 ```
@@ -436,7 +438,7 @@ This project is licensed under the **Apache License 2.0** - see the [LICENSE](LI
 
 ## 🗺️ Roadmap
 
-### Current Version (1.3.0)
+### Current Version (1.3.1)
 - ✅ Web interface with Flask
 - ✅ Python package with automatic mcnptools compilation
 - ✅ Knowledge Graph integration
