@@ -7,7 +7,7 @@
 [![License](https://img.shields.io/badge/License-Apache_2.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)
 [![Python](https://img.shields.io/badge/python-3.10+-blue.svg)](https://www.python.org/downloads/)
 [![Docker](https://img.shields.io/badge/docker-ready-brightgreen.svg)](https://www.docker.com/)
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17953847.svg)](https://doi.org/10.5281/zenodo.17953847)
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.17953846.svg)](https://doi.org/10.5281/zenodo.17953846)
 
 ---
 
@@ -357,8 +357,8 @@ If you use DECIMA in your research, please cite:
   author = {Ducasse, Quentin and Almuhisen, Feda},
   year = {2025},
   url = {https://github.com/quentinducasse/decima},
-  doi = {10.5281/zenodo.17953847},
-  version = {1.3.1},
+  doi = {10.5281/zenodo.17953846},
+  version = {1.3.2},
   license = {Apache-2.0}
 }
 ```
@@ -370,19 +370,19 @@ For academic papers and publications, use the following citation format:
 **IEEE Style:**
 ```
 Q. Ducasse and F. Almuhisen, "DECIMA: Data Extraction & Contextual Inference for MCNP Analysis,"
-Version 1.3.1, 2025. [Online]. Available: https://github.com/quentinducasse/decima. doi: 10.5281/zenodo.17953847
+Version 1.3.2, 2025. [Online]. Available: https://github.com/quentinducasse/decima. doi: 10.5281/zenodo.17953846
 ```
 
 **APA Style:**
 ```
 Ducasse, Q., & Almuhisen, F. (2025). DECIMA: Data Extraction & Contextual Inference for MCNP Analysis
-(Version 1.3.1) [Computer software]. https://github.com/quentinducasse/decima. https://doi.org/10.5281/zenodo.17953847
+(Version 1.3.2) [Computer software]. https://github.com/quentinducasse/decima. https://doi.org/10.5281/zenodo.17953846
 ```
 
 **Nature Style:**
 ```
 Ducasse, Q. & Almuhisen, F. DECIMA: Data Extraction & Contextual Inference for MCNP Analysis.
-https://github.com/quentinducasse/decima (2025). https://doi.org/10.5281/zenodo.17953847
+https://github.com/quentinducasse/decima (2025). https://doi.org/10.5281/zenodo.17953846
 ```
 
 ---
@@ -439,7 +439,7 @@ This project is licensed under the **Apache License 2.0** - see the [LICENSE](LI
 
 ## 🗺️ Roadmap
 
-### Current Version (1.3.1)
+### Current Version 
 - ✅ Web interface with Flask
 - ✅ Python package with automatic mcnptools compilation
 - ✅ Knowledge Graph integration

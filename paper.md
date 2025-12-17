@@ -1,5 +1,5 @@
 ---
-title: 'DECIMA: Data Extraction & Contextual Inference for MCNP Analysis'
+title: 'DECIMA: first open-source knowledge-graph and LLM-based framework for MCNP PTRAC file analysis'
 tags:
   - nuclear simulation
   - Monte Carlo
@@ -27,7 +27,8 @@ bibliography: paper.bib
 
 # Summary
 
-DECIMA (Data Extraction & Contextual Inference for MCNP Analysis) is an open-source Python framework designed to make analyzing Monte Carlo N-Particle (MCNP) outputs more accessible to researchers and engineers. The tool integrates MCNPTools for parsing PTRAC files, a Neo4j knowledge graph containing MCNP domain knowledge extracted from the MCNPTools codebase, and Large Language Models (LLMs), allowing users to query their simulation results in natural language (English or French).
+DECIMA (Data Extraction & Contextual Inference for MCNP Analysis) is an open-source Python framework designed to make analyzing Monte Carlo N-Particle (MCNP) outputs more accessible to researchers and engineers. The tool integrates MCNPTools for parsing PTRAC files, a Neo4j knowledge graph encoding MCNP domain knowledge extracted from the MCNPTools codebase and complemented by official MCNP and MCNPTools documentation, and Large Language Models (LLMs), allowing users to query their simulation results in natural language (English or French).
+
 
 At its core, DECIMA provides a Python API through the `CampbellOrchestrator` class that can be integrated into scripts, Jupyter notebooks, or automated analysis pipelines. Users describe their analysis goals in natural language, and DECIMA translates these requests into executable Python code using the `mcnptools` library, executes the code in a secure sandbox environment, and returns both results and natural language explanations. The modular architecture ensures that each component remains transparent and extensible. The project is distributed under the Apache License 2.0.
 
@@ -73,7 +74,7 @@ DECIMA employs a modular design where each component handles a specific part of 
 
 The process begins with **QUIET** (QUery Interpreter for Entity Targeting), which performs language detection (English or French), keyword extraction, and entity identification. It recognizes MCNP-specific entities such as event types (source: `SRC`, collision: `COL`, termination: `TER`), particle types, data fields (`ENERGY`, `W`), and MCNPTools classes or methods.
 
-**EMMA** (Engine for Metadata Mapping & Analysis) enriches the query using a Neo4j knowledge graph constructed from the MCNPTools codebase through automated static code analysis. This graph contains structured information about classes (`Ptrac`, `History`, `Event`), methods (`ReadHistories`, `GetEvent`), enumerations, and internal data structures. EMMA retrieves relevant entities using Cypher queries [@Cypher2018]. In addition to graph entities, DECIMA provides the LLM with explicit code structure documentation, working usage examples, and strict coding rules that ensure generated code adheres to MCNPTools conventions and best practices.
+**EMMA** (Engine for Metadata Mapping & Analysis) enriches the query using a Neo4j-based knowledge graph encoding MCNP domain knowledge extracted from the MCNPTools codebase, complemented by official MCNP and MCNPTools documentation describing PTRAC event types, data fields, and nuclear reaction semantics. This graph contains structured information about classes (`Ptrac`, `History`, `Event`), methods (`ReadHistories`, `GetEvent`), enumerations, and internal data structures. EMMA retrieves relevant entities using Cypher queries [@Cypher2018]. In addition to graph entities, DECIMA provides the LLM with explicit code structure documentation, working usage examples, and strict coding rules that ensure generated code adheres to MCNPTools conventions and best practices.
 
 **OTACON** (Operator for Assisted Communication & Output Navigation) serves as the reasoning engine. It processes the enriched context from EMMA and employs a Large Language Model—GPT-4o-mini by default, with GPT-4o available for more complex analyses—to generate both natural language explanations and executable Python code. OTACON constructs detailed prompts that include the user query, relevant Knowledge Graph entities, code structure guidelines, and working examples.
 

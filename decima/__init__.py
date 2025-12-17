@@ -24,7 +24,7 @@ Basic usage:
 For more examples, see the examples/ directory.
 """
 
-__version__ = "1.2.0"
+__version__ = "1.3.2"
 __author__ = "Quentin Ducasse, Feda Almuhisen"
 __license__ = "Apache-2.0"
 
