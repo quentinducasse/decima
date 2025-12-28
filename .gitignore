@@ -127,3 +127,15 @@ paperToDo.md
 README_old_backup.md
 INSTALL_docker.md
 paper2.md
+
+# JORS paper submission files (local only)
+paper_jors.md
+paper_jors.pdf
+JORS_SUBMISSION_CHECKLIST.md
+FIGURES_SUMMARY.md
+
+# Generated comparison images (local only)
+comparison_mctal_ptrac.png
+difference_mctal_ptrac.png
+energy_resolution_analysis.png
+exemple_article_JORS.pdf
