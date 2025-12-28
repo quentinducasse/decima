@@ -1,0 +1,84 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup>
+    <ClCompile Include="C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\python\mcnptools_wrap.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\dependencies\shacl-F5_CXX\src\shacl\f5.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\dependencies\shacl-F5_CXX\src\shacl\f5\hdf5_nowarnings.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\dependencies\shacl-F5_CXX\src\shacl\f5\H5Attribute.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\dependencies\shacl-F5_CXX\src\shacl\f5\H5Dataset.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\dependencies\shacl-F5_CXX\src\shacl\f5\H5Dataspace.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\dependencies\shacl-F5_CXX\src\shacl\f5\H5File.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\dependencies\shacl-F5_CXX\src\shacl\f5\H5Group.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\dependencies\shacl-F5_CXX\src\shacl\f5\H5Holders.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\dependencies\shacl-F5_CXX\src\shacl\f5\H5Properties.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\dependencies\shacl-F5_CXX\src\shacl\f5\H5Type.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\dependencies\shacl-F5_CXX\src\shacl\f5\H5Utilities.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\dependencies\shacl-F5_CXX\src\shacl\f5\StringSupport.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\dependencies\shacl-F5_CXX\src\shacl\f5\H5Dataset\DatasetBuilder.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\dependencies\shacl-F5_CXX\src\shacl\f5\H5Dataset\DatasetOpen.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\dependencies\shacl-F5_CXX\src\shacl\f5\H5Dataset\DatasetRead.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\dependencies\shacl-F5_CXX\src\shacl\f5\H5Dataset\DatasetType.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\dependencies\shacl-F5_CXX\src\shacl\f5\H5Dataset\DatasetWrite.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\dependencies\shacl-F5_CXX\src\shacl\f5\H5Dataset\Properties.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\dependencies\shacl-F5_CXX\src\shacl\f5\H5Type\CompoundTypeBuilder.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\dependencies\shacl-F5_CXX\src\shacl\f5\H5Type\Type.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\dependencies\shacl-F5_CXX\src\shacl\f5\H5Type\TypeSupport.hpp">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\python\CMakeLists.txt" />
+  </ItemGroup>
+  <ItemGroup>
+    <Filter Include="Header Files">
+      <UniqueIdentifier>{9F4639C0-D458-3462-AA7C-C3447C96C7A9}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files">
+      <UniqueIdentifier>{525DAD00-6A82-373E-B0DC-A63A4930A329}</UniqueIdentifier>
+    </Filter>
+  </ItemGroup>
+</Project>

@@ -1,0 +1,47 @@
+Metadata-Version: 2.4
+Name: mcnptoolspro
+Version: 5.3.1
+Summary: Enhanced MCNP PTRAC parser with full filter support (6/6 filters)
+Home-page: https://github.com/quentinducasse/mcnptoolspro
+Author: Quentin Ducasse (based on LANL mcnptools)
+Author-email: quentin.ducasse@gmail.com
+Project-URL: Bug Tracker, https://github.com/quentinducasse/mcnptoolspro/issues
+Project-URL: Documentation, https://github.com/quentinducasse/mcnptoolspro#readme
+Project-URL: Source Code, https://github.com/quentinducasse/mcnptoolspro
+Keywords: mcnp ptrac particle-transport nuclear-physics monte-carlo
+Classifier: Development Status :: 4 - Beta
+Classifier: Intended Audience :: Science/Research
+Classifier: Topic :: Scientific/Engineering :: Physics
+Classifier: License :: OSI Approved :: BSD License
+Classifier: Programming Language :: Python :: 3
+Classifier: Programming Language :: Python :: 3.7
+Classifier: Programming Language :: Python :: 3.8
+Classifier: Programming Language :: Python :: 3.9
+Classifier: Programming Language :: Python :: 3.10
+Classifier: Programming Language :: Python :: 3.11
+Classifier: Programming Language :: C++
+Classifier: Operating System :: OS Independent
+Requires-Python: >=3.7
+Description-Content-Type: text/markdown
+Provides-Extra: dev
+Requires-Dist: pytest>=6.0; extra == "dev"
+Requires-Dist: pytest-cov; extra == "dev"
+Requires-Dist: black; extra == "dev"
+Requires-Dist: flake8; extra == "dev"
+Provides-Extra: build
+Requires-Dist: cmake>=3.13; extra == "build"
+Requires-Dist: build; extra == "build"
+Requires-Dist: twine; extra == "build"
+Dynamic: author
+Dynamic: author-email
+Dynamic: classifier
+Dynamic: description
+Dynamic: description-content-type
+Dynamic: home-page
+Dynamic: keywords
+Dynamic: project-url
+Dynamic: provides-extra
+Dynamic: requires-python
+Dynamic: summary
+
+Enhanced MCNP PTRAC parser with full filter support

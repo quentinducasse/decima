@@ -1,0 +1,13 @@
+{
+  "permissions": {
+    "allow": [
+      "Bash(./venv/Scripts/python.exe setup.py:*)",
+      "Bash(cat:*)",
+      "Bash(ls:*)",
+      "Bash(wc:*)",
+      "Bash(grep:*)",
+      "Bash(python:*)",
+      "Bash(.\\\\venv\\\\Scripts\\\\python.exe:*)"
+    ]
+  }
+}

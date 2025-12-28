@@ -1,0 +1,10 @@
+^C:\USERS\QDUCA\ONEDRIVE\APPLICATIONS\DECIMA_V2\MCNPTOOLSPRO\BUILD\CMAKEFILES\A519DFFAE0F035FB5A846AB282895A2F\GENERATE.STAMP.RULE
+setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/qduca/OneDrive/Applications/DECIMA_v2/mcnptoolspro -BC:/Users/qduca/OneDrive/Applications/DECIMA_v2/mcnptoolspro/build --check-stamp-list CMakeFiles/generate.stamp.list --vs-solution-file C:/Users/qduca/OneDrive/Applications/DECIMA_v2/mcnptoolspro/build/mcnptools.sln
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

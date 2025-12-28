@@ -15,7 +15,7 @@
 
 DECIMA transforms how nuclear engineers and researchers interact with MCNP simulation data. Instead of writing complex analysis scripts, simply ask questions in natural language:
 
-**Built on MCNPToolsPro:** DECIMA uses [MCNPToolsPro](mcnptoolspro/), an enhanced fork of [MCNPTools](https://github.com/lanl/mcnptools) by Los Alamos National Laboratory. We extend our deepest gratitude to LANL's MCNPTools team for their foundational C++/Python library.
+**Built on MCNPToolsPro:** DECIMA uses [MCNPToolsPro](https://github.com/quentinducasse/mcnptoolspro), an enhanced fork of [MCNPTools](https://github.com/lanl/mcnptools) by Los Alamos National Laboratory. We extend our deepest gratitude to LANL's MCNPTools team for their foundational C++/Python library.
 
 **Key Enhancements:**
 - ✅ **MCNP 6.2/6.3 Filter Support**: Complete support for PTRAC filters (`tally=`, `filter=`, `event=`, `type=`) and combinations

@@ -1,0 +1,11 @@
+
+[build]
+cmake>=3.13
+build
+twine
+
+[dev]
+pytest>=6.0
+pytest-cov
+black
+flake8

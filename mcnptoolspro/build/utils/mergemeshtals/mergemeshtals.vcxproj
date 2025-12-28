@@ -1,0 +1,378 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="17.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <PreferredToolArchitecture>x64</PreferredToolArchitecture>
+  </PropertyGroup>
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|x64">
+      <Configuration>Debug</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|x64">
+      <Configuration>Release</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|x64">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|x64">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>x64</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{0A13FA88-A394-31EE-A7EC-649364E3FA8D}</ProjectGuid>
+    <Keyword>Win32Proj</Keyword>
+    <WindowsTargetPlatformVersion>10.0.22000.0</WindowsTargetPlatformVersion>
+    <Platform>x64</Platform>
+    <ProjectName>mergemeshtals</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'" Label="Configuration">
+    <ConfigurationType>Application</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v143</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\build\utils\mergemeshtals\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">mergemeshtals.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">mergemeshtals</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\build\utils\mergemeshtals\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|x64'">mergemeshtals.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|x64'">mergemeshtals</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='Release|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\build\utils\mergemeshtals\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">mergemeshtals.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">mergemeshtals</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">true</GenerateManifest>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\build\utils\mergemeshtals\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">mergemeshtals.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">mergemeshtals</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">.exe</TargetExt>
+    <LinkIncremental Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</LinkIncremental>
+    <GenerateManifest Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">true</GenerateManifest>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\utils\cyclops-0.1.5\include;C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\build\libmcnptools\include;C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\libmcnptools\include;C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\boost;C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\dependencies\shacl-F5_CXX\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/Program Files/HDF_Group/HDF5/1.14.6/include"</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <ConformanceMode>true</ConformanceMode>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;BOOST_ALL_NO_LIB;H5_BUILT_AS_DYNAMIC_LIB;CMAKE_INTDIR="Debug"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_DEBUG;_WINDOWS;BOOST_ALL_NO_LIB;H5_BUILT_AS_DYNAMIC_LIB;CMAKE_INTDIR=\"Debug\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\utils\cyclops-0.1.5\include;C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\build\libmcnptools\include;C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\libmcnptools\include;C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\boost;C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\dependencies\shacl-F5_CXX\src;C:\Program Files\HDF_Group\HDF5\1.14.6\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\utils\cyclops-0.1.5\include;C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\build\libmcnptools\include;C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\libmcnptools\include;C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\boost;C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\dependencies\shacl-F5_CXX\src;C:\Program Files\HDF_Group\HDF5\1.14.6\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>..\..\libmcnptools\Debug\mcnptools.lib;..\..\boost\Debug\mcnptools_boost.lib;C:\Program Files\HDF_Group\HDF5\1.14.6\lib\hdf5.lib;shlwapi.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/qduca/OneDrive/Applications/DECIMA_v2/mcnptoolspro/build/utils/mergemeshtals/Debug/mergemeshtals.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/qduca/OneDrive/Applications/DECIMA_v2/mcnptoolspro/build/utils/mergemeshtals/Debug/mergemeshtals.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\utils\cyclops-0.1.5\include;C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\build\libmcnptools\include;C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\libmcnptools\include;C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\boost;C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\dependencies\shacl-F5_CXX\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/Program Files/HDF_Group/HDF5/1.14.6/include"</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <ConformanceMode>true</ConformanceMode>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;BOOST_ALL_NO_LIB;H5_BUILT_AS_DYNAMIC_LIB;CMAKE_INTDIR="Release"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;BOOST_ALL_NO_LIB;H5_BUILT_AS_DYNAMIC_LIB;CMAKE_INTDIR=\"Release\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\utils\cyclops-0.1.5\include;C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\build\libmcnptools\include;C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\libmcnptools\include;C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\boost;C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\dependencies\shacl-F5_CXX\src;C:\Program Files\HDF_Group\HDF5\1.14.6\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\utils\cyclops-0.1.5\include;C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\build\libmcnptools\include;C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\libmcnptools\include;C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\boost;C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\dependencies\shacl-F5_CXX\src;C:\Program Files\HDF_Group\HDF5\1.14.6\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>..\..\libmcnptools\Release\mcnptools.lib;..\..\boost\Release\mcnptools_boost.lib;C:\Program Files\HDF_Group\HDF5\1.14.6\lib\hdf5.lib;shlwapi.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/qduca/OneDrive/Applications/DECIMA_v2/mcnptoolspro/build/utils/mergemeshtals/Release/mergemeshtals.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/qduca/OneDrive/Applications/DECIMA_v2/mcnptoolspro/build/utils/mergemeshtals/Release/mergemeshtals.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\utils\cyclops-0.1.5\include;C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\build\libmcnptools\include;C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\libmcnptools\include;C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\boost;C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\dependencies\shacl-F5_CXX\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/Program Files/HDF_Group/HDF5/1.14.6/include"</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <ConformanceMode>true</ConformanceMode>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;BOOST_ALL_NO_LIB;H5_BUILT_AS_DYNAMIC_LIB;CMAKE_INTDIR="MinSizeRel"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;BOOST_ALL_NO_LIB;H5_BUILT_AS_DYNAMIC_LIB;CMAKE_INTDIR=\"MinSizeRel\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\utils\cyclops-0.1.5\include;C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\build\libmcnptools\include;C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\libmcnptools\include;C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\boost;C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\dependencies\shacl-F5_CXX\src;C:\Program Files\HDF_Group\HDF5\1.14.6\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\utils\cyclops-0.1.5\include;C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\build\libmcnptools\include;C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\libmcnptools\include;C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\boost;C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\dependencies\shacl-F5_CXX\src;C:\Program Files\HDF_Group\HDF5\1.14.6\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>..\..\libmcnptools\MinSizeRel\mcnptools.lib;..\..\boost\MinSizeRel\mcnptools_boost.lib;C:\Program Files\HDF_Group\HDF5\1.14.6\lib\hdf5.lib;shlwapi.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>false</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/qduca/OneDrive/Applications/DECIMA_v2/mcnptoolspro/build/utils/mergemeshtals/MinSizeRel/mergemeshtals.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/qduca/OneDrive/Applications/DECIMA_v2/mcnptoolspro/build/utils/mergemeshtals/MinSizeRel/mergemeshtals.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\utils\cyclops-0.1.5\include;C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\build\libmcnptools\include;C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\libmcnptools\include;C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\boost;C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\dependencies\shacl-F5_CXX\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /external:I "C:/Program Files/HDF_Group/HDF5/1.14.6/include"</AdditionalOptions>
+      <AssemblerListingLocation>$(IntDir)</AssemblerListingLocation>
+      <BasicRuntimeChecks>Default</BasicRuntimeChecks>
+      <ConformanceMode>true</ConformanceMode>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <ExternalWarningLevel>TurnOffAllWarnings</ExternalWarningLevel>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <MinimalRebuild></MinimalRebuild>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <SupportJustMyCode></SupportJustMyCode>
+      <UseFullPaths>false</UseFullPaths>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;BOOST_ALL_NO_LIB;H5_BUILT_AS_DYNAMIC_LIB;CMAKE_INTDIR="RelWithDebInfo"</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <ScanSourceForModuleDependencies>false</ScanSourceForModuleDependencies>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>%(PreprocessorDefinitions);WIN32;_WINDOWS;NDEBUG;BOOST_ALL_NO_LIB;H5_BUILT_AS_DYNAMIC_LIB;CMAKE_INTDIR=\"RelWithDebInfo\"</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\utils\cyclops-0.1.5\include;C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\build\libmcnptools\include;C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\libmcnptools\include;C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\boost;C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\dependencies\shacl-F5_CXX\src;C:\Program Files\HDF_Group\HDF5\1.14.6\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\utils\cyclops-0.1.5\include;C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\build\libmcnptools\include;C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\libmcnptools\include;C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\boost;C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\dependencies\shacl-F5_CXX\src;C:\Program Files\HDF_Group\HDF5\1.14.6\include;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Link>
+      <AdditionalDependencies>..\..\libmcnptools\RelWithDebInfo\mcnptools.lib;..\..\boost\RelWithDebInfo\mcnptools_boost.lib;C:\Program Files\HDF_Group\HDF5\1.14.6\lib\hdf5.lib;shlwapi.lib;kernel32.lib;user32.lib;gdi32.lib;winspool.lib;shell32.lib;ole32.lib;oleaut32.lib;uuid.lib;comdlg32.lib;advapi32.lib</AdditionalDependencies>
+      <AdditionalLibraryDirectories>%(AdditionalLibraryDirectories)</AdditionalLibraryDirectories>
+      <AdditionalOptions>%(AdditionalOptions) /machine:x64</AdditionalOptions>
+      <GenerateDebugInformation>true</GenerateDebugInformation>
+      <IgnoreSpecificDefaultLibraries>%(IgnoreSpecificDefaultLibraries)</IgnoreSpecificDefaultLibraries>
+      <ImportLibrary>C:/Users/qduca/OneDrive/Applications/DECIMA_v2/mcnptoolspro/build/utils/mergemeshtals/RelWithDebInfo/mergemeshtals.lib</ImportLibrary>
+      <ProgramDataBaseFile>C:/Users/qduca/OneDrive/Applications/DECIMA_v2/mcnptoolspro/build/utils/mergemeshtals/RelWithDebInfo/mergemeshtals.pdb</ProgramDataBaseFile>
+      <SubSystem>Console</SubSystem>
+    </Link>
+    <ProjectReference>
+      <LinkLibraryDependencies>false</LinkLibraryDependencies>
+    </ProjectReference>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <CustomBuild Include="C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\utils\mergemeshtals\CMakeLists.txt">
+      <UseUtf8Encoding>Always</UseUtf8Encoding>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">Building Custom Rule C:/Users/qduca/OneDrive/Applications/DECIMA_v2/mcnptoolspro/utils/mergemeshtals/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/qduca/OneDrive/Applications/DECIMA_v2/mcnptoolspro -BC:/Users/qduca/OneDrive/Applications/DECIMA_v2/mcnptoolspro/build --check-stamp-file C:/Users/qduca/OneDrive/Applications/DECIMA_v2/mcnptoolspro/build/utils/mergemeshtals/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\build\utils\mergemeshtals\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Debug|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='Release|x64'">Building Custom Rule C:/Users/qduca/OneDrive/Applications/DECIMA_v2/mcnptoolspro/utils/mergemeshtals/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='Release|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/qduca/OneDrive/Applications/DECIMA_v2/mcnptoolspro -BC:/Users/qduca/OneDrive/Applications/DECIMA_v2/mcnptoolspro/build --check-stamp-file C:/Users/qduca/OneDrive/Applications/DECIMA_v2/mcnptoolspro/build/utils/mergemeshtals/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='Release|x64'">C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\build\utils\mergemeshtals\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='Release|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">Building Custom Rule C:/Users/qduca/OneDrive/Applications/DECIMA_v2/mcnptoolspro/utils/mergemeshtals/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/qduca/OneDrive/Applications/DECIMA_v2/mcnptoolspro -BC:/Users/qduca/OneDrive/Applications/DECIMA_v2/mcnptoolspro/build --check-stamp-file C:/Users/qduca/OneDrive/Applications/DECIMA_v2/mcnptoolspro/build/utils/mergemeshtals/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\build\utils\mergemeshtals\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|x64'">false</LinkObjects>
+      <Message Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">Building Custom Rule C:/Users/qduca/OneDrive/Applications/DECIMA_v2/mcnptoolspro/utils/mergemeshtals/CMakeLists.txt</Message>
+      <Command Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">setlocal
+"C:\Program Files\CMake\bin\cmake.exe" -SC:/Users/qduca/OneDrive/Applications/DECIMA_v2/mcnptoolspro -BC:/Users/qduca/OneDrive/Applications/DECIMA_v2/mcnptoolspro/build --check-stamp-file C:/Users/qduca/OneDrive/Applications/DECIMA_v2/mcnptoolspro/build/utils/mergemeshtals/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal &amp; call :cmErrorLevel %errorlevel% &amp; goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd</Command>
+      <AdditionalInputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">%(AdditionalInputs)</AdditionalInputs>
+      <Outputs Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\build\utils\mergemeshtals\CMakeFiles\generate.stamp</Outputs>
+      <LinkObjects Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|x64'">false</LinkObjects>
+    </CustomBuild>
+  </ItemGroup>
+  <ItemGroup>
+    <ClCompile Include="C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\utils\mergemeshtals\mergemeshtals.cpp" />
+    <ClInclude Include="C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\dependencies\shacl-F5_CXX\src\shacl\f5.hpp" />
+    <ClInclude Include="C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\dependencies\shacl-F5_CXX\src\shacl\f5\hdf5_nowarnings.hpp" />
+    <ClInclude Include="C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\dependencies\shacl-F5_CXX\src\shacl\f5\H5Attribute.hpp" />
+    <ClInclude Include="C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\dependencies\shacl-F5_CXX\src\shacl\f5\H5Dataset.hpp" />
+    <ClInclude Include="C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\dependencies\shacl-F5_CXX\src\shacl\f5\H5Dataspace.hpp" />
+    <ClInclude Include="C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\dependencies\shacl-F5_CXX\src\shacl\f5\H5File.hpp" />
+    <ClInclude Include="C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\dependencies\shacl-F5_CXX\src\shacl\f5\H5Group.hpp" />
+    <ClInclude Include="C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\dependencies\shacl-F5_CXX\src\shacl\f5\H5Holders.hpp" />
+    <ClInclude Include="C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\dependencies\shacl-F5_CXX\src\shacl\f5\H5Properties.hpp" />
+    <ClInclude Include="C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\dependencies\shacl-F5_CXX\src\shacl\f5\H5Type.hpp" />
+    <ClInclude Include="C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\dependencies\shacl-F5_CXX\src\shacl\f5\H5Utilities.hpp" />
+    <ClInclude Include="C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\dependencies\shacl-F5_CXX\src\shacl\f5\StringSupport.hpp" />
+    <ClInclude Include="C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\dependencies\shacl-F5_CXX\src\shacl\f5\H5Dataset\DatasetBuilder.hpp" />
+    <ClInclude Include="C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\dependencies\shacl-F5_CXX\src\shacl\f5\H5Dataset\DatasetOpen.hpp" />
+    <ClInclude Include="C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\dependencies\shacl-F5_CXX\src\shacl\f5\H5Dataset\DatasetRead.hpp" />
+    <ClInclude Include="C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\dependencies\shacl-F5_CXX\src\shacl\f5\H5Dataset\DatasetType.hpp" />
+    <ClInclude Include="C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\dependencies\shacl-F5_CXX\src\shacl\f5\H5Dataset\DatasetWrite.hpp" />
+    <ClInclude Include="C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\dependencies\shacl-F5_CXX\src\shacl\f5\H5Dataset\Properties.hpp" />
+    <ClInclude Include="C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\dependencies\shacl-F5_CXX\src\shacl\f5\H5Type\CompoundTypeBuilder.hpp" />
+    <ClInclude Include="C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\dependencies\shacl-F5_CXX\src\shacl\f5\H5Type\Type.hpp" />
+    <ClInclude Include="C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\dependencies\shacl-F5_CXX\src\shacl\f5\H5Type\TypeSupport.hpp" />
+  </ItemGroup>
+  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\build\ZERO_CHECK.vcxproj">
+      <Project>{48DE5777-400E-36E2-8B3C-89B3F8C72B05}</Project>
+      <Name>ZERO_CHECK</Name>
+      <ReferenceOutputAssembly>false</ReferenceOutputAssembly>
+      <CopyToOutputDirectory>Never</CopyToOutputDirectory>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\build\libmcnptools\mcnptools.vcxproj">
+      <Project>{1E1D2E4D-269C-3EE5-B12D-3FC44C119F87}</Project>
+      <Name>mcnptools</Name>
+    </ProjectReference>
+    <ProjectReference Include="C:\Users\qduca\OneDrive\Applications\DECIMA_v2\mcnptoolspro\build\boost\mcnptools_boost.vcxproj">
+      <Project>{5CBBAF67-9633-3005-9AEB-896B597A8F33}</Project>
+      <Name>mcnptools_boost</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
