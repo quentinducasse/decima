@@ -3,13 +3,13 @@
 DECIMA Development Installation Script
 ========================================
 
-This script automates the installation of DECIMA in editable mode with mcnptools compilation.
+This script automates the installation of DECIMA in editable mode with mcnptoolspro compilation.
 
 Usage:
     python install_dev.py
 
 What it does:
-    1. Compiles mcnptools C++ extension with CMake (supports ASCII PTRAC files)
+    1. Compiles mcnptoolspro C++ extension with CMake (supports MCNP 6.2/6.3 with filters)
     2. Copies HDF5 DLLs if available (Windows only, optional - for HDF5 PTRAC support)
     3. Installs DECIMA in editable mode (pip install -e .)
 """
@@ -41,9 +41,11 @@ def main():
     print()
     print("This will:")
     print("  1. Install build dependencies (setuptools, wheel)")
-    print("  2. Compile mcnptools C++ extension (takes a few minutes)")
+    print("  2. Compile mcnptoolspro C++ extension (takes a few minutes)")
     print("  3. Copy HDF5 DLLs if available (Windows, optional)")
     print("  4. Install DECIMA in editable mode")
+    print()
+    print("Note: mcnptoolspro includes complete MCNP 6.2/6.3 filter support")
     print()
 
     # Check if we're in the right directory
@@ -58,10 +60,10 @@ def main():
         "Step 1/3: Installing build dependencies"
     )
 
-    # Step 2: Build mcnptools extension
+    # Step 2: Build mcnptoolspro extension
     run_command(
         [sys.executable, 'setup.py', 'build_ext', '--inplace'],
-        "Step 2/3: Building mcnptools C++ extension"
+        "Step 2/3: Building mcnptoolspro C++ extension"
     )
 
     # Step 3: Install DECIMA in editable mode
@@ -77,11 +79,11 @@ def main():
     print()
     print("You can now:")
     print("  1. Import DECIMA: from modules.campbell import CampbellOrchestrator")
-    print("  2. Import mcnptools: import mcnptools")
+    print("  2. Import mcnptoolspro: import mcnptoolspro")
     print("  3. Run examples: python examples/test_decima_with_mcnptools.py")
     print()
     print("To test the installation:")
-    print("  python test_mcnptools_direct.py")
+    print("  python examples/test_mcnptools_direct.py")
     print()
 
 if __name__ == '__main__':

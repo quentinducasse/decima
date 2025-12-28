@@ -44,12 +44,30 @@ __pycache__/
 nul
 **/nul
 
+# Build logs
+docker_build.log
+*.build.log
+
+# Test/status reports (generated during testing)
+*STATUS.md
+*REPORT.md
+*SUMMARY.md
+# But keep important ones:
+!MIGRATION_SUMMARY.md
+
 # DLL files (HDF5 - compiled locally, not tracked)
 *.dll
 
-# ✅ Forcer l'inclusion du dossier mcnptools
-!mcnptools/
-!mcnptools/**/*
+# ✅ Forcer l'inclusion du dossier mcnptoolspro (remplace mcnptools)
+!mcnptoolspro/
+!mcnptoolspro/**/*
+
+# ❌ Mais exclure les builds locaux de mcnptoolspro
+mcnptoolspro/build/
+mcnptoolspro/**/*.so
+mcnptoolspro/**/*.pyd
+mcnptoolspro/**/__pycache__/
+mcnptoolspro/**/*.egg-info/
 
 # 📚 Données inutiles (à exclure)
 data/cpp/mctal/

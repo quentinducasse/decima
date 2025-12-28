@@ -21,7 +21,7 @@ PTRAC_FILE = os.path.join(BASE_DIR, "data", "ptrac_samples", "basic_ptrac_exampl
 # Example MCNPTools code executed inside EVA sandbox
 # EVA replaces <PTRAC_PATH_PLACEHOLDER> with the actual PTRAC path
 TEST_CODE = """
-from mcnptools import Ptrac
+from mcnptoolspro import Ptrac
 from sys import stdout
 
 # Explicitly open the file as binary PTRAC

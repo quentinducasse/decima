@@ -1,11 +1,11 @@
 #!/usr/bin/env python3
 """
-Test DECIMA + mcnptools Integration
-====================================
+Test DECIMA + mcnptoolspro Integration
+======================================
 
 This script demonstrates that:
-1. mcnptools can be imported and used directly
-2. DECIMA can generate code using mcnptools
+1. mcnptoolspro can be imported and used directly
+2. DECIMA can generate code using mcnptoolspro
 3. EVA can execute the generated code successfully
 """
 
@@ -23,23 +23,23 @@ if __name__ == "__main__":
     sys.path.insert(0, mcnptools_path)
 
 print("="*70)
-print("DECIMA + mcnptools Integration Test")
+print("DECIMA + mcnptoolspro Integration Test")
 print("="*70)
 print()
 
 # ========================================================
-# PART 1: Test mcnptools directly
+# PART 1: Test mcnptoolspro directly
 # ========================================================
-print("[PART 1/3] Testing mcnptools directly")
+print("[PART 1/3] Testing mcnptoolspro directly")
 print("-"*70)
 
 try:
-    import mcnptools as m
-    print(f"[+] mcnptools imported from: {m.__file__}")
+    import mcnptoolspro as m
+    print(f"[+] mcnptoolspro imported from: {m.__file__}")
     print(f"[+] Ptrac class available: {m.Ptrac}")
     print(f"[+] Constants: BIN_PTRAC={m.Ptrac.BIN_PTRAC}, SRC={m.Ptrac.SRC}, ENERGY={m.Ptrac.ENERGY}")
 except Exception as e:
-    print(f"[X] Failed to import mcnptools: {e}")
+    print(f"[X] Failed to import mcnptoolspro: {e}")
     sys.exit(1)
 
 # Test opening a PTRAC file
@@ -99,9 +99,9 @@ except Exception as e:
 print()
 
 # ========================================================
-# PART 3: Execute generated code manually with mcnptools
+# PART 3: Execute generated code manually with mcnptoolspro
 # ========================================================
-print("[PART 3/3] Executing DECIMA-generated code with mcnptools")
+print("[PART 3/3] Executing DECIMA-generated code with mcnptoolspro")
 print("-"*70)
 
 if result.get('code'):
@@ -138,7 +138,7 @@ print("="*70)
 print("INTEGRATION TEST SUMMARY")
 print("="*70)
 print()
-print("[+] mcnptools: WORKING")
+print("[+] mcnptoolspro: WORKING")
 print("    - Import: OK")
 print("    - PTRAC reading: OK")
 print("    - Classes accessible: OK")
@@ -149,8 +149,8 @@ print("    - Orchestrator: OK")
 print("    - Code generation: OK")
 print()
 print("[+] INTEGRATION: SUCCESS")
-print("    - DECIMA can use mcnptools")
-print("    - Generated code uses mcnptools API")
+print("    - DECIMA can use mcnptoolspro")
+print("    - Generated code uses mcnptoolspro API")
 print("    - Both packages work together")
 print()
 print("="*70)

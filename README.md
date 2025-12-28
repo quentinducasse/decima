@@ -15,7 +15,14 @@
 
 DECIMA transforms how nuclear engineers and researchers interact with MCNP simulation data. Instead of writing complex analysis scripts, simply ask questions in natural language:
 
-**Built on MCNPTools:** DECIMA is built on top of [MCNPTools](https://github.com/lanl/mcnptools), the reference C++/Python library developed by Los Alamos National Laboratory for parsing MCNP output files. We are deeply grateful to the MCNPTools development team at LANL for their foundational work, which makes this project possible.
+**Built on MCNPToolsPro:** DECIMA uses [MCNPToolsPro](mcnptoolspro/), an enhanced fork of [MCNPTools](https://github.com/lanl/mcnptools) by Los Alamos National Laboratory. We extend our deepest gratitude to LANL's MCNPTools team for their foundational C++/Python library.
+
+**Key Enhancements:**
+- ✅ **MCNP 6.2/6.3 Filter Support**: Complete support for PTRAC filters (`tally=`, `filter=`, `event=`, `type=`) and combinations
+- ✅ **Multiple PTRAC Formats**: ASCII, Binary, and HDF5 format support
+- ✅ **Bug Fixes**: Resolved critical parsing issues with filtered PTRAC files from original MCNPTools
+
+See [mcnptoolspro/README.md](mcnptoolspro/README.md) for technical details on filter support improvements.
 
 **"Display collision positions and energies deposited for the first 20 particle histories"**
 **"Plot the z-axis direction cosine (W) distribution of emitted source particles"**
@@ -94,7 +101,7 @@ git clone https://github.com/quentinducasse/decima.git
 cd decima
 cp .env.docker.example .env.docker
 # Edit .env.docker to add your OpenAI API key
-python install_dev.py  # Compiles mcnptools automatically
+python install_dev.py  # Compiles mcnptoolspro automatically
 docker compose up -d neo4j  # Start Neo4j only
 python examples/demo_mode_standalone.py
 ```
@@ -170,15 +177,20 @@ decima/
 │   └── loader/               # Neo4j loader
 ├── frontend/                  # Web interface (Flask)
 ├── examples/                  # Usage examples
-│   ├── demo_mode_standalone.py    # Standalone demo
-│   ├── full_api_mode.py           # Full API with Neo4j
-│   ├── test_mcnptools_direct.py   # Test mcnptools compilation
-│   └── README.md                  # Examples documentation
+│   ├── demo_mode_standalone.py        # Standalone demo
+│   ├── full_api_mode.py               # Full API with Neo4j
+│   ├── test_mcnptools_direct.py       # Test MCNPToolsPro compilation
+│   ├── test_decima_with_mcnptools.py  # Test DECIMA with MCNPToolsPro
+│   └── README.md                      # Examples documentation
 ├── tests/                     # Test suite
 ├── data/                      # Sample PTRAC files
-├── mcnptools/                 # MCNPTools library (compiled during install)
+├── mcnptoolspro/                 # MCNPToolsPro library (compiled during install)
 ├── doc/                       # Documentation
-│   └── architecture_decima.md     # Architecture details
+│   ├── architecture_decima.md                      # Architecture details (FR)
+│   ├── DECIMA Project Technical Documentation.md   # Technical guide (EN)
+│   ├── Documentation Technique du Projet DECIMA.md # Technical guide (FR)
+│   ├── DECIMA Project User Documentation.md        # User guide (EN)
+│   └── Documentation Utilisateur du Projet DECIMA.md # User guide (FR)
 ├── pyproject.toml            # Python package configuration
 ├── setup.py                  # Installation script
 ├── install_dev.py            # Development installation script
@@ -273,13 +285,13 @@ Test DECIMA without an OpenAI API key:
 - **Python 3.10+**
 - **OpenAI API** (gpt-4o, gpt-4o-mini)
 - **Neo4j 5.19** (Knowledge Graph)
-- **MCNPTools** (PTRAC parsing)
+- **MCNPToolsPro** (Enhanced PTRAC parsing with filter support)
 - **LangGraph** (Agent orchestration)
 - **Flask** (Web interface)
 - **RestrictedPython** (Secure code execution)
 
 ### Key Libraries
-- `mcnptools` - MCNP output file parsing (PTRAC, MCTAL, MESHTAL)
+- `mcnptoolspro` - MCNP output file parsing (PTRAC, MCTAL, MESHTAL)
 - `openai` - LLM interaction
 - `neo4j` - Graph database driver
 - `langchain-core` - Agent framework
@@ -292,10 +304,15 @@ Test DECIMA without an OpenAI API key:
 
 ## 📖 Documentation
 
+### User Guides
 - **Installation Guide:** [INSTALL.md](INSTALL.md)
 - **API Examples:** [examples/README.md](examples/README.md)
-- **Architecture Details:** [doc/architecture_decima.md](doc/architecture_decima.md)
-- **Research Paper:** [paper.md](paper.md)
+- **User Documentation (English):** [doc/DECIMA Project User Documentation.md](doc/DECIMA%20Project%20User%20Documentation.md)
+### Technical Documentation
+- **Technical Documentation (English):** [doc/DECIMA Project Technical Documentation.md](doc/DECIMA%20Project%20Technical%20Documentation.md)
+
+### Research Papers
+- **JOSS Submission:** [paper.md](paper.md)
 
 ---
 
@@ -439,9 +456,9 @@ This project is licensed under the **Apache License 2.0** - see the [LICENSE](LI
 
 ## 🗺️ Roadmap
 
-### Current Version 
+### Current Version
 - ✅ Web interface with Flask
-- ✅ Python package with automatic mcnptools compilation
+- ✅ Python package with automatic mcnptoolspro compilation
 - ✅ Knowledge Graph integration
 - ✅ Docker deployment
 - ✅ Demo mode

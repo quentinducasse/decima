@@ -1,8 +1,9 @@
 """
 DECIMA - Data Extraction & Contextual Inference for MCNP Analysis
 
-This setup.py provides pip installation with automatic mcnptools compilation.
-It builds the mcnptools C++ extension using CMake and installs the DECIMA package.
+This setup.py provides pip installation with automatic mcnptoolspro compilation.
+It builds the mcnptoolspro C++ extension using CMake and installs the DECIMA package.
+mcnptoolspro is an enhanced version of mcnptools with complete MCNP 6.2/6.3 filter support.
 """
 
 import os
@@ -18,7 +19,7 @@ from setuptools.command.install import install
 
 
 class CMakeBuild(build_ext):
-    """Custom build extension that uses CMake to compile mcnptools C++ code"""
+    """Custom build extension that uses CMake to compile mcnptoolspro C++ code"""
 
     def run(self):
         # Check CMake is installed
@@ -26,7 +27,7 @@ class CMakeBuild(build_ext):
             subprocess.check_output(['cmake', '--version'])
         except OSError:
             raise RuntimeError(
-                "CMake must be installed to build mcnptools. "
+                "CMake must be installed to build mcnptoolspro. "
                 "Install it with: pip install cmake"
             )
 
@@ -35,22 +36,22 @@ class CMakeBuild(build_ext):
             self.build_cmake(ext)
 
     def build_cmake(self, ext):
-        """Run CMake build process for mcnptools"""
+        """Run CMake build process for mcnptoolspro"""
 
         # Paths
         script_dir = Path(__file__).parent.absolute()
-        mcnptools_source_dir = script_dir / 'mcnptools'
+        mcnptools_source_dir = script_dir / 'mcnptoolspro'
         mcnptools_build_dir = mcnptools_source_dir / 'build'
-        mcnptools_python_dir = mcnptools_source_dir / 'python' / 'mcnptools'
+        mcnptools_python_dir = mcnptools_source_dir / 'python' / 'mcnptoolspro'
 
-        # Check if mcnptools directory exists
+        # Check if mcnptoolspro directory exists
         if not mcnptools_source_dir.exists():
             raise RuntimeError(
                 f"\n"
                 f"=" * 70 + "\n"
-                f"ERROR: mcnptools source directory not found at {mcnptools_source_dir}\n"
+                f"ERROR: mcnptoolspro source directory not found at {mcnptools_source_dir}\n"
                 f"\n"
-                f"Please ensure the mcnptools/ directory exists in the DECIMA repository.\n"
+                f"Please ensure the mcnptoolspro/ directory exists in the DECIMA repository.\n"
                 f"=" * 70
             )
 
@@ -67,7 +68,7 @@ class CMakeBuild(build_ext):
         mcnptools_build_dir.mkdir(exist_ok=True)
 
         print(f"\n{'='*70}")
-        print(f"Building mcnptools C++ extension...")
+        print(f"Building mcnptoolspro C++ extension...")
         print(f"  Source: {mcnptools_source_dir}")
         print(f"  Build:  {mcnptools_build_dir}")
         print(f"{'='*70}\n")
@@ -115,11 +116,11 @@ class CMakeBuild(build_ext):
 
         if sys.platform.startswith('win'):
             # Windows: .pyd file
-            wrapper_src = mcnptools_build_dir / 'python' / 'mcnptools' / 'Release' / '_mcnptools_wrap.pyd'
+            wrapper_src = mcnptools_build_dir / 'python' / 'mcnptoolspro' / 'Release' / '_mcnptools_wrap.pyd'
             wrapper_name = '_mcnptools_wrap.pyd'
         else:
             # Linux/Mac: .so file
-            wrapper_src = mcnptools_build_dir / 'python' / 'mcnptools' / '_mcnptools_wrap.so'
+            wrapper_src = mcnptools_build_dir / 'python' / 'mcnptoolspro' / '_mcnptools_wrap.so'
             wrapper_name = '_mcnptools_wrap.so'
 
         if not wrapper_src.exists():
@@ -144,7 +145,7 @@ class CMakeBuild(build_ext):
             self._copy_hdf5_dlls(mcnptools_python_dir)
 
         print(f"\n{'='*70}")
-        print(f"mcnptools build completed successfully!")
+        print(f"mcnptoolspro build completed successfully!")
         print(f"{'='*70}\n")
 
     def _copy_hdf5_dlls(self, target_dir):
@@ -198,7 +199,7 @@ class CMakeBuild(build_ext):
 
         if copied_count == 0:
             print(f"\n[WARN] No HDF5 DLLs found in common locations.")
-            print(f"       mcnptools may fail to import.")
+            print(f"       mcnptoolspro may fail to import.")
             print(f"       Please install HDF5 from: https://www.hdfgroup.org/downloads/hdf5/")
             print(f"       Or manually copy DLLs to: {target_dir}")
         elif copied_count < len(required_dlls):
@@ -208,14 +209,14 @@ class CMakeBuild(build_ext):
             print(f"[OK] All {copied_count} HDF5 DLLs copied successfully")
 
 
-# Custom install command that builds mcnptools first
+# Custom install command that builds mcnptoolspro first
 class CustomInstall(install):
     def run(self):
         self.run_command('build_ext')
         install.run(self)
 
 
-# Custom develop command that builds mcnptools first
+# Custom develop command that builds mcnptoolspro first
 class CustomDevelop(develop):
     def run(self):
         self.run_command('build_ext')
@@ -272,17 +273,17 @@ setup(
 
     # Main DECIMA packages
     packages=find_packages(include=['modules', 'modules.*', 'kg', 'kg.*', 'utils', 'utils.*', 'tools', 'tools.*', 'frontend', 'frontend.*'])
-    + ['mcnptools'],  # Add mcnptools package
+    + ['mcnptoolspro'],  # Add mcnptoolspro package
 
     package_dir={
-        'mcnptools': 'mcnptools/python/mcnptools',
+        'mcnptoolspro': 'mcnptoolspro/python/mcnptoolspro',
     },
 
     include_package_data=True,
 
-    # Include compiled mcnptools extension and Python files
+    # Include compiled mcnptoolspro extension and Python files
     package_data={
-        'mcnptools': [
+        'mcnptoolspro': [
             '*.pyd',  # Windows compiled extension
             '*.so',   # Linux/Mac compiled extension
             '*.dll',  # Windows DLL dependencies
@@ -291,8 +292,8 @@ setup(
         'frontend': ['static/**/*', 'templates/**/*'],
     },
 
-    # mcnptools extension (built by CMake)
-    ext_modules=[Extension('mcnptools._mcnptools_wrap', sources=[])],
+    # mcnptoolspro extension (built by CMake)
+    ext_modules=[Extension('mcnptoolspro._mcnptools_wrap', sources=[])],
     cmdclass={
         'build_ext': CMakeBuild,
         'install': CustomInstall,

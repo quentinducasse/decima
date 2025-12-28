@@ -238,7 +238,7 @@ class OTACON:
             logger.warning("[OTACON] DEMO MODE active. Returning fixed example response.")
 
             demo_code = '''
-from mcnptools import Ptrac
+from mcnptoolspro import Ptrac
 
 # DEMO MODE: this is a fixed example, independent of the user query
 p = Ptrac("<PTRAC_PATH_PLACEHOLDER>", Ptrac.BIN_PTRAC)

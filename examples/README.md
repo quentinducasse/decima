@@ -246,10 +246,10 @@ print(result['output_files'])  # Generated plots
 Additional test scripts are available to verify installation:
 
 ```bash
-# Test mcnptools installation
+# Test mcnptoolspro installation
 python examples/test_mcnptools_direct.py
 
-# Test DECIMA + mcnptools integration
+# Test DECIMA + mcnptoolspro integration
 python examples/test_decima_with_mcnptools.py
 ```
 

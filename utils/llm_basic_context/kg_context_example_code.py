@@ -1,11 +1,12 @@
 # kg_context_example_code.py
 
 KG_CONTEXT_EXAMPLE_CODE = """
-from mcnptools import Ptrac
+from mcnptoolspro import Ptrac
 from sys import stdout
 
-# explicitly open the file as a binary ptrac
-p = Ptrac(r"\path\to\myfile.ptrac", Ptrac.BIN_PTRAC)
+# Open PTRAC file - format (BIN_PTRAC, ASC_PTRAC, HDF5_PTRAC) is auto-detected by EVA sandbox
+# You can use any mode here, it will be replaced automatically with the correct one
+p = Ptrac("<PTRAC_PATH_PLACEHOLDER>", Ptrac.BIN_PTRAC)
 
 # initialize counter
 cnt = 0
