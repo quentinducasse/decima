@@ -1,6 +1,6 @@
 #!/usr/bin/env python3
 """
-Test mcnptools directly by cleaning sys.path first
+Test mcnptoolspro directly by cleaning sys.path first
 """
 
 import sys
@@ -9,23 +9,21 @@ import os
 # Remove old mcnptools from path
 sys.path = [p for p in sys.path if 'mcnptools-main' not in p]
 
-# Add our mcnptools to the path
+# Add our mcnptoolspro to the path
 project_root = os.path.dirname(os.path.dirname(os.path.abspath(__file__)))
 sys.path.insert(0, project_root)
-mcnptools_path = os.path.join(project_root, 'mcnptools', 'python')
-sys.path.insert(0, mcnptools_path)
 
 print("="*70)
-print("Testing mcnptools directly (cleaned sys.path)")
+print("Testing mcnptoolspro directly (cleaned sys.path)")
 print("="*70)
 
-# Test 1: Import mcnptools
-print("\n[1/5] Testing mcnptools import...")
+# Test 1: Import mcnptoolspro
+print("\n[1/5] Testing mcnptoolspro import...")
 try:
-    import mcnptools as m
-    print(f"  [OK] mcnptools imported from: {m.__file__}")
+    import mcnptoolspro as m
+    print(f"  [OK] mcnptoolspro imported from: {m.__file__}")
 except ImportError as e:
-    print(f"  [FAIL] Could not import mcnptools: {e}")
+    print(f"  [FAIL] Could not import mcnptoolspro: {e}")
     sys.exit(1)
 
 # Test 2: Check Ptrac class
@@ -34,7 +32,7 @@ try:
     print(f"  [OK] Ptrac class: {m.Ptrac}")
     print(f"  [OK] Mctal class: {m.Mctal}")
 except AttributeError as e:
-    print(f"  [FAIL] mcnptools classes not accessible: {e}")
+    print(f"  [FAIL] mcnptoolspro classes not accessible: {e}")
     sys.exit(1)
 
 # Test 3: Check Ptrac constants
@@ -88,9 +86,9 @@ except ImportError as e:
     sys.exit(1)
 
 print("\n" + "="*70)
-print("SUCCESS! mcnptools + DECIMA working correctly")
+print("SUCCESS! mcnptoolspro + DECIMA working correctly")
 print("="*70)
 print("\nYou can now:")
-print("  1. Run examples with mcnptools support")
+print("  1. Run examples with mcnptoolspro support")
 print("  2. Use DECIMA API with real code execution")
-print("  3. Parse PTRAC files directly with mcnptools")
+print("  3. Parse PTRAC files directly with mcnptoolspro")

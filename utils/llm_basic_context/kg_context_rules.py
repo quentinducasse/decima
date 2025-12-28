@@ -1,9 +1,12 @@
 KG_CONTEXT_RULES = """
 ABSOLUTE RULES:
-- NEVER import any mcnptools classes other than: `from mcnptools import Ptrac`.
+- NEVER import any mcnptools classes other than: `from mcnptoolspro import Ptrac`.
 - NEVER use internal attributes (e.g., m_events, m_type) — use public methods only.
 - Use the variable `ptrac_path = '<PTRAC_PATH_PLACEHOLDER>'` as the PTRAC file path (no hardcoded paths).
 - Always call `ReadHistories(int)` to load particle histories.
+- PTRAC FORMAT AUTO-DETECTION: The EVA sandbox automatically detects the PTRAC file format (BIN_PTRAC, ASC_PTRAC, or HDF5_PTRAC).
+  You can use any mode when opening the file (e.g., `Ptrac(ptrac_path, Ptrac.BIN_PTRAC)`), it will be replaced with the correct one.
+  Do NOT worry about format detection - the system handles it automatically.
 - IMPORTANT: To retrieve the bank type (secondary particle type), DO NOT use the enum `Ptrac.BANK_TYPE` (obsolete).
   Instead, always use the method `event.BankType() -> int` from `Class: PtracEvent`.
 
@@ -59,7 +62,7 @@ Each particle therefore follows a unique path:
 
 TYPICAL PER-PARTICLE CALCULATIONS (and frequent errors to avoid):
 
-• Deposited energy:
+• Deposited energy FOR ONE PARTICLE:
    - Take the energy at the first event (SRC or BNK)
      if event.Type() in (Ptrac.SRC, Ptrac.BNK):
          energy_init = event.Get(Ptrac.ENERGY)
@@ -76,6 +79,38 @@ TYPICAL PER-PARTICLE CALCULATIONS (and frequent errors to avoid):
 Never:
    - Sum energies over all COL events.
    - Include events from the next particle (anything after the TER).
+
+---
+
+EXTRACTING PTRAC FILTER INFORMATION WITH PtracNps:
+
+The PtracNps class stores filtering information from the MCNP input PTRAC card.
+These filters correspond to keywords like TALLY, CELL, SURFACE in the PTRAC input.
+
+Example PTRAC input cards:
+  ptrac file=asc tally=8 write=all max=20000000
+  ptrac file=asc cell=501 surface=1 write=all
+
+To access filter information for a specific history:
+
+1. Read histories from PTRAC file:
+   histories = ptrac.ReadHistories(N)
+   history = histories[N-1]  # Index starts at 0
+
+2. Get the PtracNps object:
+   nps_obj = history.GetNPS()
+
+3. Use PtracNps methods to access filter values:
+   - nps_obj.NPS()     : History number (always present)
+   - nps_obj.Cell()    : Filtered cell number (0 if no CELL filter)
+   - nps_obj.Surface() : Filtered surface number (0 if no SURFACE filter)
+   - nps_obj.Tally()   : Filtered tally number (0 if no TALLY filter)
+   - nps_obj.Value()   : Tally score value (0.0 if no TALLY filter)
+
+Important notes:
+- PtracNps stores PTRAC CARD filters (applied at generation)
+- For EVENT filters (src, bnk, col, sur, ter), use event.Type() from PtracEvent class
+- If a filter is not specified in the PTRAC card, the method returns 0 (or 0.0 for Value())
 
 ---
 

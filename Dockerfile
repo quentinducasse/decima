@@ -13,14 +13,16 @@ RUN apt-get update && apt-get install -y \
     apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # --------------------------------------
-# 🧪 Install MCNPTools from local clone
-COPY ./mcnptools /opt/mcnptools
+# 🧪 Install MCNPToolsPro from local clone (with MCNP 6.2/6.3 filter support)
+COPY ./mcnptoolspro /opt/mcnptoolspro
 
-RUN cd /opt/mcnptools && \
-    mkdir build && cd build && \
+RUN cd /opt/mcnptoolspro && \
+    mkdir -p build && cd build && \
     cmake .. && \
     make -j$(nproc) && \
-    make install
+    make install && \
+    cd /opt/mcnptoolspro/build/python && \
+    pip install .
 
 # --------------------------------------
 # 📦 Install Python requirements

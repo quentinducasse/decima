@@ -59,12 +59,12 @@ DEMO_MODE=false                          # false = use API, true = fixed code ex
 - **Limitations**: No Neo4j (EMMA disabled)
 - **With DEMO_MODE=true**: Returns fixed code examples
 - **With DEMO_MODE=false**: Calls API but may generate code with errors (no KG context)
-- **Good for**: Developers wanting to test mcnptools compilation
+- **Good for**: Developers wanting to test mcnptoolspro compilation
 - **NOT for**: Real analysis
 
 ### Method 2: Docker (RECOMMENDED - Full Functionality)
 - **Use for**: Production analysis, full DECIMA experience
-- **Advantages**: Everything automatic, Neo4j + mcnptools included
+- **Advantages**: Everything automatic, Neo4j + mcnptoolspro included
 - **Full functionality**: Always works correctly
 - **Good for**: Everyone who wants the complete system
 - **Best for**: Real PTRAC analysis work
@@ -102,12 +102,12 @@ venv\Scripts\activate
 # Linux/macOS:
 source venv/bin/activate
 
-# Install DECIMA (compiles mcnptools automatically)
+# Install DECIMA (compiles mcnptoolspro automatically)
 python install_dev.py
 ```
 
 This automatically:
-1. Compiles mcnptools C++ extension (supports ASCII PTRAC files)
+1. Compiles mcnptoolspro C++ extension (supports ASCII PTRAC files)
 2. Copies HDF5 DLLs if available (Windows, optional - for HDF5 PTRAC support)
 3. Installs DECIMA in editable mode
 
@@ -116,7 +116,7 @@ This automatically:
 ### Verify Installation
 
 ```bash
-# Test mcnptools compilation
+# Test mcnptoolspro compilation
 python examples/test_mcnptools_direct.py
 
 # Test DECIMA + mcnptools integration
@@ -129,7 +129,7 @@ python examples/demo_mode_standalone.py
 Expected output:
 ```
 ======================================================================
-SUCCESS! mcnptools + DECIMA working correctly
+SUCCESS! mcnptoolspro + DECIMA working correctly
 ======================================================================
 ```
 
@@ -290,8 +290,11 @@ docker compose up -d
 This automatically:
 - Starts a Neo4j container (ports 7474 + 7687)
 - Starts the DECIMA web server (port 5050)
-- Mounts your local source code into the container
+- Compiles mcnptoolspro with MCNP 6.2/6.3 filter support inside the container
+- Mounts your local source code (kg/, decima/, examples/, app.py) into the container
 - Configures all services
+
+**Important Note:** The `mcnptoolspro` folder is NOT mounted from your local directory. The container uses a pre-compiled version built during `docker compose build`. This ensures the compiled C++ extensions work correctly across different platforms.
 
 Wait ~15 seconds for Neo4j to fully start.
 
@@ -401,6 +404,32 @@ netstat -ano | findstr :7687
 **Build failures:**
 ```bash
 # Clean rebuild
+docker compose down
+docker compose build --no-cache app
+docker compose up -d
+```
+
+**Import errors with mcnptoolspro (`cannot import name '_mcnptools_wrap'`):**
+
+This error happens when the local `mcnptoolspro` folder overrides the compiled version in the container.
+
+**Cause:** The `docker-compose.yml` must NOT bind-mount the entire project directory (`.:/app`), because:
+- `mcnptoolspro` is compiled during `docker compose build` inside the container
+- A full bind-mount would replace the compiled version with your local uncompiled source
+- This causes import errors because the Python bindings expect compiled C++ libraries
+
+**Solution:** The provided `docker-compose.yml` selectively mounts only DECIMA source files:
+```yaml
+volumes:
+  - ./kg:/app/kg
+  - ./examples:/app/examples
+  - ./decima:/app/decima
+  - ./app.py:/app/app.py
+  # ⚠️ mcnptoolspro is NOT mounted - uses compiled version from build
+```
+
+If you see this error, verify your `docker-compose.yml` matches the repository version, then rebuild:
+```bash
 docker compose down
 docker compose build --no-cache app
 docker compose up -d

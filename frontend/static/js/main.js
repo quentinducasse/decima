@@ -171,6 +171,7 @@ document.addEventListener("DOMContentLoaded", function () {
               ⚠️ The request will continue, but Otacon will not benefit from the full Knowledge Graph context and may be more prone to mistakes.<br><br>
               ➡️ To enable full context, make sure Neo4j is running and load the Knowledge Graph with:<br>
               <code>docker compose exec app python kg/loader/neo4j_loader.py</code><br>
+              <span style="font-size:0.85em; color:#aaa;">If app container is not running: <code>docker compose run --rm app python kg/loader/neo4j_loader.py</code></span><br>
               (see README.md for details)
             `;
             showKgWarning(true, msg);

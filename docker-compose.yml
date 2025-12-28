@@ -10,7 +10,13 @@ services:
     env_file:
       - .env.docker
     volumes:
-      - .:/app               # 👈 bind-mount du dossier courant vers /app
+      # ⚠️ On bind-monte tout SAUF mcnptoolspro (utilise la version compilée dans l'image)
+      - ./kg:/app/kg
+      - ./examples:/app/examples
+      - ./decima:/app/decima
+      - ./app.py:/app/app.py
+      - ./setup.py:/app/setup.py
+      - ./README.md:/app/README.md
     depends_on:
       - neo4j
 

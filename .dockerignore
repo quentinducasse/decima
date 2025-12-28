@@ -9,21 +9,41 @@ __pycache__/
 *.swp
 *.bak
 *.tmp
-
+.vscode/
+.idea/
 
 # 🐍 Environnements virtuels
 env/
 venv/
 decima_env/
+*.egg-info/
 
-# 🔧 Build MCNPTools (ne pas inclure dans l’image)
-mcnptools/build/
-mcnptools/.git/
+# 🔧 Build MCNPToolsPro (ne pas inclure les builds existants)
+mcnptoolspro/build/
+mcnptoolspro/.git/
+mcnptoolspro/.vscode/
+mcnptoolspro/.github/
+
+# 🐳 Docker et Git
+.git/
+.gitignore
+.dockerignore
+docker-compose.override.yml
 
 # 🌐 Fichiers système
 .DS_Store
 Thumbs.db
 
-# ⚠️ Exclure dump fichiers PTRAC (si jamais tu les ajoutes)
+# 📊 Neo4j data (si en local)
+neo4j-data/
+
+# ⚠️ Exclure fichiers PTRAC volumineux et données temporaires
 *.ptrac
 *.mctal
+data/ptrac_samples/*.ptrac
+!data/ptrac_samples/basic_ptrac_example_decima_ascii.ptrac
+
+# 📝 Documentation build artifacts
+doc/_build/
+*.pdf
+!exemple_article_JORS.pdf
