@@ -102,10 +102,7 @@ To access filter information for a specific history:
 
 3. Use PtracNps methods to access filter values:
    - nps_obj.NPS()     : History number (always present)
-   - nps_obj.Cell()    : Filtered cell number (0 if no CELL filter)
-   - nps_obj.Surface() : Filtered surface number (0 if no SURFACE filter)
    - nps_obj.Tally()   : Filtered tally number (0 if no TALLY filter)
-   - nps_obj.Value()   : Tally score value (0.0 if no TALLY filter)
 
 Important notes:
 - PtracNps stores PTRAC CARD filters (applied at generation)
