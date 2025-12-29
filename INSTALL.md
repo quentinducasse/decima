@@ -516,7 +516,7 @@ Use the provided PTRAC file:
 Click on suggested queries from the interface, or try:
 
 ```text
-Print x y z positions and energies of all the particles entering the Water moderator (cell 502)
+Print x y z positions and energies of all events entering the cell 502
 ```
 
 ```text
