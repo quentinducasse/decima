@@ -61,10 +61,13 @@ print()
 # ========================================================
 # PART 2: Test DECIMA with DEMO_MODE
 # ========================================================
-print("[PART 2/3] Testing DECIMA in DEMO_MODE")
+print("[PART 2/3] Testing DECIMA in DEMO_MODE (no API calls)")
 print("-"*70)
+print("[i] This test always uses DEMO_MODE (fixed code examples)")
+print("[i] No API calls are made regardless of .env.docker configuration")
+print()
 
-# Set DEMO_MODE
+# Force DEMO_MODE for this test
 os.environ['DEMO_MODE'] = 'true'
 os.environ['OPENAI_API_KEY'] = ''
 os.environ['NEO4J_URI'] = 'bolt://localhost:7687'
@@ -154,8 +157,11 @@ print("    - Generated code uses mcnptoolspro API")
 print("    - Both packages work together")
 print()
 print("="*70)
-print("Next steps:")
-print("  1. Disable DEMO_MODE to use real LLM")
-print("  2. Add OpenAI API key to execute with real queries")
-print("  3. Start Neo4j for Knowledge Graph context")
+print("NOTES:")
+print("  - This test always runs in DEMO_MODE (no API calls)")
+print("  - For real API-based code generation, use:")
+print("    * examples/demo_mode_standalone.py (with DEMO_MODE=false in .env.docker)")
+print("    * examples/full_api_mode.py (full API mode with context)")
+print("    * Docker mode with full setup (recommended)")
+print("  - For Knowledge Graph context, use Docker mode with Neo4j")
 print("="*70)
